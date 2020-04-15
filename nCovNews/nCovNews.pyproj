@@ -18,6 +18,7 @@
     <Name>nCovNews</Name>
     <RootNamespace>nCovNews</RootNamespace>
     <SuppressEnvironmentCreationPrompt>True</SuppressEnvironmentCreationPrompt>
+    <InterpreterId>Global|PythonCore|3.7-32</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -28,12 +29,16 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="nCovNews\database.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="runserver.py" />
     <Compile Include="nCovNews\__init__.py" />
     <Compile Include="nCovNews\views.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="nCovNews\" />
+    <Folder Include="nCovNews\data\" />
     <Folder Include="nCovNews\static\" />
     <Folder Include="nCovNews\static\content\" />
     <Folder Include="nCovNews\static\fonts\" />
@@ -41,6 +46,8 @@
     <Folder Include="nCovNews\templates\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="nCovNews\data\data_all.csv" />
+    <Content Include="nCovNews\data\show.csv" />
     <Content Include="requirements.txt" />
     <Content Include="nCovNews\static\content\bootstrap.css" />
     <Content Include="nCovNews\static\content\bootstrap.min.css" />
@@ -68,6 +75,9 @@
     <Content Include="nCovNews\templates\contact.html" />
     <Content Include="nCovNews\templates\index.html" />
     <Content Include="nCovNews\templates\layout.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="Global|PythonCore|3.7-32" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Web.targets" />
   <!-- Specify pre- and post-build commands in the BeforeBuild and 
