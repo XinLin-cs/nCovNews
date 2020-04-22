@@ -3,7 +3,7 @@
 {% block content %}
 
 <div>
-    <img src="/image1" width="1140" height="400">
+    <img src="{{ url_for('static', filename= './images/image1.jpg',_t=val1) }}" width="1140" height="400">
 </div>
 
 
