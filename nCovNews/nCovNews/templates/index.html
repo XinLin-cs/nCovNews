@@ -2,47 +2,51 @@
 
 {% block content %}
 
+<div>
+    <img src="/image1" width="1140" height="400">
+</div>
+
+
+
 <div class="jumbotron">
+
     <h1>疫情监控系统1.0</h1>
-    <p class="lead">2020年是不平凡的一年，新型冠状病毒肺炎疫情在全国甚至全世界蔓延。<br>
-                    但我们相信在不久得将来疫情将会被有效控制然后被消灭。<br>
-                    本赛题要求开发一个疫情监控系统，能够实时获得全国疫情数据。
+    <p class="lead">
+        2020年是不平凡的一年，新型冠状病毒肺炎疫情在全国甚至全世界蔓延。<br>
+        但我们相信在不久得将来疫情将会被有效控制然后被消灭。<br>
+        本赛题要求开发一个疫情监控系统，能够实时获得全国疫情数据。
     </p>
-    <p><a href="http://flask.pocoo.org/" class="btn btn-primary btn-large">更多 &raquo;</a></p>
 </div>
 
 <div class="row">
     <div class="col-md-4">
         <h2>实时疫情数据概览</h2>
-        <hr>
         <p>
             a. 能够实现数据的动态刷新，可展示全国疫情数据概览<br>
             b. 能够展示实时疫情地图
         </p>
-        <p><a class="btn btn-default" href="http://flask.pocoo.org/docs/">查看 &raquo;</a></p>
+        <p><a class="btn btn-default" href="{{ url_for('overview') }}">查看 &raquo;</a></p>
     </div>
 </div>
 
 <div class="row">
     <div class="col-md-4">
         <h2>疫情趋势分析</h2>
-        <hr>
         <p>
             a. 清晰明确的新增确诊/疑似趋势图<br>
             b. 清晰明确的累计确诊/疑似趋势图<br>
             c. 清晰明确的累计死亡/治愈趋势图<br>
             d. 其他分析图表
         </p>
-        <p><a class="btn btn-default" href="https://pypi.python.org/pypi">查看 &raquo;</a></p>
+        <p><a class="btn btn-default" href="{{ url_for('analyze') }}">查看 &raquo;</a></p>
     </div>
 </div>
 
 <div class="row">
     <div class="col-md-4">
         <h2>讨论区</h2>
-        <hr>
         <p>与其他用户讨论</p>
-        <p><a class="btn btn-default" href="http://azure.microsoft.com">查看 &raquo;</a></p>
+        <p><a class="btn btn-default" href="{{ url_for('discuss') }}">查看 &raquo;</a></p>
     </div>
 </div>
 {% endblock %}
