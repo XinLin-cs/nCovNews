@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="nCovNews\data\data_all.csv" />
-    <Content Include="nCovNews\data\show.csv" />
     <Content Include="requirements.txt" />
     <Content Include="nCovNews\static\content\bootstrap.css" />
     <Content Include="nCovNews\static\content\bootstrap.min.css" />
