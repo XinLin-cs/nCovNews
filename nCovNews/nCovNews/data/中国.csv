@@ -1,6 +1,6 @@
 ﻿,Unnamed: 0,date,country,countryCode,province,provinceCode,city,cityCode,confirmed,suspected,cured,dead
+55137,55137,2020-04-22,中国,CN,None,None,None,None,84294,35,78107,4642
 54389,54389,2020-04-21,中国,CN,None,None,None,None,84287,35,78042,4642
-55137,55137,2020-04-22,中国,CN,None,None,None,None,84287,35,78042,4642
 53641,53641,2020-04-20,中国,CN,None,None,None,None,84250,37,77978,4642
 52893,52893,2020-04-19,中国,CN,None,None,None,None,84237,43,77895,4642
 52145,52145,2020-04-18,中国,CN,None,None,None,None,84201,48,77825,4642
