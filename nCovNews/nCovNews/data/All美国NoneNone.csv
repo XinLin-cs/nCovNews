@@ -1,4 +1,7 @@
 ﻿,Unnamed: 0,date,country,countryCode,province,provinceCode,city,cityCode,confirmed,suspected,cured,dead
+58064,58064,2020-04-25,美国,US,None,None,None,None,922293,0,93283,52061
+57316,57316,2020-04-24,美国,US,None,None,None,None,886709,0,85922,50243
+56568,56568,2020-04-23,美国,US,None,None,None,None,849094,0,84050,47684
 55820,55820,2020-04-22,美国,US,None,None,None,None,825041,0,82973,45340
 55072,55072,2020-04-21,美国,US,None,None,None,None,792846,0,72410,42491
 54324,54324,2020-04-20,美国,US,None,None,None,None,765738,0,71281,40670
@@ -53,8 +56,8 @@
 19943,19943,2020-03-02,美国,US,None,None,None,None,89,0,3,2
 19362,19362,2020-03-01,美国,US,None,None,None,None,69,0,3,1
 18789,18789,2020-02-29,美国,US,None,None,None,None,64,0,3,0
-17652,17652,2020-02-27,美国,US,None,None,None,None,60,0,3,0
 18219,18219,2020-02-28,美国,US,None,None,None,None,60,0,3,0
+17652,17652,2020-02-27,美国,US,None,None,None,None,60,0,3,0
 17093,17093,2020-02-26,美国,US,None,None,None,None,57,0,3,0
 16541,16541,2020-02-25,美国,US,None,None,None,None,53,0,3,0
 15992,15992,2020-02-24,美国,US,None,None,None,None,34,0,3,0

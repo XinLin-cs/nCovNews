@@ -1,5 +1,8 @@
 ﻿,Unnamed: 0,date,country,countryCode,province,provinceCode,city,cityCode,confirmed,suspected,cured,dead
-55137,55137,2020-04-22,中国,CN,None,None,None,None,84294,35,78107,4642
+57381,57381,2020-04-25,中国,CN,None,None,None,None,84327,17,78362,4642
+56633,56633,2020-04-24,中国,CN,None,None,None,None,84324,17,78362,4642
+55885,55885,2020-04-23,中国,CN,None,None,None,None,84311,20,78236,4642
+55137,55137,2020-04-22,中国,CN,None,None,None,None,84302,20,78147,4642
 54389,54389,2020-04-21,中国,CN,None,None,None,None,84287,35,78042,4642
 53641,53641,2020-04-20,中国,CN,None,None,None,None,84250,37,77978,4642
 52893,52893,2020-04-19,中国,CN,None,None,None,None,84237,43,77895,4642
@@ -96,6 +99,3 @@
 149,149,2020-01-19,中国,CN,None,None,None,None,275,0,25,4
 146,146,2020-01-18,中国,CN,None,None,None,None,198,0,24,3
 143,143,2020-01-17,中国,CN,None,None,None,None,62,0,19,2
-138,138,2020-01-16,中国,CN,None,None,None,None,45,0,15,2
-96,96,2020-01-02,中国,CN,None,None,None,None,44,0,0,0
-93,93,2020-01-01,中国,CN,None,None,None,None,43,0,0,0
