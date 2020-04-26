@@ -8,7 +8,7 @@ cycler==0.10.0
 docopt==0.6.2
 echarts-china-provinces-pypkg==0.0.3
 echarts-countries-pypkg==0.1.6
-Flask==0.12.5
+Flask==1.0
 get==2019.4.13
 gunicorn==20.0.4
 idna==2.9
