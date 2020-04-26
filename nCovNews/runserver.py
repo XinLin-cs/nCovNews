@@ -8,7 +8,7 @@ from nCovNews import database as db
 
 if __name__ == '__main__':
     # 实时数据更新
-    db.auto_update( 20 )
+    db.auto_update( 60 )
     # 启动服务器
     HOST = environ.get('SERVER_HOST', 'localhost')
     try:

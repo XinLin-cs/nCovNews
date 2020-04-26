@@ -23,8 +23,6 @@ def update_report():
         return 0
 
 def get_df():
-    # 更新数据库
-    code = update_report()
     # 从数据库读取
     data = pd.read_csv('nCovNews/data/data_all.csv')
     return data
@@ -108,13 +106,13 @@ def update_all():
         starttime = datetime.datetime.today()
         print(' * updating start!')
         print(' * start at %s' % ( starttime.isoformat(sep='/') ) )
-        print('|>--------------------|0%')
+        print('|>--------------------|0%',end='\r',flush = True)
         update_report()
-        print('|==============>------|70%')
+        print('|==============>------|70%',end='\r',flush = True)
         get_news(1,10)
-        print('|================>----|80%')
+        print('|================>----|80%',end='\r',flush = True)
         get_information(1,10)
-        print('|==================>--|90%')
+        print('|==================>--|90%',end='\r',flush = True)
         get_fakenews(1,10)
         print('|====================>|100%')
     except BaseException as err:
@@ -131,7 +129,7 @@ def auto_update(time):
     update_all()
     # 创建后台执行的 schedulers
     scheduler = BackgroundScheduler()  
-    # 添加调度任务,间隔时长为 2 秒
+    # 添加调度任务
     scheduler.add_job(update_all, 'interval', seconds=time)
     # 启动调度任务
     scheduler.start()
