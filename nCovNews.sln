@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.1022
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29920.165
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "nCovNews", "nCovNews\nCovNews.pyproj", "{6103B431-AFC2-4601-B105-ED544138AFF5}"
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "nCovNews", "nCovNews.pyproj", "{6103B431-AFC2-4601-B105-ED544138AFF5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
