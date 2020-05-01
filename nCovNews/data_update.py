@@ -44,7 +44,7 @@ def getdata( date ):
     data_ch = province_fix(data_ch) # 省份名修复
     data_ch = data_ch.nlargest( 100 ,'confirmed' ) # 按确诊数排序
     data_ch.to_csv('nCovNews/data/%s中国疫情报告.csv'%date_today , index=False , encoding="utf_8_sig",)
-    return data
+    return data_ch
 
 # date_today = datetime.datetime.today()
 # date_yesterday = date_today + datetime.timedelta(days = -1)
