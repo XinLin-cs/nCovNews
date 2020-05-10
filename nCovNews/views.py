@@ -65,3 +65,43 @@ def overview():
         message='Your application description page.'
     )
 
+@app.route('/share')
+def share():
+    """Renders the about page."""
+    return render_template(
+        'share.html',
+        title='Share',
+        year=datetime.now().year,
+        message='Your share page.'
+    )
+
+@app.route('/news')
+def news():
+    """Renders the about page."""
+    return render_template(
+        'news.html',
+        title='News',
+        year=datetime.now().year,
+        message='Your news page.'
+    )
+
+
+@app.route('/test')
+def test():
+    """Renders the about page."""
+    return render_template(
+        'test.html',
+        title='Test',
+        year=datetime.now().year,
+        message='Your test page.'
+    )
+
+@app.route('/temp')
+def temp():
+    """Renders the about page."""
+    return render_template(
+        'temp.html',
+        title='Temp',
+        year=datetime.now().year,
+        message='Your temp page.'
+    )
