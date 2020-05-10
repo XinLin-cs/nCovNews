@@ -13,7 +13,7 @@ def update_report():
         # json获取数据帧
         data_df = pd.DataFrame(data)
         # 保存至数据库
-        data_df.to_csv('nCovNews/data/data_all.csv' , encoding="utf_8_sig")
+        data_df.to_csv('nCovNews/data/data_all.csv' , index=False , encoding="utf_8_sig")
     except BaseException as err:
         print('error: report request fail!')
         return 1 # 错误代码1，请求失败
@@ -22,30 +22,33 @@ def update_report():
     else:
         return 0
 
-def get_df():
-    # 从数据库读取
-    data = pd.read_csv('nCovNews/data/data_all.csv')
+def province_fix( data ):
+    province_msg = pd.read_csv('nCovNews/data/province_msg.csv')
+    f = province_msg.set_index('province')['province1'].to_dict()
+    data['provinceCode'] = data['provinceCode'].apply(lambda x:f[x])
     return data
 
-def findbydate(data_all , date='All' , country='All' , province='All', city='All'):
-    # 筛选数据
+def getdata( date ):
+    data_all = pd.read_csv('nCovNews/data/data_all.csv')
+    # 填充空缺数据
     data = data_all.fillna('None')
+    # 日期处理
+    date_today = date.strftime('%Y-%m-%d')
+    date_y = ( date + datetime.timedelta(days = -1) ).strftime('%Y-%m-%d')
+    # 中国疫情报告生成
+    data_t = data.loc[(data['date'] == date_today) & ((data['country'] == '中国') | (data['countryCode'] == '中国')) & (data['city'] == 'None')]
+    data_y = data.loc[(data['date'] == date_y) & ((data['country'] == '中国') | (data['countryCode'] == '中国')) & (data['city'] == 'None')]
+    data_y.index = data_t.index
+    data_ch = data_t.copy()
+    data_ch['adding'] = data_t['confirmed'] - data_y['confirmed'] # 计算新增
+    data_ch = province_fix(data_ch) # 省份名修复
+    data_ch = data_ch.nlargest( 100 ,'confirmed' ) # 按确诊数排序
+    data_ch.to_csv('nCovNews/data/%s中国疫情报告.csv'%date_today , index=False , encoding="utf_8_sig",)
+    return data_ch
 
-    if (date != 'All'):
-        # 日期转字符串
-        date = date.strftime('%Y-%m-%d')
-        data = data[data['date'] == date]
-    if (country != 'All'):
-        data = data[data['country'] == country]
-    if (province != 'All'):
-        data = data[data['province'] == province]
-    if (city != 'All'):
-        data = data[data['city'] == city]
-    # 显示前100降序排序并导出
-    msg = date + country + province + city
-    data_show = data.nlargest( 100 , 'confirmed' )
-    data_show.to_csv('nCovNews/data/%s.csv'%msg , encoding="utf_8_sig")
-    return data
+# date_today = datetime.datetime.today()
+# date_yesterday = date_today + datetime.timedelta(days = -1)
+# getdata(date_today)
 
 def get_news( page , num ):
     url = 'http://lab.isaaclin.cn/nCoV/api/news?page=%d&num=%d' % ( page , num )
@@ -133,16 +136,6 @@ def auto_update(time):
     scheduler.add_job(update_all, 'interval', seconds=time)
     # 启动调度任务
     scheduler.start()
-
-# Template
-# data_all = get_df() # 从数据库内读取数据表
-# date = datetime.date.today()
-# 据日期获得筛选后的数据表
-# findbydate( data_all , date , 'All' , 'None' , 'None' ) 
-# findbydate( data_all , date , '中国' , 'All' , 'None' ) 
-# findbydate( data_all , 'All' , '中国' , 'None' , 'None' )
-# findbydate( data_all , 'All' , '美国' , 'None' , 'None' ) 
-# findbydate( data_all , 'All' , 'All' , '湖北省' , 'None' )
 
 
 
