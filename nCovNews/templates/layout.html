@@ -6,8 +6,23 @@
     <title>{{ title }} - 疫情监控系统1.0</title>
     <link rel="stylesheet" type="text/css" href="/static/content/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/static/content/site.css" />
+
+
+
+    <link style="text/css" rel="stylesheet" href="css/bootstrap.css">
+    <!--导入基本样式的压缩-->
+    <link style="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+    <!--导入主题样式  注意：顺序 不可变-->
+    <link style="text/css" rel="stylesheet" href="css/bootstrap-theme.css">
+
+
+    
     <script src="/static/scripts/modernizr-2.6.2.js"></script>
 </head>
+
+
+
+
 
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -21,10 +36,12 @@
                 <a href="/" class="navbar-brand">nCovNews</a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="{{ url_for('home') }}">主页</a></li>
-                    <li><a href="{{ url_for('about') }}">关于</a></li>
-                    <li><a href="{{ url_for('contact') }}">分享</a></li>
+                <ul class="nav nav-tabs">
+                    <li><a href="{{ url_for('home') }}" >主页</a></li>
+                    <li><a href="{{ url_for('news') }}" >近日新闻</a></li>
+                    <li><a href="{{ url_for('overview') }}" >实时疫情数据概览</a></li>
+                    <li><a href="{{ url_for('analyze') }}" >疫情趋势分析</a></li>
+                    <li><a href="{{ url_for('about') }}" >关于</a></li>
                 </ul>
             </div>
         </div>
