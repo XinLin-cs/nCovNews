@@ -85,7 +85,7 @@ def overview():
         'overview.html',
         title='Ooverviewverview',
         year=datetime.now().year,
-        message='Your application description page.'
+        message='Your application description page.',
     )
 
 @app.route('/share')
@@ -128,3 +128,16 @@ def temp():
         year=datetime.now().year,
         message='Your temp page.'
     )
+
+@app.route('/getdata')
+def get_data():
+    # 中国数据查询
+    chinatotal = datatype.CHINATOTAL.query.all()
+    datalist = []
+    xseries = []
+    for item in chinatotal:
+        data=[item.date,item.confirmed]
+        datalist.append(data)
+        xseries.append(item.date)
+    return json.dumps({'data':datalist,'xseries':xeries})
+
