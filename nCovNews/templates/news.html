@@ -1,0 +1,121 @@
+﻿{% extends "layout.html" %}
+
+{% block content %}
+<style >
+    p.serif {
+        font-family: "Times New Roman",Times,serif;
+    }
+
+    p.sansserif {
+        font-family: Arial,Helvetica,sans-serif;
+    }
+    p.normal {
+        font-weight: normal;
+    }
+
+    p.light {
+        font-weight: lighter;
+    }
+
+    p.thick {
+        font-weight: bold;
+    }
+
+    p.thicker {
+        font-weight: 900;
+    }
+
+    p.normal {
+        font-style: normal;
+    }
+
+    p.italic {
+        font-style: italic;
+    }
+
+    p.oblique {
+        font-style: oblique;
+    }
+
+    h1 {
+        font-size: 80px;
+        font-family: Arial,Helvetica,sans-serif;
+         font-weight: 900;
+    }
+    h2 {
+        font-size: 30px;
+        font-family: Arial,Helvetica,sans-serif;
+        font-weight: 400;
+    }
+    .ps{
+        text-indent:50px;
+    }
+
+
+</style>
+<div id="d0">   
+</div>
+<div class="jumbotron">
+    <button type="button" class="btn btn-primary btn-lg">目录</button>
+    <a href="#d1" class="btn btn-info" role="button">新闻</a>
+    <a href="#d2" class="btn btn-info" role="button">辟谣</a>
+    <a href="#d3" class="btn btn-info" role="button">其他消息</a>
+</div>
+
+<div id="d1">
+    <h1>新闻 </h1>
+    {% for item in news %}
+  
+    <div class="jumbotron">  
+            <h2>{{item.title}}</h2><br />
+            <p class=" ps">{{item.summary}}</p>
+            <br />
+            <h>来源<a href="{{item.url}}">{{item.info}}</a></h><br />
+        <a href="#d0"   class="btn btn-primary btn-sm" role="button">返回顶部</a>
+    </div>
+
+    {% endfor %}
+    <br />
+    <br />
+</div>
+
+
+
+
+<div id="d2">
+    <h1>辟谣</h1>
+    {% for item in fakenews %}
+    <div class="jumbotron">
+       
+            <h>{{item.title}}</h>
+            <h>{{item.summary}}</h>
+            <h>{{item.info}}</h>
+       
+        <a href="#d0"  class="btn btn-primary btn-sm" role="button">返回顶部</a>
+    </div>
+    {% endfor %}
+    <br />
+    <br />
+</div>
+
+
+
+
+<div id="d3">
+    <h1>其他消息</h1>
+    {% for item in information %}
+    <div class="jumbotron">
+        <ul id="u0">
+            <li>{{item.title}}</li>
+            <li>{{item.summary}}</li>
+            <li>{{item.info}}</li>
+        </ul>
+        <a href="#d0"   class="btn btn-primary btn-sm" role="button">返回顶部</a>
+    </div>
+    {% endfor %}
+    <br />
+    <br />
+</div>
+
+
+{% endblock %}

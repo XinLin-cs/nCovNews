@@ -19,56 +19,12 @@
             a. 能够实现数据的动态刷新，可展示全国疫情数据概览<br>
             b. 能够展示实时疫情地图
         </p>
-        <p>
-            中国实时疫情<br>
-            数据截止日期：{{chinatotal.date}}<br>
-            确诊：{{chinatotal.confirmed}}<br>
-            疑似：{{chinatotal.suspected}}<br>
-            治愈：{{chinatotal.cures}}<br>
-            死亡：{{chinatotal.deaths}}<br>
-            无症状感染：{{chinatotal.asymptomatic}}
-        </p>
-        <p>
-            海外实时疫情<br>
-            数据截止日期：{{worldtotal.date}}<br>
-            确诊：{{worldtotal.confirmed}}<br>
-            治愈：{{worldtotal.cures}}<br>
-            死亡：{{worldtotal.deaths}}<br>
-        </p>
+       
         <p><a class="btn btn-default" href="{{ url_for('overview') }}">查看 &raquo;</a></p>
     </div>
 </div>
 
-<p>新闻</p>
-{% for item in news %}
-<ul>
-    <li>{{item.title}}</li>
-    <li>{{item.summary}}</li>
-    <li>{{item.info}}</li>
-    <li>{{item.url}}</li>
-</ul>
-<p>------------------------------------</p>
-{% endfor %}
 
-<p>辟谣</p>
-{% for item in fakenews %}
-<ul>
-    <li>{{item.title}}</li>
-    <li>{{item.summary}}</li>
-    <li>{{item.info}}</li>
-</ul>
-<p>------------------------------------</p>
-{% endfor %}
-
-<p>其他消息</p>
-{% for item in information %}
-<ul>
-    <li>{{item.title}}</li>
-    <li>{{item.summary}}</li>
-    <li>{{item.info}}</li>
-</ul>
-<p>------------------------------------</p>
-{% endfor %}
 
 
 <div class="row">
@@ -96,6 +52,25 @@
     <style>
         .hide {
             display: none;
+        }
+    </style>
+    <style>
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            padding: 12px 16px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
         }
     </style>
     <span style="float:left">觉得不错，分享给朋友：</span>

@@ -13,30 +13,12 @@ from nCovNews import datatype
 @app.route('/')
 @app.route('/home')
 def home():
-    """Renders the home page."""
-    today = date.today()
-    yesterday = today + timedelta(days = -1)
-    # 中国数据查询
-    chinatotal = datatype.CHINATOTAL.query.filter_by(date = today).first()
-    if (chinatotal is None):
-           chinatotal = datatype.CHINATOTAL.query.filter_by(date = yesterday).first()
-    # 世界数据查询
-    worldtotal = datatype.WORLDTOTAL.query.filter_by(date = today).first()
-    if (worldtotal is None):
-           worldtotal = datatype.WORLDTOTAL.query.filter_by(date = yesterday).first()
-    # 新闻数据查询
-    news = datatype.NEWS.query.all()
-    fakenews = datatype.FAKENEWS.query.all()
-    information = datatype.INFORMATION.query.all()
+    """Renders the home page."""  
     return render_template(
         'index.html',
         title='主页',
-        year=datetime.now().year,
-        chinatotal=chinatotal,
-        worldtotal=worldtotal,
-        news=news,
-        fakenews=fakenews,
-        information=information
+        year=datetime.now().year, 
+       message='Your home page.'
     )
 
 @app.route('/contact')
@@ -58,6 +40,9 @@ def about():
         year=datetime.now().year,
         message='Your application description page.'
     )
+
+
+
 @app.route('/discuss')
 def discuss():
     """Renders the about page."""
@@ -80,33 +65,55 @@ def analyze():
 
 @app.route('/overview')
 def overview():
-    """Renders the about page."""
+    """Renders the home page."""
+    today = date.today()
+    yesterday = today + timedelta(days = -1)
+    # 中国数据查询
+    chinatotal = datatype.CHINATOTAL.query.filter_by(date = today).first()
+    if (chinatotal is None):
+           chinatotal = datatype.CHINATOTAL.query.filter_by(date = yesterday).first()
+    # 世界数据查询
+    worldtotal = datatype.WORLDTOTAL.query.filter_by(date = today).first()
+    if (worldtotal is None):
+           worldtotal = datatype.WORLDTOTAL.query.filter_by(date = yesterday).first()
+    
     return render_template(
         'overview.html',
-        title='Ooverviewverview',
+        title='Overview',
         year=datetime.now().year,
-        message='Your application description page.'
+        chinatotal=chinatotal,
+        worldtotal=worldtotal,
+       message='Your overview page.'
     )
 
-@app.route('/share')
-def share():
-    """Renders the about page."""
-    return render_template(
-        'share.html',
-        title='Share',
-        year=datetime.now().year,
-        message='Your share page.'
-    )
+
 
 @app.route('/news')
 def news():
     """Renders the about page."""
+    # 新闻数据查询
+    news = datatype.NEWS.query.all()
+    fakenews = datatype.FAKENEWS.query.all()
+    information = datatype.INFORMATION.query.all()
     return render_template(
         'news.html',
         title='News',
         year=datetime.now().year,
-        message='Your news page.'
+        message='Your news page.',
+         news=news,
+        fakenews=fakenews,
+        information=information
     )
+
+
+
+
+
+
+
+#没用的
+
+
 
 
 @app.route('/test')
