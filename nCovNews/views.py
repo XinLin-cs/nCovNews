@@ -136,8 +136,8 @@ def get_data():
     datalist = []
     xseries = []
     for item in chinatotal:
-        data=[item.date,item.confirmed]
+        data=[str(item.date),item.confirmed]
         datalist.append(data)
-        xseries.append(item.date)
-    return json.dumps({'data':datalist,'xseries':xeries})
+        xseries.append(str(item.date))
+    return json.dumps({'data':datalist,'xseries':xseries})
 
