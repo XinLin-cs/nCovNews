@@ -21,27 +21,54 @@
         </p>
         <p>
             中国实时疫情<br>
-            更新日期：{{cn_date}}<br>
-            确诊：{{cn_confirmed}}<br>
-            疑似：{{cn_suspected}}<br>
-            治愈：{{cn_cures}}<br>
-            死亡：{{cn_deaths}}<br>
-            无症状感染：{{cn_asymptomatic}}
+            数据截止日期：{{chinatotal.date}}<br>
+            确诊：{{chinatotal.confirmed}}<br>
+            疑似：{{chinatotal.suspected}}<br>
+            治愈：{{chinatotal.cures}}<br>
+            死亡：{{chinatotal.deaths}}<br>
+            无症状感染：{{chinatotal.asymptomatic}}
         </p>
         <p>
             海外实时疫情<br>
-            更新日期：{{wd_date}}<br>
-            确诊：{{wd_confirmed}}<br>
-            治愈：{{wd_cures}}<br>
-            死亡：{{wd_deaths}}<br>
+            数据截止日期：{{worldtotal.date}}<br>
+            确诊：{{worldtotal.confirmed}}<br>
+            治愈：{{worldtotal.cures}}<br>
+            死亡：{{worldtotal.deaths}}<br>
         </p>
         <p><a class="btn btn-default" href="{{ url_for('overview') }}">查看 &raquo;</a></p>
     </div>
 </div>
 
+<p>新闻</p>
+{% for item in news %}
+<ul>
+    <li>{{item.title}}</li>
+    <li>{{item.summary}}</li>
+    <li>{{item.info}}</li>
+    <li>{{item.url}}</li>
+</ul>
+<p>------------------------------------</p>
+{% endfor %}
 
+<p>辟谣</p>
+{% for item in fakenews %}
+<ul>
+    <li>{{item.title}}</li>
+    <li>{{item.summary}}</li>
+    <li>{{item.info}}</li>
+</ul>
+<p>------------------------------------</p>
+{% endfor %}
 
-
+<p>其他消息</p>
+{% for item in information %}
+<ul>
+    <li>{{item.title}}</li>
+    <li>{{item.summary}}</li>
+    <li>{{item.info}}</li>
+</ul>
+<p>------------------------------------</p>
+{% endfor %}
 
 
 <div class="row">

@@ -42,6 +42,26 @@ class WORLDTOTAL(db.Model):
     cures = db.Column( db.Integer )  
     deaths = db.Column( db.Integer ) 
 
+class NEWS(db.Model):
+    id = db.Column(db.Integer, primary_key=True)   
+    title = db.Column( db.String(20) )  
+    summary = db.Column( db.String(20) )  
+    info = db.Column( db.String(20) )  
+    url = db.Column( db.String(20) )  
+
+class FAKENEWS(db.Model):
+    id = db.Column(db.Integer, primary_key=True)  
+    title = db.Column( db.String(20) )  
+    summary = db.Column( db.String(20) )  
+    info = db.Column( db.String(20) )  
+
+class INFORMATION(db.Model):
+    id = db.Column(db.Integer, primary_key=True)  
+    title = db.Column( db.String(20) )  
+    summary = db.Column( db.String(20) )  
+    info = db.Column( db.String(20) )  
+
+
 
 
 class User(db.Model):  # ���������� user���Զ����ɣ�Сд�����

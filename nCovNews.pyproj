@@ -35,9 +35,9 @@
     <Compile Include="nCovNews\data_update.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="nCovNews\views.py" />
     <Compile Include="runserver.py" />
     <Compile Include="nCovNews\__init__.py" />
-    <Compile Include="nCovNews\views.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="nCovNews\" />

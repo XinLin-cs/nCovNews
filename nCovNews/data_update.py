@@ -9,6 +9,8 @@ from nCovNews import db
 from nCovNews import datatype
 
 def getdata_api():
+    session = db.session
+
     url = 'https://i.snssdk.com/forum/ncov_data/?data_type=%5B2%2C4%2C8%5D'
     html = requests.get(url).json()
     # print(html.keys())
@@ -26,11 +28,6 @@ def getdata_api():
     # 'displayAsymptomatic'])
 
     updateTime = nation['updateTime']
-
-    # 测试
-    db.drop_all()
-    db.create_all()
-    session = db.session
 
     # 省份数据
     provinces = nation['provinces']
@@ -102,8 +99,59 @@ def getdata_api():
 
     session.commit() # 修改数据库
 
-getdata_api()
+def get_news( page , num ):
+    session = db.session
+    url = 'http://lab.isaaclin.cn/nCoV/api/news?page=%d&num=%d' % ( page , num )
+    try:
+        respone = requests.get(url).json()
+        time.sleep(1)
+        msg = respone['results']
+        for data in msg:
+            title = data['title']
+            summary = data['summary']
+            info = data['infoSource']
+            url = data['sourceUrl']
+            news = datatype.NEWS(title=title,summary=summary,info=info,url=url)
+            session.add(news)
+        session.commit()
+    except:
+        return 0
 
+def get_fakenews( page , num ):
+    session = db.session
+    url = 'http://lab.isaaclin.cn/nCoV/api/rumors?page=%d&num=%d&rumorType=%d' % ( page , num , 0 )
+    try:
+        respone = requests.get(url).json()
+        time.sleep(1)
+        msg = respone['results']
+        for data in msg:
+            title = data['title']
+            summary = data['mainSummary']
+            info = data['body']
+            news = datatype.FAKENEWS(title=title,summary=summary,info=info)
+            session.add(news)
+        session.commit()
+    except:
+        return 0
+
+def get_information( page , num ):
+    session = db.session
+    url = 'http://lab.isaaclin.cn/nCoV/api/rumors?page=%d&num=%d&rumorType=%d' % ( page , num , 1 )
+    try:
+        respone = requests.get(url).json()
+        time.sleep(1)
+        msg = respone['results']
+        for data in msg:
+            title = data['title']
+            summary = data['mainSummary']
+            info = data['body']
+            news = datatype.INFORMATION(title=title,summary=summary,info=info)
+            session.add(news)
+        session.commit()
+    except:
+        return 0
+
+# 历史数据
 def update_report():
     # 从服务器获取数据
     url = 'https://raw.githubusercontent.com/canghailan/Wuhan-2019-nCoV/master/Wuhan-2019-nCoV.json'
@@ -149,67 +197,19 @@ def getdata( date ):
 # date_yesterday = date_today + datetime.timedelta(days = -1)
 # getdata(date_today)
 
-def get_news( page , num ):
-    url = 'http://lab.isaaclin.cn/nCoV/api/news?page=%d&num=%d' % ( page , num )
-    try:
-        data = requests.get(url).json()
-        time.sleep(1)
-        data = data['results']
-        data_df = pd.DataFrame(data)
-        # 保存至数据库
-        data_df.to_csv('nCovNews/data/news.csv' , encoding="utf_8_sig")
-    except BaseException as err:
-        print('error: news request fail!')
-        return 1 # 错误代码1，请求失败
-    except:
-        return 2 # 错误代码2，未知异常
-    else:
-        return 0
-
-def get_fakenews( page , num ):
-    url = 'http://lab.isaaclin.cn/nCoV/api/rumors?page=%d&num=%d&rumorType=%d' % ( page , num , 0 )
-    try:
-        data = requests.get(url).json()
-        time.sleep(1)
-        data = data['results']
-        data_df = pd.DataFrame(data)
-        # 保存至数据库
-        data_df.to_csv('nCovNews/data/fakenews.csv' , encoding="utf_8_sig")
-    except BaseException as err:
-        print('error: fakenews request fail!')
-        return 1 # 错误代码1，请求失败
-    except:
-        return 2 # 错误代码2，未知异常
-    else:
-        return 0
-
-def get_information( page , num ):
-    url = 'http://lab.isaaclin.cn/nCoV/api/rumors?page=%d&num=%d&rumorType=%d' % ( page , num , 1 )
-    try:
-        data = requests.get(url).json()
-        time.sleep(1)
-        data = data['results']
-        data_df = pd.DataFrame(data)
-        # 保存至数据库
-        data_df.to_csv('nCovNews/data/information.csv' , encoding="utf_8_sig")
-    except BaseException as err:
-        print('error: information request fail!')
-        return 1 # 错误代码1，请求失败
-    except:
-        return 2 # 错误代码2，未知异常
-    else:
-        return 0
-
-
 from apscheduler.schedulers.background import BackgroundScheduler
 
 def update_all():
     try:
         starttime = datetime.datetime.today()
         print(' * updating start!')
+        # 测试代码=====
+        db.drop_all()
+        db.create_all()
+        #==============
         print(' * start at %s' % ( starttime.isoformat(sep='/') ) )
         print('|>--------------------|0%',end='\r',flush = True)
-        update_report()
+        getdata_api()
         print('|==============>------|70%',end='\r',flush = True)
         get_news(1,10)
         print('|================>----|80%',end='\r',flush = True)
@@ -228,12 +228,11 @@ def update_all():
     print(' * updating finished! ')
 
 def auto_update(time):
-    # update_all()
-    getdata_api()
+    update_all()
     # 创建后台执行的 schedulers
     scheduler = BackgroundScheduler()  
     # 添加调度任务
-    scheduler.add_job(getdata_api , 'interval', seconds=time)
+    scheduler.add_job(update_all , 'interval', seconds=time)
     # 启动调度任务
     scheduler.start()
 

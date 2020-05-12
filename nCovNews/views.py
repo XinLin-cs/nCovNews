@@ -17,20 +17,26 @@ def home():
     today = date.today()
     yesterday = today + timedelta(days = -1)
     # 中国数据查询
-    cn = datatype.CHINATOTAL.query.filter_by(date = today).first()
-    if (cn is None):
-           cn = datatype.CHINATOTAL.query.filter_by(date = yesterday).first()
+    chinatotal = datatype.CHINATOTAL.query.filter_by(date = today).first()
+    if (chinatotal is None):
+           chinatotal = datatype.CHINATOTAL.query.filter_by(date = yesterday).first()
     # 世界数据查询
-    wd = datatype.WORLDTOTAL.query.filter_by(date = today).first()
-    if (cn is None):
-           wd = datatype.WORLDTOTAL.query.filter_by(date = yesterday).first()
-
+    worldtotal = datatype.WORLDTOTAL.query.filter_by(date = today).first()
+    if (worldtotal is None):
+           worldtotal = datatype.WORLDTOTAL.query.filter_by(date = yesterday).first()
+    # 新闻数据查询
+    news = datatype.NEWS.query.all()
+    fakenews = datatype.FAKENEWS.query.all()
+    information = datatype.INFORMATION.query.all()
     return render_template(
         'index.html',
         title='主页',
         year=datetime.now().year,
-        cn_date=cn.date,cn_confirmed=cn.confirmed,cn_suspected=cn.suspected,cn_cures=cn.cures,cn_deaths=cn.deaths,cn_asymptomatic = cn.asymptomatic,
-        wd_date=wd.date,wd_confirmed=wd.confirmed,wd_cures=wd.cures,wd_deaths=wd.deaths,
+        chinatotal=chinatotal,
+        worldtotal=worldtotal,
+        news=news,
+        fakenews=fakenews,
+        information=information
     )
 
 @app.route('/contact')
