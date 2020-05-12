@@ -41,7 +41,7 @@ def about():
         message='Your application description page.'
     )
 
-
+@app.route('/getdata')
 def get_data():
     # 中国数据查询
     chinatotal = datatype.CHINATOTAL.query.all()
@@ -148,6 +148,6 @@ def temp():
         message='Your temp page.'
     )
 
-@app.route('/getdata')
+
 
 
