@@ -3,17 +3,34 @@ Routes and views for the flask application.
 """
 
 from datetime import datetime
+from datetime import date
+from datetime import timedelta
 from flask import render_template
 from nCovNews import app
+from nCovNews import db
+from nCovNews import datatype
 
 @app.route('/')
 @app.route('/home')
 def home():
     """Renders the home page."""
+    today = date.today()
+    yesterday = today + timedelta(days = -1)
+    # 中国数据查询
+    cn = datatype.CHINATOTAL.query.filter_by(date = today).first()
+    if (cn is None):
+           cn = datatype.CHINATOTAL.query.filter_by(date = yesterday).first()
+    # 世界数据查询
+    wd = datatype.WORLDTOTAL.query.filter_by(date = today).first()
+    if (cn is None):
+           wd = datatype.WORLDTOTAL.query.filter_by(date = yesterday).first()
+
     return render_template(
         'index.html',
         title='主页',
         year=datetime.now().year,
+        cn_date=cn.date,cn_confirmed=cn.confirmed,cn_suspected=cn.suspected,cn_cures=cn.cures,cn_deaths=cn.deaths,cn_asymptomatic = cn.asymptomatic,
+        wd_date=wd.date,wd_confirmed=wd.confirmed,wd_cures=wd.cures,wd_deaths=wd.deaths,
     )
 
 @app.route('/contact')

@@ -5,6 +5,105 @@ import requests
 import pandas as pd
 import numpy as np
 
+from nCovNews import db
+from nCovNews import datatype
+
+def getdata_api():
+    url = 'https://i.snssdk.com/forum/ncov_data/?data_type=%5B2%2C4%2C8%5D'
+    html = requests.get(url).json()
+    # print(html.keys())
+    # dict_keys(['message', 'ncov_city_data', 'ncov_nation_data', 'map_config', 'city_code', 'treating_data', 
+    # 'overseas_data', 'country_data', 'province_data', 'policy_data', 'focus_city_data'])
+
+    # 国内数据
+    nation = html['ncov_nation_data']
+    nation = json.loads(nation)
+    # print(nation_data.keys())
+    # dict_keys(['updateTime', 'confirmedDate', 'suspectedDate', 'provinces', 'nationwide', 'world', 
+    # 'nationwideIncr', 'nationTotal', 'confirmedIncrProvinceTop10', 'confirmedIncrProvinceTop10Text', 
+    # 'nationLocalIncrText', 'incrTips', 'asymptomaticTitle', 'asymptomaticNumProvinceTop10', 
+    # 'asymptomaticNumProvinceTop10Text', 'asymptomaticIncrProvinceTop10', 'asymptomaticIncrProvinceTop10Text', 
+    # 'displayAsymptomatic'])
+
+    updateTime = nation['updateTime']
+
+    # 测试
+    db.drop_all()
+    db.create_all()
+    session = db.session
+
+    # 省份数据
+    provinces = nation['provinces']
+    # print(provinces[0].keys())
+    # dict_keys(['id', 'name', 'confirmedNum', 'curesNum', 'deathsNum', 'treatingNum', 'treatingNumStr', 
+    # 'asymptomaticNum', 'cities', 'series', 'updateTime', 'updateDate', 'confirmedIncr', 'provinceIncr', 
+    # 'asymptomaticIncr', 'isTreatingNumClear'])
+    for data in provinces:
+        date = datetime.date.today()
+        name = data['name']
+        confirmed = data['confirmedNum']
+        cures = data['curesNum']
+        deaths = data['deathsNum']
+        asymptomatic = data['asymptomaticNum']
+        province = datatype.PROVINCE(date=date,name=name,confirmed=confirmed,cures=cures,deaths=deaths,asymptomatic=asymptomatic)
+        session.add(province)
+
+    # 中国总数据
+    nationwide = nation['nationwide']
+    # print(nationwide[0].keys())
+    # dict_keys(['date', 'confirmedNum', 'suspectedNum', 'curesNum', 'deathsNum', 'suspectedIncr', 'curesRatio', 
+    # 'deathsRatio', 'suspectedNumStr', 'suspectedIncrStr', 'treatingNum', 'inboundNum', 'inboundIncr',
+    #  'asymptomaticNum', 'asymptomaticIncr'])
+    for data in nationwide:
+        date = pd.to_datetime(data['date'])
+        confirmed = data['confirmedNum']
+        suspected = data['suspectedNum']
+        cures = data['curesNum']
+        deaths = data['deathsNum']
+        asymptomatic = data['asymptomaticNum']
+        chinatotal = datatype.CHINATOTAL(date=date,confirmed=confirmed,suspected=suspected,cures=cures,deaths=deaths,asymptomatic=asymptomatic)
+        session.add(chinatotal)
+
+    # 海外数据
+    overseas = html['overseas_data']
+    overseas = json.loads(overseas)
+    # print(overseas.keys())
+    # dict_keys(['updateTime', 'country', 'total', 'incr', 'series', 'confirmedIncrTop10', 
+    # 'confirmedIncrTop10Text', 'testingInfo', 'continent', 'confirmedIncr7DTop10', 'confirmedIncr7DTop10Text'])
+
+    # 各国数据
+    country = overseas['country']
+    # print(country[0].keys())
+    # dict_keys(['id', 'code', 'name', 'nationalFlag', 'countryTotal', 'countryIncr', 'series', 'provinces', 
+    # 'isTreatingNumClear', 'confirmedPerMil', 'continent', 'updateTime'])
+    for data in country:
+        date = datetime.date.today()
+        name = data['name']
+        continent =data['continent']
+        countryTotal = data['countryTotal']
+        # print(countryTotal.keys())
+        # dict_keys(['confirmedTotal', 'suspectedTotal', 'curesTotal', 'deathsTotal', 'treatingTotal',
+        #  'inboundTotal', 'asymptomaticTotal'])
+        confirmed = countryTotal['confirmedTotal']
+        cures = countryTotal['curesTotal']
+        deaths = countryTotal['deathsTotal']
+        country = datatype.COUNTRY(date=date,name=name,continent=continent,confirmed=confirmed,cures=cures,deaths=deaths)
+        session.add(country)
+       
+    # 世界总数据
+    total = overseas['total']
+    # print(total)
+    date = datetime.date.today()
+    confirmed = total['confirmedTotal']
+    cures = total['curesTotal']
+    deaths= total['deathsTotal']
+    world = datatype.WORLDTOTAL(date=date,confirmed=confirmed,cures=cures,deaths=deaths)
+    session.add(world)
+
+    session.commit() # 修改数据库
+
+getdata_api()
+
 def update_report():
     # 从服务器获取数据
     url = 'https://raw.githubusercontent.com/canghailan/Wuhan-2019-nCoV/master/Wuhan-2019-nCoV.json'
@@ -25,7 +124,7 @@ def update_report():
 def province_fix( data ):
     province_msg = pd.read_csv('nCovNews/data/province_msg.csv')
     f = province_msg.set_index('province')['province1'].to_dict()
-    data['provinceCode'] = data['provinceCode'].apply(lambda x:f[x])
+    data['province'] = data['province'].apply(lambda x:f[x])
     return data
 
 def getdata( date ):
@@ -129,11 +228,12 @@ def update_all():
     print(' * updating finished! ')
 
 def auto_update(time):
-    update_all()
+    # update_all()
+    getdata_api()
     # 创建后台执行的 schedulers
     scheduler = BackgroundScheduler()  
     # 添加调度任务
-    scheduler.add_job(update_all, 'interval', seconds=time)
+    scheduler.add_job(getdata_api , 'interval', seconds=time)
     # 启动调度任务
     scheduler.start()
 

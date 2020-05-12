@@ -19,6 +19,22 @@
             a. 能够实现数据的动态刷新，可展示全国疫情数据概览<br>
             b. 能够展示实时疫情地图
         </p>
+        <p>
+            中国实时疫情<br>
+            更新日期：{{cn_date}}<br>
+            确诊：{{cn_confirmed}}<br>
+            疑似：{{cn_suspected}}<br>
+            治愈：{{cn_cures}}<br>
+            死亡：{{cn_deaths}}<br>
+            无症状感染：{{cn_asymptomatic}}
+        </p>
+        <p>
+            海外实时疫情<br>
+            更新日期：{{wd_date}}<br>
+            确诊：{{wd_confirmed}}<br>
+            治愈：{{wd_cures}}<br>
+            死亡：{{wd_deaths}}<br>
+        </p>
         <p><a class="btn btn-default" href="{{ url_for('overview') }}">查看 &raquo;</a></p>
     </div>
 </div>

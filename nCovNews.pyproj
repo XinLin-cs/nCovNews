@@ -29,7 +29,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="nCovNews\data_save.py">
+    <Compile Include="nCovNews\datatype.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="nCovNews\data_update.py">

@@ -4,6 +4,7 @@ This script runs the nCovNews application using a development server.
 
 from os import environ
 from nCovNews import app
+from nCovNews import db
 from nCovNews import data_update
 
 if __name__ == '__main__':
