@@ -107,15 +107,18 @@ def get_news( page , num ):
         time.sleep(1)
         msg = respone['results']
         for data in msg:
+            date = float(data['pubDate'])/1000
             title = data['title']
             summary = data['summary']
             info = data['infoSource']
             url = data['sourceUrl']
-            news = datatype.NEWS(title=title,summary=summary,info=info,url=url)
+            news = datatype.NEWS(date=date,title=title,summary=summary,info=info,url=url)
             session.add(news)
         session.commit()
     except:
         return 0
+
+get_news
 
 def get_fakenews( page , num ):
     session = db.session
@@ -207,7 +210,7 @@ def update_all():
         db.drop_all()
         db.create_all()
         #==============
-        print(' * start at %s' % ( starttime.isoformat(sep='/') ) )
+        print(' * start at %s' % ( starttime.isoformat(sep=' ') ) )
         print('|>--------------------|0%',end='\r',flush = True)
         getdata_api()
         print('|==============>------|70%',end='\r',flush = True)

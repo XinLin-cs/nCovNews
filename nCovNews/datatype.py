@@ -44,6 +44,7 @@ class WORLDTOTAL(db.Model):
 
 class NEWS(db.Model):
     id = db.Column(db.Integer, primary_key=True)   
+    date = db.Column( db.FLOAT ) 
     title = db.Column( db.String(20) )  
     summary = db.Column( db.String(20) )  
     info = db.Column( db.String(20) )  

@@ -1,7 +1,7 @@
 """
 Routes and views for the flask application.
 """
-
+import time
 from datetime import datetime
 from datetime import date
 from datetime import timedelta
@@ -109,12 +109,14 @@ def news():
     information = datatype.INFORMATION.query.all()
     return render_template(
         'news.html',
+        time = time,
         title='News',
         year=datetime.now().year,
         message='Your news page.',
-         news=news,
+        news=news,
         fakenews=fakenews,
-        information=information
+        information=information,
+        
     )
 
 

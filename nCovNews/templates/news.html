@@ -65,15 +65,15 @@
 <div id="d1">
     <h1>新闻 </h1>
     {% for item in news %}
-  
-    <div class="jumbotron">  
-            <h2>{{item.title}}</h2><br />
-            <p class=" ps">{{item.summary}}</p>
-            <br />
-            <h>来源<a href="{{item.url}}">{{item.info}}</a></h><br />
-        <a href="#d0"   class="btn btn-primary btn-sm" role="button">返回顶部</a>
+    <div class="jumbotron">
+        <h2>{{time.strftime("%#H", time.gmtime(time.time()-item.date))}}小时前</h2>
+        <h>{{time.strftime("%#m-%#d %#H:%#M", time.localtime(item.date))}}</h>
+        <h2>{{item.title}}</h2><br />
+        <p class=" ps">{{item.summary}}</p>
+        <br />
+        <h>来源<a href="{{item.url}}">{{item.info}}</a></h><br />
+        <a href="#d0" class="btn btn-primary btn-sm" role="button">返回顶部</a>
     </div>
-
     {% endfor %}
     <br />
     <br />
