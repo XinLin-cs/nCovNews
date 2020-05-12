@@ -42,6 +42,17 @@ def about():
     )
 
 
+def get_data():
+    # 中国数据查询
+    chinatotal = datatype.CHINATOTAL.query.all()
+    datalist = []
+    xseries = []
+    for item in chinatotal:
+        data=[str(item.date),item.confirmed]
+        datalist.append(data)
+        xseries.append(str(item.date))
+    return json.dumps({'data':datalist,'xseries':xseries})
+
 
 @app.route('/discuss')
 def discuss():
@@ -84,6 +95,7 @@ def overview():
         chinatotal=chinatotal,
         worldtotal=worldtotal,
        message='Your overview page.'
+       
     )
 
 
@@ -135,3 +147,7 @@ def temp():
         year=datetime.now().year,
         message='Your temp page.'
     )
+
+@app.route('/getdata')
+
+
