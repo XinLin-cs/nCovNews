@@ -45,44 +45,81 @@
         font-weight: 100;
         text-align: start
     }
-    .fixed {
+    .s1 {
+        background-color: #ffffff;
         position: fixed;
-        top: 90%;
+        top: 7%;
+        opacity: 1 ;
+        z-index: 10;
+    }
+    .su {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
     }
 </style>
-<div id="d0">   
+
+<script>
+    function ck1() {
+        div1.style.display = "block";
+        div2.style.display = "none";
+        div3.style.display = "none";
+    }
+    function ck2() {
+        div1.style.display = "none";
+        div2.style.display = "block";
+        div3.style.display = "none";
+    }
+    function ck3() {
+        div1.style.display = "none";
+        div2.style.display = "none";
+        div3.style.display = "block";
+    }
+    
+
+</script>
+<div id="div0" class="s1" >
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li><a onclick="ck1()">新闻</a></li>
+            <li><a onclick="ck2()">辟谣</a></li>
+            <li><a onclick="ck3()">其他消息</a></li>
+        </ul>
+    </div>
 </div>
-<div class="jumbotron">
-    <button type="button" class="btn btn-primary btn-lg">目录</button>
-    <a href="#d1" class="btn btn-info" role="button">新闻</a>
-    <a href="#d2" class="btn btn-info" role="button">辟谣</a>
-    <a href="#d3" class="btn btn-info" role="button">其他消息</a>
-</div>
-<div class="fixed "><a href="#d0" class="btn btn-primary btn-sm" role="button">返回顶部</a></div>
-<div id="d1">
+
+
+
+<div id="div1" style="display:block;">
+    <br />
+    <br />
+    <br />
     <h1>新闻 </h1>
     {% for item in news %}
-        <div class="row">
-            <div class="col-md-2">
-                <br><br>
-                <h2>{{time.strftime("%#H", time.gmtime(time.time()-item.date))}}小时前</h2>
-                <h7>（{{time.strftime("%#m-%#d %H:%M", time.localtime(item.date))}})</h7>
+    <div class="row">
+        <div class="col-md-2">
+            <br><br>
+            <h2>{{time.strftime("%#H", time.gmtime(time.time()-item.date))}}小时前</h2>
+            <h7>（{{time.strftime("%#m-%#d %H:%M", time.localtime(item.date))}})</h7>
+
+        </div>
+        <div class="col-md-10">
+            <div class="jumbotron">
+                <h6> {{item.title}}</h6>
+                <p class=" ps">{{item.summary}}</p>
+                <p class="date">来源<a href="{{item.url}}">{{item.info}}</a></p>
 
             </div>
-            <div class="col-md-10">
-                <div class="jumbotron">
-                    <h6> {{item.title}}</h6>
-                    <p class=" ps">{{item.summary}}</p>
-                    <p class="date">来源<a href="{{item.url}}">{{item.info}}</a></p>
-       
-                </div>
-            </div>
-            </div>
+        </div>
+    </div>
     {% endfor %}
     <br />
 </div>
 
-<div id="d2">
+<div id="div2" style="display:none;">
+    <br />
+    <br />
+    <br />
     <h1>辟谣 ! ! !</h1>
     {% for item in fakenews %}
     <div class="row">
@@ -104,7 +141,10 @@
     <br />
     <br />
 </div>
-<div id="d3">
+<div id="div3" style="display:none;">
+    <br />
+    <br />
+    <br />
     <h1>其他消息</h1>
     {% for item in information %}
     <div class="row">
@@ -125,6 +165,4 @@
     <br />
     <br />
 </div>        
-
-
-        {% endblock %}
+{% endblock %}
