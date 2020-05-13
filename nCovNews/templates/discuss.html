@@ -2,19 +2,12 @@
 
 {% block content %}
 
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title>	</title>
-</head>
-<body>
-    <h1>
-        <br />
-       讨论区
-        <br />
-    </h1>
-    <br />
-</body>
-</html>
+<div>
+        <form method="POST" action="{{ url_for('temp') }}">
+            <input type="text" name="time" class="time-input" placeholder=" ">
+            <input type="submit" class="startButton" value="提交">
+        </form>
+
+    </div>
 
 {% endblock %}
