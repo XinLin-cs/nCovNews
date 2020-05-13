@@ -2,6 +2,8 @@
 Routes and views for the flask application.
 """
 import time
+import json
+import requests
 from datetime import datetime
 from datetime import date
 from datetime import timedelta
@@ -42,7 +44,7 @@ def about():
     )
 
 @app.route('/getdata')
-def get_data():
+def getdata():
     # 中国数据查询
     chinatotal = datatype.CHINATOTAL.query.all()
     datalist = []
@@ -52,6 +54,7 @@ def get_data():
         datalist.append(data)
         xseries.append(str(item.date))
     return json.dumps({'data':datalist,'xseries':xseries})
+
 
 
 @app.route('/discuss')
