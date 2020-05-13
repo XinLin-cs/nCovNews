@@ -3,11 +3,27 @@
 {% block content %}
 
 <div>
-        <form method="POST" action="{{ url_for('temp') }}">
-            <input type="text" name="time" class="time-input" placeholder=" ">
-            <input type="submit" class="startButton" value="提交">
-        </form>
+    <form method="POST" action="{{ url_for('discuss') }}">
+        <input type="text" name="word" class="time-input" placeholder=" ">
+        <input type="submit" class="startButton" value="提交">
+    </form>
+
+</div>
+
+{% for item in dislist %}
+<div class="row">
+    <div class="col-md-2">
+        <br><br>
+        <h7>{{item.date}}</h7>
+        <h2>{{item.name}}</h2>
 
     </div>
+    <div class="col-md-10">
+        <div class="jumbotron">
+            <h6> {{item.word}}</h6>
+        </div>
+    </div>
+</div>
+{% endfor %}
 
 {% endblock %}

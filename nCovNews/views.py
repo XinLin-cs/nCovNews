@@ -3,14 +3,15 @@ Routes and views for the flask application.
 """
 import time
 import json
-import requests
 from datetime import datetime
 from datetime import date
 from datetime import timedelta
 from flask import render_template
+from flask import request
 from nCovNews import app
 from nCovNews import db
 from nCovNews import datatype
+from nCovNews import user_mod
 
 @app.route('/')
 @app.route('/home')
@@ -43,28 +44,19 @@ def about():
         message='Your application description page.'
     )
 
-@app.route('/getdata')
-def getdata():
-    # 中国数据查询
-    chinatotal = datatype.CHINATOTAL.query.all()
-    datalist = []
-    xseries = []
-    for item in chinatotal:
-        data=[str(item.date),item.confirmed]
-        datalist.append(data)
-        xseries.append(str(item.date))
-    return json.dumps({'data':datalist,'xseries':xseries})
-
-
-
-@app.route('/discuss')
+@app.route('/discuss',methods=['GET','POST'])
 def discuss():
     """Renders the about page."""
+    if request.method == 'POST':
+        word = request.form.get('word')
+        user_mod.post_word(word)
+    dislist = datatype.DISCUSS.query.all()
     return render_template(
         'discuss.html',
         title='Discuss',
         year=datetime.now().year,
-        message='Your application description page.'
+        message='Your application description page.',
+        dislist = dislist,
     )
 
 @app.route('/analyze')
@@ -81,15 +73,20 @@ def analyze():
 def overview():
     """Renders the home page."""
     today = date.today()
-    yesterday = today + timedelta(days = -1)
     # 中国数据查询
     chinatotal = datatype.CHINATOTAL.query.filter_by(date = today).first()
     if (chinatotal is None):
-           chinatotal = datatype.CHINATOTAL.query.filter_by(date = yesterday).first()
+        today = today + timedelta(days = -1)
+        chinatotal = datatype.CHINATOTAL.query.filter_by(date = today).first()
+        if (chinatotal is None):
+            today = today + timedelta(days = -1)
+            chinatotal = datatype.CHINATOTAL.query.filter_by(date = today).first()
     # 世界数据查询
+    today = date.today()
     worldtotal = datatype.WORLDTOTAL.query.filter_by(date = today).first()
     if (worldtotal is None):
-           worldtotal = datatype.WORLDTOTAL.query.filter_by(date = yesterday).first()
+        today = today + timedelta(days = -1)   
+        worldtotal = datatype.WORLDTOTAL.query.filter_by(date = today).first()
     
     return render_template(
         'overview.html',
@@ -97,7 +94,7 @@ def overview():
         year=datetime.now().year,
         chinatotal=chinatotal,
         worldtotal=worldtotal,
-       message='Your overview page.'
+        message='Your overview page.'
        
     )
 
@@ -122,9 +119,18 @@ def news():
         
     )
 
-
-
-
+# 数据接口
+@app.route('/getdata')
+def getdata():
+    # 中国数据查询
+    chinatotal = datatype.CHINATOTAL.query.all()
+    datalist = []
+    xseries = []
+    for item in chinatotal:
+        data=[str(item.date),item.confirmed]
+        datalist.append(data)
+        xseries.append(str(item.date))
+    return json.dumps({'data':datalist,'xseries':xseries})
 
 
 

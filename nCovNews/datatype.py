@@ -61,3 +61,9 @@ class INFORMATION(db.Model):
     title = db.Column( db.String(20) )  
     summary = db.Column( db.String(20) )  
     info = db.Column( db.String(20) )  
+
+class DISCUSS(db.Model):
+    id = db.Column(db.Integer, primary_key=True)  
+    date = db.Column( db.DateTime )  
+    name = db.Column( db.String(20) )  
+    word = db.Column( db.String(20) )   
