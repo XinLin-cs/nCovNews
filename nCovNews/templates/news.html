@@ -45,6 +45,10 @@
         font-weight: 100;
         text-align: start
     }
+    .fixed {
+        position: fixed;
+        top: 90%;
+    }
 </style>
 <div id="d0">   
 </div>
@@ -54,7 +58,7 @@
     <a href="#d2" class="btn btn-info" role="button">辟谣</a>
     <a href="#d3" class="btn btn-info" role="button">其他消息</a>
 </div>
-<div style=" position :fixed "><a href="#d0" class="btn btn-primary btn-sm" role="button">返回顶部</a></div>
+<div class="fixed "><a href="#d0" class="btn btn-primary btn-sm" role="button">返回顶部</a></div>
 <div id="d1">
     <h1>新闻 </h1>
     {% for item in news %}
