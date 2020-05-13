@@ -12,6 +12,21 @@
     </p>
 </div>
 
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>疫情知识</h2>
+        <p>
+            2020年，新型冠状病毒肺炎疫情在全国甚至全世界蔓延。对新型冠状病毒肺炎了解不够？点击了解更多疫情相关知识
+            a.新冠肺炎简介<br>
+            b. 新冠肺炎症状<br>
+            c. 新冠肺炎病因<br>          
+            等等
+        </p>
+        <p><a class="btn btn-default" href="{{ url_for('test') }}">查看&raquo;</a></p>
+    </div>
+</div>
+
 <div class="row">
     <div class="col-md-4">
         <h2>实时疫情数据概览</h2>
@@ -37,15 +52,8 @@
             d. 其他分析图表
         </p>
         <p><a class="btn btn-default" href="{{ url_for('analyze') }}">查看 &raquo;</a></p>
-        <p><a class="btn btn-default" href="{{ url_for('test') }}">test &raquo;</a></p>
-        <p><a class="btn btn-default" href="{{ url_for('temp') }}">temp &raquo;</a></p>
     </div>
 </div>
-
-
-
-
-
 
 
 <div class="xl_2">
@@ -91,15 +99,7 @@
     <div id="field" style="display:none;">
         <img src="http://cli.clewm.net/qrcode/2015/01/21/2031452178.png" />
     </div>
-    <script>
-        function ck() {
-            if (field.style.display == "none") {
-                field.style.display = "block";
-            } else {
-                field.style.display = "none";
-            }
-        }
-    </script>
+    
     <script>
         window._bd_share_config = {
             "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "24" },
