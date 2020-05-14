@@ -48,9 +48,11 @@ def about():
 def discuss():
     """Renders the about page."""
     if request.method == 'POST':
+        name = request.form.get('name')
         word = request.form.get('word')
-        user_mod.post_word(word)
+        user_mod.post_word(name,word)
     dislist = datatype.DISCUSS.query.all()
+    dislist.sort(key=lambda x:x.date,reverse=True)
     return render_template(
         'discuss.html',
         title='Discuss',

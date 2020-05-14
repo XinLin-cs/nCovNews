@@ -32,22 +32,19 @@
 </style>
 
 <div class="row">
-    <div class="col-md-2">
-
-    </div>
-    <div class="col-md-10">
+    <div class="col-md-12">
         <div class="s2">
             
             <h3>发表你的看法：</h3>
             <form method="POST" action="{{ url_for('discuss') }}">
                 <table class="stable2 ">
                     <tr>
-                        <td ><h>用户名：</h></td>
-                        <td><textarea rows="1" cols="10" type="text" name="account" placeholder="用户名：" style="width: 600px; height: 35px"></textarea></td>
+                        <td ><h>昵称</h></td>
+                        <td><textarea rows="1" cols="10" type="text" name="name" placeholder="" style="width: 600px; height: 35px"></textarea></td>
                     </tr>
                     <tr>
                         <td><h>内容：</h></td>
-                        <td><textarea rows="3" cols="20" type="text" name="word" placeholder="你的看法： " style="width:600px;height:80px"></textarea></td>
+                        <td><textarea rows="3" cols="20" type="text" name="word" placeholder="" style="width:600px;height:80px"></textarea></td>
                     </tr>
 
                     <tr>
