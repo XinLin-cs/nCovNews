@@ -1,14 +1,62 @@
-﻿{% extends "layout.html" %}
+
+
+{% extends "layout.html" %}
 
 {% block content %}
+<head>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css" />
+</head>
+<style>
+    .s2 {
+        width: 60%;
+        height: 20%;
+        background-color: #f3f3f3;
+        position: fixed;
+        top: 7%;
+        opacity: 1;
+        z-index: 10;
+    }
 
-<div>
-    <form method="POST" action="{{ url_for('discuss') }}">
-        <input type="text" name="word" class="time-input" placeholder=" ">
-        <input type="submit" class="startButton" value="提交">
-    </form>
+    .like {
+        font-size: 30px;
+        color: #ccc;
+        cursor: pointer;
+    }
 
+    .cs {
+        color: #f00;
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-2">
+
+    </div>
+    <div class="col-md-10">
+        <div class="s2">
+            <h3>发表你的看法：</h3>
+            <form method="POST" action="{{ url_for('discuss') }}">
+                <textarea rows="3" cols="20" type="text" name="word" placeholder=" " style="width:50%;height:50px"></textarea>
+                <input type="submit" style="width:50px;height:50px" value="提交">
+            </form>
+        </div>
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
 </div>
+
+
+
 
 {% for item in dislist %}
 <div class="row">
@@ -20,10 +68,30 @@
     </div>
     <div class="col-md-10">
         <div class="jumbotron">
-            <h6> {{item.word}}</h6>
+            <h7> {{item.word}}</h7>
+            <div id="su1" style="display:none;">
+                <a onclick="imgck1()"><img src="../static/images/su1.png" /> </a>
+            </div>
+            <div id="su2" style="display:block;">
+                <a onclick="imgck2()"><img src="../static/images/su2.png" /></a>
+
+            </div>
         </div>
     </div>
+    <script>
+        function imgck2() {
+            su1.style.display = "block";
+            su2.style.display = "none";
+        }
+        function imgck1() {
+            su1.style.display = "none";
+            su2.style.display = "block";
+        }
+    </script>
 </div>
+
+
+
 {% endfor %}
 
 {% endblock %}
