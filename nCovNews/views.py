@@ -8,6 +8,8 @@ from datetime import date
 from datetime import timedelta
 from flask import render_template
 from flask import request
+from flask import redirect
+from flask import url_for
 from nCovNews import app
 from nCovNews import db
 from nCovNews import datatype
@@ -44,13 +46,9 @@ def about():
         message='Your application description page.'
     )
 
-@app.route('/discuss',methods=['GET','POST'])
+@app.route('/discuss')
 def discuss():
     """Renders the about page."""
-    if request.method == 'POST':
-        name = request.form.get('name')
-        word = request.form.get('word')
-        user_mod.post_word(name,word)
     dislist = datatype.DISCUSS.query.all()
     dislist.sort(key=lambda x:x.date,reverse=True)
     return render_template(
@@ -60,6 +58,14 @@ def discuss():
         message='Your application description page.',
         dislist = dislist,
     )
+
+@app.route('/postword',methods=['POST'])
+def postword():
+    """Renders the about page."""
+    name = request.form.get('name')
+    word = request.form.get('word')
+    user_mod.post_word(name,word)
+    return  redirect(url_for('discuss'))
 
 @app.route('/analyze')
 def analyze():
