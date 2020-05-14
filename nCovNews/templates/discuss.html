@@ -98,9 +98,15 @@
         function aa(img) {
             if (img.src == u1) {
                 img.src = u2;
+                var t = u1;
+                u1 = u2;
+                u2 = t;
             }
             else {
                 img.src = u1;
+                var t = u1;
+                u1 = u2;
+                u2 = t;
             }
         }
     </script>
