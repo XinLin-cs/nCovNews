@@ -89,23 +89,19 @@
     <div class="col-md-10">
         <div class="ss3 ">
             <h7> {{item.word}}</h7>
-            <div id="su1" style="display:none;">
-                <a onclick="imgck1()"><img src="../static/images/su1.png" /> </a>
-            </div>
-            <div id="su2" style="display:block;">
-                <a onclick="imgck2()"><img src="../static/images/su2.png" /></a>
-
-            </div>
+            <a><br /><img src='../static/images/su2.png' onclick='aa(this)'></a>
         </div>
     </div>
     <script>
-        function imgck2() {
-            su1.style.display = "block";
-            su2.style.display = "none";
-        }
-        function imgck1() {
-            su1.style.display = "none";
-            su2.style.display = "block";
+        var u1 = '../static/images/su1.png';
+        var u2 = '../static/images/su2.png';
+        function aa(img) {
+            if (img.src == u1) {
+                img.src = u2;
+            }
+            else {
+                img.src = u1;
+            }
         }
     </script>
 </div>
