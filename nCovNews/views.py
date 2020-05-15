@@ -132,6 +132,7 @@ def news():
 def getdata():
     # 中国数据查询
     chinatotal = datatype.CHINATOTAL.query.all()
+    chinatotal.sort(key=lambda x:x.date)
     datalist = []
     xseries = []
     for item in chinatotal:
