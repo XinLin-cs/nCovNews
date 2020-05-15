@@ -132,13 +132,30 @@ def news():
 def getdata():
     # 中国数据查询
     chinatotal = datatype.CHINATOTAL.query.all()
-    datalist = []
-    xseries = []
+    chinatotal.sort(key=lambda x:x.date)
+    timeseries = []
+    confirmedtotal = []
+    confirmedexist = []
+    suspected = []
+    cures = []
+    deaths = []
+    asymptomatic = []
     for item in chinatotal:
-        data=[str(item.date),item.confirmed]
-        datalist.append(data)
-        xseries.append(str(item.date))
-    return json.dumps({'data':datalist,'xseries':xseries})
+        timeseries.append(str(item.date))
+        confirmedtotal.append([str(item.date),item.confirmed])
+        confirmedexist.append([str(item.date),item.confirmed-item.cures])
+        cures.append([str(item.date),item.cures])
+        suspected.append([str(item.date),item.suspected])
+        deaths.append([str(item.date),item.deaths])
+        asymptomatic.append([str(item.date),item.asymptomatic])
+    return json.dumps({'timeseries':timeseries,
+                       'confirmedtotal':confirmedtotal,
+                       'confirmedexist':confirmedexist,
+                       'suspected':suspected,
+                       'cures':cures,
+                       'deaths':deaths,
+                       'asymptomatic':asymptomatic
+                       })
 
 
 

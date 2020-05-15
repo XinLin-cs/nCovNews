@@ -24,8 +24,8 @@
                 url: '/getdata',
                 success: function (data) {
                     var json_data = JSON.parse(data)
-                    console.info(json_data['data'])
-                    console.info(json_data['xseries'])
+                    console.info(json_data['confirmexist'])
+                    console.info(json_data['timeseries'])
                     // 指定图表的配置项和数据
                     var option = {
                         title: {
@@ -40,7 +40,7 @@
                         xAxis: {
                             type: 'category',
                             boundaryGap: false,
-                            data: json_data['xseries']
+                            data: json_data['timeseries']
                         },
                         yAxis: {
                             type: 'value'
@@ -49,7 +49,7 @@
                             {
                                 name: '现有确诊',
                                 type: 'line',
-                                data: json_data['data']
+                                data: json_data['confirmedexist']
                             }
                         ]
                     };
