@@ -16,15 +16,36 @@ from nCovNews import datatype
 from nCovNews import user_mod
 
 @app.route('/')
+
 @app.route('/home')
 def home():
-    """Renders the home page."""  
+    """Renders the home page."""
+    today = date.today()
+    # 中国数据查询
+    chinatotal = datatype.CHINATOTAL.query.filter_by(date = today).first()
+    if (chinatotal is None):
+        today = today + timedelta(days = -1)
+        chinatotal = datatype.CHINATOTAL.query.filter_by(date = today).first()
+        if (chinatotal is None):
+            today = today + timedelta(days = -1)
+            chinatotal = datatype.CHINATOTAL.query.filter_by(date = today).first()
+    # 世界数据查询
+    today = date.today()
+    worldtotal = datatype.WORLDTOTAL.query.filter_by(date = today).first()
+    if (worldtotal is None):
+        today = today + timedelta(days = -1)   
+        worldtotal = datatype.WORLDTOTAL.query.filter_by(date = today).first()
+    
     return render_template(
         'index.html',
-        title='主页',
-        year=datetime.now().year, 
-       message='Your home page.'
+        title='Home',
+        year=datetime.now().year,
+        chinatotal=chinatotal,
+        worldtotal=worldtotal,
+        message='Your home page.'
+       
     )
+
 
 @app.route('/contact')
 def contact():
@@ -80,31 +101,16 @@ def analyze():
 @app.route('/overview')
 def overview():
     """Renders the home page."""
-    today = date.today()
-    # 中国数据查询
-    chinatotal = datatype.CHINATOTAL.query.filter_by(date = today).first()
-    if (chinatotal is None):
-        today = today + timedelta(days = -1)
-        chinatotal = datatype.CHINATOTAL.query.filter_by(date = today).first()
-        if (chinatotal is None):
-            today = today + timedelta(days = -1)
-            chinatotal = datatype.CHINATOTAL.query.filter_by(date = today).first()
-    # 世界数据查询
-    today = date.today()
-    worldtotal = datatype.WORLDTOTAL.query.filter_by(date = today).first()
-    if (worldtotal is None):
-        today = today + timedelta(days = -1)   
-        worldtotal = datatype.WORLDTOTAL.query.filter_by(date = today).first()
     
     return render_template(
         'overview.html',
         title='Overview',
         year=datetime.now().year,
-        chinatotal=chinatotal,
-        worldtotal=worldtotal,
         message='Your overview page.'
        
     )
+
+
 
 @app.route('/news')
 def news():
@@ -143,19 +149,14 @@ def getdata():
         china['asymptomatic'].append([str(item.date),item.asymptomatic])
     # 地图数据
     province = datatype.PROVINCE.query.filter_by(date=date.today())
-    map = {'confirmedtotal':[],'confirmedexist':[],'cures':[],'deaths':[],'asymptomatic':[]}
+    map = {'confirmedtotal':{},'confirmedexist':{},'cures':{},'deaths':{},'asymptomatic':{}}
     for item in province:
-        map['confirmedtotal'].append({'name':item.name,'value':item.confirmed})
-        map['confirmedexist'].append({'name':item.name,'value':item.confirmed-item.cures})
-        map['cures'].append({'name':item.name,'value':item.cures})
-        map['deaths'].append({'name':item.name,'value':item.deaths})
-        map['asymptomatic'].append({'name':item.name,'value':item.asymptomatic})
+        map['confirmedtotal'][item.name]=item.confirmed
+        map['confirmedexist'][item.name]=item.confirmed-item.cures
+        map['deaths'][item.name]=item.deaths
+        map['asymptomatic'][item.name]=item.asymptomatic
     return json.dumps({'timeseries':timeseries,'china':china,'map':map},ensure_ascii=False)
 
-@app.route('/delete_all_discuss')
-def delete_all_discuss():
-    user_mod.delete_all()
-    return redirect(url_for('about'))
 
 
 #没用的
