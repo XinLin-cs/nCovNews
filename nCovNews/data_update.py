@@ -4,6 +4,7 @@ import json
 import requests
 import pandas as pd
 import numpy as np
+import _thread
 
 from nCovNews import db
 from nCovNews import datatype
@@ -205,21 +206,20 @@ from apscheduler.schedulers.background import BackgroundScheduler
 def update_all():
     try:
         starttime = datetime.datetime.today()
-        print(' * updating start!')
+        print('[Updatedata] updating start!')
         # 测试代码=====
         db.drop_all()
         db.create_all()
         #==============
-        print(' * start at %s' % ( starttime.isoformat(sep=' ') ) )
-        print('|>--------------------|0%',end='\r',flush = True)
+        print('[Updatedata] start at %s' % ( starttime.isoformat(sep=' ') ) )
         getdata_api()
-        print('|==============>------|70%',end='\r',flush = True)
+        print('[Updatedata] updating for 70%')
         get_news(1,10)
-        print('|================>----|80%',end='\r',flush = True)
+        print('[Updatedata] updating for 80%')
         get_information(1,10)
-        print('|==================>--|90%',end='\r',flush = True)
+        print('[Updatedata] updating for 90%')
         get_fakenews(1,10)
-        print('|====================>|100%')
+        print('[Updatedata] updating for 100%')
     except BaseException as err:
         print(err)
     except:
@@ -227,11 +227,11 @@ def update_all():
     else:
         pass
     finishtime = datetime.datetime.today()
-    print(' * last for %d seconds' %  ( finishtime - starttime ).seconds )
-    print(' * updating finished! ')
+    print('[Updatedata] last for %d seconds' %  ( finishtime - starttime ).seconds )
+    print('[Updatedata] updating finished! ')
 
 def auto_update(time):
-    update_all()
+    _thread.start_new_thread(update_all)
     # 创建后台执行的 schedulers
     scheduler = BackgroundScheduler()  
     # 添加调度任务
