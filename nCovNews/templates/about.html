@@ -1,17 +1,19 @@
 {% extends "layout.html" %}
 
 {% block content %}
-
-    <html>
-    <head>
-        <title>	my first html</title>
-    </head>
-    <body>
-        <h1>
-            by three funs of JC dalao
-        </h1>
-        <br />
-    </body>
-    </html>
-
+<html>
+<head>
+    <title>	my first html</title>
+</head>
+<body>
+    <h1>
+        by three funs of JC dalao
+    </h1>
+</body>
+</html>
+<div class="jumbotron">
+    <p><a class="btn btn-default" href="{{ url_for('about') }}">[root] 清空讨论区</a></p>
+    <p><a class="btn btn-default" href="{{ url_for('about') }}">[root] 重启数据库</a></p>
+    <p><a class="btn btn-default" href="{{ url_for('about') }}">[root] 同步历史数据</a></p>
+</div>
 {% endblock %}

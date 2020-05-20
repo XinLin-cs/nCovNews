@@ -145,12 +145,13 @@ def getdata():
         china['asymptomatic'].append([str(item.date),item.asymptomatic])
     # 地图数据
     province = datatype.PROVINCE.query.filter_by(date=date.today())
-    map = {'confirmedtotal':{},'confirmedexist':{},'cures':{},'deaths':{},'asymptomatic':{}}
+    map = {'confirmedtotal':[],'confirmedexist':[],'cures':[],'deaths':[],'asymptomatic':[]}
     for item in province:
-        map['confirmedtotal'][item.name]=item.confirmed
-        map['confirmedexist'][item.name]=item.confirmed-item.cures
-        map['deaths'][item.name]=item.deaths
-        map['asymptomatic'][item.name]=item.asymptomatic
+        map['confirmedtotal'].append({'name':item.name,'value':item.confirmed})
+        map['confirmedexist'].append({'name':item.name,'value':item.confirmed-item.cures})
+        map['cures'].append({'name':item.name,'value':item.cures})
+        map['deaths'].append({'name':item.name,'value':item.deaths})
+        map['asymptomatic'].append({'name':item.name,'value':item.asymptomatic})
     return json.dumps({'timeseries':timeseries,'china':china,'map':map},ensure_ascii=False)
 
 
