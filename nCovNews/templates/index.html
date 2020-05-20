@@ -1,6 +1,82 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<style>
+    div.ex1 {
+        height: 200px;
+        width: 100%;
+        border: 1px solid gray;
+        margin: 0px;
+        border-radius: 20px;
+        background-color: #1c7fe2;
+        text-align: center;
+        line-height: 200px;
+    }
+
+    div.ex2 {
+        height: 150px;
+        width: 100%;
+        border: 1px solid gray;
+        margin: 0px;
+        border-radius: 20px;
+        background-color: #c96cf5;
+        text-align: center;
+        line-height: 150px;
+    }
+
+    div.ex3 {
+        height: 150px;
+        width: 100%;
+        border: 1px solid gray;
+        margin: 0px;
+        border-radius: 20px;
+        background-color: #b6ff00;
+        text-align: center;
+        line-height: 150px;
+    }
+
+    div.ex4 {
+        height: 150px;
+        width: 100%;
+        border: 1px solid gray;
+        margin: 0px;
+        border-radius: 20px;
+        background-color: #e69962;
+        text-align: center;
+        line-height: 150px;
+    }
+
+    div.ex5 {
+        height: 150px;
+        width: 100%;
+        border: 1px solid gray;
+        margin: 0px;
+        border-radius: 20px;
+        background-color: #f9e681;
+        text-align: center;
+        line-height: 150px;
+    }
+
+
+
+    .hide {
+        display: none;
+    }
+
+    .sucenter {
+        position: absolute;
+        top: 99%;
+        left: 60%;
+        z-index: 999
+    }
+
+    .hs {
+        font-size: 20px;
+        font-family: Arial,Helvetica,sans-serif;
+        font-weight: 400;
+        color: #000000
+    }
+</style>
 
 <div class="jumbotron">
 
@@ -8,225 +84,253 @@
     <p class="lead">
         2020年是不平凡的一年，新型冠状病毒肺炎疫情在全国甚至全世界蔓延。<br>
         但我们相信在不久得将来疫情将会被有效控制然后被消灭。<br>
-        本赛题要求开发一个疫情监控系统，能够实时获得全国疫情数据。
     </p>
 </div>
+<style>
+    table {
+        width: 1000px;
+        height: 100px;
+        border-collapse: collapse;
+    }
+    /* 去除第一行所有td的上边框 */
+    tr:first-child td, tr:first-child th {
+        border-top: 0px;
+    }
+    /* 去除最后一行所有td的上边框 */
+    tr:last-child td {
+        border-bottom: 0px;
+    }
+    /* 去除每一行里第一个td的左边框 */
+    td:first-child {
+        border-left: 0;
+    }
+    /* 去除每一行里最后一个td的右边框 */
+    td:last-child {
+        border-right: 0;
+    }
+
+    h1 {
+        font-size: 30px;
+        font-family: Arial,Helvetica,sans-serif;
+        font-weight: 200;
+    }
+
+    h2 {
+        font-size: 20px;
+        font-family: Arial,Helvetica,sans-serif;
+        font-weight: 100;
+    }
+</style>
+
+<div class="jumbotron">
+    <h1>今日疫情概览</h1>
+    <table>
+        <tr>
+            <td valign="top">
+                <h2>中国实时疫情</h2>
+                <p>
+                    确诊：{{chinatotal.confirmed}}<br>
+                    疑似：{{chinatotal.suspected}}<br>
+                    治愈：{{chinatotal.cures}}<br>
+                    死亡：{{chinatotal.deaths}}<br>
+                    无症状感染：{{chinatotal.asymptomatic}}<br>
+                    数据截止日期：{{chinatotal.date}}
+                </p>
+            </td>
+            <td valign="top">
+                <h2>海外实时疫情</h2>
+                <p>
+                    确诊：{{worldtotal.confirmed}}<br>
+                    治愈：{{worldtotal.cures}}<br>
+                    死亡：{{worldtotal.deaths}}<br>
+                    数据截止日期：{{worldtotal.date}}<br>
+                </p>
+            </td>
+        </tr>
+    </table>
+</div>
 <div class="row ">
-    <div class="col-md-6">
-        <h2>实时疫情数据概览</h2>
-        <p>
-            a. 能够实现数据的动态刷新，可展示全国疫情数据概览<br>
-            b. 能够展示实时疫情地图
-        </p>
+    <div class="col-md-6 ">
 
-        <p><a class="btn btn-default" href="{{ url_for('overview') }}">查看 &raquo;</a></p>
+        <div class="ex1 ">
+            <a href="{{ url_for('analyze') }}"><h class=" hs">疫情趋势分析</h></a>
+        </div><br />
+
+        <div class="row">
+            <div class="col-md-5 ">
+                <div class="ex2 ">
+                    <a href="{{ url_for('test') }}"><h class=" hs">疫情知识</h></a>
+
+                </div>
+            </div>
+            <div class="col-md-7 ">
+                <div class="ex3 ">
+                    <a href="{{ url_for('news') }}"><h class=" hs">疫情新闻</h></a>
+                </div>
+            </div>
+
+        </div><br />
+
     </div>
-    <div class="col-md-6">
-        <h2>疫情知识</h2>
-        <p>
-            2020年，新型冠状病毒肺炎疫情在全国甚至全世界蔓延。对新型冠状病毒肺炎了解不够？点击了解更多疫情相关知识<br>
-            a.新冠肺炎简介<br>
-            b. 新冠肺炎症状<br>
-            c. 新冠肺炎病因<br>
-            等等
-        </p>
-        <p><a class="btn btn-default" href="{{ url_for('test') }}">查看&raquo;</a></p>
-    </div>
+    <div class="col-md-6 ">
 
-   
-</div>
+        <div class="ex4 ">
+            <a href="{{ url_for('overview') }}"><h class=" hs"> 疫情地图</h></a>
 
-<div class="row">
+        </div><br />
+        <div class="ex5 ">
+            <a href="{{ url_for('discuss') }}"><h class=" hs"> 讨论区</h></a>
+        </div><br />
+        <span style="float:left">    觉得不错，分享给朋友：</span>
+        <div>
+            <em class="forumShare">
+                <em class="bdsharebuttonbox">
 
-
-
-
-    <div class="col-md-6">
-        <h2>疫情趋势分析</h2>
-        <p>
-            a. 清晰明确的新增确诊/疑似趋势图<br>
-            b. 清晰明确的累计确诊/疑似趋势图<br>
-            c. 清晰明确的累计死亡/治愈趋势图<br>
-            d. 其他分析图表
-        </p>
-        <p><a class="btn btn-default" href="{{ url_for('analyze') }}">查看 &raquo;</a></p>
-    </div>
-
-    <div class="col-md-6">
-        <h2>讨论区</h2>
-        <p>
-            一起来讨论
-        </p>
-        <p><a class="btn btn-default" href="{{ url_for('discuss') }}">查看 &raquo;</a></p>
-    </div>
-
-
-</div>
-
-
-<div class="xl_2">
-    <style>
-        .hide {
-            display: none;
-        }
-        .sucenter {
-            position: absolute;
-            top: 99%;
-            left: 60%;
-            z-index: 999
-        }
-    </style>
-    <br />
-    <br />
-    <br />
-    
-    <span style="float:left">觉得不错，分享给朋友：</span>
-    <div>
-        <em class="forumShare">
-            <em class="bdsharebuttonbox">
-
-                <a class="bds_tsina" onclick="shareToSinaWB(event)"></a>
-                <a class="bds_qzone" onclick="shareToQzone(event)"></a>
-                <a class="bds_tieba" onclick="shareToTieba(event)"></a>
-                <a class="bds_douban" onclick="shareToDouban(event)"></a>
-                <a class="bds_tqq" onclick="shareToQQwb(event)"></a>
-                <a class="bds_renren" onclick="shareToRenren(event)"></a>
-                <a class="bds_weixin" onclick="shareToWeixin()"></a>
+                    <a class="bds_tsina" onclick="shareToSinaWB(event)"></a>
+                    <a class="bds_qzone" onclick="shareToQzone(event)"></a>
+                    <a class="bds_tieba" onclick="shareToTieba(event)"></a>
+                    <a class="bds_douban" onclick="shareToDouban(event)"></a>
+                    <a class="bds_tqq" onclick="shareToQQwb(event)"></a>
+                    <a class="bds_renren" onclick="shareToRenren(event)"></a>
+                    <a class="bds_weixin" onclick="shareToWeixin()"></a>
+                </em>
             </em>
-        </em>
+        </div>
     </div>
-    <div id="field" style="display:none;" class="sucenter ">
-         <img src="http://cli.clewm.net/qrcode/2015/01/21/2031452178.png"  onclick="shareToWeixin()"/>
-        <br /><span onClick="shareToWeixin()">点击收起</span>
-    </div>
-    
-    <script>
-        window._bd_share_config = {
-            "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "24" },
-            "share": {}
-        };
-        with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
-
-        var _title, _source, _sourceUrl, _pic, _showcount, _desc = "desc", _summary = "summary", _site,
-            _width = 600,
-            _height = 600,
-            _top = (screen.height - _height) / 2,
-            _left = (screen.width - _width) / 2,
-            _url = 'http://www.baidu.com',
-            _pic = '';
-
-
-        function shareToWeixin() {
-            if (field.style.display == "block") {
-                field.style.display = "none";
-            } else {
-                field.style.display = "block";
-            }
-        }
-        //分享到新浪微博
-        function shareToSinaWB(event) {
-            event.preventDefault();
-            var _shareUrl = 'http://v.t.sina.com.cn/share/share.php?&appkey=895033136';     //真实的appkey，必选参数
-            _shareUrl += '&url=' + encodeURIComponent(_url || document.location);     //参数url设置分享的内容链接|默认当前页location，可选参数
-            _shareUrl += '&title=' + encodeURIComponent(_title || document.title);    //参数title设置分享的标题|默认当前页标题，可选参数
-            _shareUrl += '&source=' + encodeURIComponent(_source || '');
-            _shareUrl += '&sourceUrl=' + encodeURIComponent(_sourceUrl || '');
-            _shareUrl += '&content=' + 'utf-8';   //参数content设置页面编码gb2312|utf-8，可选参数
-            _shareUrl += '&pic=' + encodeURIComponent(_pic || '');  //参数pic设置图片链接|默认为空，可选参数
-            window.open(_shareUrl, '_blank', 'width=' + _width + ',height=' + _height + ',top=' + _top + ',left=' + _left + ',toolbar=no,menubar=no,scrollbars=no, resizable=1,location=no,status=0');
-        }
-        //分享到QQ空间
-        function shareToQzone(event) {
-            event.preventDefault();
-            var _shareUrl = 'http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?';
-            _shareUrl += 'url=' + encodeURIComponent(_url || document.location);   //参数url设置分享的内容链接|默认当前页location
-            _shareUrl += '&showcount=' + _showcount || 0;      //参数showcount是否显示分享总数,显示：'1'，不显示：'0'，默认不显示
-            _shareUrl += '&desc=' + encodeURIComponent(_desc || '分享的描述');    //参数desc设置分享的描述，可选参数
-            _shareUrl += '&summary=' + encodeURIComponent(_summary || '分享摘要');    //参数summary设置分享摘要，可选参数
-            _shareUrl += '&title=' + encodeURIComponent(_title || document.title);    //参数title设置分享标题，可选参数
-            _shareUrl += '&site=' + encodeURIComponent(_site || '');   //参数site设置分享来源，可选参数
-            _shareUrl += '&pics=' + encodeURIComponent(_pic || '');   //参数pics设置分享图片的路径，多张图片以＂|＂隔开，可选参数
-            window.open(_shareUrl, '_blank', 'width=' + _width + ',height=' + _height + ',top=' + _top + ',left=' + _left + ',toolbar=no,menubar=no,scrollbars=no,resizable=1,location=no,status=0');
-        }
-        //分享到百度贴吧
-        function shareToTieba(event) {
-            event.preventDefault();
-            var _shareUrl = 'http://tieba.baidu.com/f/commit/share/openShareApi?';
-            _shareUrl += 'title=' + encodeURIComponent(_title || document.title);  //分享的标题
-            _shareUrl += '&url=' + encodeURIComponent(_url || document.location);  //分享的链接
-            _shareUrl += '&pic=' + encodeURIComponent(_pic || '');    //分享的图片
-            window.open(_shareUrl, '_blank', 'width=' + _width + ',height=' + _height + ',left=' + _left + ',top=' + _top + ',toolbar=no,menubar=no,scrollbars=no,resizable=1,location=no,status=0');
-        }
-        //分享到豆瓣
-        function shareToDouban(event) {
-            event.preventDefault();
-            var _shareUrl = 'http://shuo.douban.com/!service/share?';
-            _shareUrl += 'href=' + encodeURIComponent(_url || location.href);    //分享的链接
-            _shareUrl += '&name=' + encodeURIComponent(_title || document.title);    //分享的标题
-            _shareUrl += '&image=' + encodeURIComponent(_pic || '');    //分享的图片
-            window.open(_shareUrl, '_blank', 'width=' + _width + ',height=' + _height + ',left=' + _left + ',top=' + _top + ',toolbar=no,menubar=no,scrollbars=no,resizable=1,location=no,status=0');
-        }
-        //分享到腾讯微博
-        function shareToQQwb(event) {
-            event.preventDefault();
-            var _shareUrl = 'http://v.t.qq.com/share/share.php?';
-            _shareUrl += 'title=' + encodeURIComponent(_title || document.title);    //分享的标题
-            _shareUrl += '&url=' + encodeURIComponent(_url || location.href);    //分享的链接
-            _shareUrl += '&appkey=5bd32d6f1dff4725ba40338b233ff155';    //在腾迅微博平台创建应用获取微博AppKey
-            _shareUrl += '&site=' + encodeURIComponent(_site || '');   //分享来源
-            _shareUrl += '&pic=' + encodeURIComponent(_pic || '');    //分享的图片，如果是多张图片，则定义var _pic='图片url1|图片url2|图片url3....'
-            window.open(_shareUrl, '_blank', 'width=' + _width + ',height=' + _height + ',left=' + _left + ',top=' + _top + ',toolbar=no,menubar=no,scrollbars=no,resizable=1,location=no,status=0');
-        }
-        //分享到人人网
-        function shareToRenren(event) {
-            event.preventDefault();
-            var _shareUrl = 'http://share.rr.com/share/buttonshare.do?';     //这里的rr是renren，博客园好像和renren有仇
-            _shareUrl += 'link=' + encodeURIComponent(_url || location.href);   //分享的链接
-            _shareUrl += '&title=' + encodeURIComponent(_title || document.title);     //分享的标题
-            window.open(_shareUrl, '_blank', 'width=' + _width + ',height=' + _height + ',left=' + _left + ',top=' + _top + ',toolbar=no,menubar=no,scrollbars=no,resizable=1,location=no,status=0');
-        }
-        //分享到开心网
-        function shareToKaixin(event) {
-            event.preventDefault();
-            var _shareUrl = 'http://www.kaixin001.com/rest/records.php?';
-            _shareUrl += 'url=' + encodeURIComponent(_url || location.href);    //分享的链接
-            _shareUrl += '&content=' + encodeURIComponent('分享的文字');    //需要分享的文字，当文字为空时，自动抓取分享网址的title
-            _shareUrl += '&pic=' + encodeURIComponent(_pic || '');     //分享的图片,多个使用半角逗号分隔
-            _shareUrl += '&showcount=0';    //是否显示分享数，显示：'1'，不显示：'0'
-            _shareUrl += '&style=11';      //显示的样式，必选参数
-            _shareUrl += '&aid=' + encodeURIComponent(_site || '');    //显示分享来源
-            window.open(_shareUrl, '_blank', 'width=' + _width + ',height=' + _height + ',left=' + _left + ',top=' + _top + ',toolbar=no,menubar=no,scrollbars=no,resizable=1,location=no,status=0');
-        }
-        function shareToKaixin2(event) {
-            event.preventDefault();
-            var _shareUrl = 'http://www.kaixin001.com/repaste/share.php?';
-            _shareUrl += 'rtitle=' + encodeURIComponent(_title || document.title);   //分享的标题
-            window.open(_shareUrl, '_blank', 'width=' + _width + ',height=' + _height + ',left=' + _left + ',top=' + _top + ',toolbar=no,menubar=no,scrollbars=no,resizable=1,location=no,status=0');
-        }
-        //分享到facebook
-        function shareToFacebook(event) {
-            event.preventDefault();
-            var _shareUrl = 'http://www.facebook.com/sharer/sharer.php?';
-            _shareUrl += 'u=' + encodeURIComponent(_url || location.href);    //分享的链接
-            _shareUrl += '&t=' + encodeURIComponent(_title || document.title);    //分享的标题
-            window.open(_shareUrl, '_blank', 'width=' + _width + ',height=' + _height + ',left=' + _left + ',top=' + _top + ',toolbar=no,menubar=no,scrollbars=no,resizable=1,location=no,status=0');
-        }
-        //分享到facebook
-        function shareToFacebook(event) {
-            event.preventDefault();
-            var _shareUrl = 'http://www.facebook.com/sharer/sharer.php?';
-            _shareUrl += 'u=' + encodeURIComponent(_url || location.href);    //分享的链接
-            _shareUrl += '&t=' + encodeURIComponent(_title || document.title);    //分享的标题
-            window.open(_shareUrl, '_blank', 'width=' + _width + ',height=' + _height + ',left=' + _left + ',top=' + _top + ',toolbar=no,menubar=no,scrollbars=no,resizable=1,location=no,status=0');
-        }
-        //分享到Twitter
-        function shareToTwitter(event) {
-            event.preventDefault();
-            var _shareUrl = 'http://twitter.com/intent/tweet?';
-            _shareUrl += 'url=' + encodeURIComponent(_url || location.href);    //分享的链接
-            _shareUrl += '&text=' + encodeURIComponent(_title || document.title);    //分享的标题
-            window.open(_shareUrl, '_blank', 'width=' + _width + ',height=' + _height + ',left=' + _left + ',top=' + _top + ',toolbar=no,menubar=no,scrollbars=no,resizable=1,location=no,status=0');
-        }
-    </script>
 </div>
- {% endblock %}
+
+
+<div id="field" style="display:none;" class="sucenter ">
+    <img src="http://cli.clewm.net/qrcode/2015/01/21/2031452178.png" onclick="shareToWeixin()" />
+    <br /><span onClick="shareToWeixin()">点击收起</span>
+</div>
+
+<script>
+    window._bd_share_config = {
+        "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "24" },
+        "share": {}
+    };
+    with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+
+    var _title, _source, _sourceUrl, _pic, _showcount, _desc = "desc", _summary = "summary", _site,
+        _width = 600,
+        _height = 600,
+        _top = (screen.height - _height) / 2,
+        _left = (screen.width - _width) / 2,
+        _url = 'http://www.baidu.com',
+        _pic = '';
+
+
+    function shareToWeixin() {
+        if (field.style.display == "block") {
+            field.style.display = "none";
+        } else {
+            field.style.display = "block";
+        }
+    }
+    //分享到新浪微博
+    function shareToSinaWB(event) {
+        event.preventDefault();
+        var _shareUrl = 'http://v.t.sina.com.cn/share/share.php?&appkey=895033136';     //真实的appkey，必选参数
+        _shareUrl += '&url=' + encodeURIComponent(_url || document.location);     //参数url设置分享的内容链接|默认当前页location，可选参数
+        _shareUrl += '&title=' + encodeURIComponent(_title || document.title);    //参数title设置分享的标题|默认当前页标题，可选参数
+        _shareUrl += '&source=' + encodeURIComponent(_source || '');
+        _shareUrl += '&sourceUrl=' + encodeURIComponent(_sourceUrl || '');
+        _shareUrl += '&content=' + 'utf-8';   //参数content设置页面编码gb2312|utf-8，可选参数
+        _shareUrl += '&pic=' + encodeURIComponent(_pic || '');  //参数pic设置图片链接|默认为空，可选参数
+        window.open(_shareUrl, '_blank', 'width=' + _width + ',height=' + _height + ',top=' + _top + ',left=' + _left + ',toolbar=no,menubar=no,scrollbars=no, resizable=1,location=no,status=0');
+    }
+    //分享到QQ空间
+    function shareToQzone(event) {
+        event.preventDefault();
+        var _shareUrl = 'http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?';
+        _shareUrl += 'url=' + encodeURIComponent(_url || document.location);   //参数url设置分享的内容链接|默认当前页location
+        _shareUrl += '&showcount=' + _showcount || 0;      //参数showcount是否显示分享总数,显示：'1'，不显示：'0'，默认不显示
+        _shareUrl += '&desc=' + encodeURIComponent(_desc || '分享的描述');    //参数desc设置分享的描述，可选参数
+        _shareUrl += '&summary=' + encodeURIComponent(_summary || '分享摘要');    //参数summary设置分享摘要，可选参数
+        _shareUrl += '&title=' + encodeURIComponent(_title || document.title);    //参数title设置分享标题，可选参数
+        _shareUrl += '&site=' + encodeURIComponent(_site || '');   //参数site设置分享来源，可选参数
+        _shareUrl += '&pics=' + encodeURIComponent(_pic || '');   //参数pics设置分享图片的路径，多张图片以＂|＂隔开，可选参数
+        window.open(_shareUrl, '_blank', 'width=' + _width + ',height=' + _height + ',top=' + _top + ',left=' + _left + ',toolbar=no,menubar=no,scrollbars=no,resizable=1,location=no,status=0');
+    }
+    //分享到百度贴吧
+    function shareToTieba(event) {
+        event.preventDefault();
+        var _shareUrl = 'http://tieba.baidu.com/f/commit/share/openShareApi?';
+        _shareUrl += 'title=' + encodeURIComponent(_title || document.title);  //分享的标题
+        _shareUrl += '&url=' + encodeURIComponent(_url || document.location);  //分享的链接
+        _shareUrl += '&pic=' + encodeURIComponent(_pic || '');    //分享的图片
+        window.open(_shareUrl, '_blank', 'width=' + _width + ',height=' + _height + ',left=' + _left + ',top=' + _top + ',toolbar=no,menubar=no,scrollbars=no,resizable=1,location=no,status=0');
+    }
+    //分享到豆瓣
+    function shareToDouban(event) {
+        event.preventDefault();
+        var _shareUrl = 'http://shuo.douban.com/!service/share?';
+        _shareUrl += 'href=' + encodeURIComponent(_url || location.href);    //分享的链接
+        _shareUrl += '&name=' + encodeURIComponent(_title || document.title);    //分享的标题
+        _shareUrl += '&image=' + encodeURIComponent(_pic || '');    //分享的图片
+        window.open(_shareUrl, '_blank', 'width=' + _width + ',height=' + _height + ',left=' + _left + ',top=' + _top + ',toolbar=no,menubar=no,scrollbars=no,resizable=1,location=no,status=0');
+    }
+    //分享到腾讯微博
+    function shareToQQwb(event) {
+        event.preventDefault();
+        var _shareUrl = 'http://v.t.qq.com/share/share.php?';
+        _shareUrl += 'title=' + encodeURIComponent(_title || document.title);    //分享的标题
+        _shareUrl += '&url=' + encodeURIComponent(_url || location.href);    //分享的链接
+        _shareUrl += '&appkey=5bd32d6f1dff4725ba40338b233ff155';    //在腾迅微博平台创建应用获取微博AppKey
+        _shareUrl += '&site=' + encodeURIComponent(_site || '');   //分享来源
+        _shareUrl += '&pic=' + encodeURIComponent(_pic || '');    //分享的图片，如果是多张图片，则定义var _pic='图片url1|图片url2|图片url3....'
+        window.open(_shareUrl, '_blank', 'width=' + _width + ',height=' + _height + ',left=' + _left + ',top=' + _top + ',toolbar=no,menubar=no,scrollbars=no,resizable=1,location=no,status=0');
+    }
+    //分享到人人网
+    function shareToRenren(event) {
+        event.preventDefault();
+        var _shareUrl = 'http://share.rr.com/share/buttonshare.do?';     //这里的rr是renren，博客园好像和renren有仇
+        _shareUrl += 'link=' + encodeURIComponent(_url || location.href);   //分享的链接
+        _shareUrl += '&title=' + encodeURIComponent(_title || document.title);     //分享的标题
+        window.open(_shareUrl, '_blank', 'width=' + _width + ',height=' + _height + ',left=' + _left + ',top=' + _top + ',toolbar=no,menubar=no,scrollbars=no,resizable=1,location=no,status=0');
+    }
+    //分享到开心网
+    function shareToKaixin(event) {
+        event.preventDefault();
+        var _shareUrl = 'http://www.kaixin001.com/rest/records.php?';
+        _shareUrl += 'url=' + encodeURIComponent(_url || location.href);    //分享的链接
+        _shareUrl += '&content=' + encodeURIComponent('分享的文字');    //需要分享的文字，当文字为空时，自动抓取分享网址的title
+        _shareUrl += '&pic=' + encodeURIComponent(_pic || '');     //分享的图片,多个使用半角逗号分隔
+        _shareUrl += '&showcount=0';    //是否显示分享数，显示：'1'，不显示：'0'
+        _shareUrl += '&style=11';      //显示的样式，必选参数
+        _shareUrl += '&aid=' + encodeURIComponent(_site || '');    //显示分享来源
+        window.open(_shareUrl, '_blank', 'width=' + _width + ',height=' + _height + ',left=' + _left + ',top=' + _top + ',toolbar=no,menubar=no,scrollbars=no,resizable=1,location=no,status=0');
+    }
+    function shareToKaixin2(event) {
+        event.preventDefault();
+        var _shareUrl = 'http://www.kaixin001.com/repaste/share.php?';
+        _shareUrl += 'rtitle=' + encodeURIComponent(_title || document.title);   //分享的标题
+        window.open(_shareUrl, '_blank', 'width=' + _width + ',height=' + _height + ',left=' + _left + ',top=' + _top + ',toolbar=no,menubar=no,scrollbars=no,resizable=1,location=no,status=0');
+    }
+    //分享到facebook
+    function shareToFacebook(event) {
+        event.preventDefault();
+        var _shareUrl = 'http://www.facebook.com/sharer/sharer.php?';
+        _shareUrl += 'u=' + encodeURIComponent(_url || location.href);    //分享的链接
+        _shareUrl += '&t=' + encodeURIComponent(_title || document.title);    //分享的标题
+        window.open(_shareUrl, '_blank', 'width=' + _width + ',height=' + _height + ',left=' + _left + ',top=' + _top + ',toolbar=no,menubar=no,scrollbars=no,resizable=1,location=no,status=0');
+    }
+    //分享到facebook
+    function shareToFacebook(event) {
+        event.preventDefault();
+        var _shareUrl = 'http://www.facebook.com/sharer/sharer.php?';
+        _shareUrl += 'u=' + encodeURIComponent(_url || location.href);    //分享的链接
+        _shareUrl += '&t=' + encodeURIComponent(_title || document.title);    //分享的标题
+        window.open(_shareUrl, '_blank', 'width=' + _width + ',height=' + _height + ',left=' + _left + ',top=' + _top + ',toolbar=no,menubar=no,scrollbars=no,resizable=1,location=no,status=0');
+    }
+    //分享到Twitter
+    function shareToTwitter(event) {
+        event.preventDefault();
+        var _shareUrl = 'http://twitter.com/intent/tweet?';
+        _shareUrl += 'url=' + encodeURIComponent(_url || location.href);    //分享的链接
+        _shareUrl += '&text=' + encodeURIComponent(_title || document.title);    //分享的标题
+        window.open(_shareUrl, '_blank', 'width=' + _width + ',height=' + _height + ',left=' + _left + ',top=' + _top + ',toolbar=no,menubar=no,scrollbars=no,resizable=1,location=no,status=0');
+    }
+</script>
+    {% endblock %}
