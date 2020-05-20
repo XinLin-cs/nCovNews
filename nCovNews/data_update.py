@@ -43,8 +43,16 @@ def getdata_api():
         cures = data['curesNum']
         deaths = data['deathsNum']
         asymptomatic = data['asymptomaticNum']
-        province = datatype.PROVINCE(date=date,name=name,confirmed=confirmed,cures=cures,deaths=deaths,asymptomatic=asymptomatic)
-        session.add(province)
+        # 与数据库合并
+        province = datatype.PROVINCE.query.filter_by(date=date,name=name).first()
+        if province is None:
+            province = datatype.PROVINCE(date=date,name=name,confirmed=confirmed,cures=cures,deaths=deaths,asymptomatic=asymptomatic)
+            session.add(province)
+        else:
+            province.confirmed = confirmed
+            province.cures = cures
+            province.deaths = deaths
+            province.asymptomatic = asymptomatic
 
     # 中国总数据
     nationwide = nation['nationwide']
@@ -59,8 +67,16 @@ def getdata_api():
         cures = data['curesNum']
         deaths = data['deathsNum']
         asymptomatic = data['asymptomaticNum']
-        chinatotal = datatype.CHINATOTAL(date=date,confirmed=confirmed,suspected=suspected,cures=cures,deaths=deaths,asymptomatic=asymptomatic)
-        session.add(chinatotal)
+        # 与数据库合并
+        chinatotal = datatype.CHINATOTAL.query.filter_by(date=date).first()
+        if chinatotal is None:
+            chinatotal = datatype.CHINATOTAL(date=date,confirmed=confirmed,suspected=suspected,cures=cures,deaths=deaths,asymptomatic=asymptomatic)
+            session.add(chinatotal)
+        else:
+            chinatotal.confirmed = confirmed
+            chinatotal.cures = cures
+            chinatotal.deaths = deaths
+            chinatotal.asymptomatic = asymptomatic
 
     # 海外数据
     overseas = html['overseas_data']
@@ -85,8 +101,15 @@ def getdata_api():
         confirmed = countryTotal['confirmedTotal']
         cures = countryTotal['curesTotal']
         deaths = countryTotal['deathsTotal']
-        country = datatype.COUNTRY(date=date,name=name,continent=continent,confirmed=confirmed,cures=cures,deaths=deaths)
-        session.add(country)
+        # 与数据库合并
+        country = datatype.COUNTRY.query.filter_by(date=date,name=name).first()
+        if country is None:
+            country = datatype.COUNTRY(date=date,name=name,continent=continent,confirmed=confirmed,cures=cures,deaths=deaths)
+            session.add(country)
+        else:
+            country.confirmed = confirmed
+            country.cures = cures
+            country.deaths = deaths
        
     # 世界总数据
     total = overseas['total']
@@ -95,8 +118,15 @@ def getdata_api():
     confirmed = total['confirmedTotal']
     cures = total['curesTotal']
     deaths= total['deathsTotal']
-    world = datatype.WORLDTOTAL(date=date,confirmed=confirmed,cures=cures,deaths=deaths)
-    session.add(world)
+    # 与数据库合并
+    world = datatype.WORLDTOTAL.query.filter_by(date=date).first()
+    if world is None:
+        world = datatype.WORLDTOTAL(date=date,confirmed=confirmed,cures=cures,deaths=deaths)
+        session.add(world)
+    else:
+        world.confirmed = confirmed
+        world.cures = cures
+        world.deaths = deaths
 
     session.commit() # 修改数据库
 
@@ -208,8 +238,8 @@ def update_all():
         starttime = datetime.datetime.today()
         print('[Updatedata] updating start!')
         # 测试代码=====
-        db.drop_all()
-        db.create_all()
+        # db.drop_all()
+        # db.create_all() 
         #==============
         print('[Updatedata] start at %s' % ( starttime.isoformat(sep=' ') ) )
         getdata_api()

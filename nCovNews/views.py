@@ -106,8 +106,6 @@ def overview():
        
     )
 
-
-
 @app.route('/news')
 def news():
     """Renders the about page."""
@@ -154,6 +152,10 @@ def getdata():
         map['asymptomatic'].append({'name':item.name,'value':item.asymptomatic})
     return json.dumps({'timeseries':timeseries,'china':china,'map':map},ensure_ascii=False)
 
+@app.route('/delete_all_discuss')
+def delete_all_discuss():
+    user_mod.delete_all()
+    return redirect(url_for('about'))
 
 
 #没用的

@@ -8,4 +8,9 @@ def post_word(name,word):
     session.add(discuss)
     session.commit() # 修改数据库
 
+def delete_all():
+    session = db.session
+    session.query(datatype.DISCUSS).delete()
+    session.commit()
+
 
