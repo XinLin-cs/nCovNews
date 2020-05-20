@@ -130,32 +130,28 @@ def news():
 # 数据接口
 @app.route('/getdata')
 def getdata():
-    # 中国数据查询
+    # 中国数据
     chinatotal = datatype.CHINATOTAL.query.all()
     chinatotal.sort(key=lambda x:x.date)
     timeseries = []
-    confirmedtotal = []
-    confirmedexist = []
-    suspected = []
-    cures = []
-    deaths = []
-    asymptomatic = []
+    china = {'confirmedtotal':[],'confirmedexist':[],'suspected':[],'cures':[],'deaths':[],'asymptomatic':[]}
     for item in chinatotal:
         timeseries.append(str(item.date))
-        confirmedtotal.append([str(item.date),item.confirmed])
-        confirmedexist.append([str(item.date),item.confirmed-item.cures])
-        cures.append([str(item.date),item.cures])
-        suspected.append([str(item.date),item.suspected])
-        deaths.append([str(item.date),item.deaths])
-        asymptomatic.append([str(item.date),item.asymptomatic])
-    return json.dumps({'timeseries':timeseries,
-                       'confirmedtotal':confirmedtotal,
-                       'confirmedexist':confirmedexist,
-                       'suspected':suspected,
-                       'cures':cures,
-                       'deaths':deaths,
-                       'asymptomatic':asymptomatic
-                       })
+        china['confirmedtotal'].append([str(item.date),item.confirmed])
+        china['confirmedexist'].append([str(item.date),item.confirmed-item.cures])
+        china['cures'].append([str(item.date),item.cures])
+        china['suspected'].append([str(item.date),item.suspected])
+        china['deaths'].append([str(item.date),item.deaths])
+        china['asymptomatic'].append([str(item.date),item.asymptomatic])
+    # 地图数据
+    province = datatype.PROVINCE.query.filter_by(date=date.today())
+    map = {'confirmedtotal':{},'confirmedexist':{},'cures':{},'deaths':{},'asymptomatic':{}}
+    for item in province:
+        map['confirmedtotal'][item.name]=item.confirmed
+        map['confirmedexist'][item.name]=item.confirmed-item.cures
+        map['deaths'][item.name]=item.deaths
+        map['asymptomatic'][item.name]=item.asymptomatic
+    return json.dumps({'timeseries':timeseries,'china':china,'map':map},ensure_ascii=False)
 
 
 

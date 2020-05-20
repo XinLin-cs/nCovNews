@@ -1,5 +1,7 @@
-# nCovNews
-An application to get lastest news about the nCov virtus
+# 疫情小助手
+一款了解新冠病毒最新疫情的web应用程序
+
+An application to get latest news about SARS-CoV-2
 
 |              | **疫情监控系统**                                             |
 | ------------ | ------------------------------------------------------------ |

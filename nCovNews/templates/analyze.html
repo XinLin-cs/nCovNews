@@ -24,7 +24,7 @@
                 url: '/getdata',
                 success: function (data) {
                     var json_data = JSON.parse(data)
-                    console.info(json_data['confirmexist'])
+                    console.info(json_data['china']['confirmexist'])
                     console.info(json_data['timeseries'])
                     // 指定图表的配置项和数据
                     var option = {
@@ -49,7 +49,7 @@
                             {
                                 name: '现有确诊',
                                 type: 'line',
-                                data: json_data['confirmedexist']
+                                data: json_data['china']['confirmedexist']
                             }
                         ]
                     };
