@@ -57,7 +57,9 @@
         line-height: 150px;
     }
 
-
+    .ps {
+        text-indent: 20px;
+    }
 
     .hide {
         display: none;
@@ -65,7 +67,7 @@
 
     .sucenter {
         position: absolute;
-        top: 99%;
+        top: 90%;
         left: 60%;
         z-index: 999
     }
@@ -76,19 +78,27 @@
         font-weight: 400;
         color: #000000
     }
+    div.su1 {
+        height: 250px;
+       
+        border: 1px solid gray;
+        margin: 0px;
+        border-radius: 20px;
+        background-color:#f7f0cd
+    }
 </style>
 
 <div class="jumbotron">
 
     <h1>疫情小助手</h1>
-    <p class="lead">
+    <p class="lead ps">
         2020年是不平凡的一年，新型冠状病毒肺炎疫情在全国甚至全世界蔓延。<br>
         但我们相信在不久得将来疫情将会被有效控制然后被消灭。<br>
     </p>
 </div>
 <style>
     table {
-        width: 1000px;
+        width:1000px;
         height: 100px;
         border-collapse: collapse;
     }
@@ -122,33 +132,41 @@
     }
 </style>
 
-<div class="jumbotron">
-    <h1>今日疫情概览</h1>
-    <table>
-        <tr>
-            <td valign="top">
-                <h2>中国实时疫情</h2>
-                <p>
-                    确诊：{{chinatotal.confirmed}}<br>
-                    疑似：{{chinatotal.suspected}}<br>
-                    治愈：{{chinatotal.cures}}<br>
-                    死亡：{{chinatotal.deaths}}<br>
-                    无症状感染：{{chinatotal.asymptomatic}}<br>
-                    数据截止日期：{{chinatotal.date}}
-                </p>
-            </td>
-            <td valign="top">
-                <h2>海外实时疫情</h2>
-                <p>
-                    确诊：{{worldtotal.confirmed}}<br>
-                    治愈：{{worldtotal.cures}}<br>
-                    死亡：{{worldtotal.deaths}}<br>
-                    数据截止日期：{{worldtotal.date}}<br>
-                </p>
-            </td>
-        </tr>
-    </table>
+<div class="su1 ">
+    <div class=" row ">
+        <div class=" col-md-2"></div>
+        <div class=" col-md-10">
+            <h1>今日疫情概览</h1>
+            <table>
+                <tr>
+                    <td valign="top">
+                        <h2>中国实时疫情</h2>
+                        <p>
+                            确诊：{{chinatotal.confirmed}}<br>
+                            疑似：{{chinatotal.suspected}}<br>
+                            治愈：{{chinatotal.cures}}<br>
+                            死亡：{{chinatotal.deaths}}<br>
+                            无症状感染：{{chinatotal.asymptomatic}}<br>
+                            数据截止日期：{{chinatotal.date}}
+                        </p>
+                    </td>
+                    <td valign="top">
+                        <h2>海外实时疫情</h2>
+                        <p>
+                            确诊：{{worldtotal.confirmed}}<br>
+                            治愈：{{worldtotal.cures}}<br>
+                            死亡：{{worldtotal.deaths}}<br>
+                            数据截止日期：{{worldtotal.date}}<br>
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
 </div>
+<br />
+<br />
 <div class="row ">
     <div class="col-md-6 ">
 
