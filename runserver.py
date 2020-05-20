@@ -1,7 +1,7 @@
 """
 This script runs the nCovNews application using a development server.
 """
-
+import time
 from os import environ
 from nCovNews import app
 from nCovNews import db
@@ -16,4 +16,5 @@ if __name__ == '__main__':
         PORT = int(environ.get('SERVER_PORT', '5555'))
     except ValueError:
         PORT = 5555
+    time.sleep(2)
     app.run(HOST, PORT)

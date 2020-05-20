@@ -157,7 +157,10 @@ def getdata():
         map['asymptomatic'][item.name]=item.asymptomatic
     return json.dumps({'timeseries':timeseries,'china':china,'map':map},ensure_ascii=False)
 
-
+@app.route('/delete_all_discuss')
+def delete_all_discuss():
+    user_mod.delete_all()
+    return redirect(url_for('about'))
 
 #没用的
 
