@@ -3,41 +3,40 @@
 {% block content %}
 
 <div class="jumbotron">
+
     <h1>疫情小助手</h1>
+    <p class="lead">
+        2020年是不平凡的一年，新型冠状病毒肺炎疫情在全国甚至全世界蔓延。<br>
+        但我们相信在不久得将来疫情将会被有效控制然后被消灭。<br>
+        本赛题要求开发一个疫情监控系统，能够实时获得全国疫情数据。
+    </p>
 </div>
 
 
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3">
         <h2>疫情知识</h2>
         <p>
             2020年，新型冠状病毒肺炎疫情在全国甚至全世界蔓延。对新型冠状病毒肺炎了解不够？点击了解更多疫情相关知识
             a.新冠肺炎简介<br>
             b. 新冠肺炎症状<br>
-            c. 新冠肺炎病因<br>          
+            c. 新冠肺炎病因<br>
             等等
         </p>
         <p><a class="btn btn-default" href="{{ url_for('test') }}">查看&raquo;</a></p>
     </div>
-</div>
 
-<div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3">
         <h2>实时疫情数据概览</h2>
         <p>
             a. 能够实现数据的动态刷新，可展示全国疫情数据概览<br>
             b. 能够展示实时疫情地图
         </p>
-       
+
         <p><a class="btn btn-default" href="{{ url_for('overview') }}">查看 &raquo;</a></p>
     </div>
-</div>
 
-
-
-
-<div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3">
         <h2>疫情趋势分析</h2>
         <p>
             a. 清晰明确的新增确诊/疑似趋势图<br>
@@ -47,16 +46,15 @@
         </p>
         <p><a class="btn btn-default" href="{{ url_for('analyze') }}">查看 &raquo;</a></p>
     </div>
-</div>
 
-<div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3">
         <h2>讨论区</h2>
         <p>
             一起来讨论
         </p>
         <p><a class="btn btn-default" href="{{ url_for('discuss') }}">查看 &raquo;</a></p>
     </div>
+
 </div>
 
 
@@ -65,24 +63,11 @@
         .hide {
             display: none;
         }
-    </style>
-    <style>
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
+        .sucenter {
             position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            padding: 12px 16px;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
+            top: 99%;
+            left: 50%;
+            z-index: 999
         }
     </style>
     <span style="float:left">觉得不错，分享给朋友：</span>
@@ -100,8 +85,9 @@
             </em>
         </em>
     </div>
-    <div id="field" style="display:none;">
-        <img src="http://cli.clewm.net/qrcode/2015/01/21/2031452178.png" />
+    <div id="field" style="display:none;" class="sucenter ">
+         <img src="http://cli.clewm.net/qrcode/2015/01/21/2031452178.png"  onclick="shareToWeixin()"/>
+        <br /><span onClick="shareToWeixin()">点击收起</span>
     </div>
     
     <script>
@@ -109,9 +95,8 @@
             "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "24" },
             "share": {}
         };
-        with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+        with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
 
-    <script>
         var _title, _source, _sourceUrl, _pic, _showcount, _desc = "desc", _summary = "summary", _site,
             _width = 600,
             _height = 600,
