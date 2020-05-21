@@ -11,23 +11,28 @@
     <!-- 引入 echarts.js -->
     <script src="https://cdn.bootcdn.net/ajax/libs/echarts/4.7.0/echarts.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+
 </head>
 <body>
     <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
     <div id="main" style="width: 600px;height:400px;"></div>
+    <div id="main1" style="width: 600px;height:400px;"></div>
     <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
         $(function () {
             // 基于准备好的dom，初始化echarts实例
-            var myChart = echarts.init(document.getElementById('main'));
+            var myChart1 = echarts.init(document.getElementById('main'));
+            var myChart2 = echarts.init(document.getElementById('main1'));
             $.ajax({
                 url: '/getdata',
                 success: function (data) {
                     var json_data = JSON.parse(data)
                     console.info(json_data['china']['confirmexist'])
                     console.info(json_data['timeseries'])
+                    console.info(json_data['map']['confirmedtotal'])
                     // 指定图表的配置项和数据
-                    var option = {
+                    var option1 = {
                         title: {
                             text: '中国现有确诊趋势'
                         },
@@ -54,8 +59,60 @@
                         ]
                     };
                     // 使用刚指定的配置项和数据显示图表。
-                    myChart.setOption(option);
+                    myChart1.setOption(option1);
 
+                    var option2 = {
+                        tooltip: {
+                            formatter: function (params, ticket, callback) {
+                                return params.seriesName + '<br />' + params.name + '：' + params.value
+                            }//数据格式化
+                        },
+                        visualMap: {
+                            min: 0,
+                            max: 2000,
+                            left: 'left',
+                            top: 'bottom',
+                            text: ['高', '低'],//取值范围的文字
+                            inRange: {
+                                color: ['#e0ffff', '#006edd']//取值范围的颜色
+                            },
+                            show: true//图注
+                        },
+                        geo: {
+                            map: 'china',
+                            roam: false,//不开启缩放和平移
+                            zoom: 1.23,//视角缩放比例
+                            label: {
+                                normal: {
+                                    show: true,
+                                    fontSize: '10',
+                                    color: 'rgba(0,0,0,0.7)'
+                                }
+                            },
+                            itemStyle: {
+                                normal: {
+                                    borderColor: 'rgba(0, 0, 0, 0.2)'
+                                },
+                                emphasis: {
+                                    areaColor: '#F3B329',//鼠标选择区域颜色
+                                    shadowOffsetX: 0,
+                                    shadowOffsetY: 0,
+                                    shadowBlur: 20,
+                                    borderWidth: 0,
+                                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                                }
+                            }
+                        },
+                        series: [
+                            {
+                                name: '累计确诊',
+                                type: 'map',
+                                geoIndex: 0,
+                                data: json_data['map']['confirmedtotal']
+                            }
+                        ]
+                    };
+                    myChart2.setOption(option2)
                 }
             })
         })
