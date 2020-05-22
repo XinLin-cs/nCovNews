@@ -49,14 +49,30 @@
         background-color: #ffffff;
         position: fixed;
         top: 7%;
-        opacity: 1 ;
+        opacity: 1;
         z-index: 10;
+       
+        width: 100%;
+   
     }
     .su {
         list-style-type: none;
         margin: 0;
         padding: 0;
     }
+    #np1 {
+        color: dodgerblue;
+        
+    }
+    #np2 {
+        color: black ;
+       
+    }
+    #np3 {
+        color: black;
+       
+    }
+
 </style>
 
 <script>
@@ -64,26 +80,38 @@
         div1.style.display = "block";
         div2.style.display = "none";
         div3.style.display = "none";
+        np1.style.color = "dodgerblue";
+        np2.style.color = "black";
+        np3.style.color = "black";
+      
     }
     function ck2() {
         div1.style.display = "none";
         div2.style.display = "block";
         div3.style.display = "none";
+        np2.style.color = "dodgerblue";
+        np1.style.color = "black";
+        np3.style.color = "black";
+       
     }
     function ck3() {
         div1.style.display = "none";
         div2.style.display = "none";
         div3.style.display = "block";
+        np3.style.color = "dodgerblue";
+        np2.style.color = "black";
+        np1.style.color = "black";
+      
     }
-    
+   
 
 </script>
 <div id="div0" class="s1" >
     <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-            <li><a onclick="ck1()">新闻</a></li>
-            <li><a onclick="ck2()">辟谣</a></li>
-            <li><a onclick="ck3()">其他消息</a></li>
+            <li ><a  onclick="ck1()"><p id="np1">新闻</p></a></li>
+            <li ><a onclick="ck2()"><p id="np2">辟谣</p></a></li>
+            <li ><a  onclick="ck3()"><p id="np3">其他消息</p></a></li>
         </ul>
     </div>
 </div>
