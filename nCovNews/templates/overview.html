@@ -1,6 +1,18 @@
-{% extends "layout.html" %}
+﻿{% extends "layout.html" %}
 
 {% block content %}
+
+{% for item in oversea %}
+<div>
+    <br />
+</div>
+<div class="row" style=" border:1px solid #000000">
+    <div class="col-md-12">
+        <h>{{item.name}} 确诊{{item.confirmed}} 治愈{{item.cures}} 死亡{{item.deaths}}</h>
+    </div>
+</div>
+{% endfor %}
+
 <head>
     <meta charset="UTF-8">
     <title>Awesome-pyecharts</title>

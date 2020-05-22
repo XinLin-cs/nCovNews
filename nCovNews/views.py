@@ -101,13 +101,14 @@ def analyze():
 @app.route('/overview')
 def overview():
     """Renders the home page."""
-    
+    today = date.today()
+    oversea = datatype.COUNTRY.query.filter_by(date = today).all()
     return render_template(
         'overview.html',
         title='Overview',
         year=datetime.now().year,
-        message='Your overview page.'
-       
+        message='Your overview page.',
+        oversea=oversea
     )
 
 

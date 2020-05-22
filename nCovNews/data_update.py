@@ -237,10 +237,6 @@ def update_all():
     try:
         starttime = datetime.datetime.today()
         print('[Updatedata] updating start!')
-        # 测试代码=====
-        # db.drop_all()
-        # db.create_all() 
-        #==============
         print('[Updatedata] start at %s' % ( starttime.isoformat(sep=' ') ) )
         getdata_api()
         print('[Updatedata] updating for 70%')
