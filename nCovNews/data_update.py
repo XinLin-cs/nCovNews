@@ -64,13 +64,14 @@ def getdata_api():
         date = pd.to_datetime(data['date'])
         confirmed = data['confirmedNum']
         suspected = data['suspectedNum']
+        suspectedInc = data['suspectedIncr']
         cures = data['curesNum']
         deaths = data['deathsNum']
         asymptomatic = data['asymptomaticNum']
         # 与数据库合并
         chinatotal = datatype.CHINATOTAL.query.filter_by(date=date).first()
         if chinatotal is None:
-            chinatotal = datatype.CHINATOTAL(date=date,confirmed=confirmed,suspected=suspected,cures=cures,deaths=deaths,asymptomatic=asymptomatic)
+            chinatotal = datatype.CHINATOTAL(date=date,confirmed=confirmed,suspected=suspected,suspectedInc=suspectedInc,cures=cures,deaths=deaths,asymptomatic=asymptomatic)
             session.add(chinatotal)
         else:
             chinatotal.confirmed = confirmed

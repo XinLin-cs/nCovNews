@@ -140,21 +140,21 @@ def getdata():
     chinatotal.sort(key=lambda x:x.date)
     timeseries = []
     china = {'confirmedtotal':[],'confirmedexist':[],'suspected':[],'cures':[],'deaths':[],'asymptomatic':[]}
+    chinaInc = {'confirmedtotal':[],'confirmedexist':[],'suspected':[],'cures':[],'deaths':[],'asymptomatic':[]}
     for item in chinatotal:
         timeseries.append(str(item.date))
         china['confirmedtotal'].append([str(item.date),item.confirmed])
         china['confirmedexist'].append([str(item.date),item.confirmed-item.cures-item.deaths])
         china['cures'].append([str(item.date),item.cures])
         china['suspected'].append([str(item.date),item.suspected])
+        chinaInc['suspected'].append([str(item.date),item.suspectedInc])# 新增疑似
         china['deaths'].append([str(item.date),item.deaths])
-        china['asymptomatic'].append([str(item.date),item.asymptomatic])
-    # 计算变化量
-    chinaInc = {'confirmedtotal':[],'confirmedexist':[],'suspected':[],'cures':[],'deaths':[],'asymptomatic':[]}
+        china['asymptomatic'].append([str(item.date),item.asymptomatic])  
+    # 计算变化量(不含疑似)
     for i in range(len(chinatotal)-1):
         chinaInc['confirmedtotal'].append([timeseries[i],china['confirmedtotal'][i+1][1]-china['confirmedtotal'][i][1]])
         chinaInc['confirmedexist'].append([timeseries[i],china['confirmedexist'][i+1][1]-china['confirmedexist'][i][1]])
         chinaInc['cures'].append([timeseries[i],china['cures'][i+1][1]-china['cures'][i][1]])
-        chinaInc['suspected'].append([timeseries[i],china['suspected'][i+1][1]-china['suspected'][i][1]])
         chinaInc['deaths'].append([timeseries[i],china['deaths'][i+1][1]-china['deaths'][i][1]])
         chinaInc['asymptomatic'].append([timeseries[i],china['asymptomatic'][i+1][1]-china['asymptomatic'][i][1]])
     # 地图数据

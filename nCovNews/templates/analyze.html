@@ -16,21 +16,25 @@
 </head>
 <body>
     <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-    <div id="main" style="width: 600px;height:400px;"></div>
     <div id="main1" style="width: 600px;height:400px;"></div>
+    <div id="main2" style="width: 600px;height:400px;"></div>
+
     <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
         $(function () {
             // 基于准备好的dom，初始化echarts实例
-            var myChart1 = echarts.init(document.getElementById('main'));
-            var myChart2 = echarts.init(document.getElementById('main1'));
+            var myChart1 = echarts.init(document.getElementById('main1'));
+            var myChart2 = echarts.init(document.getElementById('main2'));
+
             $.ajax({
                 url: '/getdata',
                 success: function (data) {
                     var json_data = JSON.parse(data)
-                    console.info(json_data['china']['confirmexist'])
+                    console.info(json_data['china']['confirmedxist'])
+                    console.info(json_data['china']['confirmedtotal'])
                     console.info(json_data['timeseries'])
                     console.info(json_data['map']['confirmedtotal'])
+
                     // 指定图表的配置项和数据
                     var option1 = {
                         title: {
@@ -55,6 +59,11 @@
                                 name: '现有确诊',
                                 type: 'line',
                                 data: json_data['china']['confirmedexist']
+                            },
+                            {
+                                name: '总确诊',
+                                type: 'line',
+                                data: json_data['china']['confirmedtotal']
                             }
                         ]
                     };

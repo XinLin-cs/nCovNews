@@ -14,6 +14,7 @@ class CHINATOTAL(db.Model):
     date = db.Column( db.Date )  
     confirmed = db.Column( db.Integer )  
     suspected = db.Column( db.Integer ) 
+    suspectedInc = db.Column( db.Integer )
     cures = db.Column( db.Integer )  
     deaths = db.Column( db.Integer ) 
     asymptomatic = db.Column( db.Integer )  
