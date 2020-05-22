@@ -18,6 +18,7 @@
     <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
     <div id="main1" style="width: 600px;height:400px;"></div>
     <div id="main2" style="width: 600px;height:400px;"></div>
+    <div id="main3" style="width: 600px;height:400px;"></div>
 
     <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
@@ -25,16 +26,19 @@
             // 基于准备好的dom，初始化echarts实例
             var myChart1 = echarts.init(document.getElementById('main1'));
             var myChart2 = echarts.init(document.getElementById('main2'));
+            var myChart3 = echarts.init(document.getElementById('main3'));
 
             $.ajax({
                 url: '/getdata',
                 success: function (data) {
                     var json_data = JSON.parse(data)
                     console.info(json_data['china']['confirmedxist'])
-                    console.info(json_data['china']['confirmedtotal'])
+
                     console.info(json_data['timeseries'])
                     console.info(json_data['map']['confirmedtotal'])
-
+                    console.info(json_data['china']['cures'])
+                    console.info(json_data['china']['confirmedtotal'])
+                    console.info(json_data['china']['deaths'])
                     // 指定图表的配置项和数据
                     var option1 = {
                         title: {
@@ -122,7 +126,45 @@
                         ]
                     };
                     myChart2.setOption(option2)
-                }
+                    var option3 = {
+                        title: {
+                            text: '全国累计确诊/治愈\n/死亡趋势'
+                        },
+                        tooltip: {
+                            trigger: 'axis'
+                        },
+                        legend: {
+                            data: ['累计确诊', '累计治愈', '累计死亡']
+                        },
+                        xAxis: {
+                            type: 'category',
+                            boundaryGap: false,
+                            data: json_data['timeseries']
+                        },
+                        yAxis: {
+                            type: 'value'
+                        },
+                        series: [
+                            {
+                                name: '累计确诊',
+                                type: 'line',
+                                data: json_data['china']['confirmedtotal']
+                            },
+                            {
+                                name: '累计治愈',
+                                type: 'line',
+                                data: json_data['china']['cures']
+                            },
+                            {
+                                name: '累计死亡',
+                                type: 'line',
+                                data: json_data['china']['deaths']
+                            }
+                        ]
+                    };
+                    myChart3.setOption(option3)
+                },
+
             })
         })
     </script>
