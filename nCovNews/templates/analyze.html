@@ -18,7 +18,9 @@
     <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
     <div id="main1" style="width: 600px;height:400px;"></div>
     <div id="main2" style="width: 600px;height:400px;"></div>
-    <div id="main3" style="width: 600px;height:400px;"></div>
+    <div id="main3" style="width: 800px;height:400px;"></div>
+    <div id="main4" style="width: 600px;height:400px;"></div>
+    <div id="main5" style="width: 600px;height:400px;"></div>
 
     <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
@@ -27,18 +29,22 @@
             var myChart1 = echarts.init(document.getElementById('main1'));
             var myChart2 = echarts.init(document.getElementById('main2'));
             var myChart3 = echarts.init(document.getElementById('main3'));
+            var myChart4 = echarts.init(document.getElementById('main4'));
+            var myChart5 = echarts.init(document.getElementById('main5'));
 
             $.ajax({
                 url: '/getdata',
                 success: function (data) {
                     var json_data = JSON.parse(data)
                     console.info(json_data['china']['confirmedxist'])
-
                     console.info(json_data['timeseries'])
                     console.info(json_data['map']['confirmedtotal'])
                     console.info(json_data['china']['cures'])
                     console.info(json_data['china']['confirmedtotal'])
                     console.info(json_data['china']['deaths'])
+                    console.info(json_data['chinaInc']['confirmedtotal'])
+                    console.info(json_data['chinaInc']['suspected'])
+                    console.info(json_data['map']['confirmedexist'])
                     // 指定图表的配置项和数据
                     var option1 = {
                         title: {
@@ -75,6 +81,9 @@
                     myChart1.setOption(option1);
 
                     var option2 = {
+                        title: {
+                            text: '中国累计确诊'
+                        },
                         tooltip: {
                             formatter: function (params, ticket, callback) {
                                 return params.seriesName + '<br />' + params.name + '：' + params.value
@@ -82,13 +91,23 @@
                         },
                         visualMap: {
                             min: 0,
-                            max: 2000,
-                            left: 'left',
-                            top: 'bottom',
-                            text: ['高', '低'],//取值范围的文字
-                            inRange: {
-                                color: ['#e0ffff', '#006edd']//取值范围的颜色
-                            },
+                            max: 10000,
+                            left: '0',
+                            bottom: '10',
+                            splitNumber: 5,
+                            itemWidth: 10,
+                            itemHeight: 10,
+                            color: ['#610105', '#8e0d08', '#d12d2e', '#fd796a', '#ffad81', '#F8F8FF'],
+                            pieces: [
+                                { min: 10000 },
+                                { min: 1000, max: 9999 },
+                                { min: 500, max: 999 },
+                                { min: 100, max: 499 },
+                                { min: 10, max: 99 },
+                                { min: 1, max: 9 },
+                                { min: 0, max: 0 }
+                            ],
+
                             show: true//图注
                         },
                         geo: {
@@ -126,9 +145,10 @@
                         ]
                     };
                     myChart2.setOption(option2)
+
                     var option3 = {
                         title: {
-                            text: '全国累计确诊/治愈\n/死亡趋势'
+                            text: '全国累计确诊/治愈/死亡趋势'
                         },
                         tooltip: {
                             trigger: 'axis'
@@ -163,10 +183,110 @@
                         ]
                     };
                     myChart3.setOption(option3)
-                },
+
+                    var option4 = {
+                        title: {
+                            text: '全国疫情新增趋势'
+                        },
+                        tooltip: {
+                            trigger: 'axis'
+                        },
+                        legend: {
+                            data: ['新增确诊', '新增疑似']
+                        },
+                        xAxis: {
+                            type: 'category',
+                            boundaryGap: false,
+                            data: json_data['timeseries']
+                        },
+                        yAxis: {
+                            type: 'value'
+                        },
+                        series: [
+                            {
+                                name: '新增确诊',
+                                type: 'line',
+                                data: json_data['chinaInc']['confirmedtotal']
+                            },
+                            {
+                                name: '新增疑似',
+                                type: 'line',
+                                data: json_data['chinaInc']['suspected']
+                            }
+
+                        ]
+                    };
+                    myChart4.setOption(option4)
+
+                    var option5 = {
+                        title: {
+                            text: '中国现存确诊'
+                        },
+                        tooltip: {
+                            formatter: function (params, ticket, callback) {
+                                return params.seriesName + '<br />' + params.name + '：' + params.value
+                            }//数据格式化
+                        },
+                        visualMap: {
+                            min: 0,
+                            max: 10000,
+                            left: '0',
+                            bottom: '10',
+                            splitNumber: 5,
+                            itemWidth: 10,
+                            itemHeight: 10,
+                            color: ['#610105', '#8e0d08', '#d12d2e', '#fd796a', '#ffad81', '#F8F8FF'],
+                            pieces: [
+                                { min: 10000 },
+                                { min: 1000, max: 9999 },
+                                { min: 500, max: 999 },
+                                { min: 100, max: 499 },
+                                { min: 10, max: 99 },
+                                { min: 1, max: 9 },
+                                { min: 0, max: 0 }
+                            ]
+                        },
+                        geo: {
+                            map: 'china',
+                            roam: false,//不开启缩放和平移
+                            zoom: 1.23,//视角缩放比例
+                            label: {
+                                normal: {
+                                    show: true,
+                                    fontSize: '10',
+                                    color: 'rgba(0,0,0,0.7)'
+                                }
+                            },
+                            itemStyle: {
+                                normal: {
+                                    borderColor: 'rgba(0, 0, 0, 0.2)'
+                                },
+                                emphasis: {
+                                    areaColor: '#F3B329',//鼠标选择区域颜色
+                                    shadowOffsetX: 0,
+                                    shadowOffsetY: 0,
+                                    shadowBlur: 20,
+                                    borderWidth: 0,
+                                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                                }
+                            }
+                        },
+                        series: [
+                            {
+                                name: '信息量',
+                                type: 'map',
+                                geoIndex: 0,
+                                data: json_data['map']['confirmedexist']
+                            }
+                        ]
+                    };
+                    myChart5.setOption(option5)
+                },//success末尾
 
             })
-        })
+            //ajax末尾
+
+        })//function末尾
     </script>
 </body>
 </html>
