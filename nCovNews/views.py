@@ -98,6 +98,8 @@ def analyze():
         message='Your application description page.'
     )
 
+from nCovNews.data_update import flags 
+
 @app.route('/overview')
 def overview():
     """Renders the home page."""
@@ -108,10 +110,9 @@ def overview():
         title='Overview',
         year=datetime.now().year,
         message='Your overview page.',
-        oversea=oversea
+        oversea=oversea,
+        flags=flags,
     )
-
-
 
 @app.route('/news')
 def news():

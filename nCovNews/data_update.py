@@ -9,6 +9,8 @@ import _thread
 from nCovNews import db
 from nCovNews import datatype
 
+flags = {}
+
 def getdata_api():
     session = db.session
 
@@ -87,11 +89,11 @@ def getdata_api():
     # 'confirmedIncrTop10Text', 'testingInfo', 'continent', 'confirmedIncr7DTop10', 'confirmedIncr7DTop10Text'])
 
     # 各国数据
-    country = overseas['country']
+    countries = overseas['country']
     # print(country[0].keys())
     # dict_keys(['id', 'code', 'name', 'nationalFlag', 'countryTotal', 'countryIncr', 'series', 'provinces', 
     # 'isTreatingNumClear', 'confirmedPerMil', 'continent', 'updateTime'])
-    for data in country:
+    for data in countries:
         date = datetime.date.today()
         name = data['name']
         continent =data['continent']
@@ -111,7 +113,9 @@ def getdata_api():
             country.confirmed = confirmed
             country.cures = cures
             country.deaths = deaths
-       
+    # 各国国旗数据
+    for data in countries:
+        flags[data['name']]=data['nationalFlag']
     # 世界总数据
     total = overseas['total']
     # print(total)
