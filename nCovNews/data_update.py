@@ -97,6 +97,7 @@ def getdata_api():
         date = datetime.date.today()
         name = data['name']
         continent =data['continent']
+
         countryTotal = data['countryTotal']
         # print(countryTotal.keys())
         # dict_keys(['confirmedTotal', 'suspectedTotal', 'curesTotal', 'deathsTotal', 'treatingTotal',
@@ -104,6 +105,13 @@ def getdata_api():
         confirmed = countryTotal['confirmedTotal']
         cures = countryTotal['curesTotal']
         deaths = countryTotal['deathsTotal']
+
+        countryInc = data['countryIncr']
+        # print(countryInc.keys())
+        # dict_keys(['confirmedIncr', 'suspectedIncr', 'curesIncr', 'deathsIncr', 'treatingIncr',
+        #  'asymptomaticTotal', 'confirmedIncrPrefix', 'suspectedIncrPrefix', 'curesIncrPrefix',
+        #   'deathsIncrPrefix', 'treatingIncrPrefix', 'nonConfirmedIncrTip'])
+        
         # 与数据库合并
         country = datatype.COUNTRY.query.filter_by(date=date,name=name).first()
         if country is None:
@@ -113,9 +121,11 @@ def getdata_api():
             country.confirmed = confirmed
             country.cures = cures
             country.deaths = deaths
+
     # 各国国旗数据
     for data in countries:
         flags[data['name']]=data['nationalFlag']
+
     # 世界总数据
     total = overseas['total']
     # print(total)

@@ -3,20 +3,15 @@ Routes and views for the flask application.
 """
 import time
 import json
-from datetime import datetime
-from datetime import date
-from datetime import timedelta
+from datetime import datetime , date , timedelta
 from flask import render_template
 from flask import request
 from flask import redirect
 from flask import url_for
-from nCovNews import app
-from nCovNews import db
-from nCovNews import datatype
-from nCovNews import user_mod
+from nCovNews import app , db
+from nCovNews import datatype , user_mod,forms
 
 @app.route('/')
-
 @app.route('/home')
 def home():
     """Renders the home page."""
@@ -174,11 +169,22 @@ def delete_all_discuss():
     user_mod.delete_all()
     return redirect(url_for('about'))
 
+# 登陆表单
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    name = None
+    form = forms.NameForm()
+    if form.validate_on_submit():
+        name = form.name.data
+        form.name.data = ''
+        
+    return render_template('login.html',
+                           title='Login', 
+                           form=form, 
+                           name=name)
+
+
 #没用的
-
-
-
-
 @app.route('/test')
 def test():
     """Renders the about page."""
@@ -187,16 +193,6 @@ def test():
         title='Test',
         year=datetime.now().year,
         message='Your test page.'
-    )
-
-@app.route('/temp')
-def temp():
-    """Renders the about page."""
-    return render_template(
-        'temp.html',
-        title='Temp',
-        year=datetime.now().year,
-        message='Your temp page.'
     )
 
 

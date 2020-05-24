@@ -35,6 +35,9 @@
     <Compile Include="nCovNews\data_update.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="nCovNews\forms.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="nCovNews\user_mod.py">
       <SubType>Code</SubType>
     </Compile>
@@ -58,8 +61,11 @@
     <Content Include="nCovNews\data\province_msg.csv" />
     <Content Include="nCovNews\templates\analyze.html" />
     <Content Include="nCovNews\templates\discuss.html" />
+    <Content Include="nCovNews\templates\login.html" />
     <Content Include="nCovNews\templates\news.html" />
     <Content Include="nCovNews\templates\overview.html" />
+    <Content Include="Procfile" />
+    <Content Include="README.md" />
     <Content Include="requirements.txt" />
     <Content Include="nCovNews\static\content\bootstrap.css" />
     <Content Include="nCovNews\static\content\bootstrap.min.css" />
