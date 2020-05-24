@@ -1,980 +1,364 @@
-﻿{% extends "layout.html" %}
+{% extends "layout.html" %}
 
 {% block content %}
+<style>
+    .s1 {
+        background-color: #ffffff;
+        position: fixed;
+        width: 100%;
+        top: 7%;
+        z-index: 10;
+    }
 
-{% for item in oversea %}
-<div>
-    <br />
-</div>
-<div class="row" style=" border:1px solid #000000">
-    <div class="col-md-12">
-        <img src="{{flags[item.name]}}" height:100% width:auto>
-        <h>{{item.name}} 确诊{{item.confirmed}} 治愈{{item.cures}} 死亡{{item.deaths}}</h>
+    #osp1 {
+        color: dodgerblue
+    }
+
+    #osp2 {
+        color: black;
+    }
+    .sbody {
+        background-image: url('/static/images/yun.jpg');
+        background-attachment: fixed;
+        background-size:100% 100%;
+    }
+</style>
+<body class="sbody ">
+
+    <div class="s1">
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav" style=" width :1100px">
+
+                <li><a onclick="overck1()"><p id="osp1">海外数据详细</p></a></li>
+                <li><a onclick="overck2()"><p id="osp2">疫情地图</p> </a></li>
+            </ul>
+        </div>
     </div>
-</div>
-{% endfor %}
+    <br /><br />
+    <div id="overnum" style="display:block;">
+        {% for item in oversea %}
+        <br />
+        <div class="row" style=" border:1px solid #000000">
+            <div class="col-md-12">
+                <img src="{{flags[item.name]}}" style="  height:40px  ">
+                <h>{{item.name}} 确诊{{item.confirmed}} 治愈{{item.cures}} 死亡{{item.deaths}}</h>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 
-<head>
-    <meta charset="UTF-8">
-    <title>Awesome-pyecharts</title>
-    <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
-    <script type="text/javascript" src="https://assets.pyecharts.org/assets/maps/china.js"></script>
-
-</head>
-
-
-<body>
-    <div id="89d0a2f0d39446f9ab91dff43121c8a9" class="chart-container" style="width:80%; height:600px; border:1px solid #000000"></div>
-
-    <br />
-    <br />
-    <br />
-    <br />
-
-    <div id="ad9cf02e057d4d74883712c41d97218a" class="chart-container" style="width:80%; height:600px; border:1px solid #000000"></div>
     <script>
-        var chart_ad9cf02e057d4d74883712c41d97218a = echarts.init(
-            document.getElementById('ad9cf02e057d4d74883712c41d97218a'), 'white', { renderer: 'canvas' });
-        var option_ad9cf02e057d4d74883712c41d97218a = {
-            "animation": true,
-            "animationThreshold": 2000,
-            "animationDuration": 1000,
-            "animationEasing": "cubicOut",
-            "animationDelay": 0,
-            "animationDurationUpdate": 300,
-            "animationEasingUpdate": "cubicOut",
-            "animationDelayUpdate": 0,
-            "color": [
-                "#c23531",
-                "#2f4554",
-                "#61a0a8",
-                "#d48265",
-                "#749f83",
-                "#ca8622",
-                "#bda29a",
-                "#6e7074",
-                "#546570",
-                "#c4ccd3",
-                "#f05b72",
-                "#ef5b9c",
-                "#f47920",
-                "#905a3d",
-                "#fab27b",
-                "#2a5caa",
-                "#444693",
-                "#726930",
-                "#b2d235",
-                "#6d8346",
-                "#ac6767",
-                "#1d953f",
-                "#6950a1",
-                "#918597"
-            ],
-            "series": [
-                {
-                    "type": "line",
-                    "name": "\u73b0\u6709\u786e\u8bca",
-                    "connectNulls": false,
-                    "symbolSize": 4,
-                    "showSymbol": false,
-                    "smooth": false,
-                    "step": false,
-                    "data": [
-                        [
-                            "2020-01-01",
-                            43
-                        ],
-                        [
-                            "2020-01-02",
-                            44
-                        ],
-                        [
-                            "2020-01-16",
-                            28
-                        ],
-                        [
-                            "2020-01-17",
-                            41
-                        ],
-                        [
-                            "2020-01-18",
-                            171
-                        ],
-                        [
-                            "2020-01-19",
-                            246
-                        ],
-                        [
-                            "2020-01-20",
-                            260
-                        ],
-                        [
-                            "2020-01-21",
-                            406
-                        ],
-                        [
-                            "2020-01-22",
-                            529
-                        ],
-                        [
-                            "2020-01-23",
-                            771
-                        ],
-                        [
-                            "2020-01-24",
-                            1208
-                        ],
-                        [
-                            "2020-01-25",
-                            1870
-                        ],
-                        [
-                            "2020-01-26",
-                            2613
-                        ],
-                        [
-                            "2020-01-27",
-                            4349
-                        ],
-                        [
-                            "2020-01-28",
-                            5739
-                        ],
-                        [
-                            "2020-01-29",
-                            7417
-                        ],
-                        [
-                            "2020-01-30",
-                            9308
-                        ],
-                        [
-                            "2020-01-31",
-                            11289
-                        ],
-                        [
-                            "2020-02-01",
-                            13748
-                        ],
-                        [
-                            "2020-02-02",
-                            16369
-                        ],
-                        [
-                            "2020-02-03",
-                            19381
-                        ],
-                        [
-                            "2020-02-04",
-                            22942
-                        ],
-                        [
-                            "2020-02-05",
-                            26302
-                        ],
-                        [
-                            "2020-02-06",
-                            28985
-                        ],
-                        [
-                            "2020-02-07",
-                            31819
-                        ],
-                        [
-                            "2020-02-08",
-                            33699
-                        ],
-                        [
-                            "2020-02-09",
-                            36032
-                        ],
-                        [
-                            "2020-02-10",
-                            37693
-                        ],
-                        [
-                            "2020-02-11",
-                            38874
-                        ],
-                        [
-                            "2020-02-12",
-                            51933
-                        ],
-                        [
-                            "2020-02-13",
-                            55823
-                        ],
-                        [
-                            "2020-02-14",
-                            56950
-                        ],
-                        [
-                            "2020-02-15",
-                            57493
-                        ],
-                        [
-                            "2020-02-16",
-                            58005
-                        ],
-                        [
-                            "2020-02-17",
-                            58097
-                        ],
-                        [
-                            "2020-02-18",
-                            57883
-                        ],
-                        [
-                            "2020-02-19",
-                            56812
-                        ],
-                        [
-                            "2020-02-20",
-                            55477
-                        ],
-                        [
-                            "2020-02-21",
-                            53372
-                        ],
-                        [
-                            "2020-02-22",
-                            51494
-                        ],
-                        [
-                            "2020-02-23",
-                            49910
-                        ],
-                        [
-                            "2020-02-24",
-                            47760
-                        ],
-                        [
-                            "2020-02-25",
-                            45697
-                        ],
-                        [
-                            "2020-02-26",
-                            43352
-                        ],
-                        [
-                            "2020-02-27",
-                            40011
-                        ],
-                        [
-                            "2020-02-28",
-                            37502
-                        ],
-                        [
-                            "2020-02-29",
-                            35420
-                        ],
-                        [
-                            "2020-03-01",
-                            32741
-                        ],
-                        [
-                            "2020-03-02",
-                            30096
-                        ],
-                        [
-                            "2020-03-03",
-                            27524
-                        ],
-                        [
-                            "2020-03-04",
-                            25441
-                        ],
-                        [
-                            "2020-03-05",
-                            23872
-                        ],
-                        [
-                            "2020-03-06",
-                            22263
-                        ],
-                        [
-                            "2020-03-07",
-                            20616
-                        ],
-                        [
-                            "2020-03-08",
-                            19097
-                        ],
-                        [
-                            "2020-03-09",
-                            17802
-                        ],
-                        [
-                            "2020-03-10",
-                            16226
-                        ],
-                        [
-                            "2020-03-11",
-                            14932
-                        ],
-                        [
-                            "2020-03-12",
-                            13607
-                        ],
-                        [
-                            "2020-03-13",
-                            12178
-                        ],
-                        [
-                            "2020-03-14",
-                            10822
-                        ],
-                        [
-                            "2020-03-15",
-                            9996
-                        ],
-                        [
-                            "2020-03-16",
-                            9086
-                        ],
-                        [
-                            "2020-03-17",
-                            8184
-                        ],
-                        [
-                            "2020-03-18",
-                            7438
-                        ],
-                        [
-                            "2020-03-19",
-                            6763
-                        ],
-                        [
-                            "2020-03-20",
-                            6279
-                        ],
-                        [
-                            "2020-03-21",
-                            5849
-                        ],
-                        [
-                            "2020-03-22",
-                            5483
-                        ],
-                        [
-                            "2020-03-23",
-                            5165
-                        ],
-                        [
-                            "2020-03-24",
-                            4768
-                        ],
-                        [
-                            "2020-03-25",
-                            4471
-                        ],
-                        [
-                            "2020-03-26",
-                            4043
-                        ],
-                        [
-                            "2020-03-27",
-                            3790
-                        ],
-                        [
-                            "2020-03-28",
-                            3435
-                        ],
-                        [
-                            "2020-03-29",
-                            3199
-                        ],
-                        [
-                            "2020-03-30",
-                            3006
-                        ],
-                        [
-                            "2020-03-31",
-                            2895
-                        ],
-                        [
-                            "2020-04-01",
-                            2787
-                        ],
-                        [
-                            "2020-04-02",
-                            2686
-                        ],
-                        [
-                            "2020-04-03",
-                            2556
-                        ],
-                        [
-                            "2020-04-04",
-                            2537
-                        ],
-                        [
-                            "2020-04-05",
-                            2610
-                        ],
-                        [
-                            "2020-04-06",
-                            2676
-                        ],
-                        [
-                            "2020-04-07",
-                            2760
-                        ],
-                        [
-                            "2020-04-08",
-                            2850
-                        ],
-                        [
-                            "2020-04-09",
-                            2905
-                        ],
-                        [
-                            "2020-04-10",
-                            2965
-                        ],
-                        [
-                            "2020-04-11",
-                            3078
-                        ],
-                        [
-                            "2020-04-12",
-                            3066
-                        ],
-                        [
-                            "2020-04-13",
-                            3048
-                        ],
-                        [
-                            "2020-04-14",
-                            2969
-                        ],
-                        [
-                            "2020-04-15",
-                            2906
-                        ],
-                        [
-                            "2020-04-16",
-                            1872
-                        ],
-                        [
-                            "2020-04-17",
-                            1794
-                        ],
-                        [
-                            "2020-04-18",
-                            1734
-                        ],
-                        [
-                            "2020-04-19",
-                            1700
-                        ],
-                        [
-                            "2020-04-20",
-                            1630
-                        ],
-                        [
-                            "2020-04-21",
-                            1603
-                        ],
-                        [
-                            "2020-04-22",
-                            1603
-                        ]
-                    ],
-                    "hoverAnimation": true,
-                    "label": {
-                        "show": false,
-                        "position": "top",
-                        "margin": 8
-                    },
-                    "lineStyle": {
-                        "show": true,
-                        "width": 2,
-                        "opacity": 1,
-                        "curveness": 0,
-                        "type": "solid"
-                    },
-                    "areaStyle": {
-                        "opacity": 0
-                    },
-                    "zlevel": 0,
-                    "z": 0
-                }
-            ],
-            "legend": [
-                {
-                    "data": [
-                        "\u73b0\u6709\u786e\u8bca"
-                    ],
-                    "selected": {
-                        "\u73b0\u6709\u786e\u8bca": true
-                    },
+        function overck1() {
+            overnum.style.display = "block";
+            smap.style.display = "none";
+
+            osp1.style.color = "dodgerblue";
+            osp2.style.color = "black";
+
+
+        }
+        function overck2() {
+            overnum.style.display = "none";
+            smap.style.display = "block";
+
+            osp1.style.color = "black";
+            osp2.style.color = "dodgerblue";
+        }
+    </script>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <div id="smap" style="display: none; width: 800px; height: 400px; border: 1px solid #000000"></div>
+
+</body>
+<script>
+    var chart_smap = echarts.init(
+        document.getElementById('smap'), 'white', { renderer: 'canvas' });
+    var option_smap = {
+        "animation": true,
+        "animationThreshold": 2000,
+        "animationDuration": 1000,
+        "animationEasing": "cubicOut",
+        "animationDelay": 0,
+        "animationDurationUpdate": 300,
+        "animationEasingUpdate": "cubicOut",
+        "animationDelayUpdate": 0,
+        "color": [
+            "#c23531",
+            "#2f4554",
+            "#61a0a8",
+            "#d48265",
+            "#749f83",
+            "#ca8622",
+            "#bda29a",
+            "#6e7074",
+            "#546570",
+            "#c4ccd3",
+            "#f05b72",
+            "#ef5b9c",
+            "#f47920",
+            "#905a3d",
+            "#fab27b",
+            "#2a5caa",
+            "#444693",
+            "#726930",
+            "#b2d235",
+            "#6d8346",
+            "#ac6767",
+            "#1d953f",
+            "#6950a1",
+            "#918597"
+        ],
+        "series": [
+            {
+                "type": "map",
+                "label": {
                     "show": true,
-                    "padding": 5,
-                    "itemGap": 10,
-                    "itemWidth": 25,
-                    "itemHeight": 14
-                }
-            ],
-            "tooltip": {
-                "show": true,
-                "trigger": "axis",
-                "triggerOn": "mousemove|click",
-                "axisPointer": {
-                    "type": "line"
+                    "position": "top",
+                    "margin": 8
                 },
-                "textStyle": {
-                    "fontSize": 14
-                },
-                "borderWidth": 0
-            },
-            "xAxis": [
-                {
-                    "type": "category",
-                    "show": true,
-                    "scale": false,
-                    "nameLocation": "end",
-                    "nameGap": 15,
-                    "gridIndex": 0,
-                    "inverse": false,
-                    "offset": 0,
-                    "splitNumber": 5,
-                    "boundaryGap": false,
-                    "minInterval": 0,
-                    "splitLine": {
-                        "show": false,
-                        "lineStyle": {
-                            "show": true,
-                            "width": 1,
-                            "opacity": 1,
-                            "curveness": 0,
-                            "type": "solid"
-                        }
+                "mapType": "china",
+                "data": [
+                    {
+                        "name": "\u6e56\u5317",
+                        "value": 68128
                     },
-                    "data": [
-                        "2020-01-01",
-                        "2020-01-02",
-                        "2020-01-16",
-                        "2020-01-17",
-                        "2020-01-18",
-                        "2020-01-19",
-                        "2020-01-20",
-                        "2020-01-21",
-                        "2020-01-22",
-                        "2020-01-23",
-                        "2020-01-24",
-                        "2020-01-25",
-                        "2020-01-26",
-                        "2020-01-27",
-                        "2020-01-28",
-                        "2020-01-29",
-                        "2020-01-30",
-                        "2020-01-31",
-                        "2020-02-01",
-                        "2020-02-02",
-                        "2020-02-03",
-                        "2020-02-04",
-                        "2020-02-05",
-                        "2020-02-06",
-                        "2020-02-07",
-                        "2020-02-08",
-                        "2020-02-09",
-                        "2020-02-10",
-                        "2020-02-11",
-                        "2020-02-12",
-                        "2020-02-13",
-                        "2020-02-14",
-                        "2020-02-15",
-                        "2020-02-16",
-                        "2020-02-17",
-                        "2020-02-18",
-                        "2020-02-19",
-                        "2020-02-20",
-                        "2020-02-21",
-                        "2020-02-22",
-                        "2020-02-23",
-                        "2020-02-24",
-                        "2020-02-25",
-                        "2020-02-26",
-                        "2020-02-27",
-                        "2020-02-28",
-                        "2020-02-29",
-                        "2020-03-01",
-                        "2020-03-02",
-                        "2020-03-03",
-                        "2020-03-04",
-                        "2020-03-05",
-                        "2020-03-06",
-                        "2020-03-07",
-                        "2020-03-08",
-                        "2020-03-09",
-                        "2020-03-10",
-                        "2020-03-11",
-                        "2020-03-12",
-                        "2020-03-13",
-                        "2020-03-14",
-                        "2020-03-15",
-                        "2020-03-16",
-                        "2020-03-17",
-                        "2020-03-18",
-                        "2020-03-19",
-                        "2020-03-20",
-                        "2020-03-21",
-                        "2020-03-22",
-                        "2020-03-23",
-                        "2020-03-24",
-                        "2020-03-25",
-                        "2020-03-26",
-                        "2020-03-27",
-                        "2020-03-28",
-                        "2020-03-29",
-                        "2020-03-30",
-                        "2020-03-31",
-                        "2020-04-01",
-                        "2020-04-02",
-                        "2020-04-03",
-                        "2020-04-04",
-                        "2020-04-05",
-                        "2020-04-06",
-                        "2020-04-07",
-                        "2020-04-08",
-                        "2020-04-09",
-                        "2020-04-10",
-                        "2020-04-11",
-                        "2020-04-12",
-                        "2020-04-13",
-                        "2020-04-14",
-                        "2020-04-15",
-                        "2020-04-16",
-                        "2020-04-17",
-                        "2020-04-18",
-                        "2020-04-19",
-                        "2020-04-20",
-                        "2020-04-21",
-                        "2020-04-22"
-                    ]
-                }
-            ],
-            "yAxis": [
-                {
-                    "type": "value",
-                    "show": true,
-                    "scale": false,
-                    "nameLocation": "end",
-                    "nameGap": 15,
-                    "gridIndex": 0,
-                    "inverse": false,
-                    "offset": 0,
-                    "splitNumber": 5,
-                    "minInterval": 0,
-                    "splitLine": {
-                        "show": true,
-                        "lineStyle": {
-                            "show": true,
-                            "width": 1,
-                            "opacity": 1,
-                            "curveness": 0,
-                            "type": "solid"
-                        }
+                    {
+                        "name": "\u5e7f\u4e1c",
+                        "value": 1588
+                    },
+                    {
+                        "name": "\u6cb3\u5357",
+                        "value": 1276
+                    },
+                    {
+                        "name": "\u6d59\u6c5f",
+                        "value": 1268
+                    },
+                    {
+                        "name": "\u9999\u6e2f",
+                        "value": 1037
+                    },
+                    {
+                        "name": "\u6e56\u5357",
+                        "value": 1019
+                    },
+                    {
+                        "name": "\u5b89\u5fbd",
+                        "value": 991
+                    },
+                    {
+                        "name": "\u9ed1\u9f99\u6c5f",
+                        "value": 944
+                    },
+                    {
+                        "name": "\u6c5f\u897f",
+                        "value": 937
+                    },
+                    {
+                        "name": "\u5c71\u4e1c",
+                        "value": 787
+                    },
+                    {
+                        "name": "\u6c5f\u82cf",
+                        "value": 653
+                    },
+                    {
+                        "name": "\u4e0a\u6d77",
+                        "value": 652
+                    },
+                    {
+                        "name": "\u5317\u4eac",
+                        "value": 593
+                    },
+                    {
+                        "name": "\u91cd\u5e86",
+                        "value": 579
+                    },
+                    {
+                        "name": "\u56db\u5ddd",
+                        "value": 561
+                    },
+                    {
+                        "name": "\u53f0\u6e7e",
+                        "value": 429
+                    },
+                    {
+                        "name": "\u798f\u5efa",
+                        "value": 356
+                    },
+                    {
+                        "name": "\u6cb3\u5317",
+                        "value": 328
+                    },
+                    {
+                        "name": "\u9655\u897f",
+                        "value": 306
+                    },
+                    {
+                        "name": "\u5e7f\u897f",
+                        "value": 254
+                    },
+                    {
+                        "name": "\u5185\u8499\u53e4",
+                        "value": 201
+                    },
+                    {
+                        "name": "\u5c71\u897f",
+                        "value": 197
+                    },
+                    {
+                        "name": "\u5929\u6d25",
+                        "value": 190
+                    },
+                    {
+                        "name": "\u4e91\u5357",
+                        "value": 185
+                    },
+                    {
+                        "name": "\u6d77\u5357",
+                        "value": 168
+                    },
+                    {
+                        "name": "\u8d35\u5dde",
+                        "value": 147
+                    },
+                    {
+                        "name": "\u8fbd\u5b81",
+                        "value": 146
+                    },
+                    {
+                        "name": "\u7518\u8083",
+                        "value": 139
+                    },
+                    {
+                        "name": "\u5409\u6797",
+                        "value": 111
+                    },
+                    {
+                        "name": "\u65b0\u7586",
+                        "value": 76
+                    },
+                    {
+                        "name": "\u5b81\u590f",
+                        "value": 75
+                    },
+                    {
+                        "name": "\u6fb3\u95e8",
+                        "value": 45
+                    },
+                    {
+                        "name": "\u9752\u6d77",
+                        "value": 18
+                    },
+                    {
+                        "name": "\u897f\u85cf",
+                        "value": 1
                     }
-                }
-            ],
-            "title": [
+                ],
+                "roam": true,
+                "zoom": 1,
+                "showLegendSymbol": false,
+                "emphasis": {}
+            }
+        ],
+        "legend": [
+            {
+                "data": [
+                    ""
+                ],
+                "selected": {
+                    "": true
+                },
+                "show": true,
+                "padding": 5,
+                "itemGap": 10,
+                "itemWidth": 25,
+                "itemHeight": 14
+            }
+        ],
+        "tooltip": {
+            "show": true,
+            "trigger": "item",
+            "triggerOn": "mousemove|click",
+            "axisPointer": {
+                "type": "line"
+            },
+            "textStyle": {
+                "fontSize": 14
+            },
+            "borderWidth": 0
+        },
+        "title": [
+            {
+                "text": "2019_nCoV\u4e2d\u56fd\u5404\u5730\u533a\u73b0\u5b58\u786e\u8bca\u4eba\u6570\u5730\u56fe",
+                "padding": 5,
+                "itemGap": 10
+            }
+        ],
+        "visualMap": {
+            "show": true,
+            "type": "piecewise",
+            "min": 0,
+            "max": 100,
+            "inRange": {
+                "color": [
+                    "#50a3ba",
+                    "#eac763",
+                    "#d94e5d"
+                ]
+            },
+            "calculable": true,
+            "inverse": false,
+            "splitNumber": 5,
+            "orient": "vertical",
+            "showLabel": true,
+            "itemWidth": 20,
+            "itemHeight": 14,
+            "borderWidth": 0,
+            "pieces": [
                 {
-                    "text": "\u4e2d\u56fd\u73b0\u6709\u786e\u8bca\u8d8b\u52bf",
-                    "padding": 5,
-                    "itemGap": 10
+                    "min": 5000,
+                    "label": ">5000",
+                    "color": "#893448"
+                },
+                {
+                    "min": 1000,
+                    "max": 4999,
+                    "label": "1000-4999",
+                    "color": "#ff585e"
+                },
+                {
+                    "min": 500,
+                    "max": 999,
+                    "label": "500-1000",
+                    "color": "#fb8146"
+                },
+                {
+                    "min": 101,
+                    "max": 499,
+                    "label": "101-499",
+                    "color": "#ffA500"
+                },
+                {
+                    "min": 10,
+                    "max": 100,
+                    "label": "10-100",
+                    "color": "#ffb248"
+                },
+                {
+                    "min": 0,
+                    "max": 9,
+                    "label": "0-9",
+                    "color": "#fff2d1"
                 }
             ]
-        };
-        chart_ad9cf02e057d4d74883712c41d97218a.setOption(option_ad9cf02e057d4d74883712c41d97218a);
-    </script>
-    <script>
-        var chart_89d0a2f0d39446f9ab91dff43121c8a9 = echarts.init(
-            document.getElementById('89d0a2f0d39446f9ab91dff43121c8a9'), 'white', { renderer: 'canvas' });
-        var option_89d0a2f0d39446f9ab91dff43121c8a9 = {
-            "animation": true,
-            "animationThreshold": 2000,
-            "animationDuration": 1000,
-            "animationEasing": "cubicOut",
-            "animationDelay": 0,
-            "animationDurationUpdate": 300,
-            "animationEasingUpdate": "cubicOut",
-            "animationDelayUpdate": 0,
-            "color": [
-                "#c23531",
-                "#2f4554",
-                "#61a0a8",
-                "#d48265",
-                "#749f83",
-                "#ca8622",
-                "#bda29a",
-                "#6e7074",
-                "#546570",
-                "#c4ccd3",
-                "#f05b72",
-                "#ef5b9c",
-                "#f47920",
-                "#905a3d",
-                "#fab27b",
-                "#2a5caa",
-                "#444693",
-                "#726930",
-                "#b2d235",
-                "#6d8346",
-                "#ac6767",
-                "#1d953f",
-                "#6950a1",
-                "#918597"
-            ],
-            "series": [
-                {
-                    "type": "map",
-                    "label": {
-                        "show": true,
-                        "position": "top",
-                        "margin": 8
-                    },
-                    "mapType": "china",
-                    "data": [
-                        {
-                            "name": "\u6e56\u5317",
-                            "value": 68128
-                        },
-                        {
-                            "name": "\u5e7f\u4e1c",
-                            "value": 1588
-                        },
-                        {
-                            "name": "\u6cb3\u5357",
-                            "value": 1276
-                        },
-                        {
-                            "name": "\u6d59\u6c5f",
-                            "value": 1268
-                        },
-                        {
-                            "name": "\u9999\u6e2f",
-                            "value": 1037
-                        },
-                        {
-                            "name": "\u6e56\u5357",
-                            "value": 1019
-                        },
-                        {
-                            "name": "\u5b89\u5fbd",
-                            "value": 991
-                        },
-                        {
-                            "name": "\u9ed1\u9f99\u6c5f",
-                            "value": 944
-                        },
-                        {
-                            "name": "\u6c5f\u897f",
-                            "value": 937
-                        },
-                        {
-                            "name": "\u5c71\u4e1c",
-                            "value": 787
-                        },
-                        {
-                            "name": "\u6c5f\u82cf",
-                            "value": 653
-                        },
-                        {
-                            "name": "\u4e0a\u6d77",
-                            "value": 652
-                        },
-                        {
-                            "name": "\u5317\u4eac",
-                            "value": 593
-                        },
-                        {
-                            "name": "\u91cd\u5e86",
-                            "value": 579
-                        },
-                        {
-                            "name": "\u56db\u5ddd",
-                            "value": 561
-                        },
-                        {
-                            "name": "\u53f0\u6e7e",
-                            "value": 429
-                        },
-                        {
-                            "name": "\u798f\u5efa",
-                            "value": 356
-                        },
-                        {
-                            "name": "\u6cb3\u5317",
-                            "value": 328
-                        },
-                        {
-                            "name": "\u9655\u897f",
-                            "value": 306
-                        },
-                        {
-                            "name": "\u5e7f\u897f",
-                            "value": 254
-                        },
-                        {
-                            "name": "\u5185\u8499\u53e4",
-                            "value": 201
-                        },
-                        {
-                            "name": "\u5c71\u897f",
-                            "value": 197
-                        },
-                        {
-                            "name": "\u5929\u6d25",
-                            "value": 190
-                        },
-                        {
-                            "name": "\u4e91\u5357",
-                            "value": 185
-                        },
-                        {
-                            "name": "\u6d77\u5357",
-                            "value": 168
-                        },
-                        {
-                            "name": "\u8d35\u5dde",
-                            "value": 147
-                        },
-                        {
-                            "name": "\u8fbd\u5b81",
-                            "value": 146
-                        },
-                        {
-                            "name": "\u7518\u8083",
-                            "value": 139
-                        },
-                        {
-                            "name": "\u5409\u6797",
-                            "value": 111
-                        },
-                        {
-                            "name": "\u65b0\u7586",
-                            "value": 76
-                        },
-                        {
-                            "name": "\u5b81\u590f",
-                            "value": 75
-                        },
-                        {
-                            "name": "\u6fb3\u95e8",
-                            "value": 45
-                        },
-                        {
-                            "name": "\u9752\u6d77",
-                            "value": 18
-                        },
-                        {
-                            "name": "\u897f\u85cf",
-                            "value": 1
-                        }
-                    ],
-                    "roam": true,
-                    "zoom": 1,
-                    "showLegendSymbol": false,
-                    "emphasis": {}
-                }
-            ],
-            "legend": [
-                {
-                    "data": [
-                        ""
-                    ],
-                    "selected": {
-                        "": true
-                    },
-                    "show": true,
-                    "padding": 5,
-                    "itemGap": 10,
-                    "itemWidth": 25,
-                    "itemHeight": 14
-                }
-            ],
-            "tooltip": {
-                "show": true,
-                "trigger": "item",
-                "triggerOn": "mousemove|click",
-                "axisPointer": {
-                    "type": "line"
-                },
-                "textStyle": {
-                    "fontSize": 14
-                },
-                "borderWidth": 0
-            },
-            "title": [
-                {
-                    "text": "2019_nCoV\u4e2d\u56fd\u5404\u5730\u533a\u73b0\u5b58\u786e\u8bca\u4eba\u6570\u5730\u56fe",
-                    "padding": 5,
-                    "itemGap": 10
-                }
-            ],
-            "visualMap": {
-                "show": true,
-                "type": "piecewise",
-                "min": 0,
-                "max": 100,
-                "inRange": {
-                    "color": [
-                        "#50a3ba",
-                        "#eac763",
-                        "#d94e5d"
-                    ]
-                },
-                "calculable": true,
-                "inverse": false,
-                "splitNumber": 5,
-                "orient": "vertical",
-                "showLabel": true,
-                "itemWidth": 20,
-                "itemHeight": 14,
-                "borderWidth": 0,
-                "pieces": [
-                    {
-                        "min": 5000,
-                        "label": ">5000",
-                        "color": "#893448"
-                    },
-                    {
-                        "min": 1000,
-                        "max": 4999,
-                        "label": "1000-4999",
-                        "color": "#ff585e"
-                    },
-                    {
-                        "min": 500,
-                        "max": 999,
-                        "label": "500-1000",
-                        "color": "#fb8146"
-                    },
-                    {
-                        "min": 101,
-                        "max": 499,
-                        "label": "101-499",
-                        "color": "#ffA500"
-                    },
-                    {
-                        "min": 10,
-                        "max": 100,
-                        "label": "10-100",
-                        "color": "#ffb248"
-                    },
-                    {
-                        "min": 0,
-                        "max": 9,
-                        "label": "0-9",
-                        "color": "#fff2d1"
-                    }
-                ]
-            }
-        };
-        chart_89d0a2f0d39446f9ab91dff43121c8a9.setOption(option_89d0a2f0d39446f9ab91dff43121c8a9);
-    </script>
-</body>
+        }
+    };
+    chart_smap.setOption(option_smap);
+</script>
+
 
 {% endblock %}
