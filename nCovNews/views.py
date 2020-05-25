@@ -8,6 +8,7 @@ from flask import render_template
 from flask import request
 from flask import redirect
 from flask import url_for
+from flask import flash
 from nCovNews import app , db
 from nCovNews import datatype , user_mod,forms
 
@@ -172,16 +173,13 @@ def delete_all_discuss():
 # 登陆表单
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    name = None
-    form = forms.NameForm()
+    form = forms.LoginForm()
     if form.validate_on_submit():
-        name = form.name.data
-        form.name.data = ''
-        
+        id = form.id.data
+        return redirect(url_for('home'))
     return render_template('login.html',
                            title='Login', 
-                           form=form, 
-                           name=name)
+                           form=form, )
 
 
 #没用的
