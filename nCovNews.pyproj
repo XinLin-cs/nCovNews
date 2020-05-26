@@ -32,6 +32,9 @@
     <Compile Include="nCovNews\datatype.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="nCovNews\data_predict.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="nCovNews\data_update.py">
       <SubType>Code</SubType>
     </Compile>

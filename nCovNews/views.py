@@ -8,19 +8,11 @@ from flask import render_template
 from flask import request
 from flask import redirect
 from flask import url_for
-<<<<<<< HEAD
 from flask import flash
 from nCovNews import app , db
-from nCovNews import datatype , user_mod,forms
-=======
-from nCovNews import app
-from nCovNews import db
-from nCovNews import datatype
-from nCovNews import user_mod
->>>>>>> parent of 8d005b3... dara predict
+from nCovNews import datatype , data_predict , user_mod , forms
 
 @app.route('/')
-
 @app.route('/home')
 def home():
     """Renders the home page."""
@@ -146,6 +138,7 @@ def getdata():
     timeseries = []
     china = {'confirmedtotal':[],'confirmedexist':[],'suspected':[],'cures':[],'deaths':[],'asymptomatic':[]}
     chinaInc = {'confirmedtotal':[],'confirmedexist':[],'suspected':[],'cures':[],'deaths':[],'asymptomatic':[]}
+    chinaPredict = {'confirmedtotal':[],'confirmedexist':[],'suspected':[],'cures':[],'deaths':[],'asymptomatic':[]}
     for item in chinatotal:
         timeseries.append(str(item.date))
         china['confirmedtotal'].append([str(item.date),item.confirmed])
@@ -157,11 +150,24 @@ def getdata():
         china['asymptomatic'].append([str(item.date),item.asymptomatic])  
     # 计算变化量(不含疑似)
     for i in range(len(chinatotal)-1):
-        chinaInc['confirmedtotal'].append([timeseries[i],china['confirmedtotal'][i+1][1]-china['confirmedtotal'][i][1]])
-        chinaInc['confirmedexist'].append([timeseries[i],china['confirmedexist'][i+1][1]-china['confirmedexist'][i][1]])
-        chinaInc['cures'].append([timeseries[i],china['cures'][i+1][1]-china['cures'][i][1]])
-        chinaInc['deaths'].append([timeseries[i],china['deaths'][i+1][1]-china['deaths'][i][1]])
-        chinaInc['asymptomatic'].append([timeseries[i],china['asymptomatic'][i+1][1]-china['asymptomatic'][i][1]])
+        chinaInc['confirmedtotal'].append([timeseries[i+1],china['confirmedtotal'][i+1][1]-china['confirmedtotal'][i][1]])
+        chinaInc['confirmedexist'].append([timeseries[i+1],china['confirmedexist'][i+1][1]-china['confirmedexist'][i][1]])
+        chinaInc['cures'].append([timeseries[i+1],china['cures'][i+1][1]-china['cures'][i][1]])
+        chinaInc['deaths'].append([timeseries[i+1],china['deaths'][i+1][1]-china['deaths'][i][1]])
+        chinaInc['asymptomatic'].append([timeseries[i+1],china['asymptomatic'][i+1][1]-china['asymptomatic'][i][1]])
+    # 构造预测序列
+    predictseries = []
+    dt = 100 # 预测天数
+    for i in range(0,len(chinatotal)+dt):
+        if i<len(chinatotal):
+            predictseries.append(chinatotal[i].date)
+        else:
+            predictseries.append(predictseries[i-1]+timedelta(days = 1))
+    for i in range(0,len(chinatotal)+dt):
+        predictseries[i] = str(predictseries[i])
+    # 趋势预测
+    chinaPredict['confirmedtotal']=data_predict.result2(predictseries,china['confirmedtotal'],0.55)
+    chinaPredict['confirmedexist']=data_predict.result2(predictseries,china['confirmedexist'],0.4)
     # 地图数据
     province = datatype.PROVINCE.query.filter_by(date=date.today())
     map = {'confirmedtotal':[],'confirmedexist':[],'cures':[],'deaths':[],'asymptomatic':[]}
@@ -171,7 +177,13 @@ def getdata():
         map['cures'].append({'name':item.name,'value':item.cures})
         map['deaths'].append({'name':item.name,'value':item.deaths})
         map['asymptomatic'].append({'name':item.name,'value':item.asymptomatic})
-    return json.dumps({'timeseries':timeseries,'china':china,'chinaInc':chinaInc,'map':map},ensure_ascii=False)
+    return json.dumps({'timeseries':timeseries,
+                       'predictseries':predictseries,
+                       'china':china,
+                       'chinaInc':chinaInc,
+                       'chinaPredict':chinaPredict
+                       ,'map':map
+                       },ensure_ascii=False)
 
 @app.route('/delete_all_discuss')
 def delete_all_discuss():
