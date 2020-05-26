@@ -9,7 +9,7 @@ from nCovNews import data_update
 
 if __name__ == '__main__':
     # 数据库测试
-    db.drop_all()
+    # db.drop_all()
     db.create_all()
 
     # 实时数据更新

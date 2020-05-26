@@ -14,8 +14,7 @@ def IDCheck():
         if len(field.data)!=9:
             raise ValidationError('请输入正确的9位学号')
         try:
-            # int(field.data)
-            pass
+            int(field.data)
         except:
             raise ValidationError('请输入正确的9位学号')
     return check
