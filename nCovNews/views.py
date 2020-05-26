@@ -8,11 +8,19 @@ from flask import render_template
 from flask import request
 from flask import redirect
 from flask import url_for
+<<<<<<< HEAD
 from flask import flash
 from nCovNews import app , db
 from nCovNews import datatype , user_mod,forms
+=======
+from nCovNews import app
+from nCovNews import db
+from nCovNews import datatype
+from nCovNews import user_mod
+>>>>>>> parent of 8d005b3... dara predict
 
 @app.route('/')
+
 @app.route('/home')
 def home():
     """Renders the home page."""
