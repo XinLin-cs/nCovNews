@@ -5,10 +5,10 @@
     div.ex1 {
         height: 200px;
         width: 100%;
-        border: 1px solid gray;
+        border: 0px solid gray;
         margin: 0px;
         border-radius: 20px;
-        background-color: #1c7fe2;
+        background-color: #414ab3;
         text-align: center;
         line-height: 200px;
     }
@@ -16,10 +16,10 @@
     div.ex2 {
         height: 150px;
         width: 100%;
-        border: 1px solid gray;
+        border: 0px solid gray;
         margin: 0px;
         border-radius: 20px;
-        background-color: #c96cf5;
+        background-color:#c84cb7;
         text-align: center;
         line-height: 150px;
     }
@@ -27,10 +27,10 @@
     div.ex3 {
         height: 150px;
         width: 100%;
-        border: 1px solid gray;
+        border: 0px solid gray;
         margin: 0px;
         border-radius: 20px;
-        background-color: #b6ff00;
+        background-color: #b8c242; 
         text-align: center;
         line-height: 150px;
     }
@@ -41,7 +41,7 @@
         border: 1px solid gray;
         margin: 0px;
         border-radius: 20px;
-        background-color: #e69962;
+        background-color: #d28955;
         text-align: center;
         line-height: 150px;
     }
@@ -49,10 +49,10 @@
     div.ex5 {
         height: 150px;
         width: 100%;
-        border: 1px solid gray;
+        border: 0px solid gray;
         margin: 0px;
         border-radius: 20px;
-        background-color: #f9e681;
+        background-color: #67d4d4;
         text-align: center;
         line-height: 150px;
     }
@@ -85,6 +85,12 @@
         margin: 0px;
         border-radius: 20px;
         background-color:#f7f0cd
+    }
+    .index-h1 {
+        font-size: 50px;
+        font-family: Arial,Helvetica,sans-serif;
+        font-weight: 600;
+        color: #ffffff
     }
 </style>
 
@@ -170,35 +176,46 @@
 <div class="row ">
     <div class="col-md-6 ">
 
-        <div class="ex1 ">
-            <a href="{{ url_for('analyze') }}"><h class=" hs">疫情趋势分析</h></a>
-        </div><br />
+        <a href="{{ url_for('analyze') }}">
+            <div class="ex1 ">
+                <h class=" index-h1">疫情趋势分析</h>
+            </div>
+        </a>
+        <br />
 
         <div class="row">
             <div class="col-md-5 ">
-                <div class="ex2 ">
-                    <a href="{{ url_for('test') }}"><h class=" hs">疫情知识</h></a>
-
-                </div>
+                <a href="{{ url_for('test') }}">
+                    <div class="ex2 ">
+                        <h class="index-h1">疫情知识</h>
+                    </div>
+                </a>
             </div>
             <div class="col-md-7 ">
-                <div class="ex3 ">
-                    <a href="{{ url_for('news') }}"><h class=" hs">疫情新闻</h></a>
-                </div>
+                <a href="{{ url_for('news') }}">
+                    <div class="ex3 ">
+                        <h class="index-h1">疫情新闻</h>
+                    </div>
+                </a>
             </div>
 
         </div><br />
 
     </div>
     <div class="col-md-6 ">
+        <a href="{{ url_for('overview') }}">
+            <div class="ex4 ">
 
-        <div class="ex4 ">
-            <a href="{{ url_for('overview') }}"><h class=" hs"> 疫情地图</h></a>
-
-        </div><br />
-        <div class="ex5 ">
-            <a href="{{ url_for('discuss') }}"><h class=" hs"> 讨论区</h></a>
-        </div><br />
+                <h class="index-h1"> 疫情地图</h>
+            </div>
+        </a>
+        <br />
+        <a href="{{ url_for('discuss') }}">
+            <div class="ex5 ">
+                <h class=" index-h1"> 讨论区</h>
+            </div>
+        </a>
+        <br />
         <span style="float:left">    觉得不错，分享给朋友：</span>
         <div>
             <em class="forumShare">
@@ -351,8 +368,9 @@
         window.open(_shareUrl, '_blank', 'width=' + _width + ',height=' + _height + ',left=' + _left + ',top=' + _top + ',toolbar=no,menubar=no,scrollbars=no,resizable=1,location=no,status=0');
     }
 </script>
-
-<video width="100%" height="100%" src="https://f.video.weibocdn.com/004x7Bhegx07DrduXLIs01041201H3pi0E010.mp4?label=mp4_720p&template=1280x720.25.0&trans_finger=721584770189073627c6ee9d880087b3&Expires=1590035952&ssig=yHtKfU47Gc&KID=unistore,video" controls="controls">
+<br />
+<br />
+<video  style=" width :100%;height :100%"   src="https://f.video.weibocdn.com/004x7Bhegx07DrduXLIs01041201H3pi0E010.mp4?label=mp4_720p&template=1280x720.25.0&trans_finger=721584770189073627c6ee9d880087b3&Expires=1590035952&ssig=yHtKfU47Gc&KID=unistore,video" controls="controls">
     当前浏览器不支持视频播放
 </video>
 {% endblock %}
