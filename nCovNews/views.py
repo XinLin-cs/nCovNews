@@ -181,6 +181,22 @@ def login():
                            title='Login', 
                            form=form, )
 
+# 注册表单
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    form = forms.RegisterForm()
+    if form.validate_on_submit():
+        session = db.session
+        id = form.id.data
+        name = form.name.data
+        password = form.password.data
+        user = datatype.USER(id=id,name=name,password=password)
+        session.add(user)
+        session.commit()
+        return redirect(url_for('login'))
+    return render_template('register.html',
+                           title='Register', 
+                           form=form, )
 
 #没用的
 @app.route('/test')

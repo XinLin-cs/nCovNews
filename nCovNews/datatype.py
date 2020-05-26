@@ -1,5 +1,11 @@
 from nCovNews import db
 
+class USER(db.Model):
+    userid = db.Column(db.Integer, primary_key=True)  
+    id = db.Column( db.String(20) )  
+    name = db.Column( db.String(20) )  
+    password = db.Column( db.String(20) ) 
+
 class PROVINCE(db.Model):
     id = db.Column(db.Integer, primary_key=True)  
     date = db.Column( db.Date )  

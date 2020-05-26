@@ -61,6 +61,7 @@
     <Content Include="nCovNews\data\province_msg.csv" />
     <Content Include="nCovNews\templates\analyze.html" />
     <Content Include="nCovNews\templates\discuss.html" />
+    <Content Include="nCovNews\templates\register.html" />
     <Content Include="nCovNews\templates\login.html" />
     <Content Include="nCovNews\templates\news.html" />
     <Content Include="nCovNews\templates\overview.html" />
