@@ -1,24 +1,27 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<style >
+<style>
     h2 {
         font-size: 30px;
         font-family: Arial,Helvetica,sans-serif;
         font-weight: 400;
     }
-    h1{
+
+    h1 {
         font-size: 20px;
         font-family: Arial,Helvetica,sans-serif;
         font-weight: 400;
     }
+
     .ps {
         text-indent: 20px;
     }
+
     .s1 {
         background-color: #ffffff;
         position: fixed;
-        width: 100%;
+        width: 75%;
         top: 7%;
     }
 
@@ -28,35 +31,40 @@
         list-style-type: none;
         width: 600px;
     }
-    #sp1 {
-        color:dodgerblue
 
+    #sp1 {
+        color: dodgerblue
     }
+
     #sp2 {
-        color: black ;
+        color: black;
     }
+
     #sp3 {
         color: black;
     }
+
     #sp4 {
         color: black;
     }
+
     #sp5 {
         color: black;
     }
+
     #sp6 {
         color: black;
     }
+
     #sp7 {
         color: black;
     }
-   
 </style>
 <p></p>
 <div id="div0" class="s1">
     <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav" style=" width :11000px">
-           
+
             <li><a onclick="ck1()"><p id="sp1">简介</p></a></li>
             <li><a onclick="ck2()"><p id="sp2">症状</p> </a></li>
             <li><a onclick="ck3()"><p id="sp3">病因</p></a></li>
@@ -95,7 +103,7 @@
         div6.style.display = "none";
         div7.style.display = "none";
         sp1.style.color = "black";
-        sp2.style.color = "dodgerblue"; 
+        sp2.style.color = "dodgerblue";
         sp3.style.color = "black";
         sp4.style.color = "black";
         sp5.style.color = "black";
@@ -189,7 +197,7 @@
     <br>
     <br>
     <h2>简介</h2>
-    <ul style="list-style:none" >
+    <ul style="list-style:none">
         <li>
             <h1>1.什么是新型冠状病毒？</h1>
             <p class="ps"> 此次流行的冠状病毒为一种新发现的冠状病毒，国际病毒分类委员会命名为 SARS-Cov-2。因为人群缺少对新型病毒株的免疫力，所以人群普遍易感。</p>
@@ -439,24 +447,24 @@
         <li>
             <h1> 2.医生如何识别新型冠状病毒肺炎？</h1>
             <h> 疑似病例：</h><br />
-                         <ul>
-                             <li>
-                                 <h>流行病学史：</h>
-                                 
-                                 <p clsss="ps">病前 14 天内有武汉市及周边地区，或其他有病例报告社区的旅行史或居住史；发病前 14 天内与新型冠状病毒肺炎感染者(核酸检测阳性者)有接触史；</p>
-                                 <p class="ps"> 发病前 14 天内曾经接触过来自武汉市及周边地区，或来自有病例报告社区的发热或有呼吸道症状的患者；</p>
-                                 <p class="ps "> 聚集性发病。</p>
-                             </li>
-                             <li>
-                                 <h>临床表现：</h>
-                                 <p class=" ps ">发热和/或呼吸道症状；</p>
-                                 <p class=" ps ">具有病毒性肺炎影像学特征；</p>
-                                 <p class=" ps ">发病早期白细胞总数正常或降低，或淋巴细胞计数减少。</p>
-                             </li>
-                         </ul>
+            <ul>
+                <li>
+                    <h>流行病学史：</h>
+
+                    <p clsss="ps">病前 14 天内有武汉市及周边地区，或其他有病例报告社区的旅行史或居住史；发病前 14 天内与新型冠状病毒肺炎感染者(核酸检测阳性者)有接触史；</p>
+                    <p class="ps"> 发病前 14 天内曾经接触过来自武汉市及周边地区，或来自有病例报告社区的发热或有呼吸道症状的患者；</p>
+                    <p class="ps "> 聚集性发病。</p>
+                </li>
+                <li>
+                    <h>临床表现：</h>
+                    <p class=" ps ">发热和/或呼吸道症状；</p>
+                    <p class=" ps ">具有病毒性肺炎影像学特征；</p>
+                    <p class=" ps ">发病早期白细胞总数正常或降低，或淋巴细胞计数减少。</p>
+                </li>
+            </ul>
             <p class="ps"> 有流行病学史中的任何一条，且符合临床表现中任意 2 条。无明确流行病学史的，且符合临床表现中的 3 条。</p>
             <h>确诊病例： </h>
-            <p >疑似病例，具备以下病原学证据之一：</p>
+            <p>疑似病例，具备以下病原学证据之一：</p>
             <ul>
                 <li>呼吸道标本或血液标本实时荧光 RT-PCR 检测新型冠状病毒核酸阳性；</li>
                 <li>呼吸道标本或血液标本病毒基因测序，与已知的新型冠状病毒高度同源。</li>
