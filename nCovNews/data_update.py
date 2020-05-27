@@ -164,8 +164,6 @@ def get_news( page , num ):
     except:
         return 0
 
-get_news
-
 def get_fakenews( page , num ):
     session = db.session
     url = 'http://lab.isaaclin.cn/nCoV/api/rumors?page=%d&num=%d&rumorType=%d' % ( page , num , 0 )

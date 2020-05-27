@@ -4,11 +4,7 @@ Routes and views for the flask application.
 import time
 import json
 from datetime import datetime , date , timedelta
-from flask import render_template
-from flask import request
-from flask import redirect
-from flask import url_for
-from flask import flash
+from flask import render_template,request,redirect,url_for,flash,session
 from nCovNews import app , db
 from nCovNews import datatype , data_predict , user_mod , forms
 
@@ -195,24 +191,36 @@ def delete_all_discuss():
 def login():
     form = forms.LoginForm()
     if form.validate_on_submit():
-        id = form.id.data
+        session['userid']=form.id.data
+        session.permanent = False # 是否保存用户登录状态
         return redirect(url_for('home'))
     return render_template('login.html',
                            title='Login', 
-                           form=form, )
+                           form=form,)
+
+@app.context_processor
+def my_context_processor():
+    userid = session.get('userid')
+    if userid:
+        username = datatype.USER.query.filter_by(id=userid).first().name
+        return {'userid': userid,'username':username}
+    return{}
+
+# 登出
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('home'))
 
 # 注册表单
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     form = forms.RegisterForm()
     if form.validate_on_submit():
-        session = db.session
-        id = form.id.data
-        name = form.name.data
-        password = form.password.data
-        user = datatype.USER(id=id,name=name,password=password)
-        session.add(user)
-        session.commit()
+        dbsession = db.session
+        user = datatype.USER(id=form.id.data,name=form.name.data,password=form.password.data)
+        dbsession.add(user)
+        dbsession.commit()
         return redirect(url_for('login'))
     return render_template('register.html',
                            title='Register', 
