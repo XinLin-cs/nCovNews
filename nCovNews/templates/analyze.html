@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+﻿{% extends "layout.html" %}
 
 {% block content %}
 
@@ -23,22 +23,20 @@
             <li data-slide-to="2" data-target="#carousel-83435" class="active"></li>
         </ol>
         <div class="carousel-inner">
-            <div class="item" >
+            <div class="item">
                 <div id="main1" style="width: 600px;height:400px; margin: 0 auto;"></div>
                 <div class="carousel-caption">
-                    <h4>中国现有确诊趋势</h4>
+                    <!--<h4>中国现有确诊趋势</h4>-->
                 </div>
             </div>
             <div class="item">
                 <div id="main2" style="width: 600px;height:400px;margin: 0 auto;"></div>
                 <div class="carousel-caption">
-                    <h4>中国累计确诊</h4>
                 </div>
             </div>
             <div class="item active">
                 <div id="main3" style="width: 800px;height:400px;margin: 0 auto;"></div>
                 <div class="carousel-caption">
-                    <h4>全国累计确诊/治愈/死亡趋势</h4>
                 </div>
             </div>
         </div> <a class="left carousel-control" href="#carousel-83435" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-83435" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
@@ -49,6 +47,7 @@
     <div id="main3" style="width: 800px;height:400px;margin: 0 auto;"></div>
     <div id="main4" style="width: 600px;height:400px;margin: 0 auto;"></div>
     <div id="main5" style="width: 600px;height:400px;margin: 0 auto;"></div>
+    <div id="main6" style="width: 600px;height:400px;margin: 0 auto;"></div>
 
     <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
@@ -59,6 +58,7 @@
             var myChart3 = echarts.init(document.getElementById('main3'));
             var myChart4 = echarts.init(document.getElementById('main4'));
             var myChart5 = echarts.init(document.getElementById('main5'));
+            var myChart6 = echarts.init(document.getElementById('main6'));
 
             $.ajax({
                 url: '/getdata',
@@ -73,6 +73,10 @@
                     console.info(json_data['chinaInc']['confirmedtotal'])
                     console.info(json_data['chinaInc']['suspected'])
                     console.info(json_data['map']['confirmedexist'])
+                    console.info(json_data['chinaPredict']['confirmedexist'])
+                    console.info(json_data['chinaPredict']['confirmedtotal'])
+                    console.info(json_data['predictseries'])
+
                     // 指定图表的配置项和数据
                     var option1 = {
                         title: {
@@ -309,6 +313,34 @@
                         ]
                     };
                     myChart5.setOption(option5)
+                    var option6 = {
+                        title: {
+                            text: '中国现有确诊趋势预测'
+                        },
+                        tooltip: {
+                            trigger: 'axis'
+                        },
+                        legend: {
+                            data: ['确诊预测']
+                        },
+                        xAxis: {
+                            type: 'category',
+                            boundaryGap: false,
+                            data: json_data['predictseries']
+                        },
+                        yAxis: {
+                            type: 'value'
+                        },
+                        series: [
+                            {
+                                name: '确诊预测',
+                                type: 'line',
+                                data: json_data['chinaPredict']['confirmedtotal']
+                            }
+                        ]
+                    };
+                    // 使用刚指定的配置项和数据显示图表。
+                    myChart6.setOption(option6);
                 },//success末尾
 
             })
