@@ -26,7 +26,7 @@
     }
 </style>
 
-
+{% if userid %}
 <div class="ss2">
     <br />
     <br />
@@ -44,8 +44,8 @@
             </form>
         </div>
     </div>
-
 </div>
+{% endif %}
 <br />
 <br />
 <br />
@@ -118,7 +118,7 @@
             </div>
         </div>
         <div class=" col-md-11 ">
-            <p class="comment_name" style="float:left;">{{item.name}}</p>       <p style="float:right;">{{item.date}}</p>
+            <p class="comment_name" style="float:left;">{{item.username}} ({{item.userid}})</p>       <p style="float:right;">{{item.date}}</p>
             <br />
             <br />
             <p style=" text-indent: 50px;font-size: 30px;font-weight: 200;">

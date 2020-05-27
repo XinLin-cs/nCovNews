@@ -14,7 +14,7 @@ def IDCheck_Register():
             int(field.data)
         except:
             raise ValidationError('请输入正确的9位学号')
-        if ( USER.query.filter_by(id=field.data).first() ):
+        if ( USER.query.filter_by(userid=field.data).first() ):
             raise ValidationError('此学号已注册')
     return check
 
@@ -41,13 +41,13 @@ def IDCheck_Login():
             int(field.data)
         except:
             raise ValidationError('请输入正确的9位学号')
-        if ( USER.query.filter_by(id=field.data).first() is None):
+        if ( USER.query.filter_by(userid=field.data).first() is None):
             raise ValidationError('该学号尚未注册')
     return check
 
 def PasswordChcek():
     def check(form, field):
-        user = USER.query.filter_by(id=form.id.data).first()
+        user = USER.query.filter_by(userid=form.id.data).first()
         if user is None :
             raise ValidationError('')
         if field.data != user.password :

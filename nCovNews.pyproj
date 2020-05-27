@@ -59,7 +59,6 @@
     <Folder Include="nCovNews\templates\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="nCovNews\data\data.db" />
     <Content Include="nCovNews\data\data_all.csv" />
     <Content Include="nCovNews\data\province_msg.csv" />
     <Content Include="nCovNews\templates\analyze.html" />

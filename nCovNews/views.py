@@ -75,9 +75,9 @@ def discuss():
 @app.route('/postword',methods=['POST'])
 def postword():
     """Renders the about page."""
-    name = request.form.get('name')
+    id = session.get('userid')
     word = request.form.get('word')
-    user_mod.post_word(name,word)
+    user_mod.post_word(id,word)
     return  redirect(url_for('discuss'))
 
 @app.route('/analyze')
@@ -192,7 +192,7 @@ def login():
     form = forms.LoginForm()
     if form.validate_on_submit():
         session['userid']=form.id.data
-        session.permanent = False # 是否保存用户登录状态
+        session.permanent = True # 是否保存用户登录状态
         return redirect(url_for('home'))
     return render_template('login.html',
                            title='Login', 
@@ -201,8 +201,9 @@ def login():
 @app.context_processor
 def my_context_processor():
     userid = session.get('userid')
-    if userid:
-        username = datatype.USER.query.filter_by(id=userid).first().name
+    user = datatype.USER.query.filter_by(userid=userid).first()
+    if user:
+        username = user.name
         return {'userid': userid,'username':username}
     return{}
 
@@ -218,7 +219,7 @@ def register():
     form = forms.RegisterForm()
     if form.validate_on_submit():
         dbsession = db.session
-        user = datatype.USER(id=form.id.data,name=form.name.data,password=form.password.data)
+        user = datatype.USER(userid=form.id.data,name=form.name.data,password=form.password.data)
         dbsession.add(user)
         dbsession.commit()
         return redirect(url_for('login'))
