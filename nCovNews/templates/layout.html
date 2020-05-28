@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -19,12 +19,101 @@
     <script type="text/javascript" src="https://assets.pyecharts.org/assets/maps/china.js"></script>
 
     <script src="/static/scripts/modernizr-2.6.2.js"></script>
-    <style >
+    <style>
         .sbody {
             background-image: url('/static/images/mapp.jpg');
             background-attachment: fixed;
             background-size: 100% 100%;
             opacity: 1;
+        }
+    </style>
+    <!--导航栏的-->
+    <style type="text/css">
+        .clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .header {
+            display: block;
+            color: white;
+            width: 100%;
+            height: 60px;
+            line-height: 60px;
+            background: #000000;
+            position: fixed;
+            margin-top: -60px;
+            z-index: 10;
+        }
+
+        .container {
+            width: 1500px;
+        }
+
+        .header .topnav > li {
+            float: left;
+            margin: 0 20px;
+            font-size: 18px;
+            width: 80px;
+            list-style-type: none;
+            text-align: center;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+            .header .topnav > li a {
+                text-decoration: none;
+                color: white;
+            }
+
+                .header .topnav > li a:hover {
+                    color: #ffffff;
+                }
+
+            .header .topnav > li:hover {
+                background: lightsteelblue;
+                border: 2px solid lightsteelblue;
+                border-bottom: none;
+                line-height: 56px;
+            }
+
+            .header .topnav > li .homework {
+                text-align: center ;
+                width: 100px;
+                display: none;
+                border: 2px solid lightsteelblue;
+                box-sizing: border-box;
+                position: absolute;
+                background: lightsteelblue;
+            }
+
+            .header .topnav > li:hover .homework {
+                display: block;
+            }
+
+            .header .topnav > li:hover::after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 8px;
+                bottom: -2px;
+                left: 0;
+                background: lightsteelblue;
+            }
+
+        .homework li {
+            list-style-type: none;
+            margin-left: -40px;
+        }
+
+        .homework ul li:hover {
+            background: darkseagreen;
+            color: black;
+        }
+
+        .homework ul li a:hover {
+            color: black;
         }
     </style>
 </head>
@@ -34,37 +123,53 @@
 
 
 <body class="sbody">
-    <div class="navbar navbar-inverse navbar-fixed-top">
+
+    <header class="header">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="/" class="navbar-brand">主页</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav nav-tabs">
-                    <li><a href="{{ url_for('test') }}">疫情知识</a></li>
-                    <li><a href="{{ url_for('news') }}">近日新闻</a></li>
-                    <li><a href="{{ url_for('overview') }}">疫情地图</a></li>
-                    <li><a href="{{ url_for('analyze') }}">疫情趋势分析</a></li>
-                    <li><a href="{{ url_for('discuss') }}">讨论区</a></li>
-                    <li><a href="{{ url_for('about') }}">关于</a></li>
-                    
-                    {% if userid %}
-                    <li style="float:right;">
-                        <a href="">欢迎，{{username}}</a>
-                        <a href="{{ url_for('logout') }}">注销</a>
-                    </li>
-                    {% else %}
-                    <li style="float:right;"><a href="{{ url_for('login') }}">登录</a></li>
-                    {% endif %}
-                </ul>
-            </div>
+            <ul class="topnav clearfix">
+                <li style=" margin:0 20px 0 -40px;">
+                    <a href="/">首页</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('test') }}">疫情知识</a>
+                </li>
+
+                <li>
+                    <a href="{{ url_for('news') }}">近日新闻</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('overview') }}">疫情地图</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('analyze') }}">疫情分析</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('discuss') }}">讨论区</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('about') }}">关于</a>
+                </li>
+
+
+                {% if userid %}
+                <li style="float:right;width:auto ">
+                    <a href=""><p style=" color :deepskyblue">欢迎，{{username}}</p></a>
+                    <div class="homework">
+                        <ul>
+                            <li><a href="{{ url_for('logout') }}"><p style=" text-align :center">注销</p></a></li>
+                        </ul>
+                    </div>
+                </li>
+                {% else %}
+                <li style="float:right;"><a href="{{ url_for('login') }}">登录</a></li>
+                {% endif %}
+
+            </ul>
         </div>
-    </div>
+    </header>
+
+
+    
 
     <div class="container body-content">
         {% block content %}{% endblock %}

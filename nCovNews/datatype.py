@@ -1,8 +1,8 @@
 from nCovNews import db
 
 class USER(db.Model):
-    userid = db.Column(db.Integer, primary_key=True)  
-    id = db.Column( db.String(20) )  
+    id = db.Column(db.Integer, primary_key=True)  
+    userid = db.Column( db.String(20) )  
     name = db.Column( db.String(20) )  
     password = db.Column( db.String(20) ) 
 
@@ -72,5 +72,8 @@ class INFORMATION(db.Model):
 class DISCUSS(db.Model):
     id = db.Column(db.Integer, primary_key=True)  
     date = db.Column( db.DateTime )  
-    name = db.Column( db.String(20) )  
+    userid = db.Column( db.String(20) )
+    username = db.Column( db.String(20) )  
     word = db.Column( db.String(20) )   
+    likes = db.Column( db.Integer ) 
+    replyto = db.Column( db.Integer ) 

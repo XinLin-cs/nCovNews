@@ -2,9 +2,10 @@ import datetime
 from nCovNews import db
 from nCovNews import datatype
 
-def post_word(name,word):
+def post_word(id,word):
     session = db.session
-    discuss = datatype.DISCUSS(name=name,date=datetime.datetime.today(),word=word)
+    name = datatype.USER.query.filter_by(userid=id).first().name
+    discuss = datatype.DISCUSS(userid=id,username=name,date=datetime.datetime.today(),word=word)
     session.add(discuss)
     session.commit() # 修改数据库
 
