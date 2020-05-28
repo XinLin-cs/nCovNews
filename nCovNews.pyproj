@@ -18,7 +18,7 @@
     <Name>nCovNews</Name>
     <RootNamespace>nCovNews</RootNamespace>
     <SuppressEnvironmentCreationPrompt>True</SuppressEnvironmentCreationPrompt>
-    <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
+    <InterpreterId>Global|PythonCore|3.7-32</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,6 +39,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="nCovNews\forms.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="nCovNews\get_data.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="nCovNews\user_mod.py">
