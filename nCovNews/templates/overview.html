@@ -93,9 +93,9 @@
                     <img src="{{flags[item.name]}}" style="  height:40px  ">
                     {{item.name}}
                 </td>
-                <td>{{item.confirmed}}</td>
-                <td>{{item.cures}}</td>
-                <td>{{item.deaths}}</td>
+                <td>{{item.confirmed}} {{item.confirmedInc}}</td>
+                <td>{{item.cures}} {{item.curesInc}}</td>
+                <td>{{item.deaths}} {{item.deathsInc}}</td>
             </tr>
             {% endfor %}
         </tbody>
