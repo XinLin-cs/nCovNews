@@ -298,6 +298,11 @@ def data():
         worldmap['confirmedexist'].append({'name':name,'value':item.confirmed-item.cures-item.deaths})
         worldmap['cures'].append({'name':name,'value':item.cures})
         worldmap['deaths'].append({'name':name,'value':item.deaths})
+    # 补充中国数据
+    worldmap['confirmedtotal'].append({'name':'China','value':china['confirmedtotal'][len(china)][1]})
+    worldmap['confirmedexist'].append({'name':'China','value':china['confirmedexist'][len(china)][1]})
+    worldmap['cures'].append({'name':'China','value':china['cures'][len(china)][1]})
+    worldmap['deaths'].append({'name':'China','value':china['deaths'][len(china)][1]})
     # 世界Top数据
     worldTop = {'confirmedtotal':{},'confirmedexist':{},'cures':{},'deaths':{}}
     for item in worldmap:

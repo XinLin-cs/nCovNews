@@ -58,3 +58,7 @@ class LoginForm(FlaskForm):
     id = StringField('学号', validators=[DataRequired(),IDCheck_Login()])
     password = PasswordField('密码', validators=[DataRequired(),PasswordChcek()])
     login = SubmitField('登陆')
+
+class PostForm(FlaskForm):
+    word = TextAreaField('',validators=[DataRequired()])
+    post = SubmitField('发表')
