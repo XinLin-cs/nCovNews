@@ -33,6 +33,9 @@ class COUNTRY(db.Model):
     confirmed = db.Column( db.Integer )  
     cures = db.Column( db.Integer )  
     deaths = db.Column( db.Integer )  
+    confirmedInc= db.Column( db.String(20) ) 
+    curesInc = db.Column( db.String(20) ) 
+    deathsInc = db.Column( db.String(20) ) 
 
 class CONTIENT(db.Model):
     id = db.Column(db.Integer, primary_key=True)  

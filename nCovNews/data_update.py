@@ -97,7 +97,7 @@ def getdata_api():
         date = datetime.date.today()
         name = data['name']
         continent =data['continent']
-
+        # 1
         countryTotal = data['countryTotal']
         # print(countryTotal.keys())
         # dict_keys(['confirmedTotal', 'suspectedTotal', 'curesTotal', 'deathsTotal', 'treatingTotal',
@@ -105,17 +105,19 @@ def getdata_api():
         confirmed = countryTotal['confirmedTotal']
         cures = countryTotal['curesTotal']
         deaths = countryTotal['deathsTotal']
-
+        # 2
         countryInc = data['countryIncr']
         # print(countryInc.keys())
         # dict_keys(['confirmedIncr', 'suspectedIncr', 'curesIncr', 'deathsIncr', 'treatingIncr',
         #  'asymptomaticTotal', 'confirmedIncrPrefix', 'suspectedIncrPrefix', 'curesIncrPrefix',
         #   'deathsIncrPrefix', 'treatingIncrPrefix', 'nonConfirmedIncrTip'])
-        
+        confirmedInc=countryInc['confirmedIncr']
+        curesInc=countryInc['curesIncr']
+        deathsInc=countryInc['deathsIncr']
         # 与数据库合并
         country = datatype.COUNTRY.query.filter_by(date=date,name=name).first()
         if country is None:
-            country = datatype.COUNTRY(date=date,name=name,continent=continent,confirmed=confirmed,cures=cures,deaths=deaths)
+            country = datatype.COUNTRY(date=date,name=name,continent=continent,confirmed=confirmed,cures=cures,deaths=deaths,confirmedInc=confirmedInc,curesInc=curesInc,deathsInc=deathsInc)
             session.add(country)
         else:
             country.confirmed = confirmed

@@ -265,19 +265,29 @@ def data():
     chinaPredict['confirmedtotal']=data_predict.result2(predictseries,china['confirmedtotal'],0.55)
     chinaPredict['confirmedexist']=data_predict.result2(predictseries,china['confirmedexist'],0.4)
     # 地图数据
-    province = datatype.PROVINCE.query.filter_by(date=date.today())
+    provinces = datatype.PROVINCE.query.filter_by(date=date.today()).all()
     map = {'confirmedtotal':[],'confirmedexist':[],'cures':[],'deaths':[],'asymptomatic':[]}
-    for item in province:
+    for item in provinces:
         map['confirmedtotal'].append({'name':item.name,'value':item.confirmed})
         map['confirmedexist'].append({'name':item.name,'value':item.confirmed-item.cures-item.deaths})
         map['cures'].append({'name':item.name,'value':item.cures})
         map['deaths'].append({'name':item.name,'value':item.deaths})
         map['asymptomatic'].append({'name':item.name,'value':item.asymptomatic})
+    # 中国Top数据
+    chinaTop = {'confirmedtotal':{},'confirmedexist':{},'cures':{},'deaths':{},'asymptomatic':{}}
+    for item in map:
+        map[item].sort(key=lambda x:x['value'],reverse=True)
+        name , value = [] , []
+        for i in range(0,10):
+            name.append(map[item][i]['name'])
+            value.append(map[item][i]['value'])
+        chinaTop[item]['name']=name
+        chinaTop[item]['value']=value
     # 世界地图数据
     mymap = {}
     for item in namemap:
         mymap[namemap[item]] = item
-    countries = datatype.COUNTRY.query.filter_by(date=date.today()) 
+    countries = datatype.COUNTRY.query.filter_by(date=date.today()).all()
     worldmap = {'confirmedtotal':[],'confirmedexist':[],'cures':[],'deaths':[]}
     for item in countries:
         if (item.name in mymap):
@@ -288,6 +298,19 @@ def data():
         worldmap['confirmedexist'].append({'name':name,'value':item.confirmed-item.cures-item.deaths})
         worldmap['cures'].append({'name':name,'value':item.cures})
         worldmap['deaths'].append({'name':name,'value':item.deaths})
+    # 世界Top数据
+    worldTop = {'confirmedtotal':{},'confirmedexist':{},'cures':{},'deaths':{}}
+    for item in worldmap:
+        worldmap[item].sort(key=lambda x:x['value'],reverse=True)
+        name , value = [] , []
+        for i in range(0,10):
+            t = worldmap[item][i]['name']
+            if t in namemap:
+               t=namemap[t]
+            name.append(t)
+            value.append(worldmap[item][i]['value'])
+        worldTop[item]['name']=name
+        worldTop[item]['value']=value
     return json.dumps({'timeseries':timeseries,
                        'predictseries':predictseries,
                        'china':china,
@@ -295,5 +318,7 @@ def data():
                        'chinaPercent':chinaPercent,
                        'chinaPredict':chinaPredict,
                        'map':map,
-                       'worldmap':worldmap
+                       'chinaTop':chinaTop,
+                       'worldmap':worldmap,
+                       'worldTop':worldTop,
                        },ensure_ascii=False)
