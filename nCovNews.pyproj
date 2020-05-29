@@ -18,7 +18,7 @@
     <Name>nCovNews</Name>
     <RootNamespace>nCovNews</RootNamespace>
     <SuppressEnvironmentCreationPrompt>True</SuppressEnvironmentCreationPrompt>
-    <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
+    <InterpreterId>Global|PythonCore|3.7-32</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="nCovNews\templates\analyze.html" />
+    <Content Include="nCovNews\templates\discuss_detail.html" />
     <Content Include="nCovNews\templates\discuss.html" />
     <Content Include="nCovNews\templates\register.html" />
     <Content Include="nCovNews\templates\login.html" />

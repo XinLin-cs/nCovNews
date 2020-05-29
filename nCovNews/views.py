@@ -86,6 +86,7 @@ def overview():
     return render_template(
         'overview.html',
         title='Overview',
+        int = int,
         year=datetime.now().year,
         message='Your overview page.',
         oversea=oversea,

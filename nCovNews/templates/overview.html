@@ -1,9 +1,8 @@
 {% extends "layout.html" %}
-
 {% block content %}
 <style>
     .s1 {
-        background-color: whitesmoke ;
+        background-color: whitesmoke;
         position: fixed;
         width: 75%;
         top: 7%;
@@ -37,7 +36,7 @@
 <br />
 <br />
 <br />
-<div id="overnum"  style="display: block; background-color :white " >
+<div id="overnum" style="display: block; background-color :white ">
     <div class="carousel slide" id="carousel-83435">
         <ol class="carousel-indicators">
             <li data-slide-to="0" data-target="#carousel-83435">
@@ -81,9 +80,12 @@
         <thead>
             <tr>
                 <th>国家</th>
-                <th>确诊</th>
-                <th>治愈</th>
-                <th>死亡</th>
+                <th>累计确诊</th>
+                <th>治愈数</th>
+                <th>死亡数</th>
+                <th>现存确诊</th>
+                <th>治愈率</th>
+                <th>死亡率</th>
             </tr>
         </thead>
         <tbody>
@@ -123,6 +125,15 @@
                     {% else %}
                     <p style=" color :cornflowerblue ;"> {{item.deathsInc}} &darr; </p>
                     {% endif %}
+                </td>
+                <td>
+                    {{item.confirmed-item.deaths-item.cures}}
+                </td>
+                <td>
+                    {{int(item.cures*10000/item.confirmed)/100}}
+                </td>
+                <td>
+                    {{int(item.deaths*10000/item.confirmed)/100}}
                 </td>
             </tr>
             {% endfor %}
