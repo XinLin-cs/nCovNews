@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+﻿{% extends "layout.html" %}
 
 {% block content %}
 
@@ -230,6 +230,7 @@
             </div> <a data-slide="prev" href="#carousel-545925" class="left carousel-control"><span class="glyphicon glyphicon-chevron-left"></span></a> <a data-slide="next" href="#carousel-545925" class="right carousel-control"><span class="glyphicon glyphicon-chevron-right"></span></a>
         </div>
     </div>
+    
     <div id="map2" style=" display :none">
         <h style=" font-size :30px;font-weight :500">第二部分</h>
         <div class="carousel slide" id="carousel-875175" style=" background-color :aliceblue ;opacity:0.8">
@@ -279,6 +280,7 @@
                 </div>
                 <div class="item">
                     <div id="main8" style="width: 800px;height:460px; margin: 0 auto;"></div>
+
                     <div class="carousel-caption">
                     </div>
                 </div>
@@ -309,14 +311,14 @@
                 </div>
                 <div class="item next left">
                     <!-- 添加图片的地方 -->
-                    <img alt="" src="/static/images/china2.jpg" style="width: 800px;height:460px; margin: 0 auto;" />
+                    <div id="main11" style="width: 800px;height:460px; margin: 0 auto;"></div>
                     <!-- 添加图片的地方 -->
                     <div class="carousel-caption">
                     </div>
                 </div>
                 <div class="item">
                     <!-- 添加图片的地方 -->
-                    <img alt="" src="/static/images/china2.jpg" style="width: 800px;height:460px; margin: 0 auto;" />
+                    <div id="main12" style="width: 800px;height:460px; margin: 0 auto;"></div>
                     <!-- 添加图片的地方 -->
                     <div class="carousel-caption">
                     </div>
@@ -338,21 +340,21 @@
             <div class="carousel-inner">
                 <div class="item active">
                     <!-- 添加图片的地方 -->
-                    <img alt="" src="/static/images/china2.jpg" style="width: 800px;height:460px; margin: 0 auto;" />
+                    <div id="main13" style="width: 800px;height:460px; margin: 0 auto;"></div>
                     <!-- 添加图片的地方 -->
                     <div class="carousel-caption">
                     </div>
                 </div>
                 <div class="item">
                     <!-- 添加图片的地方 -->
-                    <img alt="" src="/static/images/yun.jpg" style="width: 800px;height:460px; margin: 0 auto;" />
+                    <div id="main14" style="width: 800px;height:460px; margin: 0 auto;"></div>
                     <!-- 添加图片的地方 -->
                     <div class="carousel-caption">
                     </div>
                 </div>
                 <div class="item">
                     <!-- 添加图片的地方 -->
-                    <img alt="" src="/static/images/china4.jpg" style="width: 800px;height:460px; margin: 0 auto;" />
+                    <div id="main15" style="width: 800px;height:460px; margin: 0 auto;"></div>
                     <!-- 添加图片的地方 -->
                     <div class="carousel-caption">
                     </div>
@@ -371,7 +373,7 @@
             <div class="carousel-inner">
                 <div class="item">
                     <!-- 添加图片的地方 -->
-                    <img alt="" src="/static/images/china2.jpg" style="width: 800px;height:460px; margin: 0 auto;" />
+                    <div id="main16" style="width: 800px;height:460px; margin: 0 auto;"></div>
                     <!-- 添加图片的地方 -->
                     <div class="carousel-caption">
                         <!--<h4>中国现有确诊趋势</h4>-->
@@ -379,14 +381,14 @@
                 </div>
                 <div class="item">
                     <!-- 添加图片的地方 -->
-                    <img alt="" src="/static/images/china2.jpg" style="width: 800px;height:460px; margin: 0 auto;" />
+                    <div id="main17" style="width: 800px;height:460px; margin: 0 auto;"></div>
                     <!-- 添加图片的地方 -->
                     <div class="carousel-caption">
                     </div>
                 </div>
                 <div class="item active">
                     <!-- 添加图片的地方 -->
-                    <img alt="" src="/static/images/china2.jpg" style="width: 800px;height:460px; margin: 0 auto;" />
+                    <div id="main18" style="width: 800px;height:460px; margin: 0 auto;"></div>
                     <!-- 添加图片的地方 -->
                     <div class="carousel-caption">
                     </div>
@@ -412,6 +414,14 @@
             var myChart8 = echarts.init(document.getElementById('main8'));
             var myChart9 = echarts.init(document.getElementById('main9'));
             var myChart10 = echarts.init(document.getElementById('main10'));
+            var myChart11 = echarts.init(document.getElementById('main11'));
+            var myChart12 = echarts.init(document.getElementById('main12'));
+            var myChart13 = echarts.init(document.getElementById('main13'));
+            var myChart14 = echarts.init(document.getElementById('main14'));
+            var myChart15 = echarts.init(document.getElementById('main15'));
+            var myChart16 = echarts.init(document.getElementById('main16'));
+            var myChart17 = echarts.init(document.getElementById('main17'));
+            var myChart18 = echarts.init(document.getElementById('main18'));
 
             $.ajax({
                 url: '/getdata',
@@ -689,7 +699,7 @@
 
                     var option7 = {
                         title: {
-                            text: '世界累计确诊(除中国)'
+                            text: '世界累计确诊'
                         },
                         tooltip: {
                             formatter: function (params, ticket, callback) {
@@ -784,18 +794,19 @@
                             {
                                 name: '治愈率',
                                 type: 'line',
-                                data: json_data['chinaPercent']['cures']
+                                data: json_data['china']['cures']
                             },
                             {
                                 name: '病死率',
                                 type: 'line',
-                                data: json_data['chinaPercent']['deaths'],
+                                data: json_data['china']['deaths'],
                             },
 
                         ]
                     };
                     // 使用刚指定的配置项和数据显示图表。
                     myChart8.setOption(option8);
+
                     option9 = {
                         title: {
                             text: '海外多国累计确诊top10'
@@ -816,6 +827,7 @@
                         }]
                     };
                     myChart9.setOption(option9);
+
                     option10 = {
                         title: {
                             text: '海外多国现存确诊top10'
@@ -836,6 +848,112 @@
                         }]
                     };
                     myChart10.setOption(option10);
+
+                    var option11 = {
+                        title: {
+                            text: '中国治愈率'
+                        },
+                        tooltip: {
+                            formatter: function (params, ticket, callback) {
+                                return params.seriesName + '<br />' + params.name + '：' + params.value+'%'
+                            }//数据格式化
+                        },
+                        visualMap: {
+                            min: 0,
+                            max: 100,
+                            left: '0',
+                            bottom: '10',
+                            splitNumber: 5,
+                            itemWidth: 10,
+                            itemHeight: 10,
+                            color: ['#7FFF00', '#ADFF2F', '#9AFF9A', '#97FFFF', ],
+                            pieces: [
+                                { min: 95, max: 100 ,label:'95% - 100%'},
+                                { min: 90, max: 94, label: '90% - 94%' },
+                                { min: 80, max: 89, label: '80% - 89%' },
+                                { min: 50, max: 79, label: '50% - 79%' },
+                                { min: 0, max: 49, label: '0 - 49%' }
+                            ],
+
+                            show: true//图注
+                        },
+                        geo: {
+                            map: 'china',
+                            roam: false,//不开启缩放和平移
+                            zoom: 1.23,//视角缩放比例
+                            label: {
+                                normal: {
+                                    show: true,
+                                    fontSize: '10',
+                                    color: 'rgba(0,0,0,0.7)'
+                                }
+                            },
+                            itemStyle: {
+                                normal: {
+                                    borderColor: 'rgba(0, 0, 0, 0.2)'
+                                },
+                                emphasis: {
+                                    areaColor: '#F3B329',//鼠标选择区域颜色
+                                    shadowOffsetX: 0,
+                                    shadowOffsetY: 0,
+                                    shadowBlur: 20,
+                                    borderWidth: 0,
+                                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                                }
+                            }
+                        },
+                        series: [
+                            {
+                                name: '治愈率',
+                                type: 'map',
+                                geoIndex: 0,
+                                data: json_data['map']['curesRate']
+                            }
+                        ]
+                    };
+                    myChart11.setOption(option11);
+
+                    option12 = {
+                        title: {
+                            text: '中国治愈率top10'
+                        },
+                        legend: {},
+                        tooltip: {},
+                        xAxis: {
+                            type: 'category',
+                            data: json_data['chinaTop']['curesRate']['name'],
+                        },
+                        yAxis: {
+                            type: 'value'
+                        },
+                        series: [{
+                            name: '现存确诊',
+                            data: json_data['chinaTop']['curesRate']['value'],
+                            type: 'bar'
+                        }]
+                    };
+                    myChart12.setOption(option12);
+
+                    option13 = {
+                        title: {
+                            text: '中国死亡率top10'
+                        },
+                        legend: {},
+                        tooltip: {},
+                        xAxis: {
+                            type: 'category',
+                            data: json_data['chinaTop']['deathsRate']['name'],
+                        },
+                        yAxis: {
+                            type: 'value'
+                        },
+                        series: [{
+                            name: '现存确诊',
+                            data: json_data['chinaTop']['deathsRate']['value'],
+                            type: 'bar'
+                        }]
+                    };
+                    myChart13.setOption(option13);
                 },//success末尾
 
             })
