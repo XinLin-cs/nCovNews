@@ -222,8 +222,7 @@ namemap = {"Canada":"加拿大",
 
 def data():
     # 中国数据
-    chinatotal = datatype.CHINATOTAL.query.all()
-    chinatotal.sort(key=lambda x:x.date)
+    chinatotal = datatype.CHINATOTAL.query.order_by(datatype.CHINATOTAL.date).all()
     timeseries = []
     china = {'confirmedtotal':[],'confirmedexist':[],'suspected':[],'cures':[],'deaths':[],'asymptomatic':[]}
     chinaInc = {'confirmedtotal':[],'confirmedexist':[],'suspected':[],'cures':[],'deaths':[],'asymptomatic':[]}
@@ -299,10 +298,10 @@ def data():
         worldmap['cures'].append({'name':name,'value':item.cures})
         worldmap['deaths'].append({'name':name,'value':item.deaths})
     # 补充中国数据
-    worldmap['confirmedtotal'].append({'name':'China','value':china['confirmedtotal'][len(china)][1]})
-    worldmap['confirmedexist'].append({'name':'China','value':china['confirmedexist'][len(china)][1]})
-    worldmap['cures'].append({'name':'China','value':china['cures'][len(china)][1]})
-    worldmap['deaths'].append({'name':'China','value':china['deaths'][len(china)][1]})
+    worldmap['confirmedtotal'].append({'name':'China','value':china['confirmedtotal'][len(china['confirmedtotal'])-1][1]})
+    worldmap['confirmedexist'].append({'name':'China','value':china['confirmedexist'][len(china['confirmedexist'])-1][1]})
+    worldmap['cures'].append({'name':'China','value':china['cures'][len(china['cures'])-1][1]})
+    worldmap['deaths'].append({'name':'China','value':china['deaths'][len(china['deaths'])-1][1]})
     # 世界Top数据
     worldTop = {'confirmedtotal':{},'confirmedexist':{},'cures':{},'deaths':{}}
     for item in worldmap:

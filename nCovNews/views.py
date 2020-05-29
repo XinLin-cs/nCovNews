@@ -12,22 +12,10 @@ from nCovNews import datatype , data_predict , user_mod , forms , get_data
 @app.route('/home')
 def home():
     """Renders the home page."""
-    today = date.today()
     # 中国数据查询
-    chinatotal = datatype.CHINATOTAL.query.filter_by(date = today).first()
-    if (chinatotal is None):
-        today = today + timedelta(days = -1)
-        chinatotal = datatype.CHINATOTAL.query.filter_by(date = today).first()
-        if (chinatotal is None):
-            today = today + timedelta(days = -1)
-            chinatotal = datatype.CHINATOTAL.query.filter_by(date = today).first()
+    chinatotal = datatype.CHINATOTAL.query.order_by(datatype.CHINATOTAL.date.desc()).first()
     # 世界数据查询
-    today = date.today()
-    worldtotal = datatype.WORLDTOTAL.query.filter_by(date = today).first()
-    if (worldtotal is None):
-        today = today + timedelta(days = -1)   
-        worldtotal = datatype.WORLDTOTAL.query.filter_by(date = today).first()
-    
+    worldtotal = datatype.WORLDTOTAL.query.order_by(datatype.WORLDTOTAL.date.desc()).first()
     return render_template(
         'index.html',
         title='Home',
@@ -35,7 +23,6 @@ def home():
         chinatotal=chinatotal,
         worldtotal=worldtotal,
         message='Your home page.'
-       
     )
 
 
