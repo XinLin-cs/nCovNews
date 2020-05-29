@@ -1,4 +1,4 @@
-﻿{% extends "layout.html" %}
+{% extends "layout.html" %}
 
 {% block content %}
 
@@ -14,42 +14,389 @@
     <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
     <script src="https://www.echartsjs.com/examples/vendors/echarts/map/js/world.js"></script>
 
+    <script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/jquery-2.0.0.min.js"></script>
+   
+   
+    <script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/bootstrap.min.js"></script>
+    <style >
+        .s1 {
+            background-color: #ffffff;
+            position: fixed;
+            width: 75%;
+            top: 7%;
+        }
+        #mp1 {
+            color: dodgerblue;
+            font-size: 30px;
+            font-weight: 600;
+        }
+
+        #mp2 {
+            color: black;
+            font-size: 30px;
+            font-weight: 600;
+        }
+
+        #mp3 {
+            color: black;
+            font-size: 30px;
+            font-weight: 600;
+        }
+
+        #mp4 {
+            color: black;
+            font-size: 30px;
+            font-weight: 600;
+        }
+
+        #mp5 {
+            color: black;
+            font-size: 30px;
+            font-weight: 600;
+        }
+
+        #mp6 {
+            color: black;
+            font-size: 30px;
+            font-weight: 600;
+        }
+    </style>
+    <script >
+        function mapck1() {
+            map1.style.display = "block";
+            map2.style.display = "none";
+            map3.style.display = "none";
+            map4.style.display = "none";
+            map5.style.display = "none";
+            map6.style.display = "none";
+            
+            mp1.style.color = "dodgerblue";
+            mp2.style.color = "black";
+            mp3.style.color = "black";
+            mp4.style.color = "black";
+            mp5.style.color = "black";
+            mp6.style.color = "black";
+           
+        }
+        function mapck2() {
+            map1.style.display = "none";
+            map2.style.display = "block";
+            map3.style.display = "none";
+            map4.style.display = "none";
+            map5.style.display = "none";
+            map6.style.display = "none";
+            mp1.style.color = "black";
+            mp2.style.color = "dodgerblue";
+            mp3.style.color = "black";
+            mp4.style.color = "black";
+            mp5.style.color = "black";
+            mp6.style.color = "black";
+        }
+        function mapck3() {
+            map1.style.display = "none";
+            map2.style.display = "none";
+            map3.style.display = "block";
+            map4.style.display = "none";
+            map5.style.display = "none";
+            map6.style.display = "none";
+           
+            mp1.style.color = "black";
+            mp2.style.color = "black";
+            mp3.style.color = "dodgerblue";
+            mp4.style.color = "black";
+            mp5.style.color = "black";
+            mp6.style.color = "black";
+            
+        }
+        function mapck4() {
+            map1.style.display = "none";
+            map2.style.display = "none";
+            map3.style.display = "none";
+            map4.style.display = "block";
+            map5.style.display = "none";
+            map6.style.display = "none";
+            
+            mp1.style.color = "black";
+            mp2.style.color = "black";
+            mp3.style.color = "black";
+            mp4.style.color = "dodgerblue";
+            mp5.style.color = "black";
+            mp6.style.color = "black";
+           
+        }
+        function mapck5() {
+            map1.style.display = "none";
+            map2.style.display = "none";
+            map3.style.display = "none";
+            map4.style.display = "none";
+            map5.style.display = "block";
+            map6.style.display = "none";
+            
+            mp1.style.color = "black";
+            mp2.style.color = "black";
+            mp3.style.color = "black";
+            mp4.style.color = "black";
+            mp5.style.color = "dodgerblue";
+            mp6.style.color = "black";
+       
+        }
+        function mapck6() {
+            map1.style.display = "none";
+            map2.style.display = "none";
+            map3.style.display = "none";
+            map4.style.display = "none";
+            map5.style.display = "none";
+            map6.style.display = "block";
+            
+            mp1.style.color = "black";
+            mp2.style.color = "black";
+            mp3.style.color = "black";
+            mp4.style.color = "black";
+            mp5.style.color = "black";
+            mp6.style.color = "dodgerblue";
+            
+        }
+    </script>
 </head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <body>
-    <!-- 控件测试 -->
-    <div class="carousel slide" id="carousel-83435">
-        <ol class="carousel-indicators">
-            <li data-slide-to="0" data-target="#carousel-83435"></li>
-            <li data-slide-to="1" data-target="#carousel-83435"></li>
-            <li data-slide-to="2" data-target="#carousel-83435" class="active"></li>
-        </ol>
-        <div class="carousel-inner">
-            <div class="item">
-                <div id="main1" style="width: 600px;height:400px; margin: 0 auto;"></div>
-                <div class="carousel-caption">
-                    <!--<h4>中国现有确诊趋势</h4>-->
-                </div>
-            </div>
-            <div class="item">
-                <div id="main2" style="width: 600px;height:400px;margin: 0 auto;"></div>
-                <div class="carousel-caption">
-                </div>
-            </div>
-            <div class="item active">
-                <div id="main3" style="width: 800px;height:400px;margin: 0 auto;"></div>
-                <div class="carousel-caption">
-                </div>
-            </div>
-        </div> <a class="left carousel-control" href="#carousel-83435" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-83435" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+
+    <div id="div0" class="s1">
+        
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav" style=" width :11000px">
+
+                <li><a onclick="mapck1()"><p id="mp1">第一部分</p></a></li>
+                <li><a onclick="mapck2()"><p id="mp2">第二部分</p> </a></li>
+                <li><a onclick="mapck3()"><p id="mp3">第三部分</p></a></li>
+                <li><a onclick="mapck4()"><p id="mp4">第四部分</p></a></li>
+                <li><a onclick="mapck5()"><p id="mp5">第五部分</p></a></li>
+                <li><a onclick="mapck6()"><p id="mp6">第六部分</p></a></li>
+            </ul>
+        </div>
     </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <!-- 控件测试 -->
+    <div id="map1" style=" display :block">
+        <h style=" font-size :30px;font-weight :500">第一部分</h>
+        <div class="carousel slide" id="carousel-545925" style=" background-color :aliceblue ;opacity:0.8">
+            <ol class="carousel-indicators">
+                <li class="active" data-slide-to="0" data-target="#carousel-545925">
+                </li>
+                <li data-slide-to="1" data-target="#carousel-545925">
+                </li>
+                <li data-slide-to="2" data-target="#carousel-545925">
+                </li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="item active">
+                    <div id="main1" style="width: 800px;height:460px; margin: 0 auto;"></div>
+                    <div class="carousel-caption">
+                    </div>
+                </div>
+                <div class="item">
+                    <div id="main2" style="width: 800px;height:460px; margin: 0 auto;"></div>
+                    <div class="carousel-caption">
+                    </div>
+                </div>
+                <div class="item">
+                    <div id="main3" style="width: 800px;height:460px; margin: 0 auto;"></div>
+                    <div class="carousel-caption">
+                    </div>
+                </div>
+            </div> <a data-slide="prev" href="#carousel-545925" class="left carousel-control"><span class="glyphicon glyphicon-chevron-left"></span></a> <a data-slide="next" href="#carousel-545925" class="right carousel-control"><span class="glyphicon glyphicon-chevron-right"></span></a>
+        </div>
+    </div>
+    <div id="map2" style=" display :none">
+        <h style=" font-size :30px;font-weight :500">第二部分</h>
+        <div class="carousel slide" id="carousel-875175" style=" background-color :aliceblue ;opacity:0.8">
+            <ol class="carousel-indicators">
+                <li class="active" data-slide-to="0" data-target="#carousel-875175">
+                </li>
+                <li data-slide-to="1" data-target="#carousel-875175">
+                </li>
+                <li data-slide-to="2" data-target="#carousel-875175">
+                </li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="item active">
+                    <div id="main4" style="width: 800px;height:460px; margin: 0 auto;"></div>
+                    <div class="carousel-caption">
+                    </div>
+                </div>
+                <div class="item">
+                    <div id="main5" style="width: 800px;height:460px; margin: 0 auto;"></div>
+                    <div class="carousel-caption">
+                    </div>
+                </div>
+                <div class="item">
+                    <div id="main6" style="width: 800px;height:460px; margin: 0 auto;"></div>
+                    <div class="carousel-caption">
+                    </div>
+                </div>
+            </div> <a data-slide="prev" href="#carousel-875175" class="left carousel-control"><span class="glyphicon glyphicon-chevron-left"></span></a> <a data-slide="next" href="#carousel-875175" class="right carousel-control"><span class="glyphicon glyphicon-chevron-right"></span></a>
+        </div>
+    </div>
+    <div id="map3" style=" display :none">
+        <h style=" font-size :30px;font-weight :500">第三部分</h>
+        <div class="carousel slide" id="carousel-555517" style=" background-color :aliceblue ;opacity:0.8">
+            <ol class="carousel-indicators">
+                <li class="active" data-slide-to="0" data-target="#carousel-555517">
+                </li>
+                <li data-slide-to="1" data-target="#carousel-555517">
+                </li>
+                <li data-slide-to="2" data-target="#carousel-555517">
+                </li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="item active">
+                    <div id="main7" style="width: 800px;height:460px; margin: 0 auto;"></div>
+                    <div class="carousel-caption">
+                    </div>
+                </div>
+                <div class="item">
+                    <div id="main8" style="width: 800px;height:460px; margin: 0 auto;"></div>
+                    <div class="carousel-caption">
+                    </div>
+                </div>
+                <div class="item">
+                    <div id="main9" style="width: 800px;height:460px; margin: 0 auto;"></div>
+                    <div class="carousel-caption">
+                    </div>
+                </div>
+            </div> <a data-slide="prev" href="#carousel-555517" class="left carousel-control"><span class="glyphicon glyphicon-chevron-left"></span></a> <a data-slide="next" href="#carousel-555517" class="right carousel-control"><span class="glyphicon glyphicon-chevron-right"></span></a>
+        </div>
+    </div>
+    <div id="map4" style=" display :none">
+        <h style=" font-size :30px;font-weight :500">第四部分</h>
+        <div class="carousel slide" id="carousel-687778" style=" background-color :aliceblue ;opacity:0.8">
+            <ol class="carousel-indicators">
+                <li class="active" data-slide-to="0" data-target="#carousel-687778">
+                </li>
+                <li data-slide-to="1" data-target="#carousel-687778">
+                </li>
+                <li data-slide-to="2" data-target="#carousel-687778">
+                </li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="item active left">
+                    <div id="main10" style="width: 800px;height:460px; margin: 0 auto;"></div>
+                    <div class="carousel-caption">
+                    </div>
+                </div>
+                <div class="item next left">
+                    <!-- 添加图片的地方 -->
+                    <img alt="" src="/static/images/china2.jpg" style="width: 800px;height:460px; margin: 0 auto;" />
+                    <!-- 添加图片的地方 -->
+                    <div class="carousel-caption">
+                    </div>
+                </div>
+                <div class="item">
+                    <!-- 添加图片的地方 -->
+                    <img alt="" src="/static/images/china2.jpg" style="width: 800px;height:460px; margin: 0 auto;" />
+                    <!-- 添加图片的地方 -->
+                    <div class="carousel-caption">
+                    </div>
+                </div>
+            </div> <a data-slide="prev" href="#carousel-687778" class="left carousel-control"><span class="glyphicon glyphicon-chevron-left"></span></a> <a data-slide="next" href="#carousel-687778" class="right carousel-control"><span class="glyphicon glyphicon-chevron-right"></span></a>
+        </div>
+    </div>
+    <div id="map5" style=" display :none">
+        <h style=" font-size :30px;font-weight :500">第五部分</h>
+        <div class="carousel slide" id="carousel-290865" style=" background-color :aliceblue ;opacity:0.8">
+            <ol class="carousel-indicators">
+                <li class="active" data-slide-to="0" data-target="#carousel-290865">
+                </li>
+                <li data-slide-to="1" data-target="#carousel-290865">
+                </li>
+                <li data-slide-to="2" data-target="#carousel-290865">
+                </li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="item active">
+                    <!-- 添加图片的地方 -->
+                    <img alt="" src="/static/images/china2.jpg" style="width: 800px;height:460px; margin: 0 auto;" />
+                    <!-- 添加图片的地方 -->
+                    <div class="carousel-caption">
+                    </div>
+                </div>
+                <div class="item">
+                    <!-- 添加图片的地方 -->
+                    <img alt="" src="/static/images/yun.jpg" style="width: 800px;height:460px; margin: 0 auto;" />
+                    <!-- 添加图片的地方 -->
+                    <div class="carousel-caption">
+                    </div>
+                </div>
+                <div class="item">
+                    <!-- 添加图片的地方 -->
+                    <img alt="" src="/static/images/china4.jpg" style="width: 800px;height:460px; margin: 0 auto;" />
+                    <!-- 添加图片的地方 -->
+                    <div class="carousel-caption">
+                    </div>
+                </div>
+            </div> <a data-slide="prev" href="#carousel-290865" class="left carousel-control"><span class="glyphicon glyphicon-chevron-left"></span></a> <a data-slide="next" href="#carousel-290865" class="right carousel-control"><span class="glyphicon glyphicon-chevron-right"></span></a>
+        </div>
+    </div>
+    <div id="map6" style=" display :none">
+        <h style=" font-size :30px;font-weight :500">第六部分</h>
+        <div class="carousel slide" id="carousel-83435" style=" background-color :aliceblue ;opacity:0.8">
+            <ol class="carousel-indicators">
+                <li data-slide-to="0" data-target="#carousel-83435"></li>
+                <li data-slide-to="1" data-target="#carousel-83435"></li>
+                <li data-slide-to="2" data-target="#carousel-83435" class="active"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="item">
+                    <!-- 添加图片的地方 -->
+                    <img alt="" src="/static/images/china2.jpg" style="width: 800px;height:460px; margin: 0 auto;" />
+                    <!-- 添加图片的地方 -->
+                    <div class="carousel-caption">
+                        <!--<h4>中国现有确诊趋势</h4>-->
+                    </div>
+                </div>
+                <div class="item">
+                    <!-- 添加图片的地方 -->
+                    <img alt="" src="/static/images/china2.jpg" style="width: 800px;height:460px; margin: 0 auto;" />
+                    <!-- 添加图片的地方 -->
+                    <div class="carousel-caption">
+                    </div>
+                </div>
+                <div class="item active">
+                    <!-- 添加图片的地方 -->
+                    <img alt="" src="/static/images/china2.jpg" style="width: 800px;height:460px; margin: 0 auto;" />
+                    <!-- 添加图片的地方 -->
+                    <div class="carousel-caption">
+                    </div>
+                </div>
+            </div> <a class="left carousel-control" href="#carousel-83435" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-83435" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+        </div>
+    </div>
+
     <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-    <div id="main4" style="width: 600px;height:400px;margin: 0 auto;"></div>
-    <div id="main5" style="width: 600px;height:400px;margin: 0 auto;"></div>
-    <div id="main6" style="width: 600px;height:400px;margin: 0 auto;"></div>
-    <div id="main7" style="width: 1000px;height:600px;margin: 0 auto;"></div>
-    <div id="main8" style="width: 600px;height:400px;margin: 0 auto;"></div>
-    <div id="main9" style="width: 600px;height:400px;margin: 0 auto;"></div>
-    <div id="main10" style="width: 600px;height:400px;margin: 0 auto;"></div>
+
 
     <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
