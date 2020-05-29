@@ -48,6 +48,8 @@
     <div id="main6" style="width: 600px;height:400px;margin: 0 auto;"></div>
     <div id="main7" style="width: 1000px;height:600px;margin: 0 auto;"></div>
     <div id="main8" style="width: 600px;height:400px;margin: 0 auto;"></div>
+    <div id="main9" style="width: 600px;height:400px;margin: 0 auto;"></div>
+    <div id="main10" style="width: 600px;height:400px;margin: 0 auto;"></div>
 
     <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
@@ -61,23 +63,13 @@
             var myChart6 = echarts.init(document.getElementById('main6'));
             var myChart7 = echarts.init(document.getElementById('main7'));
             var myChart8 = echarts.init(document.getElementById('main8'));
+            var myChart9 = echarts.init(document.getElementById('main9'));
+            var myChart10 = echarts.init(document.getElementById('main10'));
 
             $.ajax({
                 url: '/getdata',
                 success: function (data) {
                     var json_data = JSON.parse(data)
-                    //console.info(json_data['china']['confirmedxist'])
-                    //console.info(json_data['timeseries'])
-                    //console.info(json_data['map']['confirmedtotal'])
-                   // console.info(json_data['china']['cures'])
-                   // console.info(json_data['china']['confirmedtotal'])
-                   // console.info(json_data['china']['deaths'])
-                  //  console.info(json_data['chinaInc']['confirmedtotal'])
-                   // console.info(json_data['chinaInc']['suspected'])
-                  //  console.info(json_data['map']['confirmedexist'])
-                  //  console.info(json_data['chinaPredict']['confirmedexist'])
-                  //  console.info(json_data['chinaPredict']['confirmedtotal'])
-                  //  console.info(json_data['predictseries'])
                     // 指定图表的配置项和数据
                     var option1 = {
                         title: {
@@ -87,7 +79,7 @@
                             trigger: 'axis'
                         },
                         legend: {
-                            data: ['现有确诊','总确诊']
+                            data: ['现有确诊', '总确诊']
                         },
                         xAxis: {
                             type: 'category',
@@ -322,7 +314,7 @@
                             trigger: 'axis'
                         },
                         legend: {
-                            data: ['确诊预测','累计确诊']
+                            data: ['确诊预测', '累计确诊']
                         },
                         xAxis: {
                             type: 'category',
@@ -367,9 +359,9 @@
                             itemHeight: 10,
                             color: ['#610105', '#8e0d08', '#d12d2e', '#fd796a', '#ffad81', '#F8F8FF'],
                             pieces: [
-                                {min:1000000},
-                                {min:100000, max:999999},
-                                { min: 10000 ,max:99999 },
+                                { min: 1000000 },
+                                { min: 100000, max: 999999 },
+                                { min: 10000, max: 99999 },
                                 { min: 1000, max: 9999 },
                                 { min: 500, max: 999 },
                                 { min: 100, max: 499 },
@@ -457,6 +449,46 @@
                     };
                     // 使用刚指定的配置项和数据显示图表。
                     myChart8.setOption(option8);
+                    option9 = {
+                        title: {
+                            text: '海外多国累计确诊top10'
+                        },
+                        legend: {},
+                        tooltip: {},
+                        xAxis: {
+                            type: 'category',
+                            data: json_data['worldTop']['confirmedtotal']['name'],
+                        },
+                        yAxis: {
+                            type: 'value'
+                        },
+                        series: [{
+                            name: '累计确诊',
+                            data: json_data['worldTop']['confirmedtotal']['value'],
+                            type: 'bar'
+                        }]
+                    };
+                    myChart9.setOption(option9);
+                    option10 = {
+                        title: {
+                            text: '海外多国现存确诊top10'
+                        },
+                        legend: {},
+                        tooltip: {},
+                        xAxis: {
+                            type: 'category',
+                            data: json_data['worldTop']['confirmedexist']['name'],
+                        },
+                        yAxis: {
+                            type: 'value'
+                        },
+                        series: [{
+                            name: '现存确诊',
+                            data: json_data['worldTop']['confirmedexist']['value'],
+                            type: 'bar'
+                        }]
+                    };
+                    myChart10.setOption(option10);
                 },//success末尾
 
             })

@@ -59,7 +59,9 @@
 </div>
 {% else %}
 <div>
-    <span style=" font-size :40px;font-weight :500">您还未登录，登录后才可以发表评论，请先<a href="{{ url_for('login') }}">登录</a>！！！</span>
+    <span style=" font-size :40px;font-weight :500">您还未登录，登录后才可以发表评论，请先<a href="{{ url_for('login') }}">登录</a>。</span>
+    <br/>
+    <span style=" font-size :30px;font-weight :500">如果您还未注册，请先<a href="{{ url_for('register') }}">注册</a></span>
     <br />
     <br />
     <br />
