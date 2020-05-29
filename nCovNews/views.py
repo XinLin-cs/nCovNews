@@ -59,26 +59,25 @@ def about():
         message='Your application description page.'
     )
 
-@app.route('/discuss')
+@app.route('/discuss',methods=['GET','POST'])
 def discuss():
     """Renders the about page."""
     dislist = datatype.DISCUSS.query.all()
     dislist.sort(key=lambda x:x.date,reverse=True)
+    form = forms.PostForm()
+    if form.validate_on_submit():
+        id = session.get('userid')
+        word = form.word.data
+        user_mod.post_word(id,word)
+        return  redirect(url_for('discuss'))
     return render_template(
         'discuss.html',
         title='Discuss',
         year=datetime.now().year,
         message='Your application description page.',
         dislist = dislist,
+        form=form
     )
-
-@app.route('/postword',methods=['POST'])
-def postword():
-    """Renders the about page."""
-    id = session.get('userid')
-    word = request.form.get('word')
-    user_mod.post_word(id,word)
-    return  redirect(url_for('discuss'))
 
 @app.route('/analyze')
 def analyze():
