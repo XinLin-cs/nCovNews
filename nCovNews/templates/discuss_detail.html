@@ -1,0 +1,150 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+<head>
+
+
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css" />
+</head>
+<style>
+    .ss2 {
+        width: 75%;
+        opacity: 1;
+        z-index: 10;
+        position: fixed;
+        bottom: 0;
+        background-color: aliceblue;
+        opacity: 0.9;
+        border-radius: 5px;
+    }
+
+    .stable2 {
+        border-collapse: collapse;
+    }
+
+    .imgcss2 {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+</style>
+
+
+
+
+
+{% if userid %}
+<div class="ss2">
+    <br />
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-1 ">
+            <div class="imgdiv">
+                <img class="imgcss2" src="../static/images/yun.jpg" />
+            </div>
+        </div>
+        <div class=" col-md-10 ">
+            <form method="POST" action="{{ url_for('postword') }}">
+                <textarea rows="1000" cols="5000" type="text" name="word" placeholder="say something ......" style="max-width:90%;height:50px;border-radius: 5px;margin: 0px;resize:none"></textarea>
+                <button type="submit" style="width: 50px; height: 50px;border-radius: 5px;margin: 0px; color :dodgerblue"> 发表</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% else %}
+<div>
+    <span style=" font-size :40px;font-weight :500">您还未登录，登录后才可以发表评论，请先<a href="{{ url_for('login') }}">登录</a>。</span>
+    <br />
+    <span style=" font-size :30px;font-weight :500">如果您还未注册，请先<a href="{{ url_for('register') }}">注册</a></span>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</div>
+{% endif %}
+
+
+
+<script>
+    var u1 = '../static/images/su1.png';
+    var u2 = '../static/images/su2.png';
+    function aa(img) {
+        if (img.src == u1) {
+            img.src = u2;
+            var t = u1;
+            u1 = u2;
+            u2 = t;
+        }
+        else {
+            img.src = u1;
+            var t = u1;
+            u1 = u2;
+            u2 = t;
+        }
+    }
+</script>
+
+<style>
+    .comment {
+        width: 900px;
+    }
+
+    .imgdiv {
+        width: 80px;
+        height: 70px;
+        float: left;
+    }
+
+    .imgcss {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+    }
+
+    .comment_name {
+        margin-left: 10px;
+        color: #4800ff;
+        font-size: 16px;
+        font-weight: bolder;
+    }
+
+    .del {
+        float: right;
+    }
+</style>
+
+{% for item in dislist %}
+<hr />
+<div class="comment">
+    <div class=" row">
+        <div class=" col-md-1 ">
+            <div class="imgdiv">
+                <img class="imgcss" src="../static/images/yun.jpg" />
+            </div>
+        </div>
+        <div class=" col-md-11 ">
+            <p class="comment_name" style="float:left;">{{item.username}} ({{item.userid}})</p>       <p style="float:right;">{{item.date}}</p>
+            <br />
+            <br />
+            <p style=" text-indent: 50px;font-size: 30px;font-weight: 200;">
+                {{item.word}}
+                <a><img src='../static/images/su2.png' onclick='aa(this)' style="float:right;"></a>
+            </p>
+
+        </div>
+    </div>
+
+</div>
+{% endfor %}
+
+{% endblock %}
