@@ -97,7 +97,7 @@
 
 <style>
     table {
-        width:1150px;
+        width: 1150px;
         height: 100px;
         border-collapse: collapse;
     }
@@ -142,57 +142,59 @@
     }
 </style>
 
+<br />
+<br />
 
-
-<div style=" background-color :#e1dfdf;border-radius: 20px; " >
+<div style=" background-color :#e1dfdf;border-radius: 20px;opacity :0.9 " >
     <p class="tah0" style=" text-align:center; ">今日疫情概览</p>
-    <table>
-        
-        <tr>
-            <td style=" text-align:center; "> <h onclick=" china0()" class="tah" id="china1">中国实时疫情</h> </td>
-            <td style=" text-align:center; "><h onclick=" others0()" class="tah" id="other1">海外实时疫情</h></td>
-        </tr>
-    </table>
-    <br />
-    <div id="china" style=" display :block; ">
-        <h class="tah2">中国实时疫情<p style=" float:right"> 数据截止日期：{{chinatotal.date}}</p></h>
-        <table >
-            <tr>
-                <td class="tdh">确诊人数</td>
-                <td class="tdh">疑似人数</td>
-                <td class="tdh">治愈人数</td>
-                <td class="tdh">死亡人数</td>
-                <td class="tdh"> 无症状感染人数</td>
-            </tr>
-            <tr>
+    
+    <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-10">
+            <div id="china">
+                <h class="tah2">中国实时疫情<p style=" float:right;font-size :20px;"> 数据截止日期：{{chinatotal.date}}</p></h>
+                <table>
+                    <tr>
+                        <td class="tdh">确诊人数</td>
+                        <td class="tdh">疑似人数</td>
+                        <td class="tdh">治愈人数</td>
+                        <td class="tdh">死亡人数</td>
+                        <td class="tdh"> 无症状感染人数</td>
+                    </tr>
+                    <tr>
 
-                <td class="tdh">{{chinatotal.confirmed}}</td>
-                <td class="tdh">{{chinatotal.suspected}}</td>
-                <td class="tdh">{{chinatotal.cures}}</td>
-                <td class="tdh">{{chinatotal.deaths}}</td>
-                <td class="tdh">{{chinatotal.asymptomatic}}</td>
-            </tr>
-        </table>
-        <br />
-        <br />
+                        <td class="tdh">{{chinatotal.confirmed}}</td>
+                        <td class="tdh">{{chinatotal.suspected}}</td>
+                        <td class="tdh">{{chinatotal.cures}}</td>
+                        <td class="tdh">{{chinatotal.deaths}}</td>
+                        <td class="tdh">{{chinatotal.asymptomatic}}</td>
+                    </tr>
+                </table>
+            </div>
+            <hr />
+            <div id="others">
+                <h class="tah2">海外实时疫情<p style=" float:right;font-size :20px;"> 数据截止日期：{{worldtotal.date}}</p></h>
+                <table>
+                    <tr>
+                        <td class="tdh">确诊人数</td>
+                        <td class="tdh">治愈人数</td>
+                        <td class="tdh">死亡人数</td>
+                    </tr>
+                    <tr>
+                        <td class="tdh">{{worldtotal.confirmed}}</td>
+                        <td class="tdh">{{worldtotal.cures}}</td>
+                        <td class="tdh">{{worldtotal.deaths}}</td>
+                    </tr>
+                </table>
+                <br />
+                <br />
+            </div>
+        </div>
+        <div class="col-md-1">
+        </div>
     </div>
-    <div id="others" style=" display :none;">
-        <h class="tah2">海外实时疫情<p style=" float:right"> 数据截止日期：{{worldtotal.date}}</p></h>
-        <table>
-            <tr>
-                <td class="tdh">确诊人数</td>
-                <td class="tdh">治愈人数</td>
-                <td class="tdh">死亡人数</td>
-            </tr>
-            <tr>
-                <td class="tdh">{{worldtotal.confirmed}}</td>
-                <td class="tdh">{{worldtotal.cures}}</td>
-                <td class="tdh">{{worldtotal.deaths}}</td>
-            </tr>
-        </table>
-         <br />
-        <br />
-    </div>
+   
     <script>
         function china0() {
             china.style.display = "block";
