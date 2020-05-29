@@ -93,9 +93,37 @@
                     <img src="{{flags[item.name]}}" style="  height:40px  ">
                     {{item.name}}
                 </td>
-                <td>{{item.confirmed}} {{item.confirmedInc}}</td>
-                <td>{{item.cures}} {{item.curesInc}}</td>
-                <td>{{item.deaths}} {{item.deathsInc}}</td>
+                <td>
+                    {{item.confirmed}}
+                    {% if  item.confirmedInc[1]=='0' %}
+                    <p style=" color :cornflowerblue ;">{{item.confirmedInc}}&darr; </p>
+                    {% elif  item.confirmedInc[0]=='+' %}
+                    <p style=" color :red "> {{item.confirmedInc}} &uarr; </p>
+                    {% else %}
+                    <p style=" color :cornflowerblue ;">{{item.confirmedInc}}&darr; </p>
+                    {% endif %}
+
+                </td>
+                <td>
+                    {{item.cures}}
+                    {% if  item.curesInc[1]=='0' %}
+                    <p style=" color :cornflowerblue ;"> {{item.curesInc}} </p>
+                    {% elif  item.curesInc[0]=='+' %}
+                    <p style=" color :red ">  {{item.curesInc}} &uarr; </p>
+                    {% else %}
+                    <p style=" color :cornflowerblue ;"> {{item.curesInc}}&darr; </p>
+                    {% endif %}
+                </td>
+                <td>
+                    {{item.deaths}}
+                    {% if  item.deathsInc[1]=='0' %}
+                    <p style=" color :cornflowerblue ;"> {{item.deathsInc}} </p>
+                    {% elif  item.deathsInc[0]=='+' %}
+                    <h style=" color :red ">  {{item.deathsInc}} &uarr; </h>
+                    {% else %}
+                    <p style=" color :cornflowerblue ;"> {{item.deathsInc}} &darr; </p>
+                    {% endif %}
+                </td>
             </tr>
             {% endfor %}
         </tbody>

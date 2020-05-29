@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-{% import 'bootstrap/wtf.html' as wtf %}
+
 {% block content %}
 
 
@@ -29,10 +29,6 @@
         height: 50px;
         border-radius: 50%;
     }
-    textarea {
-        resize: none;
-        max-width:100%
-    }
 </style>
 
 
@@ -43,16 +39,16 @@
 <div class="ss2">
     <br />
     <div class="row">
+        <div class="col-md-1"></div>
         <div class="col-md-1 ">
             <div class="imgdiv">
                 <img class="imgcss2" src="../static/images/yun.jpg" />
             </div>
         </div>
-        <div class="col-md-10 ">
-            <form class="form" method="POST">
-                {{ form.csrf_token }}
-                {{ wtf.form_field(form.word) }}
-                {{ wtf.form_field(form.post) }}
+        <div class=" col-md-10 ">
+            <form method="POST" action="{{ url_for('postword') }}">
+                <textarea rows="1000" cols="5000" type="text" name="word" placeholder="say something ......" style="max-width:90%;height:50px;border-radius: 5px;margin: 0px;resize:none"></textarea>
+                <button type="submit" style="width: 50px; height: 50px;border-radius: 5px;margin: 0px; color :dodgerblue"> 发表</button>
             </form>
         </div>
     </div>
@@ -60,7 +56,7 @@
 {% else %}
 <div>
     <span style=" font-size :40px;font-weight :500">您还未登录，登录后才可以发表评论，请先<a href="{{ url_for('login') }}">登录</a>。</span>
-    <br/>
+    <br />
     <span style=" font-size :30px;font-weight :500">如果您还未注册，请先<a href="{{ url_for('register') }}">注册</a></span>
     <br />
     <br />
