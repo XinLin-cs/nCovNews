@@ -224,17 +224,25 @@ def data():
     # 中国数据
     chinatotal = datatype.CHINATOTAL.query.order_by(datatype.CHINATOTAL.date).all()
     timeseries = []
-    china = {'confirmedtotal':[],'confirmedexist':[],'suspected':[],'cures':[],'deaths':[],'asymptomatic':[]}
-    chinaInc = {'confirmedtotal':[],'confirmedexist':[],'suspected':[],'cures':[],'deaths':[],'asymptomatic':[]}
+    china = {'confirmedtotal':[],'confirmedexist':[],'suspected':[],'cures':[],'deaths':[],'asymptomatic':[],
+            'curesRate':[],'deathsRate':[]}
+    chinaInc = {'confirmedtotal':[],'confirmedexist':[],'suspected':[],'cures':[],'deaths':[],'asymptomatic':[],
+                 'curesRate':[],'deathsRate':[]}
     for item in chinatotal:
         timeseries.append(str(item.date))
         china['confirmedtotal'].append([str(item.date),item.confirmed])
         china['confirmedexist'].append([str(item.date),item.confirmed-item.cures-item.deaths])
         china['cures'].append([str(item.date),item.cures])
         china['suspected'].append([str(item.date),item.suspected])
-        chinaInc['suspected'].append([str(item.date),item.suspectedInc])# 新增疑似
         china['deaths'].append([str(item.date),item.deaths])
         china['asymptomatic'].append([str(item.date),item.asymptomatic])  
+        # 新增疑似
+        chinaInc['suspected'].append([str(item.date),item.suspectedInc])
+        # 计算百分比
+        val=int(item.cures/item.confirmed*10000)
+        china['curesRate'].append([str(item.date),val/100])
+        val=int(item.deaths/item.confirmed*10000)
+        china['deathsRate'].append([str(item.date),val/100])
     # 计算变化量(不含疑似)
     for i in range(len(chinatotal)-1):
         chinaInc['confirmedtotal'].append([timeseries[i+1],china['confirmedtotal'][i+1][1]-china['confirmedtotal'][i][1]])
@@ -242,13 +250,8 @@ def data():
         chinaInc['cures'].append([timeseries[i+1],china['cures'][i+1][1]-china['cures'][i][1]])
         chinaInc['deaths'].append([timeseries[i+1],china['deaths'][i+1][1]-china['deaths'][i][1]])
         chinaInc['asymptomatic'].append([timeseries[i+1],china['asymptomatic'][i+1][1]-china['asymptomatic'][i][1]])
-    # 计算百分比
-    chinaPercent = {'cures':[],'deaths':[]}
-    for item in chinatotal:
-        num=int(item.cures/item.confirmed*10000)
-        chinaPercent['cures'].append([str(item.date),num/100])
-        num=int(item.deaths/item.confirmed*10000)
-        chinaPercent['deaths'].append([str(item.date),num/100])
+        chinaInc['curesRate'].append([timeseries[i+1],china['curesRate'][i+1][1]-china['curesRate'][i][1]])
+        chinaInc['deathsRate'].append([timeseries[i+1],china['deathsRate'][i+1][1]-china['deathsRate'][i][1]])
     # 构造预测序列
     predictseries = []
     dt = 100 # 预测天数
@@ -260,20 +263,27 @@ def data():
     for i in range(0,len(chinatotal)+dt):
         predictseries[i] = str(predictseries[i])
     # 趋势预测
-    chinaPredict = {'confirmedtotal':[],'confirmedexist':[],'suspected':[],'cures':[],'deaths':[],'asymptomatic':[]}
+    chinaPredict = {'confirmedtotal':[],'confirmedexist':[],'suspected':[],'cures':[],'deaths':[],
+                    'asymptomatic':[],'curesRate':[],'deathsRate':[]}
     chinaPredict['confirmedtotal']=data_predict.result2(predictseries,china['confirmedtotal'],0.55)
     chinaPredict['confirmedexist']=data_predict.result2(predictseries,china['confirmedexist'],0.4)
     # 地图数据
     provinces = datatype.PROVINCE.query.filter_by(date=date.today()).all()
-    map = {'confirmedtotal':[],'confirmedexist':[],'cures':[],'deaths':[],'asymptomatic':[]}
+    map = {'confirmedtotal':[],'confirmedexist':[],'cures':[],'deaths':[],'asymptomatic':[],
+          'curesRate':[],'deathsRate':[]}
     for item in provinces:
         map['confirmedtotal'].append({'name':item.name,'value':item.confirmed})
         map['confirmedexist'].append({'name':item.name,'value':item.confirmed-item.cures-item.deaths})
         map['cures'].append({'name':item.name,'value':item.cures})
         map['deaths'].append({'name':item.name,'value':item.deaths})
         map['asymptomatic'].append({'name':item.name,'value':item.asymptomatic})
+        val=int(item.cures/item.confirmed*10000)
+        map['curesRate'].append({'name':item.name,'value':val/100})
+        val=int(item.deaths/item.confirmed*10000)
+        map['deathsRate'].append({'name':item.name,'value':val/100})
     # 中国Top数据
-    chinaTop = {'confirmedtotal':{},'confirmedexist':{},'cures':{},'deaths':{},'asymptomatic':{}}
+    chinaTop = {'confirmedtotal':{},'confirmedexist':{},'cures':{},'deaths':{},'asymptomatic':{},
+                'curesRate':{},'deathsRate':{}}
     for item in map:
         map[item].sort(key=lambda x:x['value'],reverse=True)
         name , value = [] , []
@@ -287,7 +297,7 @@ def data():
     for item in namemap:
         mymap[namemap[item]] = item
     countries = datatype.COUNTRY.query.filter_by(date=date.today()).all()
-    worldmap = {'confirmedtotal':[],'confirmedexist':[],'cures':[],'deaths':[]}
+    worldmap = {'confirmedtotal':[],'confirmedexist':[],'cures':[],'deaths':[],'curesRate':[],'deathsRate':[]}
     for item in countries:
         if (item.name in mymap):
             name = mymap[item.name]
@@ -297,13 +307,19 @@ def data():
         worldmap['confirmedexist'].append({'name':name,'value':item.confirmed-item.cures-item.deaths})
         worldmap['cures'].append({'name':name,'value':item.cures})
         worldmap['deaths'].append({'name':name,'value':item.deaths})
+        val=int(item.cures/item.confirmed*10000)
+        worldmap['curesRate'].append({'name':item.name,'value':val/100})
+        val=int(item.deaths/item.confirmed*10000)
+        worldmap['deathsRate'].append({'name':item.name,'value':val/100})
     # 补充中国数据
     worldmap['confirmedtotal'].append({'name':'China','value':china['confirmedtotal'][len(china['confirmedtotal'])-1][1]})
     worldmap['confirmedexist'].append({'name':'China','value':china['confirmedexist'][len(china['confirmedexist'])-1][1]})
     worldmap['cures'].append({'name':'China','value':china['cures'][len(china['cures'])-1][1]})
     worldmap['deaths'].append({'name':'China','value':china['deaths'][len(china['deaths'])-1][1]})
+    worldmap['curesRate'].append({'name':'China','value':china['curesRate'][len(china['curesRate'])-1][1]})
+    worldmap['deathsRate'].append({'name':'China','value':china['deathsRate'][len(china['deathsRate'])-1][1]})
     # 世界Top数据
-    worldTop = {'confirmedtotal':{},'confirmedexist':{},'cures':{},'deaths':{}}
+    worldTop = {'confirmedtotal':{},'confirmedexist':{},'cures':{},'deaths':{},'curesRate':{},'deathsRate':{}}
     for item in worldmap:
         worldmap[item].sort(key=lambda x:x['value'],reverse=True)
         name , value = [] , []
@@ -319,7 +335,6 @@ def data():
                        'predictseries':predictseries,
                        'china':china,
                        'chinaInc':chinaInc,
-                       'chinaPercent':chinaPercent,
                        'chinaPredict':chinaPredict,
                        'map':map,
                        'chinaTop':chinaTop,
