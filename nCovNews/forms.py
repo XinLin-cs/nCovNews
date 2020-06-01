@@ -60,5 +60,5 @@ class LoginForm(FlaskForm):
     login = SubmitField('登陆')
 
 class PostForm(FlaskForm):
-    word = TextAreaField('',validators=[DataRequired()])
+    word = TextAreaField('发表讨论',validators=[DataRequired()])
     post = SubmitField('发表')
