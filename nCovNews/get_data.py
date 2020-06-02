@@ -308,9 +308,9 @@ def data():
         worldmap['cures'].append({'name':name,'value':item.cures})
         worldmap['deaths'].append({'name':name,'value':item.deaths})
         val=int(item.cures/item.confirmed*10000)
-        worldmap['curesRate'].append({'name':item.name,'value':val/100})
+        worldmap['curesRate'].append({'name':name,'value':val/100})
         val=int(item.deaths/item.confirmed*10000)
-        worldmap['deathsRate'].append({'name':item.name,'value':val/100})
+        worldmap['deathsRate'].append({'name':name,'value':val/100})
     # 补充中国数据
     worldmap['confirmedtotal'].append({'name':'China','value':china['confirmedtotal'][len(china['confirmedtotal'])-1][1]})
     worldmap['confirmedexist'].append({'name':'China','value':china['confirmedexist'][len(china['confirmedexist'])-1][1]})
