@@ -57,7 +57,7 @@ def PasswordChcek():
 class LoginForm(FlaskForm):
     id = StringField('学号', validators=[DataRequired(),IDCheck_Login()])
     password = PasswordField('密码', validators=[DataRequired(),PasswordChcek()])
-    login = SubmitField('登陆')
+    login = SubmitField('登录')
 
 class PostForm(FlaskForm):
     word = TextAreaField('发表讨论',validators=[DataRequired()])
