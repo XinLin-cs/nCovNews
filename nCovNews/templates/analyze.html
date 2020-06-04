@@ -457,7 +457,8 @@
                                 type: 'line',
                                 data: json_data['china']['confirmedtotal']
                             }
-                        ]
+                        ],
+                        animation: false,
                     };
                     // 使用刚指定的配置项和数据显示图表。
                     myChart1.setOption(option1);
@@ -1330,9 +1331,31 @@
                         ]
                     };
                     myChart18.setOption(option18);
+
+
+                    function getimage() {
+                        var img = new Image;
+                        img.style.width = "200px";
+                        img.style.height = "125x";
+                        img.style.display ="none";
+                        img.id ="imgage";
+                        img.src = myChart1.getDataURL({ //mychart1的option
+                            type: "png",
+                            pixelRatio: 2,
+                            backgroundColor: '#fff'
+                        })
+                        return img;
+                    }
+                    getimage();
+
+
                 },//success末尾
 
-            })
+
+            }
+
+
+            )
             //ajax末尾
 
         })//function末尾
