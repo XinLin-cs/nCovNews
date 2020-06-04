@@ -1,0 +1,832 @@
+{% extends "layout.html" %}
+{% block content %}
+<style >
+    .hp{
+        width :60px;
+        height :60px;
+    }
+</style>
+<div>
+    <h1>你可以在下列选择你喜欢的头像</h1>
+</div>
+<div>
+    <div class="row">
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h1.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h2.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h3.jpeg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h4.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h5.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h6.jpeg" />
+            <br />
+            <br />
+            <div style=" text-align:center;">
+
+                <button>确认</button>
+
+            </div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h7.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h8.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h9.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h10.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h11.jpeg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h12.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h1.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h2.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h3.jpeg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h4.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h5.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h6.jpeg" />
+            <br />
+            <br />
+            <div style=" text-align:center;">
+
+                <button>确认</button>
+
+            </div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h7.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h8.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h9.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h10.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h11.jpeg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h12.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h1.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h2.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h3.jpeg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h4.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h5.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h6.jpeg" />
+            <br />
+            <br />
+            <div style=" text-align:center;">
+
+                <button>确认</button>
+
+            </div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h7.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h8.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h9.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h10.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h11.jpeg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h12.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h1.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h2.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h3.jpeg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h4.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h5.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h6.jpeg" />
+            <br />
+            <br />
+            <div style=" text-align:center;">
+
+                <button>确认</button>
+
+            </div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h7.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h8.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h9.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h10.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h11.jpeg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h12.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h1.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h2.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h3.jpeg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h4.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h5.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h6.jpeg" />
+            <br />
+            <br />
+            <div style=" text-align:center;">
+
+                <button>确认</button>
+
+            </div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h7.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h8.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h9.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h10.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h11.jpeg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h12.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h1.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h2.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h3.jpeg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h4.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h5.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h6.jpeg" />
+            <br />
+            <br />
+            <div style=" text-align:center;">
+
+                <button>确认</button>
+
+            </div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h7.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h8.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h9.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h10.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h11.jpeg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h12.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h1.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h2.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h3.jpeg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h4.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h5.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h6.jpeg" />
+            <br />
+            <br />
+            <div style=" text-align:center;">
+
+                <button>确认</button>
+
+            </div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h7.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h8.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h9.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h10.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h11.jpeg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h12.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h1.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h2.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h3.jpeg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h4.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h5.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h6.jpeg" />
+            <br />
+            <br />
+            <div style=" text-align:center;">
+
+                <button>确认</button>
+
+            </div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h7.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h8.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h9.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h10.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h11.jpeg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1">
+            <img class="hp " src="../static/images/headp/h12.jpg" />
+            <br />
+            <br />
+            <div style=" text-align:center;"><button>确认</button></div>
+            <br />
+            <br />
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
