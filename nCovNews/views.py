@@ -36,6 +36,16 @@ def contact():
         message='Your contact page.'
     )
 
+@app.route('/setphoto')
+def setphoto():
+    """Renders the contact page."""
+    return render_template(
+        'setphoto.html',
+        title='Setphoto',
+        year=datetime.now().year,
+        message='Your setphoto page.'
+    )
+
 @app.route('/about')
 def about():
     """Renders the about page."""
