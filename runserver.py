@@ -13,6 +13,7 @@ def thread_robot():
     wxrobot.init()
 
 if __name__ == '__main__':
+    
     # 数据库测试
     # db.drop_all()
     db.create_all()

@@ -33,6 +33,7 @@ pipreqs==0.4.10
 post==2019.4.13
 prettytable==0.7.2
 public==2019.4.13
+pycryptodomex==3.9.7
 pyecharts==1.7.1
 pyecharts-jupyter-installer==0.0.3
 pylint==2.4.4

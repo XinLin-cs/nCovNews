@@ -149,6 +149,7 @@ def getdata_api():
 
 def get_news( page , num ):
     session = db.session
+    datatype.NEWS.query.delete()
     url = 'http://lab.isaaclin.cn/nCoV/api/news?page=%d&num=%d' % ( page , num )
     try:
         respone = requests.get(url).json()
@@ -168,6 +169,7 @@ def get_news( page , num ):
 
 def get_fakenews( page , num ):
     session = db.session
+    datatype.FAKENEWS.query.delete()
     url = 'http://lab.isaaclin.cn/nCoV/api/rumors?page=%d&num=%d&rumorType=%d' % ( page , num , 0 )
     try:
         respone = requests.get(url).json()
@@ -185,6 +187,7 @@ def get_fakenews( page , num ):
 
 def get_information( page , num ):
     session = db.session
+    datatype.INFORMATION.query.delete()
     url = 'http://lab.isaaclin.cn/nCoV/api/rumors?page=%d&num=%d&rumorType=%d' % ( page , num , 1 )
     try:
         respone = requests.get(url).json()

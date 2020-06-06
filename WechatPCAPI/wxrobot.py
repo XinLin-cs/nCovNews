@@ -11,7 +11,10 @@ import time
 import logging
 from queue import Queue
 import threading
-from nCovNews import db
+from flask import url_for
+from nCovNews import app,db
+from nCovNews import datatype
+from sqlalchemy import func
 
 
 logging.basicConfig(level=logging.INFO)
@@ -36,8 +39,63 @@ def thread_handle_message(wx_inst):
                 msg_time = message.get('data', {}).get('time', '')
                 msg_content = message.get('data', {}).get('msg', '')
                 # 0是收到的消息 1是发出的 对于1不要再回复了 不然会无限循环回复
-                print(msg_from_id)
-                wx_inst.send_text(to_user=msg_from_id, msg=msg_content)
+                if '#' in msg_content:
+                    if '#疫情小助手' in msg_content:
+                        wx_inst.send_link_card(
+                        to_user=msg_from_id,
+                        title='疫情小助手',
+                        desc='关注实时疫情数据及分析预测',
+                        target_url='https://covnews.herokuapp.com/',
+                        img_url='https://images.unsplash.com/photo-1516841273335-e39b37888115?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&dpr=1&auto=format&fit=crop&w=140&h=200&q=60')
+                        time.sleep(1)
+                    if '#今日疫情' in msg_content:
+                        # 中国数据查询
+                        chinatotal = datatype.CHINATOTAL.query.order_by(datatype.CHINATOTAL.date.desc()).first()
+                        # 世界数据查询
+                        worldtotal = datatype.WORLDTOTAL.query.order_by(datatype.WORLDTOTAL.date.desc()).first()
+                        # 国内疫情
+                        msg1 = '今日国内疫情\n'
+                        msg1 +='确诊：'+str(chinatotal.confirmed)+'\n'
+                        msg1 +='疑似：'+str(chinatotal.suspected)+'\n'
+                        msg1 +='治愈：'+str(chinatotal.cures)+'\n'
+                        msg1 +='死亡：'+str(chinatotal.deaths)+'\n'
+                        msg1 +='无症状感染：'+str(chinatotal.asymptomatic)+'\n'
+                        msg1 +='更新时间：'+str(chinatotal.date)
+                        wx_inst.send_text(to_user=msg_from_id, msg=msg1)
+                        time.sleep(1)
+                        # 国外疫情
+                        msg2 = '今日海外疫情\n'
+                        msg2 +='确诊：'+str(worldtotal.confirmed)+'\n'
+                        msg2 +='治愈：'+str(worldtotal.cures)+'\n'
+                        msg2 +='死亡：'+str(worldtotal.deaths)+'\n'
+                        msg2 +='更新时间：'+str(chinatotal.date)
+                        wx_inst.send_text(to_user=msg_from_id, msg=msg2)
+                        time.sleep(1)
+                    if '#疫情新闻' in msg_content:
+                        wx_inst.send_text(to_user=msg_from_id, msg='小助手随机为您推荐')
+                        time.sleep(1)
+                        # 新闻查询
+                        item = datatype.NEWS.query.order_by(func.random()).first()
+                        wx_inst.send_link_card(
+                        to_user=msg_from_id,
+                        title=item.title,
+                        desc=item.summary,
+                        target_url=item.url)
+                        time.sleep(1)
+                    if '#指令' in msg_content:
+                        wx_inst.send_text(to_user=msg_from_id, msg='小助手让你发指令，您还真就只发‘指令’啊(>_ <)')
+                        time.sleep(1)
+                else:
+                    wx_inst.send_text(to_user=msg_from_id, msg='小助手还不懂得怎么聊天呢，发送‘#指令’来和小助手互动吧')
+                    msg = '指令列表\n'
+                    msg += '#疫情小助手\n'
+                    msg += '#今日疫情\n'
+                    msg += '#疫情新闻\n'
+                    wx_inst.send_text(to_user=msg_from_id, msg=msg)
+                    time.sleep(1)
+        
+                    
+
 
 
 def main():
@@ -95,7 +153,7 @@ def init():
     wx_inst.get_myself()
     time.sleep(1)
 
-    threading.Thread(target=thread_handle_message, args=(wx_inst)).start()
+    threading.Thread(target=thread_handle_message, args=(wx_inst,)).start()
     time.sleep(1)
 
 if __name__ == '__main__':
