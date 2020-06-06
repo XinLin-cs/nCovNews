@@ -2,12 +2,18 @@
 This script runs the nCovNews application using a development server.
 """
 import time
+import _thread
 from os import environ
 from nCovNews import app
 from nCovNews import db
 from nCovNews import data_update
+from WechatPCAPI import wxrobot
+
+def thread_robot():
+    wxrobot.init()
 
 if __name__ == '__main__':
+    
     # 数据库测试
     # db.drop_all()
     db.create_all()
@@ -21,4 +27,8 @@ if __name__ == '__main__':
     except ValueError:
         PORT = 5555
     time.sleep(1)
+    # 启动机器人
+    _thread.start_new_thread(thread_robot)
+    time.sleep(1)
+    # 启动本地网页
     app.run(HOST, PORT)

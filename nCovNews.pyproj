@@ -18,7 +18,7 @@
     <Name>nCovNews</Name>
     <RootNamespace>nCovNews</RootNamespace>
     <SuppressEnvironmentCreationPrompt>True</SuppressEnvironmentCreationPrompt>
-    <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
+    <InterpreterId>Global|PythonCore|3.7</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -50,6 +50,7 @@
     <Compile Include="nCovNews\views.py" />
     <Compile Include="runserver.py" />
     <Compile Include="nCovNews\__init__.py" />
+    <Compile Include="WechatPCAPI\wxrobot.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="nCovNews\" />
@@ -60,6 +61,9 @@
     <Folder Include="nCovNews\static\images\" />
     <Folder Include="nCovNews\static\scripts\" />
     <Folder Include="nCovNews\templates\" />
+    <Folder Include="WechatPCAPI\" />
+    <Folder Include="WechatPCAPI\src\" />
+    <Folder Include="WechatPCAPI\src\lib\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="nCovNews\templates\analyze.html" />
@@ -98,10 +102,18 @@
     <Content Include="nCovNews\templates\contact.html" />
     <Content Include="nCovNews\templates\index.html" />
     <Content Include="nCovNews\templates\layout.html" />
+    <Content Include="WechatPCAPI\LICENSE" />
+    <Content Include="WechatPCAPI\README-BO.md" />
+    <Content Include="WechatPCAPI\README.md" />
+    <Content Include="WechatPCAPI\requirements .txt" />
+    <Content Include="WechatPCAPI\src\lib\OpenWechatMulti.exe" />
+    <Content Include="WechatPCAPI\src\lib\WechatPCHelper.dll" />
+    <Content Include="WechatPCAPI\src\Wechat-V2.7.1.82.exe" />
+    <Content Include="WechatPCAPI\WechatPCAPI.pyd" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="Global|PythonCore|3.7" />
-    <InterpreterReference Include="Global|PythonCore|3.7-32" />
+    <InterpreterReference Include="Global|PythonCore|3.8" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="env\">
