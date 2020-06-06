@@ -14,10 +14,9 @@
     <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
     <script src="https://www.echartsjs.com/examples/vendors/echarts/map/js/world.js"></script>
 
-    <script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/jquery-2.0.0.min.js"></script>
+    <script src="static/scripts/jquery.js"></script>   
    
-   
-    <script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="static/scripts/map/bootstrap.min.js"></script>
     <style >
         .s1 {
             background-color: #ffffff;
@@ -1333,20 +1332,25 @@
                     myChart18.setOption(option18);
 
 
-                    function getimage() {
-                        var img = new Image;
-                        img.style.width = "200px";
-                        img.style.height = "125x";
-                        img.style.display ="none";
-                        img.id ="imgage";
-                        img.src = myChart1.getDataURL({ //mychart1的option
-                            type: "png",
-                            pixelRatio: 2,
-                            backgroundColor: '#fff'
-                        })
-                        return img;
+                    var projectId = GetQueryString('projectId');
+                    picLoad(myChart1.getDataURL(), "/Btm20LCDDragfrequency" + projectId + ".png");
+
+                    function picLoad(dataPic, picName) {
+
+                        $.ajax({
+                            type: 'POST',
+                            url: '/ajax/loadPic',
+                            data: {
+                                "data": dataPic,
+                                "name": picName
+                            },
+                            contentType: "application/x-www-form-urlencoded",
+                            success: function (data) {
+
+                            }
+                        });
                     }
-                    getimage();
+
 
 
                 },//success末尾
