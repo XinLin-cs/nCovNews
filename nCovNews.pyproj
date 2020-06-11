@@ -66,6 +66,7 @@
     <Folder Include="WechatPCAPI\src\lib\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="nCovNews\data\data.db" />
     <Content Include="nCovNews\templates\analyze.html" />
     <Content Include="nCovNews\templates\discuss_detail.html" />
     <Content Include="nCovNews\templates\discuss.html" />
