@@ -66,10 +66,10 @@
     }
 
     .sucenter {
-        position: absolute;
-        top: 90%;
-        left: 60%;
-        z-index: 999
+        position: fixed;
+        top: 40%;
+        left: 80%;
+        z-index: 99
     }
 
     .hs {
@@ -267,7 +267,7 @@
         <br />
        
         <div style=" background-color :azure ;opacity :0.8; border-radius: 5px;">
-            <span style="float:left;font-size:18px">觉得不错，分享给朋友：</span>
+            <span style="float:left;font-size:18px">&nbsp;觉得不错，分享给朋友：</span>
             <em class="forumShare">
                 <em class="bdsharebuttonbox">
 
@@ -277,13 +277,15 @@
                 </em>
             </em>
         </div>
+
     </div>
 </div>
 
 
-<div id="field" style="display:none;" class="sucenter ">
+<div id="field" style="display:none;background-color:aliceblue ;opacity :0.9" class="sucenter ">
+    <span onclick="shareToWeixin() " style="float:right;font-size:20px;font-weight :400 ">X &nbsp;&nbsp;</span> <br />
     <img src="http://cli.clewm.net/qrcode/2015/01/21/2031452178.png" onclick="shareToWeixin()" />
-    <br /><span onClick="shareToWeixin()">点击收起</span>
+
 </div>
 
 <script>
