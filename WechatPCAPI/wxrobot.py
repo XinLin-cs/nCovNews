@@ -25,6 +25,33 @@ queue_recved_message = Queue()
 def on_message(message):
     queue_recved_message.put(message)
 
+def china_msg():
+    # 中国数据查询
+    chinatotal = datatype.CHINATOTAL.query.order_by(datatype.CHINATOTAL.date.desc()).first()
+     # 国内疫情
+    msg = '今日国内疫情\n'
+    msg +='确诊：'+str(chinatotal.confirmed)+'\n'
+    msg +='疑似：'+str(chinatotal.suspected)+'\n'
+    msg +='治愈：'+str(chinatotal.cures)+'\n'
+    msg +='死亡：'+str(chinatotal.deaths)+'\n'
+    msg +='无症状感染：'+str(chinatotal.asymptomatic)+'\n'
+    msg +='更新时间：'+str(chinatotal.date)
+    return msg
+
+def oversea_msg():
+    # 世界数据查询
+    worldtotal = datatype.WORLDTOTAL.query.order_by(datatype.WORLDTOTAL.date.desc()).first()
+    # 国外疫情
+    msg = '今日海外疫情\n'
+    msg +='确诊：'+str(worldtotal.confirmed)+'\n'
+    msg +='治愈：'+str(worldtotal.cures)+'\n'
+    msg +='死亡：'+str(worldtotal.deaths)+'\n'
+    msg +='更新时间：'+str(worldtotal.date)
+    return msg
+                        
+                      
+
+
 def thread_handle_message(wx_inst):
     while True:
         message = queue_recved_message.get()
@@ -69,27 +96,9 @@ def thread_handle_message(wx_inst):
                         session.commit()
                         time.sleep(1)
                     if '#今日疫情' in msg_content:
-                        # 中国数据查询
-                        chinatotal = datatype.CHINATOTAL.query.order_by(datatype.CHINATOTAL.date.desc()).first()
-                        # 世界数据查询
-                        worldtotal = datatype.WORLDTOTAL.query.order_by(datatype.WORLDTOTAL.date.desc()).first()
-                        # 国内疫情
-                        msg1 = '今日国内疫情\n'
-                        msg1 +='确诊：'+str(chinatotal.confirmed)+'\n'
-                        msg1 +='疑似：'+str(chinatotal.suspected)+'\n'
-                        msg1 +='治愈：'+str(chinatotal.cures)+'\n'
-                        msg1 +='死亡：'+str(chinatotal.deaths)+'\n'
-                        msg1 +='无症状感染：'+str(chinatotal.asymptomatic)+'\n'
-                        msg1 +='更新时间：'+str(chinatotal.date)
-                        wx_inst.send_text(to_user=msg_from_id, msg=msg1)
+                        wx_inst.send_text(to_user=msg_from_id, msg=china_msg())
                         time.sleep(1)
-                        # 国外疫情
-                        msg2 = '今日海外疫情\n'
-                        msg2 +='确诊：'+str(worldtotal.confirmed)+'\n'
-                        msg2 +='治愈：'+str(worldtotal.cures)+'\n'
-                        msg2 +='死亡：'+str(worldtotal.deaths)+'\n'
-                        msg2 +='更新时间：'+str(chinatotal.date)
-                        wx_inst.send_text(to_user=msg_from_id, msg=msg2)
+                        wx_inst.send_text(to_user=msg_from_id, msg=oversea_msg())
                         time.sleep(1)
                     if '#疫情新闻' in msg_content:
                         wx_inst.send_text(to_user=msg_from_id, msg='小助手随机为您推荐')
@@ -130,9 +139,15 @@ def init():
     time.sleep(1)
 
     while True:
-        clock = datetime.datetime.today()
-        print(clock)
-        time.sleep(1)
+        clock = datetime.datetime.now()
+        if (clock.hour==12):
+            users=datatype.WXUSER.query.all()
+            for item in users:
+                wx_inst.send_text(to_user=item.wxid, msg=china_msg())
+                time.sleep(1)
+                wx_inst.send_text(to_user=item.wxid, msg=oversea_msg())
+                time.sleep(1)
+        time.sleep(60*60)
 
 if __name__ == '__main__':
     init()
