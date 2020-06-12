@@ -4,9 +4,11 @@ Routes and views for the flask application.
 import time
 import json
 from datetime import datetime , date , timedelta
-from flask import render_template,request,redirect,url_for,flash,session
+from flask import render_template,request,redirect,url_for,flash,session,jsonify
 from nCovNews import app , db
 from nCovNews import datatype , data_predict , user_mod , forms , get_data 
+import requests
+import base64
 
 @app.route('/')
 @app.route('/home')
@@ -99,7 +101,10 @@ def discuss_detail(discussid):
 
 @app.route('/analyze')
 def analyze():
+
+
     """Renders the about page."""
+
     return render_template(
         'analyze.html',
         title='Analyze',
@@ -144,7 +149,7 @@ def news():
     )
 
 # 数据接口
-@app.route('/getdata')
+@app.route('/getdata', methods=['GET', 'POST'])
 def getdata():
     return get_data.data()
     
@@ -204,5 +209,21 @@ def test():
         year=datetime.now().year,
         message='Your test page.'
     )
+
+@app.route('/res',methods=['POST','GET'])
+def res():
+    if  not request.data:   #检测是否有数据
+        print('fail')
+        return ('fail')
+    else:
+        data_json = json.loads(request.get_data())
+        for i in range(1,19):
+            data_json['name'+str(i)] = data_json['name'+str(i)].replace(' ','+')
+            b64_data = data_json['name'+str(i)].split(';base64,')[1]
+            data = base64.b64decode(b64_data)
+            file = open('./nCovNews/static/pictures/test'+str(i)+'.png','wb') 
+            file.write(data)  
+            file.close()
+        return jsonify(data_json)
 
 

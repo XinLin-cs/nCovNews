@@ -1,1 +1,2 @@
 C:\Users\linxin\test\Git\nCovNews\obj\Any CPU\Debug\nCovNews.pyproj.CoreCompileInputs.cache
+D:\Visual stdio\疫情监控\nCovNews\obj\Any CPU\Debug\nCovNews.pyproj.CoreCompileInputs.cache
