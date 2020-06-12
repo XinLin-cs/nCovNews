@@ -15,8 +15,7 @@
         z-index: 10;
         position: fixed;
         bottom: 0;
-        background-color: aliceblue;
-        opacity: 0.9;
+        background-color: azure;
         border-radius: 5px;
     }
 
@@ -30,40 +29,81 @@
         border-radius: 50%;
     }
 
-    textarea{
-        max-width:90%;
-        resize:none;
+    textarea {
+        max-width: 90%;
+        resize: none;
     }
 </style>
 
+<style>
+    .tt {
+        width: 100px;
+        position: fixed;
+        bottom: 5%;
+        right : 5%;
+    }
+</style>
 
+<script >
+    function out() {
+        if (hd.style.display == "block") {
+            hd.style.display = "none";
+           
+        }
+        else {
+            hd.style.display = "block";
+           
+        }
+        if (dis1.style.display == "block") {
+            dis1.style.display = "none";
+            sb.style.display = "none";
+            dis2.style.display = "block";
+        }
+        else {
+            dis2.style.display = "none";
+            dis1.style.display = "block";
+            sb.style.display = "block";
+        }
+    }
+</script>
+<div class="tt" style=" display : block " id="sb">
+    <button onclick=" out()">
+        <div id="dis1" style=" display :block">
+            我要发表评论
+        </div>     
+    </button>
+</div>
 
 
 
 {% if userid %}
-<div class="ss2">
-    <br />
+<div class="ss2" style=" display :none" id="hd">
     <div class="row">
-        <div class="col-md-1"></div>
         <div class="col-md-1 ">
-            <div class="imgdiv">
-                <img class="imgcss2" src="../static/images/yun.jpg" />
+            <div class="imgdiv" style=" height :140px; line-height :140px;" align="right" >
+                <img class="imgcss2" src="../static/images/yun.jpg"  />
             </div>
         </div>
-        <div class=" col-md-10 ">
-            <form class="form" method="POST">
-                {{ form.csrf_token }}
-                {{ wtf.form_field(form.word) }}
-                {{ wtf.form_field(form.post) }}
+        <div class=" col-md-11 ">
+            <form class="form" method="POST">              
+                    <br />{{ form.csrf_token }}
+            <div class=" row ">
+                <div class=" col-md-11 ">{{ wtf.form_field(form.word) }}</div>
+                <div class=" col-md-1 "> <div align="left" onclick="out()"> 
+                                             <div id="dis2" style=" display :none">
+                                                 收起
+                                             </div>
+                    <br />{{ wtf.form_field(form.post) }}</div></div>
+            </div>          
             </form>
         </div>
     </div>
 </div>
 {% else %}
 <div>
-    <span style=" font-size :40px;font-weight :500">您还未登录，登录后才可以发表评论，请先<a href="{{ url_for('login') }}">登录</a>。</span>
+    <p style=" font-size :40px;font-weight :500">您还未登录，登录后才可以发表评论，请先<a href="{{ url_for('login') }}">登录</a></p>
     <br />
-    <span style=" font-size :30px;font-weight :500">如果您还未注册，请先<a href="{{ url_for('register') }}">注册</a></span>
+    <p style=" font-size :30px;font-weight :500">如果您还未注册，请先<a href="{{ url_for('register') }}">注册</a></p>
     <br />
     <br />
     <br />
@@ -81,24 +121,7 @@
 
 
 
-<script>
-    var u1 = '../static/images/su1.png';
-    var u2 = '../static/images/su2.png';
-    function aa(img) {
-        if (img.src == u1) {
-            img.src = u2;
-            var t = u1;
-            u1 = u2;
-            u2 = t;
-        }
-        else {
-            img.src = u1;
-            var t = u1;
-            u1 = u2;
-            u2 = t;
-        }
-    }
-</script>
+
 
 <style>
     .comment {
@@ -129,31 +152,40 @@
     }
 </style>
 
-{% for item in dislist %}
-<hr />
-<div class="comment">
-    <div class=" row">
-        <div class=" col-md-1 ">
-            <div class="imgdiv">
-                <img class="imgcss" src="../static/images/yun.jpg" />
-            </div>
-        </div>
-        <div class=" col-md-11 ">
-            <a href="{{ url_for('discuss_detail',discussid=item.id) }}">
-                <div style=" width :100%;background-color :none ;" >
-                    <p class="comment_name" style="float:left;">{{item.username}} ({{item.userid}})</p>
-                    <p style="float:right;">{{item.date}}</p>
-                    <br />
-                    <br />
-                    <h style=" text-indent: 50px;font-size: 30px;font-weight: 200;float :left ">
-                        {{item.word}}
-                    </h><img src='../static/images/su2.png' onclick='aa(this)' style="float:right;">
+<div >
+    {% for item in dislist %}
+    <div style=" background-color :floralwhite ;opacity :0.9; border-radius: 15px;">
+        <hr />
+        <div class="comment">
+            <div class=" row">
+                <div class=" col-md-1 ">
+                    <div class="imgdiv">
+                        <img class="imgcss" src="../static/images/yun.jpg" />
+                    </div>
                 </div>
-            </a>
+                <div class=" col-md-11 ">
+                    <a href="{{ url_for('discuss_detail',discussid=item.id) }}">
+                        <div style=" width :100%;background-color :none ;">
+                            <p class="comment_name" style="float:left;">{{item.username}} ({{item.userid}})</p>
+                            <p style="float:right;">{{item.date}}</p>
+                            <br />
+                            <br />
+                            <h style=" text-indent: 50px;font-size: 30px;font-weight: 200;float :left ">
+                                {{item.word}}
+                        </div>
+                    </a>
+                </div>
+            </div>
+
         </div>
     </div>
+   
+    
 
+
+    
+    {% endfor %}
 </div>
-{% endfor %}
+
 
 {% endblock %}

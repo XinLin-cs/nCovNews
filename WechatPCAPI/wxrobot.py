@@ -8,6 +8,7 @@
 
 from WechatPCAPI.WechatPCAPI import WechatPCAPI
 import time
+import datetime
 import logging
 from queue import Queue
 import threading
@@ -24,8 +25,33 @@ queue_recved_message = Queue()
 def on_message(message):
     queue_recved_message.put(message)
 
+def china_msg():
+    # 中国数据查询
+    chinatotal = datatype.CHINATOTAL.query.order_by(datatype.CHINATOTAL.date.desc()).first()
+     # 国内疫情
+    msg = '今日国内疫情\n'
+    msg +='确诊：'+str(chinatotal.confirmed)+'\n'
+    msg +='疑似：'+str(chinatotal.suspected)+'\n'
+    msg +='治愈：'+str(chinatotal.cures)+'\n'
+    msg +='死亡：'+str(chinatotal.deaths)+'\n'
+    msg +='无症状感染：'+str(chinatotal.asymptomatic)+'\n'
+    msg +='更新时间：'+str(chinatotal.date)
+    return msg
 
-# 消息处理示例 仅供参考
+def oversea_msg():
+    # 世界数据查询
+    worldtotal = datatype.WORLDTOTAL.query.order_by(datatype.WORLDTOTAL.date.desc()).first()
+    # 国外疫情
+    msg = '今日海外疫情\n'
+    msg +='确诊：'+str(worldtotal.confirmed)+'\n'
+    msg +='治愈：'+str(worldtotal.cures)+'\n'
+    msg +='死亡：'+str(worldtotal.deaths)+'\n'
+    msg +='更新时间：'+str(worldtotal.date)
+    return msg
+                        
+                      
+
+
 def thread_handle_message(wx_inst):
     while True:
         message = queue_recved_message.get()
@@ -48,28 +74,31 @@ def thread_handle_message(wx_inst):
                         target_url='https://covnews.herokuapp.com/',
                         img_url='https://images.unsplash.com/photo-1516841273335-e39b37888115?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&dpr=1&auto=format&fit=crop&w=140&h=200&q=60')
                         time.sleep(1)
-                    if '#今日疫情' in msg_content:
-                        # 中国数据查询
-                        chinatotal = datatype.CHINATOTAL.query.order_by(datatype.CHINATOTAL.date.desc()).first()
-                        # 世界数据查询
-                        worldtotal = datatype.WORLDTOTAL.query.order_by(datatype.WORLDTOTAL.date.desc()).first()
-                        # 国内疫情
-                        msg1 = '今日国内疫情\n'
-                        msg1 +='确诊：'+str(chinatotal.confirmed)+'\n'
-                        msg1 +='疑似：'+str(chinatotal.suspected)+'\n'
-                        msg1 +='治愈：'+str(chinatotal.cures)+'\n'
-                        msg1 +='死亡：'+str(chinatotal.deaths)+'\n'
-                        msg1 +='无症状感染：'+str(chinatotal.asymptomatic)+'\n'
-                        msg1 +='更新时间：'+str(chinatotal.date)
-                        wx_inst.send_text(to_user=msg_from_id, msg=msg1)
+                    if '#订阅小助手' in msg_content:
+                        session = db.session
+                        user = datatype.WXUSER.query.first()
+                        if user is None:
+                            newuser = datatype.WXUSER(wxid=msg_from_id)
+                            session.add(newuser)
+                            wx_inst.send_text(to_user=msg_from_id, msg='订阅小助手成功(^-^)☆,每天中午12点小助手会将第一手数据发送给关注疫情的您')
+                        else:
+                            wx_inst.send_text(to_user=msg_from_id, msg='您已经订阅过小助手了哦')
+                        session.commit()
                         time.sleep(1)
-                        # 国外疫情
-                        msg2 = '今日海外疫情\n'
-                        msg2 +='确诊：'+str(worldtotal.confirmed)+'\n'
-                        msg2 +='治愈：'+str(worldtotal.cures)+'\n'
-                        msg2 +='死亡：'+str(worldtotal.deaths)+'\n'
-                        msg2 +='更新时间：'+str(chinatotal.date)
-                        wx_inst.send_text(to_user=msg_from_id, msg=msg2)
+                    if '#取消订阅' in msg_content:
+                        session = db.session
+                        user = datatype.WXUSER.query.first()
+                        if user is not None:
+                            session.delete(user)
+                            wx_inst.send_text(to_user=msg_from_id, msg='取消订阅成功，希望将来还能和小助手再会QAQ')
+                        else:
+                            wx_inst.send_text(to_user=msg_from_id, msg='您还没订阅小助手呢，用‘#订阅小助手’订阅我吧')
+                        session.commit()
+                        time.sleep(1)
+                    if '#今日疫情' in msg_content:
+                        wx_inst.send_text(to_user=msg_from_id, msg=china_msg())
+                        time.sleep(1)
+                        wx_inst.send_text(to_user=msg_from_id, msg=oversea_msg())
                         time.sleep(1)
                     if '#疫情新闻' in msg_content:
                         wx_inst.send_text(to_user=msg_from_id, msg='小助手随机为您推荐')
@@ -83,65 +112,18 @@ def thread_handle_message(wx_inst):
                         target_url=item.url)
                         time.sleep(1)
                     if '#指令' in msg_content:
-                        wx_inst.send_text(to_user=msg_from_id, msg='小助手让你发指令，您还真就只发‘指令’啊(>_ <)')
+                        msg = '指令列表\n'
+                        msg += '#疫情小助手\n'
+                        msg += '#订阅小助手\n'
+                        msg += '#取消订阅\n'
+                        msg += '#今日疫情\n'
+                        msg += '#疫情新闻'
+                        wx_inst.send_text(to_user=msg_from_id, msg=msg)
                         time.sleep(1)
                 else:
                     wx_inst.send_text(to_user=msg_from_id, msg='小助手还不懂得怎么聊天呢，发送‘#指令’来和小助手互动吧')
-                    msg = '指令列表\n'
-                    msg += '#疫情小助手\n'
-                    msg += '#今日疫情\n'
-                    msg += '#疫情新闻\n'
-                    wx_inst.send_text(to_user=msg_from_id, msg=msg)
                     time.sleep(1)
         
-                    
-
-
-
-def main():
-    wx_inst = WechatPCAPI(on_message=on_message, log=logging)
-    wx_inst.start_wechat(block=True)
-
-    while not wx_inst.get_myself():
-        time.sleep(5)
-
-    print('登陆成功')
-    print(wx_inst.get_myself())
-
-    #threading.Thread(target=thread_handle_message, args=(wx_inst,)).start()
-
-    #time.sleep(10)
-    #wx_inst.send_text(to_user='filehelper', msg='777888999')
-    # time.sleep(1)
-    # wx_inst.send_link_card(
-    #     to_user='filehelper',
-    #     title='博客',
-    #     desc='我的博客，红领巾技术分享网站',
-    #     target_url='http://www.honglingjin.online/',
-    #     img_url='http://honglingjin.online/wp-content/uploads/2019/07/0-1562117907.jpeg'
-    # )
-    # time.sleep(1)
-    #
-    # wx_inst.send_img(to_user='filehelper', img_abspath=r'C:\Users\Leon\Pictures\1.jpg')
-    # time.sleep(1)
-    #
-    # wx_inst.send_file(to_user='filehelper', file_abspath=r'C:\Users\Leon\Desktop\1.txt')
-    # time.sleep(1)
-    #
-    # wx_inst.send_gif(to_user='filehelper', gif_abspath=r'C:\Users\Leon\Desktop\08.gif')
-    # time.sleep(1)
-    #
-    # wx_inst.send_card(to_user='filehelper', wx_id='gh_6ced1cafca19')
-
-    # 这个是获取群具体成员信息的，成员结果信息也从上面的回调返回
-    #wx_inst.get_member_of_chatroom('22941059407@chatroom')
-
-    # 新增@群里的某人的功能
-    #wx_inst.send_text(to_user='22941059407@chatroom', msg='test for at someone', at_someone='wxid_6ij99jtd6s4722')
-
-    # 这个是更新所有好友、群、公众号信息的，结果信息也从上面的回调返回
-    # wx_inst.update_frinds()
-
 def init():
     wx_inst = WechatPCAPI(on_message=on_message, log=logging)
     wx_inst.start_wechat(block=True)
@@ -155,6 +137,17 @@ def init():
 
     threading.Thread(target=thread_handle_message, args=(wx_inst,)).start()
     time.sleep(1)
+
+    while True:
+        clock = datetime.datetime.now()
+        if (clock.hour==12):
+            users=datatype.WXUSER.query.all()
+            for item in users:
+                wx_inst.send_text(to_user=item.wxid, msg=china_msg())
+                time.sleep(1)
+                wx_inst.send_text(to_user=item.wxid, msg=oversea_msg())
+                time.sleep(1)
+        time.sleep(60*60)
 
 if __name__ == '__main__':
     init()

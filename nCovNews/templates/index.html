@@ -66,10 +66,10 @@
     }
 
     .sucenter {
-        position: absolute;
-        top: 90%;
-        left: 60%;
-        z-index: 999
+        position: fixed;
+        top: 40%;
+        left: 80%;
+        z-index: 99
     }
 
     .hs {
@@ -115,17 +115,18 @@
         font-weight: 100;
     }
     .tah {
+        font-size: 60px;
+        font-family: Arial,Helvetica,sans-serif;
+        font-weight: 300;
+
+    }
+    .tah2 {
         font-size: 40px;
         font-family: Arial,Helvetica,sans-serif;
         font-weight: 300;
     }
-    .tah2 {
-        font-size: 30px;
-        font-family: Arial,Helvetica,sans-serif;
-        font-weight: 300;
-    }
     .tah0 {
-        font-size: 50px;
+        font-size: 60px;
         font-family: Arial,Helvetica,sans-serif;
         font-weight: 400;
     }
@@ -136,9 +137,14 @@
         color:black;
     }
     .tdh {
-        font-size: 20px;
+        font-size: 30px;
         font-family: Arial,Helvetica,sans-serif;
-        font-weight: 300;
+        font-weight: 400;
+    }
+    .tdhn  {
+        font-size: 30px;
+        font-family: Arial,Helvetica,sans-serif;
+        font-weight: 400;
     }
 </style>
 
@@ -164,11 +170,11 @@
                     </tr>
                     <tr>
 
-                        <td class="tdh">{{chinatotal.confirmed}}</td>
-                        <td class="tdh">{{chinatotal.suspected}}</td>
-                        <td class="tdh">{{chinatotal.cures}}</td>
-                        <td class="tdh">{{chinatotal.deaths}}</td>
-                        <td class="tdh">{{chinatotal.asymptomatic}}</td>
+                        <td class="tdhn">{{chinatotal.confirmed}}</td>
+                        <td class="tdhn">{{chinatotal.suspected}}</td>
+                        <td class="tdhn">{{chinatotal.cures}}</td>
+                        <td class="tdhn">{{chinatotal.deaths}}</td>
+                        <td class="tdhn">{{chinatotal.asymptomatic}}</td>
                     </tr>
                 </table>
             </div>
@@ -182,9 +188,9 @@
                         <td class="tdh">死亡人数</td>
                     </tr>
                     <tr>
-                        <td class="tdh">{{worldtotal.confirmed}}</td>
-                        <td class="tdh">{{worldtotal.cures}}</td>
-                        <td class="tdh">{{worldtotal.deaths}}</td>
+                        <td class="tdhn">{{worldtotal.confirmed}}</td>
+                        <td class="tdhn">{{worldtotal.cures}}</td>
+                        <td class="tdhn">{{worldtotal.deaths}}</td>
                     </tr>
                 </table>
                 <br />
@@ -259,28 +265,27 @@
             </div>
         </a>
         <br />
-        <span style="float:left">    觉得不错，分享给朋友：</span>
-        <div>
+       
+        <div style=" background-color :azure ;opacity :0.8; border-radius: 5px;">
+            <span style="float:left;font-size:18px">&nbsp;觉得不错，分享给朋友：</span>
             <em class="forumShare">
                 <em class="bdsharebuttonbox">
 
                     <a class="bds_tsina" onclick="shareToSinaWB(event)"></a>
                     <a class="bds_qzone" onclick="shareToQzone(event)"></a>
-                    <a class="bds_tieba" onclick="shareToTieba(event)"></a>
-                    <a class="bds_douban" onclick="shareToDouban(event)"></a>
-                    <a class="bds_tqq" onclick="shareToQQwb(event)"></a>
-                    <a class="bds_renren" onclick="shareToRenren(event)"></a>
                     <a class="bds_weixin" onclick="shareToWeixin()"></a>
                 </em>
             </em>
         </div>
+
     </div>
 </div>
 
 
-<div id="field" style="display:none;" class="sucenter ">
+<div id="field" style="display:none;background-color:aliceblue ;opacity :0.9" class="sucenter ">
+    <span onclick="shareToWeixin() " style="float:right;font-size:20px;font-weight :400 ">X &nbsp;&nbsp;</span> <br />
     <img src="http://cli.clewm.net/qrcode/2015/01/21/2031452178.png" onclick="shareToWeixin()" />
-    <br /><span onClick="shareToWeixin()">点击收起</span>
+
 </div>
 
 <script>
@@ -290,7 +295,7 @@
     };
     with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
 
-    var _title, _source, _sourceUrl, _pic, _showcount, _desc = "desc", _summary = "summary", _site,
+    var _title, _source, _sourceUrl, _pic, _showcount, _desc = "", _summary = "疫情小助手", _site,
         _width = 600,
         _height = 600,
         _top = (screen.height - _height) / 2,
@@ -311,7 +316,7 @@
         event.preventDefault();
         var _shareUrl = 'http://v.t.sina.com.cn/share/share.php?&appkey=895033136';     //真实的appkey，必选参数
         _shareUrl += '&url=' + encodeURIComponent(_url || document.location);     //参数url设置分享的内容链接|默认当前页location，可选参数
-        _shareUrl += '&title=' + encodeURIComponent(_title || document.title);    //参数title设置分享的标题|默认当前页标题，可选参数
+        _shareUrl += '&title=' + encodeURIComponent(_title ||'疫情小助手');    //参数title设置分享的标题|默认当前页标题，可选参数
         _shareUrl += '&source=' + encodeURIComponent(_source || '');
         _shareUrl += '&sourceUrl=' + encodeURIComponent(_sourceUrl || '');
         _shareUrl += '&content=' + 'utf-8';   //参数content设置页面编码gb2312|utf-8，可选参数
@@ -324,91 +329,12 @@
         var _shareUrl = 'http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?';
         _shareUrl += 'url=' + encodeURIComponent(_url || document.location);   //参数url设置分享的内容链接|默认当前页location
         _shareUrl += '&showcount=' + _showcount || 0;      //参数showcount是否显示分享总数,显示：'1'，不显示：'0'，默认不显示
-        _shareUrl += '&desc=' + encodeURIComponent(_desc || '分享的描述');    //参数desc设置分享的描述，可选参数
-        _shareUrl += '&summary=' + encodeURIComponent(_summary || '分享摘要');    //参数summary设置分享摘要，可选参数
+        _shareUrl += '&desc=' + encodeURIComponent(_desc || 'good');    //参数desc设置分享的描述，可选参数
+        _shareUrl += '&summary=' + encodeURIComponent(_summary || '疫情小助手');    //参数summary设置分享摘要，可选参数
         _shareUrl += '&title=' + encodeURIComponent(_title || document.title);    //参数title设置分享标题，可选参数
         _shareUrl += '&site=' + encodeURIComponent(_site || '');   //参数site设置分享来源，可选参数
         _shareUrl += '&pics=' + encodeURIComponent(_pic || '');   //参数pics设置分享图片的路径，多张图片以＂|＂隔开，可选参数
         window.open(_shareUrl, '_blank', 'width=' + _width + ',height=' + _height + ',top=' + _top + ',left=' + _left + ',toolbar=no,menubar=no,scrollbars=no,resizable=1,location=no,status=0');
-    }
-    //分享到百度贴吧
-    function shareToTieba(event) {
-        event.preventDefault();
-        var _shareUrl = 'http://tieba.baidu.com/f/commit/share/openShareApi?';
-        _shareUrl += 'title=' + encodeURIComponent(_title || document.title);  //分享的标题
-        _shareUrl += '&url=' + encodeURIComponent(_url || document.location);  //分享的链接
-        _shareUrl += '&pic=' + encodeURIComponent(_pic || '');    //分享的图片
-        window.open(_shareUrl, '_blank', 'width=' + _width + ',height=' + _height + ',left=' + _left + ',top=' + _top + ',toolbar=no,menubar=no,scrollbars=no,resizable=1,location=no,status=0');
-    }
-    //分享到豆瓣
-    function shareToDouban(event) {
-        event.preventDefault();
-        var _shareUrl = 'http://shuo.douban.com/!service/share?';
-        _shareUrl += 'href=' + encodeURIComponent(_url || location.href);    //分享的链接
-        _shareUrl += '&name=' + encodeURIComponent(_title || document.title);    //分享的标题
-        _shareUrl += '&image=' + encodeURIComponent(_pic || '');    //分享的图片
-        window.open(_shareUrl, '_blank', 'width=' + _width + ',height=' + _height + ',left=' + _left + ',top=' + _top + ',toolbar=no,menubar=no,scrollbars=no,resizable=1,location=no,status=0');
-    }
-    //分享到腾讯微博
-    function shareToQQwb(event) {
-        event.preventDefault();
-        var _shareUrl = 'http://v.t.qq.com/share/share.php?';
-        _shareUrl += 'title=' + encodeURIComponent(_title || document.title);    //分享的标题
-        _shareUrl += '&url=' + encodeURIComponent(_url || location.href);    //分享的链接
-        _shareUrl += '&appkey=5bd32d6f1dff4725ba40338b233ff155';    //在腾迅微博平台创建应用获取微博AppKey
-        _shareUrl += '&site=' + encodeURIComponent(_site || '');   //分享来源
-        _shareUrl += '&pic=' + encodeURIComponent(_pic || '');    //分享的图片，如果是多张图片，则定义var _pic='图片url1|图片url2|图片url3....'
-        window.open(_shareUrl, '_blank', 'width=' + _width + ',height=' + _height + ',left=' + _left + ',top=' + _top + ',toolbar=no,menubar=no,scrollbars=no,resizable=1,location=no,status=0');
-    }
-    //分享到人人网
-    function shareToRenren(event) {
-        event.preventDefault();
-        var _shareUrl = 'http://share.rr.com/share/buttonshare.do?';     //这里的rr是renren，博客园好像和renren有仇
-        _shareUrl += 'link=' + encodeURIComponent(_url || location.href);   //分享的链接
-        _shareUrl += '&title=' + encodeURIComponent(_title || document.title);     //分享的标题
-        window.open(_shareUrl, '_blank', 'width=' + _width + ',height=' + _height + ',left=' + _left + ',top=' + _top + ',toolbar=no,menubar=no,scrollbars=no,resizable=1,location=no,status=0');
-    }
-    //分享到开心网
-    function shareToKaixin(event) {
-        event.preventDefault();
-        var _shareUrl = 'http://www.kaixin001.com/rest/records.php?';
-        _shareUrl += 'url=' + encodeURIComponent(_url || location.href);    //分享的链接
-        _shareUrl += '&content=' + encodeURIComponent('分享的文字');    //需要分享的文字，当文字为空时，自动抓取分享网址的title
-        _shareUrl += '&pic=' + encodeURIComponent(_pic || '');     //分享的图片,多个使用半角逗号分隔
-        _shareUrl += '&showcount=0';    //是否显示分享数，显示：'1'，不显示：'0'
-        _shareUrl += '&style=11';      //显示的样式，必选参数
-        _shareUrl += '&aid=' + encodeURIComponent(_site || '');    //显示分享来源
-        window.open(_shareUrl, '_blank', 'width=' + _width + ',height=' + _height + ',left=' + _left + ',top=' + _top + ',toolbar=no,menubar=no,scrollbars=no,resizable=1,location=no,status=0');
-    }
-    function shareToKaixin2(event) {
-        event.preventDefault();
-        var _shareUrl = 'http://www.kaixin001.com/repaste/share.php?';
-        _shareUrl += 'rtitle=' + encodeURIComponent(_title || document.title);   //分享的标题
-        window.open(_shareUrl, '_blank', 'width=' + _width + ',height=' + _height + ',left=' + _left + ',top=' + _top + ',toolbar=no,menubar=no,scrollbars=no,resizable=1,location=no,status=0');
-    }
-    //分享到facebook
-    function shareToFacebook(event) {
-        event.preventDefault();
-        var _shareUrl = 'http://www.facebook.com/sharer/sharer.php?';
-        _shareUrl += 'u=' + encodeURIComponent(_url || location.href);    //分享的链接
-        _shareUrl += '&t=' + encodeURIComponent(_title || document.title);    //分享的标题
-        window.open(_shareUrl, '_blank', 'width=' + _width + ',height=' + _height + ',left=' + _left + ',top=' + _top + ',toolbar=no,menubar=no,scrollbars=no,resizable=1,location=no,status=0');
-    }
-    //分享到facebook
-    function shareToFacebook(event) {
-        event.preventDefault();
-        var _shareUrl = 'http://www.facebook.com/sharer/sharer.php?';
-        _shareUrl += 'u=' + encodeURIComponent(_url || location.href);    //分享的链接
-        _shareUrl += '&t=' + encodeURIComponent(_title || document.title);    //分享的标题
-        window.open(_shareUrl, '_blank', 'width=' + _width + ',height=' + _height + ',left=' + _left + ',top=' + _top + ',toolbar=no,menubar=no,scrollbars=no,resizable=1,location=no,status=0');
-    }
-    //分享到Twitter
-    function shareToTwitter(event) {
-        event.preventDefault();
-        var _shareUrl = 'http://twitter.com/intent/tweet?';
-        _shareUrl += 'url=' + encodeURIComponent(_url || location.href);    //分享的链接
-        _shareUrl += '&text=' + encodeURIComponent(_title || document.title);    //分享的标题
-        window.open(_shareUrl, '_blank', 'width=' + _width + ',height=' + _height + ',left=' + _left + ',top=' + _top + ',toolbar=no,menubar=no,scrollbars=no,resizable=1,location=no,status=0');
     }
 </script>
 <br />

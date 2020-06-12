@@ -80,3 +80,7 @@ class DISCUSS(db.Model):
     word = db.Column( db.String(20) )   
     likes = db.Column( db.Integer ) 
     replyto = db.Column( db.Integer ) 
+
+class WXUSER(db.Model):
+    id = db.Column(db.Integer, primary_key=True)  
+    wxid = db.Column( db.String(20) ) 
