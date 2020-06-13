@@ -15,7 +15,7 @@ def thread_robot():
 if __name__ == '__main__':
     
     # 数据库测试
-    # db.drop_all()
+    #db.drop_all()
     db.create_all()
 
     # 实时数据更新
@@ -26,9 +26,9 @@ if __name__ == '__main__':
         PORT = int(environ.get('SERVER_PORT', '5555'))
     except ValueError:
         PORT = 5555
-    time.sleep(1)
+    time.sleep(2)
     # 启动机器人
     _thread.start_new_thread(thread_robot)
-    time.sleep(1)
+    time.sleep(2)
     # 启动本地网页
     app.run(HOST, PORT)

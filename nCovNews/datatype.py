@@ -5,6 +5,7 @@ class USER(db.Model):
     userid = db.Column( db.String(20) )  
     name = db.Column( db.String(20) )  
     password = db.Column( db.String(20) ) 
+    photo = db.Column( db.String(20) ) 
 
 class PROVINCE(db.Model):
     id = db.Column(db.Integer, primary_key=True)  
@@ -77,6 +78,7 @@ class DISCUSS(db.Model):
     date = db.Column( db.DateTime )  
     userid = db.Column( db.String(20) )
     username = db.Column( db.String(20) )  
+    userphoto = db.Column( db.String(20) )  
     word = db.Column( db.String(20) )   
     likes = db.Column( db.Integer ) 
     replyto = db.Column( db.Integer ) 

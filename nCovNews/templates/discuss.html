@@ -88,11 +88,12 @@
     <button class="btn btn-primary" style="float:right;" onclick="out()">
         <div id="dis2" style=" display :none">收起</div>
     </button>
-    {% if userid %}
-    <div class="row">
+    {% if user %}
+    <div class="row">        
         <div class="col-md-1 ">
             <div class="imgdiv" style=" height :140px; line-height :140px;" align="right">
-                <img class="imgcss2" src="../static/images/yun.jpg" />
+                <img class="imgcss2" src="../static/images/headp/{{user.photo}}" />
+
             </div>
         </div>
         <div class=" col-md-10 ">
@@ -162,7 +163,7 @@
                 <div class=" col-md-1 "></div>
                 <div class=" col-md-1 ">
                     <div class="imgdiv">
-                        <img class="imgcss" src="../static/images/yun.jpg" />
+                        <img class="imgcss" src="../static/images/headp/{{item.userphoto}}" />
                     </div>
                 </div>
                 <div class=" col-md-10 ">
