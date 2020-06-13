@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -126,7 +126,12 @@
                     <div class="homework" style=" height :0px;">
                         <div style=" background-color:darkgrey  ;height :60px">                         
                             <h style="font-size: 15px; text-align: center; font-weight :500; line-height: 60px; ">
-                                <a href="{{ url_for('setphoto') }}">设置头像</a> |  <a href="{{ url_for('logout') }}">注销</a>
+                                <button type="button" class="btn btn-info">
+                                    <a href="{{ url_for('setphoto') }}">设置头像</a>
+                                </button>
+                                <button type="button" class="btn btn-danger">
+                                    <a href="{{ url_for('logout') }}">注销</a>
+                                </button>
                             </h>
                                                      
                         </div>
