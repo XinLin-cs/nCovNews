@@ -83,7 +83,19 @@
         .homework li {
             list-style-type: none;
            
-        }    
+        }
+
+        .imgdiv {
+            width: 80px;
+            height: 70px;
+            float: left;
+        }
+
+        .imgcss {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
     </style>
 </head>
 
@@ -124,7 +136,7 @@
                 <li style="float:right;width:auto ">
                     <a href=""><p style=" font-size :20px; color :deepskyblue">欢迎，{{user.name}}</p></a>
                     <div class="homework" style=" height :0px;">
-                        <div style=" background-color:darkgrey  ;height :60px">                         
+                        <div style=" background-color:darkgrey  ;height :60px">
                             <h style="font-size: 15px; text-align: center; font-weight :500; line-height: 60px; ">
                                 <button type="button" class="btn btn-info">
                                     <a href="{{ url_for('setphoto') }}">设置头像</a>
@@ -133,10 +145,11 @@
                                     <a href="{{ url_for('logout') }}">注销</a>
                                 </button>
                             </h>
-                                                     
+
                         </div>
-                       
+
                     </div>
+                    
                 </li>
                 {% else %}
                 <li style="float:right;"><a href="{{ url_for('login') }}">登录</a></li>
