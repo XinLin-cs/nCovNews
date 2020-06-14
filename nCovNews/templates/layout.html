@@ -1,8 +1,13 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="疫情小助手">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+
     <title>{{ title }} - 疫情小助手</title>
     <link rel="stylesheet" type="text/css" href="/static/content/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/static/content/site.css" />
@@ -27,8 +32,23 @@
             opacity: 1;
         }
     </style>
+
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .d1 {
+            cursor: pointer;
+        }
+    </style>
+
+
     <!--导航栏的-->
-    <style >
+    <style>
         .clearfix::after {
             content: "";
             display: block;
@@ -43,7 +63,7 @@
             line-height: 60px;
             background: #000000;
             position: fixed;
-           top:0;
+            top: 0;
             z-index: 100;
         }
 
@@ -66,6 +86,7 @@
                 text-decoration: none;
                 color: white;
             }
+
             .header .topnav > li:hover {
                 background: lightsteelblue;
                 border: 2px solid lightsteelblue;
@@ -74,15 +95,16 @@
             }
 
             .header .topnav > li .homework {
-                width:inherit ;
+                width: inherit;
                 display: none;
             }
+
             .header .topnav > li:hover .homework {
                 display: block;
             }
+
         .homework li {
             list-style-type: none;
-           
         }
 
         .imgdiv {
@@ -104,6 +126,26 @@
 
 
 <body class="sbody">
+
+    <div class="right-share" style="width:100px;height: 40px;position: fixed;right:0 ;top: 300px;background: dodgerblue;border-top-left-radius: 20px;border-bottom-left-radius: 20px">
+        <div class="fl d1" style="line-height: 40px;color: #000;font-size: 14px;width: 60px;text-align: center;cursor:pointer;margin: 0 auto;">点我分享</div>
+    </div>
+    <div class="my-share-d" style="padding: 10px 0;width: 40px;position: fixed;right: -40px;top:340px ;">
+
+        <div onclick="shareTo('qzone')" class="d1">
+            <img src="http://zixuephp.net/static/images/qqzoneshare.png" width="32">
+        </div>
+        <div onclick="shareTo('qq')" class="d1">
+            <img src="http://zixuephp.net/static/images/qqshare.png" width="32">
+        </div>
+        <div onclick="shareTo('sina')" class="d1" style="margin-left: -2px;">
+            <img src="http://zixuephp.net/static/images/sinaweiboshare.png" width="37">
+        </div>
+        <div onclick="shareTo('wechat')" class="d1">
+            <img src="http://zixuephp.net/static/images/wechatshare.png" width="33">
+        </div>
+    </div>
+
 
     <header class="header">
         <div class="container">
@@ -149,7 +191,7 @@
                         </div>
 
                     </div>
-                    
+
                 </li>
                 {% else %}
                 <li style="float:right;"><a href="{{ url_for('login') }}">登录</a></li>
@@ -160,7 +202,7 @@
     </header>
 
 
-    
+
 
     <div class="container body-content">
         {% block content %}{% endblock %}
@@ -169,6 +211,84 @@
             <p>&copy; {{ year }} - 疫情小助手</p>
         </footer>
     </div>
+
+
+
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+
+    <script>
+        console.log(document.location.href);//本页面地址，如localhost/html/index.html
+        function shareTo(stype) {
+            var ftit = '';
+            var flink = '';
+            var lk = '';
+            //获取文章标题
+            ftit = $('.pctitle').text();//此处的class名应该根据自己本身页面的class来取
+            //获取网页中内容的第一张图片
+            flink = $('.img').eq(0).attr('src');
+            if (typeof flink == 'undefined') {
+                flink = '';
+            }
+            //当内容中没有图片时，设置分享图片为网站logo
+            if (flink == '') {
+                /**
+                 * 此处根据自己页面的样式以及布局进行改变处理
+                 *
+                 */
+                lk = 'http://' + window.location.host + '/static/img/logo.png';
+            }
+            //如果是上传的图片则进行绝对路径拼接
+            if (flink.indexOf('/uploads/') != -1) {
+                lk = 'http://' + window.location.host + flink;
+            }
+            //百度编辑器自带图片获取
+            if (flink.indexOf('ueditor') != -1) {
+                lk = flink;
+            }
+            /**
+             * 进行QQ分享测试时，本地的页面会分享报错，需要用部署地址，可用http://www.baidu.com来代替document.location.href，进行测试查看效果
+             */
+            //qq空间接口的传参
+            if (stype == 'qzone') {
+                window.open('https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + document.location.href + '?sharesource=qzone&title=' + ftit + '&pics=' + lk + '&summary=' + document.querySelector('meta[name="description"]').getAttribute('content'));
+            }
+            //新浪微博接口的传参
+            if (stype == 'sina') {
+                window.open('http://service.weibo.com/share/share.php?url=' + document.location.href + '?sharesource=weibo&title=' + ftit + '&pic=' + lk + '&appkey=2706825840');
+            }
+            //qq好友接口的传参
+            if (stype == 'qq') {
+                //获取meta标签的值，然后分享
+                window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + document.location.href + '?sharesource=qzone&title=' + ftit + '&pics=' + lk + '&summary=' + document.querySelector('meta[name="description"]').getAttribute('content') + '&desc=工业智展，让实物数字化，虚拟化、移动化、立体化交互');
+            }
+            //生成二维码给微信扫描分享
+            if (stype == 'wechat') {
+                //window.open('http://zixuephp.net/inc/qrcode_img.php?url=http://www.baidu.com');
+                //http://zixuephp.net/inc/qrcode_img.php是生成微信二维码的网址，后面的url跟我们自己的网址，然后他会以二维码的形式输出
+                window.open('http://zixuephp.net/inc/qrcode_img.php?url=' + document.location.href);
+            }
+        }
+
+        var isF1 = 1;
+        $(".right-share").click(function () {
+            if (isF1 === 1) {
+                $(".my-share-d").animate({ right: "10px" }, 300);
+                isF1 = 2;
+                $(this).find("div").text("点我取消");
+            }
+            else {
+
+                $(".my-share-d").animate({ right: "-40px" }, 300);
+                isF1 = 1;
+                $(this).find("div").text("点我分享");
+            }
+        });
+
+
+
+    </script>
+
+
 
     <script src="/static/scripts/jquery-1.10.2.js"></script>
     <script src="/static/scripts/bootstrap.js"></script>
