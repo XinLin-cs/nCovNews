@@ -137,14 +137,14 @@
         color:black;
     }
     .tdh {
-        font-size: 30px;
+        font-size: 20px;
         font-family: Arial,Helvetica,sans-serif;
         font-weight: 400;
     }
     .tdhn  {
         font-size: 30px;
         font-family: Arial,Helvetica,sans-serif;
-        font-weight: 400;
+        font-weight: 600;
     }
 </style>
 
@@ -169,12 +169,11 @@
                         <td class="tdh"> 无症状感染人数</td>
                     </tr>
                     <tr>
-
-                        <td class="tdhn">{{chinatotal.confirmed}}</td>
-                        <td class="tdhn">{{chinatotal.suspected}}</td>
-                        <td class="tdhn">{{chinatotal.cures}}</td>
-                        <td class="tdhn">{{chinatotal.deaths}}</td>
-                        <td class="tdhn">{{chinatotal.asymptomatic}}</td>
+                        <td class="tdhn" style="color:red">{{chinatotal.confirmed}}</td>
+                        <td class="tdhn" style="color:sandybrown">{{chinatotal.suspected}}</td>
+                        <td class="tdhn" style="color:forestgreen">{{chinatotal.cures}}</td>
+                        <td class="tdhn" style="color:dimgray">{{chinatotal.deaths}}</td>
+                        <td class="tdhn" style="color:dodgerblue">{{chinatotal.asymptomatic}}</td>
                     </tr>
                 </table>
             </div>
@@ -188,9 +187,9 @@
                         <td class="tdh">死亡人数</td>
                     </tr>
                     <tr>
-                        <td class="tdhn">{{worldtotal.confirmed}}</td>
-                        <td class="tdhn">{{worldtotal.cures}}</td>
-                        <td class="tdhn">{{worldtotal.deaths}}</td>
+                        <td class="tdhn" style="color:red">{{worldtotal.confirmed}}</td>
+                        <td class="tdhn" style="color:forestgreen">{{worldtotal.cures}}</td>
+                        <td class="tdhn" style="color:dimgray">{{worldtotal.deaths}}</td>
                     </tr>
                 </table>
                 <br />
@@ -339,8 +338,5 @@
 </script>
 <br />
 <br />
-<video  style=" width :100%;height :100%"   src="https://f.video.weibocdn.com/004x7Bhegx07DrduXLIs01041201H3pi0E010.mp4?label=mp4_720p&template=1280x720.25.0&trans_finger=721584770189073627c6ee9d880087b3&Expires=1590035952&ssig=yHtKfU47Gc&KID=unistore,video" controls="controls">
-    当前浏览器不支持视频播放
-</video>
 
 {% endblock %}

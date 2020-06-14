@@ -1,829 +1,1379 @@
 {% extends "layout.html" %}
 {% block content %}
-<style >
-    .hp{
-        width :60px;
-        height :60px;
+<style>
+    .hp {
+        width: 60px;
+        height: 60px;
     }
 </style>
+
 <div>
     <h1>你可以在下列选择你喜欢的头像</h1>
 </div>
 <div>
     <div class="row">
-        <div class="col-md-1">
+        <!--头像1-->
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal1">
             <img class="hp " src="../static/images/headp/h1.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
         </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h2.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h3.jpeg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h4.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h5.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h6.jpeg" />
-            <br />
-            <br />
-            <div style=" text-align:center;">
-
-                <button>确认</button>
-
+        <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h1.jpg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h1.jpg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
             </div>
-            <br />
-            <br />
         </div>
-        <div class="col-md-1">
+        <!--头像2-->
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal2">
+            <img class="hp " src="../static/images/headp/h2.jpg" />
+        </div>
+        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h2.jpg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h2.jpg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal3">
+            <img class="hp " src="../static/images/headp/h3.jpeg" />
+        </div>
+        <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h3.jpeg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h3.jpeg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal4">
+            <img class="hp " src="../static/images/headp/h4.jpg" />
+        </div>
+        <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h4.jpg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h4.jpg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal5">
+            <img class="hp " src="../static/images/headp/h5.jpg" />
+        </div>
+        <div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h5.jpg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h5.jpg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal6">
+            <img class="hp " src="../static/images/headp/h6.jpeg" />
+        </div>
+        <div class="modal fade" id="myModal6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h6.jpeg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h6.jpeg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal7">
             <img class="hp " src="../static/images/headp/h7.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
         </div>
-        <div class="col-md-1">
+        <div class="modal fade" id="myModal7" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h7.jpg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h7.jpg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal8">
             <img class="hp " src="../static/images/headp/h8.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
         </div>
-        <div class="col-md-1">
+        <div class="modal fade" id="myModal8" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h8.jpg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h8.jpg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal9">
             <img class="hp " src="../static/images/headp/h9.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
         </div>
-        <div class="col-md-1">
+        <div class="modal fade" id="myModal9" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h9.jpg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h9.jpg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal10">
             <img class="hp " src="../static/images/headp/h10.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
         </div>
-        <div class="col-md-1">
+        <div class="modal fade" id="myModal10" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h10.jpg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h10.jpg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal11">
             <img class="hp " src="../static/images/headp/h11.jpeg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
         </div>
-        <div class="col-md-1">
+        <div class="modal fade" id="myModal11" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h11.jpeg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h11.jpeg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal12">
             <img class="hp " src="../static/images/headp/h12.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
+        </div>
+        <div class="modal fade" id="myModal12" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h12.jpg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h12.jpg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    <br />
+    <br />
     <div class="row">
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h1.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
+        <!--头像1-->
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal13">
+            <img class="hp " src="../static/images/headp/h13.jpg" />
         </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h2.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h3.jpeg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h4.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h5.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h6.jpeg" />
-            <br />
-            <br />
-            <div style=" text-align:center;">
-
-                <button>确认</button>
-
+        <div class="modal fade" id="myModal13" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h13.jpg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h13.jpg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
             </div>
-            <br />
-            <br />
         </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h7.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
+        <!--头像2-->
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal14">
+            <img class="hp " src="../static/images/headp/h14.jpg" />
         </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h8.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
+        <div class="modal fade" id="myModal14" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h14.jpg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h14.jpg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h9.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
+
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal15">
+            <img class="hp " src="../static/images/headp/h15.jpeg" />
         </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h10.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
+        <div class="modal fade" id="myModal15" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h15.jpeg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h15.jpeg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h11.jpeg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal16">
+            <img class="hp " src="../static/images/headp/h16.jpeg" />
         </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h12.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
+        <div class="modal fade" id="myModal16" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h16.jpeg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h16.jpeg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal17">
+            <img class="hp " src="../static/images/headp/h17.jpeg" />
+        </div>
+        <div class="modal fade" id="myModal17" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h17.jpeg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h17.jpeg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal18">
+            <img class="hp " src="../static/images/headp/h18.jpg" />
+        </div>
+        <div class="modal fade" id="myModal18" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h18.jpg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h18.jpg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal19">
+            <img class="hp " src="../static/images/headp/h19.jpeg" />
+        </div>
+        <div class="modal fade" id="myModal19" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h19.jpeg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h19.jpeg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal20">
+            <img class="hp " src="../static/images/headp/h20.png" />
+        </div>
+        <div class="modal fade" id="myModal20" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h20.png" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h20.png') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal21">
+            <img class="hp " src="../static/images/headp/h21.jpeg" />
+        </div>
+        <div class="modal fade" id="myModal21" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h21.jpeg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h21.jpeg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal22">
+            <img class="hp " src="../static/images/headp/h22.jpeg" />
+        </div>
+        <div class="modal fade" id="myModal22" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h22.jpeg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h22.jpeg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal23">
+            <img class="hp " src="../static/images/headp/h23.jpg" />
+        </div>
+        <div class="modal fade" id="myModal23" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h23.jpg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h23.jpg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal24">
+            <img class="hp " src="../static/images/headp/h24.jpg" />
+        </div>
+        <div class="modal fade" id="myModal24" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h24.jpg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h24.jpg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    <br />
+    <br />
+    <br />
     <div class="row">
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h1.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
+        <!--头像1-->
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal25">
+            <img class="hp " src="../static/images/headp/h25.jpg" />
         </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h2.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h3.jpeg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h4.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h5.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h6.jpeg" />
-            <br />
-            <br />
-            <div style=" text-align:center;">
-
-                <button>确认</button>
-
+        <div class="modal fade" id="myModal25" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h25.jpg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h25.jpg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
             </div>
-            <br />
-            <br />
         </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h7.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
+        <!--头像2-->
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal26">
+            <img class="hp " src="../static/images/headp/h26.jpeg" />
         </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h8.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
+        <div class="modal fade" id="myModal26" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h26.jpeg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h26.jpeg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h9.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
+
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal27">
+            <img class="hp " src="../static/images/headp/h27.jpg" />
         </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h10.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
+        <div class="modal fade" id="myModal27" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h27.jpg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h27.jpg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h11.jpeg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal28">
+            <img class="hp " src="../static/images/headp/h28.jpeg" />
         </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h12.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
+        <div class="modal fade" id="myModal28" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h28.jpeg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h28.jpeg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal29">
+            <img class="hp " src="../static/images/headp/h29.jpeg" />
+        </div>
+        <div class="modal fade" id="myModal29" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h29.jpeg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h29.jpeg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal30">
+            <img class="hp " src="../static/images/headp/h30.png"  />
+        </div>
+        <div class="modal fade" id="myModal30" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h30.png"  />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h30.png') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal31">
+            <img class="hp " src="../static/images/headp/h31.jpeg" />
+        </div>
+        <div class="modal fade" id="myModal31" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h31.jpeg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h31.jpeg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal32">
+            <img class="hp " src="../static/images/headp/h32.jpeg" />
+        </div>
+        <div class="modal fade" id="myModal32" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h32.jpeg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h32.jpeg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal33">
+            <img class="hp " src="../static/images/headp/h33.jpeg" />
+        </div>
+        <div class="modal fade" id="myModal33" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h33.jpeg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h33.jpeg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal34">
+            <img class="hp " src="../static/images/headp/h34.jpg" />
+        </div>
+        <div class="modal fade" id="myModal34" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h34.jpg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h34.jpg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal35">
+            <img class="hp " src="../static/images/headp/h35.jpeg" />
+        </div>
+        <div class="modal fade" id="myModal35" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h35.jpeg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h35.jpeg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal36">
+            <img class="hp " src="../static/images/headp/h36.jpg" />
+        </div>
+        <div class="modal fade" id="myModal36" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h36.jpg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h36.jpg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    <br />
+    <br />
+    <br />
     <div class="row">
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h1.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
+        <!--头像1-->
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal37">
+            <img class="hp " src="../static/images/headp/h37.jpeg" />
         </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h2.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h3.jpeg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h4.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h5.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h6.jpeg" />
-            <br />
-            <br />
-            <div style=" text-align:center;">
-
-                <button>确认</button>
-
+        <div class="modal fade" id="myModal37" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h37.jpeg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h37.jpeg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
             </div>
-            <br />
-            <br />
         </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h7.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
+        <!--头像2-->
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal38">
+            <img class="hp " src="../static/images/headp/h38.jpg" />
         </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h8.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
+        <div class="modal fade" id="myModal38" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h38.jpg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h38.jpg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h9.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
+
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal39">
+            <img class="hp " src="../static/images/headp/h39.jpeg" />
         </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h10.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
+        <div class="modal fade" id="myModal39" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h39.jpeg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h39.jpeg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h11.jpeg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal40">
+            <img class="hp " src="../static/images/headp/h40.jpg" />
         </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h12.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
+        <div class="modal fade" id="myModal40" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h40.jpg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h40.jpg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal41">
+            <img class="hp " src="../static/images/headp/h41.jpeg" />
+        </div>
+        <div class="modal fade" id="myModal41" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h41.jpeg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h41.jpeg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal42">
+            <img class="hp " src="../static/images/headp/h42.jpg" />
+        </div>
+        <div class="modal fade" id="myModal42" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h42.jpg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h42.jpg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal43">
+            <img class="hp " src="../static/images/headp/h43.jpg" />
+        </div>
+        <div class="modal fade" id="myModal43" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h43.jpg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h43.jpg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal44">
+            <img class="hp " src="../static/images/headp/h44.jpg" />
+        </div>
+        <div class="modal fade" id="myModal44" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h44.jpg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h44.jpg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal45">
+            <img class="hp " src="../static/images/headp/h45.jpg" />
+        </div>
+        <div class="modal fade" id="myModal45" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h45.jpg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h45.jpg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal46">
+            <img class="hp " src="../static/images/headp/h46.jpg" />
+        </div>
+        <div class="modal fade" id="myModal46" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h46.jpg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h46.jpg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal47">
+            <img class="hp " src="../static/images/headp/h47.jpg" />
+        </div>
+        <div class="modal fade" id="myModal47" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h47.jpg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h47.jpg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal48">
+            <img class="hp " src="../static/images/headp/h48.jpg" />
+        </div>
+        <div class="modal fade" id="myModal48" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h48.jpg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h48.jpg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    <br />
+    <br />
     <div class="row">
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h1.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
+        <!--头像1-->
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal49">
+            <img class="hp " src="../static/images/headp/h49.jpg" />
         </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h2.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h3.jpeg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h4.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h5.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h6.jpeg" />
-            <br />
-            <br />
-            <div style=" text-align:center;">
-
-                <button>确认</button>
-
+        <div class="modal fade" id="myModal49" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h49.jpg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h49.jpg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
             </div>
-            <br />
-            <br />
         </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h7.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
+        <!--头像2-->
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal50">
+            <img class="hp " src="../static/images/headp/h50.jpg" />
         </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h8.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h9.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h10.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h11.jpeg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h12.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h1.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h2.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h3.jpeg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h4.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h5.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h6.jpeg" />
-            <br />
-            <br />
-            <div style=" text-align:center;">
-
-                <button>确认</button>
-
+        <div class="modal fade" id="myModal50" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h50.jpg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h50.jpg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
             </div>
-            <br />
-            <br />
         </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h7.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h8.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h9.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h10.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h11.jpeg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h12.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h1.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h2.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h3.jpeg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h4.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h5.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h6.jpeg" />
-            <br />
-            <br />
-            <div style=" text-align:center;">
 
-                <button>确认</button>
-
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal51">
+            <img class="hp " src="../static/images/headp/h51.jpg" />
+        </div>
+        <div class="modal fade" id="myModal51" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h51.jpg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h51.jpg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
             </div>
-            <br />
-            <br />
         </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h7.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal52">
+            <img class="hp " src="../static/images/headp/h52.jpg" />
         </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h8.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h9.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h10.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h11.jpeg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h12.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h1.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h2.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h3.jpeg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h4.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h5.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h6.jpeg" />
-            <br />
-            <br />
-            <div style=" text-align:center;">
-
-                <button>确认</button>
-
+        <div class="modal fade" id="myModal52" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h52.jpg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h52.jpg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
             </div>
-            <br />
-            <br />
         </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h7.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal53">
+            <img class="hp " src="../static/images/headp/h53.jpg" />
         </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h8.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
+        <div class="modal fade" id="myModal53" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h53.jpg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h53.jpg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h9.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
+
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal54">
+            <img class="hp " src="../static/images/headp/h54.jpg" />
         </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h10.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
+        <div class="modal fade" id="myModal54" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h54.jpg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h54.jpg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h11.jpeg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal55">
+            <img class="hp " src="../static/images/headp/h55.jpg" />
         </div>
-        <div class="col-md-1">
-            <img class="hp " src="../static/images/headp/h12.jpg" />
-            <br />
-            <br />
-            <div style=" text-align:center;"><button>确认</button></div>
-            <br />
-            <br />
+        <div class="modal fade" id="myModal55" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h55.jpg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h55.jpg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal56">
+            <img class="hp " src="../static/images/headp/h56.jpg" />
+        </div>
+        <div class="modal fade" id="myModal56" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h56.jpg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h56.jpg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal57">
+            <img class="hp " src="../static/images/headp/h57.jpg" />
+        </div>
+        <div class="modal fade" id="myModal57" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h57.jpg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h57.jpg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal58">
+            <img class="hp " src="../static/images/headp/h58.jpg" />
+        </div>
+        <div class="modal fade" id="myModal58" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h58.jpg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h58.jpg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal59">
+            <img class="hp " src="../static/images/headp/h59.jpg" />
+        </div>
+        <div class="modal fade" id="myModal59" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h59.jpg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h59.jpg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1" data-toggle="modal" data-target="#myModal60">
+            <img class="hp " src="../static/images/headp/h36.jpg" />
+        </div>
+        <div class="modal fade" id="myModal60" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">选择此头像？</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="hp " src="../static/images/headp/h60.jpg" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">再想想</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url_for('changephoto',picurl='h60.jpg') }}"><h style=" color :white;line-height :inherit ; ">确定</h></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

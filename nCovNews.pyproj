@@ -18,7 +18,7 @@
     <Name>nCovNews</Name>
     <RootNamespace>nCovNews</RootNamespace>
     <SuppressEnvironmentCreationPrompt>True</SuppressEnvironmentCreationPrompt>
-    <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
+    <InterpreterId>Global|PythonCore|3.7</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -59,6 +59,8 @@
     <Folder Include="nCovNews\static\content\" />
     <Folder Include="nCovNews\static\fonts\" />
     <Folder Include="nCovNews\static\images\" />
+    <Folder Include="nCovNews\static\images\headp\" />
+    <Folder Include="nCovNews\static\pictures\" />
     <Folder Include="nCovNews\static\scripts\" />
     <Folder Include="nCovNews\templates\" />
     <Folder Include="WechatPCAPI\" />
@@ -67,6 +69,76 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="nCovNews\data\data.db" />
+    <Content Include="nCovNews\static\images\headp\h0.jpg" />
+    <Content Include="nCovNews\static\images\headp\h1.jpg" />
+    <Content Include="nCovNews\static\images\headp\h10.jpg" />
+    <Content Include="nCovNews\static\images\headp\h11.jpeg" />
+    <Content Include="nCovNews\static\images\headp\h12.jpg" />
+    <Content Include="nCovNews\static\images\headp\h13.jpg" />
+    <Content Include="nCovNews\static\images\headp\h14.jpg" />
+    <Content Include="nCovNews\static\images\headp\h15.jpeg" />
+    <Content Include="nCovNews\static\images\headp\h16.jpeg" />
+    <Content Include="nCovNews\static\images\headp\h17.jpeg" />
+    <Content Include="nCovNews\static\images\headp\h18.jpg" />
+    <Content Include="nCovNews\static\images\headp\h19.jpeg" />
+    <Content Include="nCovNews\static\images\headp\h2.jpg" />
+    <Content Include="nCovNews\static\images\headp\h20.png" />
+    <Content Include="nCovNews\static\images\headp\h21.jpeg" />
+    <Content Include="nCovNews\static\images\headp\h22.jpeg" />
+    <Content Include="nCovNews\static\images\headp\h23.jpg" />
+    <Content Include="nCovNews\static\images\headp\h24.jpg" />
+    <Content Include="nCovNews\static\images\headp\h25.jpg" />
+    <Content Include="nCovNews\static\images\headp\h26.jpeg" />
+    <Content Include="nCovNews\static\images\headp\h27.jpg" />
+    <Content Include="nCovNews\static\images\headp\h28.jpeg" />
+    <Content Include="nCovNews\static\images\headp\h29.jpeg" />
+    <Content Include="nCovNews\static\images\headp\h3.jpeg" />
+    <Content Include="nCovNews\static\images\headp\h30.png" />
+    <Content Include="nCovNews\static\images\headp\h31.jpeg" />
+    <Content Include="nCovNews\static\images\headp\h32.jpeg" />
+    <Content Include="nCovNews\static\images\headp\h33.jpeg" />
+    <Content Include="nCovNews\static\images\headp\h34.jpg" />
+    <Content Include="nCovNews\static\images\headp\h35.jpeg" />
+    <Content Include="nCovNews\static\images\headp\h36.jpg" />
+    <Content Include="nCovNews\static\images\headp\h37.jpeg" />
+    <Content Include="nCovNews\static\images\headp\h38.jpg" />
+    <Content Include="nCovNews\static\images\headp\h39.jpeg" />
+    <Content Include="nCovNews\static\images\headp\h4.jpg" />
+    <Content Include="nCovNews\static\images\headp\h40.jpg" />
+    <Content Include="nCovNews\static\images\headp\h41.jpeg" />
+    <Content Include="nCovNews\static\images\headp\h42.jpg" />
+    <Content Include="nCovNews\static\images\headp\h43.jpg" />
+    <Content Include="nCovNews\static\images\headp\h44.jpg" />
+    <Content Include="nCovNews\static\images\headp\h45.jpg" />
+    <Content Include="nCovNews\static\images\headp\h46.jpg" />
+    <Content Include="nCovNews\static\images\headp\h47.jpg" />
+    <Content Include="nCovNews\static\images\headp\h48.jpg" />
+    <Content Include="nCovNews\static\images\headp\h49.jpg" />
+    <Content Include="nCovNews\static\images\headp\h5.jpg" />
+    <Content Include="nCovNews\static\images\headp\h50.jpg" />
+    <Content Include="nCovNews\static\images\headp\h51.jpg" />
+    <Content Include="nCovNews\static\images\headp\h52.jpg" />
+    <Content Include="nCovNews\static\images\headp\h53.jpg" />
+    <Content Include="nCovNews\static\images\headp\h54.jpg" />
+    <Content Include="nCovNews\static\images\headp\h55.jpg" />
+    <Content Include="nCovNews\static\images\headp\h56.jpg" />
+    <Content Include="nCovNews\static\images\headp\h57.jpg" />
+    <Content Include="nCovNews\static\images\headp\h58.jpg" />
+    <Content Include="nCovNews\static\images\headp\h59.jpg" />
+    <Content Include="nCovNews\static\images\headp\h6.jpeg" />
+    <Content Include="nCovNews\static\images\headp\h60.jpg" />
+    <Content Include="nCovNews\static\images\headp\h62.jpg" />
+    <Content Include="nCovNews\static\images\headp\h63.jpeg" />
+    <Content Include="nCovNews\static\images\headp\h63.jpg" />
+    <Content Include="nCovNews\static\images\headp\h7.jpg" />
+    <Content Include="nCovNews\static\images\headp\h8.jpg" />
+    <Content Include="nCovNews\static\images\headp\h9.jpg" />
+    <Content Include="nCovNews\static\scripts\china.js" />
+    <Content Include="nCovNews\static\scripts\echarts.min.js" />
+    <Content Include="nCovNews\static\scripts\jquery-3.4.1.js" />
+    <Content Include="nCovNews\static\scripts\jquery-3.5.1.min.js" />
+    <Content Include="nCovNews\static\scripts\jquery.js" />
+    <Content Include="nCovNews\static\scripts\world.js" />
     <Content Include="nCovNews\templates\analyze.html" />
     <Content Include="nCovNews\templates\discuss_detail.html" />
     <Content Include="nCovNews\templates\discuss.html" />
@@ -74,6 +146,8 @@
     <Content Include="nCovNews\templates\login.html" />
     <Content Include="nCovNews\templates\news.html" />
     <Content Include="nCovNews\templates\overview.html" />
+    <Content Include="nCovNews\templates\setphoto.html" />
+    <Content Include="nCovNews\templates\test.html" />
     <Content Include="Procfile" />
     <Content Include="README.md" />
     <Content Include="requirements.txt" />

@@ -65,9 +65,10 @@ def discuss():
     dislist.sort(key=lambda x:x.date,reverse=True)
     form = forms.PostForm()
     if form.validate_on_submit():
-        id = session.get('userid')
+        userid = session.get('userid')
+        user = datatype.USER.query.filter_by(userid=userid).first()
         word = form.word.data
-        user_mod.post_word(id,word)
+        user_mod.post_word(user,word)
         return  redirect(url_for('discuss'))
     return render_template(
         'discuss.html',
@@ -85,9 +86,10 @@ def discuss_detail(discussid):
     replylist = datatype.DISCUSS.query.filter_by(replyto=discussid).all()
     form = forms.PostForm()
     if form.validate_on_submit():
-        id = session.get('userid')
+        userid = session.get('userid')
+        user = datatype.USER.query.filter_by(userid=userid).first()
         word = form.word.data
-        user_mod.post_word(id,word,discussid)
+        user_mod.post_word(user,word,discussid)
         return  redirect(url_for('discuss_detail',discussid=discussid))
     return render_template(
         'discuss_detail.html',
@@ -175,8 +177,7 @@ def my_context_processor():
     userid = session.get('userid')
     user = datatype.USER.query.filter_by(userid=userid).first()
     if user:
-        username = user.name
-        return {'userid': userid,'username':username}
+        return {'user': user}
     return{}
 
 # 登出
@@ -191,7 +192,7 @@ def register():
     form = forms.RegisterForm()
     if form.validate_on_submit():
         dbsession = db.session
-        user = datatype.USER(userid=form.id.data,name=form.name.data,password=form.password.data)
+        user = datatype.USER(userid=form.id.data,name=form.name.data,password=form.password.data,photo='h0.jpg')
         dbsession.add(user)
         dbsession.commit()
         return redirect(url_for('login'))
@@ -225,5 +226,15 @@ def res():
             file.write(data)  
             file.close()
         return jsonify(data_json)
+
+@app.route('/changephoto/<picurl>',methods=['GET','POST'])
+def changephoto(picurl):
+    print(picurl)
+    dbsession = db.session
+    userid = session.get('userid')
+    user = datatype.USER.query.filter_by(userid=userid).first()
+    user.photo = picurl
+    dbsession.commit()
+    return  redirect(url_for('home'))
 
 

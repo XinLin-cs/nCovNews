@@ -1,4 +1,4 @@
-﻿{% extends "layout.html" %}
+{% extends "layout.html" %}
 
 {% block content %}
 
@@ -14,387 +14,205 @@
     <script type="text/javascript" src="static/scripts/china.js"></script>
     <script src="static/scripts/world.js"></script>
 
-    <script src="static/scripts/jquery.js"></script>   
-   
+    <script src="static/scripts/jquery.js"></script>
+
     <script type="text/javascript" src="static/scripts/map/bootstrap.min.js"></script>
-    <style >
-        .s1 {
-            background-color: #ffffff;
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <style>
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+           
+        }
+
+        .nav {
+            width: 190px;
             position: fixed;
-            width: 75%;
-            top: 7%;
+            z-index: 10;
         }
-        #mp1 {
-            color: dodgerblue;
+        .nav h59 {
             font-size: 30px;
-            font-weight: 600;
+            font-weight: 500;
         }
+            .nav h2 {
+                margin: 0;
+                font-size: 16px;
+                font-weight: normal;
+                padding: 0px 20px;
+                height: 40px;
+                line-height: 40px;
+                border: 1px solid #999;
+                border-bottom: none;
+                background: #369;
+                cursor: pointer;
+            }
+            .nav h3  {
+                margin: 0;
+                font-size: 16px;
+                font-weight: normal;
+                padding: 0px 20px;
+                height: 40px;
+                line-height: 40px;
+                border: 1px solid #999;
+                border-bottom: none;
+                background: #369;
+                cursor: pointer;
+            }
+            .nav ul {
+                border: 1px solid #999;
+                height: 0px;
+                border-width: 0px;
+                overflow: hidden;
+                transition: all .5s;
+            }
 
-        #mp2 {
-            color: black;
-            font-size: 30px;
-            font-weight: 600;
-        }
+                .nav ul.active {
+                   height :auto ;
+                    border-width: 1px;
+                }
 
-        #mp3 {
-            color: black;
-            font-size: 30px;
-            font-weight: 600;
-        }
+            .nav li a {
+                color: #333;
+                font-size: 14px;
+                text-align: center;
+                text-decoration: none;
+                display: block;
+                padding: 0px 20px;
+                height: 30px;
+                line-height: 30px;
+                border-bottom: 1px solid #999;
+                background-color :azure ;
+            }
 
-        #mp4 {
-            color: black;
-            font-size: 30px;
-            font-weight: 600;
-        }
-
-        #mp5 {
-            color: black;
-            font-size: 30px;
-            font-weight: 600;
-        }
-
-        #mp6 {
-            color: black;
-            font-size: 30px;
-            font-weight: 600;
-        }
+            .nav li:last-child a {
+                border-bottom: none;
+            }
     </style>
-    <script >
-        function mapck1() {
-            map1.style.display = "block";
-            map2.style.display = "none";
-            map3.style.display = "none";
-            map4.style.display = "none";
-            map5.style.display = "none";
-            map6.style.display = "none";
-            
-            mp1.style.color = "dodgerblue";
-            mp2.style.color = "black";
-            mp3.style.color = "black";
-            mp4.style.color = "black";
-            mp5.style.color = "black";
-            mp6.style.color = "black";
-           
-        }
-        function mapck2() {
-            map1.style.display = "none";
-            map2.style.display = "block";
-            map3.style.display = "none";
-            map4.style.display = "none";
-            map5.style.display = "none";
-            map6.style.display = "none";
-            mp1.style.color = "black";
-            mp2.style.color = "dodgerblue";
-            mp3.style.color = "black";
-            mp4.style.color = "black";
-            mp5.style.color = "black";
-            mp6.style.color = "black";
-        }
-        function mapck3() {
-            map1.style.display = "none";
-            map2.style.display = "none";
-            map3.style.display = "block";
-            map4.style.display = "none";
-            map5.style.display = "none";
-            map6.style.display = "none";
-           
-            mp1.style.color = "black";
-            mp2.style.color = "black";
-            mp3.style.color = "dodgerblue";
-            mp4.style.color = "black";
-            mp5.style.color = "black";
-            mp6.style.color = "black";
-            
-        }
-        function mapck4() {
-            map1.style.display = "none";
-            map2.style.display = "none";
-            map3.style.display = "none";
-            map4.style.display = "block";
-            map5.style.display = "none";
-            map6.style.display = "none";
-            
-            mp1.style.color = "black";
-            mp2.style.color = "black";
-            mp3.style.color = "black";
-            mp4.style.color = "dodgerblue";
-            mp5.style.color = "black";
-            mp6.style.color = "black";
-           
-        }
-        function mapck5() {
-            map1.style.display = "none";
-            map2.style.display = "none";
-            map3.style.display = "none";
-            map4.style.display = "none";
-            map5.style.display = "block";
-            map6.style.display = "none";
-            
-            mp1.style.color = "black";
-            mp2.style.color = "black";
-            mp3.style.color = "black";
-            mp4.style.color = "black";
-            mp5.style.color = "dodgerblue";
-            mp6.style.color = "black";
-       
-        }
-        function mapck6() {
-            map1.style.display = "none";
-            map2.style.display = "none";
-            map3.style.display = "none";
-            map4.style.display = "none";
-            map5.style.display = "none";
-            map6.style.display = "block";
-            
-            mp1.style.color = "black";
-            mp2.style.color = "black";
-            mp3.style.color = "black";
-            mp4.style.color = "black";
-            mp5.style.color = "black";
-            mp6.style.color = "dodgerblue";
-            
-        }
+    <script>
+        $(function () {
+            $('.nav h2').on('mouseover', function () {
+                $(this).next('ul').toggleClass('active')
+            })
+        })
     </script>
 </head>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <body>
+    <div>
+       
+        <div class=" row">
+            <div class="  col-md-2">
+                <div class="nav">
+                    <h59>国内疫情</h59>
+                    <hr>
+                    <h2>疫情现状</h2>
+                    <ul>
+                        <li><a href="#mp5">中国现存确诊</a></li>
+                        <li><a href="#mp2 ">中国累计确诊</a></li>
+                        <li><a href="#mp13 ">中国累计死亡</a></li>
+                    </ul>
+                    <h2>疫情分析</h2>
+                    <ul>
+                        <li><a href="#mp11 ">中国治愈率</a></li>
+                        <li><a href="#mp14">中国死亡率</a></li>
+                        <li><a href="#mp12">中国死亡率TOP10</a></li>
+                        <li><a href="#mp6 ">现存确诊趋势预测</a></li>
+                    </ul>
 
-    <div id="div0" class="s1">
+                    <h2>疫情趋势</h2>
+                    <ul>
+                        <li><a href="#mp1">中国现有确诊趋势</a></li>
+                        <li><a href="#mp4 ">全国疫情新增趋势</a></li>
+                        <li><a href="#mp3">累确诊/治愈/死亡趋势</a></li>
+                        <li><a href="#mp8">全国治愈/病死率趋势</a></li>
+                    </ul>
+
+                    <h59>海外疫情</h59>
+                    <hr>
+                    <h3>疫情现状</h3>
+                    <ul>
+                        <li><a href="#mp15 ">世界现存确诊</a></li>
+                        <li><a href="#mp7">世界累计确诊</a></li>
+                        <li><a href="#mp16 ">世界累计死亡</a></li>                    
+                    </ul>
+
+                    <h3>疫情趋势</h3>
+                    <ul>
+                        <li><a href="#mp9">海外累计确诊TOP10</a></li>
+                        <li><a href="#mp10">海外多国确诊TOP10</a></li>
+                        <li><a href="#mp18">世界治愈率</a></li>
+                        <li><a href="#mp17">世界死亡率</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="  col-md-10">
+                <div style="background-color :aliceblue;opacity :0.8 ">
+                    <div id="mp5">
+                        <br /><br /> <br /><br /><div id="main5" style="width: 800px;height:500px;margin: 0 auto;"></div><hr />
+                    </div>
+
+                    <div id="mp2">
+                        <br /><br /><br /><br /><div id="main2" style="width: 800px;height:500px;margin: 0 auto;"></div><hr />
+                    </div>
+                    <div id="mp13">
+                        <br /><br /><br /><br /><div id="main13" style="width: 800px;height:500px;margin: 0 auto;"></div><hr />
+                    </div>
+                    <div id="mp11">
+                        <br /><br /><br /><br /><div id="main11" style="width: 800px;height:500px;margin: 0 auto;"></div><hr />
+                    </div>
+                    <div id="mp14">
+                        <br /><br /><br /><br /><div id="main14" style="width: 800px;height:500px;margin: 0 auto;"></div><hr />
+                    </div>
+                    <div id="mp12">
+                        <br /><br /><br /><br /><div id="main12" style="width: 800px;height:500px;margin: 0 auto;"></div><hr />
+                    </div>
+                    <div id="mp6">
+                        <br /><br /><br /><br /><div id="main6" style="width: 800px;height:500px;margin: 0 auto;"></div><hr />
+                    </div>
+                    <div id="mp1">
+                        <br /><br /><br /><br /><div id="main1" style="width: 800px;height:500px;margin: 0 auto;"></div><hr />
+                    </div>
+                    <div id="mp4">
+                        <br /><br /><br /><br /><div id="main4" style="width: 800px;height:500px;margin: 0 auto;"></div><hr />
+                    </div>
+                    <div id="mp3">
+                        <br /><br /><br /><br /><div id="main3" style="width: 800px;height:500px;margin: 0 auto;"></div><hr />
+                    </div>
+                    <div id="mp8">
+                        <br /><br /><br /><br /><div id="main8" style="width: 800px;height:500px;margin: 0 auto;"></div><hr />
+                    </div>
+                    <div id="mp15">
+                        <br /><br /><div id="main15" style="width: 800px;height:500px;margin: 0 auto;"></div><hr />
+                    </div>
+                    <div id="mp7">
+                        <br /><br /><br /><br /><div id="main7" style="width: 800px;height:500px;margin: 0 auto;"></div><hr />
+                    </div>
+                    <div id="mp16">
+                        <br /><br /><br /><br /><div id="main16" style="width: 800px;height:500px;margin: 0 auto;"></div><hr />
+                    </div>
+                    <div id="mp9">
+                        <br /><br /><br /><br /><div id="main9" style="width: 800px;height:500px;margin: 0 auto;"></div><hr />
+                    </div>
+                    <div id="mp10">
+                        <br /><br /><br /><br /><div id="main10" style="width: 800px;height:500px;margin: 0 auto;"></div><hr />
+                    </div>
+                    <div id="mp18">
+                        <br /><br /><br /><br /><div id="main18" style="width: 800px;height:500px;margin: 0 auto;"></div><hr />
+                    </div>
+                    <div id="mp17">
+                        <br /><br /><br /><br /><div id="main17" style="width: 800px;height:500px;margin: 0 auto;"></div><hr />
+                    </div>
+
+                </div>
+            </div>
+        </div>
         
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav" style=" width :11000px">
+       
+    </div>
 
-                <li><a onclick="mapck1()"><p id="mp1">第一部分</p></a></li>
-                <li><a onclick="mapck2()"><p id="mp2">第二部分</p> </a></li>
-                <li><a onclick="mapck3()"><p id="mp3">第三部分</p></a></li>
-                <li><a onclick="mapck4()"><p id="mp4">第四部分</p></a></li>
-                <li><a onclick="mapck5()"><p id="mp5">第五部分</p></a></li>
-                <li><a onclick="mapck6()"><p id="mp6">第六部分</p></a></li>
-            </ul>
-        </div>
-    </div>
-    <br />
-    <br />
-    <br />
-    <br />
-    <!-- 控件测试 -->
-    <div id="map1" style=" display :block">
-        <h style=" font-size :30px;font-weight :500">第一部分</h>
-        <div class="carousel slide" id="carousel-545925" style=" background-color :aliceblue ;opacity:0.8">
-            <ol class="carousel-indicators">
-                <li class="active" data-slide-to="0" data-target="#carousel-545925">
-                </li>
-                <li data-slide-to="1" data-target="#carousel-545925">
-                </li>
-                <li data-slide-to="2" data-target="#carousel-545925">
-                </li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="item active">
-                    <div id="main1" style="width: 800px;height:460px; margin: 0 auto;"></div>
-                    <div class="carousel-caption">
-                    </div>
-                </div>
-                <div class="item">
-                    <div id="main2" style="width: 800px;height:460px; margin: 0 auto;"></div>
-                    <div class="carousel-caption">
-                    </div>
-                </div>
-                <div class="item">
-                    <div id="main3" style="width: 800px;height:460px; margin: 0 auto;"></div>
-                    <div class="carousel-caption">
-                    </div>
-                </div>
-            </div> <a data-slide="prev" href="#carousel-545925" class="left carousel-control"><span class="glyphicon glyphicon-chevron-left"></span></a> <a data-slide="next" href="#carousel-545925" class="right carousel-control"><span class="glyphicon glyphicon-chevron-right"></span></a>
-        </div>
-    </div>
-    
-    <div id="map2" style=" display :none">
-        <h style=" font-size :30px;font-weight :500">第二部分</h>
-        <div class="carousel slide" id="carousel-875175" style=" background-color :aliceblue ;opacity:0.8">
-            <ol class="carousel-indicators">
-                <li class="active" data-slide-to="0" data-target="#carousel-875175">
-                </li>
-                <li data-slide-to="1" data-target="#carousel-875175">
-                </li>
-                <li data-slide-to="2" data-target="#carousel-875175">
-                </li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="item active">
-                    <div id="main4" style="width: 800px;height:460px; margin: 0 auto;"></div>
-                    <div class="carousel-caption">
-                    </div>
-                </div>
-                <div class="item">
-                    <div id="main5" style="width: 800px;height:460px; margin: 0 auto;"></div>
-                    <div class="carousel-caption">
-                    </div>
-                </div>
-                <div class="item">
-                    <div id="main6" style="width: 800px;height:460px; margin: 0 auto;"></div>
-                    <div class="carousel-caption">
-                    </div>
-                </div>
-            </div> <a data-slide="prev" href="#carousel-875175" class="left carousel-control"><span class="glyphicon glyphicon-chevron-left"></span></a> <a data-slide="next" href="#carousel-875175" class="right carousel-control"><span class="glyphicon glyphicon-chevron-right"></span></a>
-        </div>
-    </div>
-    <div id="map3" style=" display :none">
-        <h style=" font-size :30px;font-weight :500">第三部分</h>
-        <div class="carousel slide" id="carousel-555517" style=" background-color :aliceblue ;opacity:0.8">
-            <ol class="carousel-indicators">
-                <li class="active" data-slide-to="0" data-target="#carousel-555517">
-                </li>
-                <li data-slide-to="1" data-target="#carousel-555517">
-                </li>
-                <li data-slide-to="2" data-target="#carousel-555517">
-                </li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="item active">
-                    <div id="main7" style="width: 800px;height:460px; margin: 0 auto;"></div>
-                    <div class="carousel-caption">
-                    </div>
-                </div>
-                <div class="item">
-                    <div id="main8" style="width: 800px;height:460px; margin: 0 auto;"></div>
 
-                    <div class="carousel-caption">
-                    </div>
-                </div>
-                <div class="item">
-                    <div id="main9" style="width: 800px;height:460px; margin: 0 auto;"></div>
-                    <div class="carousel-caption">
-                    </div>
-                </div>
-            </div> <a data-slide="prev" href="#carousel-555517" class="left carousel-control"><span class="glyphicon glyphicon-chevron-left"></span></a> <a data-slide="next" href="#carousel-555517" class="right carousel-control"><span class="glyphicon glyphicon-chevron-right"></span></a>
-        </div>
-    </div>
-    <div id="map4" style=" display :none">
-        <h style=" font-size :30px;font-weight :500">第四部分</h>
-        <div class="carousel slide" id="carousel-687778" style=" background-color :aliceblue ;opacity:0.8">
-            <ol class="carousel-indicators">
-                <li class="active" data-slide-to="0" data-target="#carousel-687778">
-                </li>
-                <li data-slide-to="1" data-target="#carousel-687778">
-                </li>
-                <li data-slide-to="2" data-target="#carousel-687778">
-                </li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="item active left">
-                    <div id="main10" style="width: 800px;height:460px; margin: 0 auto;"></div>
-                    <div class="carousel-caption">
-                    </div>
-                </div>
-                <div class="item next left">
-                    <!-- 添加图片的地方 -->
-                    <div id="main11" style="width: 800px;height:460px; margin: 0 auto;"></div>
-                    <!-- 添加图片的地方 -->
-                    <div class="carousel-caption">
-                    </div>
-                </div>
-                <div class="item">
-                    <!-- 添加图片的地方 -->
-                    <div id="main12" style="width: 800px;height:460px; margin: 0 auto;"></div>
-                    <!-- 添加图片的地方 -->
-                    <div class="carousel-caption">
-                    </div>
-                </div>
-            </div> <a data-slide="prev" href="#carousel-687778" class="left carousel-control"><span class="glyphicon glyphicon-chevron-left"></span></a> <a data-slide="next" href="#carousel-687778" class="right carousel-control"><span class="glyphicon glyphicon-chevron-right"></span></a>
-        </div>
-    </div>
-    <div id="map5" style=" display :none">
-        <h style=" font-size :30px;font-weight :500">第五部分</h>
-        <div class="carousel slide" id="carousel-290865" style=" background-color :aliceblue ;opacity:0.8">
-            <ol class="carousel-indicators">
-                <li class="active" data-slide-to="0" data-target="#carousel-290865">
-                </li>
-                <li data-slide-to="1" data-target="#carousel-290865">
-                </li>
-                <li data-slide-to="2" data-target="#carousel-290865">
-                </li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="item active">
-                    <!-- 添加图片的地方 -->
-                    <div id="main13" style="width: 800px;height:460px; margin: 0 auto;"></div>
-                    <!-- 添加图片的地方 -->
-                    <div class="carousel-caption">
-                    </div>
-                </div>
-                <div class="item">
-                    <!-- 添加图片的地方 -->
-                    <div id="main14" style="width: 800px;height:460px; margin: 0 auto;"></div>
-                    <!-- 添加图片的地方 -->
-                    <div class="carousel-caption">
-                    </div>
-                </div>
-                <div class="item">
-                    <!-- 添加图片的地方 -->
-                    <div id="main15" style="width: 800px;height:460px; margin: 0 auto;"></div>
-                    <!-- 添加图片的地方 -->
-                    <div class="carousel-caption">
-                    </div>
-                </div>
-            </div> <a data-slide="prev" href="#carousel-290865" class="left carousel-control"><span class="glyphicon glyphicon-chevron-left"></span></a> <a data-slide="next" href="#carousel-290865" class="right carousel-control"><span class="glyphicon glyphicon-chevron-right"></span></a>
-        </div>
-    </div>
-    <div id="map6" style=" display :none">
-        <h style=" font-size :30px;font-weight :500">第六部分</h>
-        <div class="carousel slide" id="carousel-83435" style=" background-color :aliceblue ;opacity:0.8">
-            <ol class="carousel-indicators">
-                <li data-slide-to="0" data-target="#carousel-83435"></li>
-                <li data-slide-to="1" data-target="#carousel-83435"></li>
-                <li data-slide-to="2" data-target="#carousel-83435" class="active"></li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="item">
-                    <!-- 添加图片的地方 -->
-                    <div id="main16" style="width: 800px;height:460px; margin: 0 auto;"></div>
-                    <!-- 添加图片的地方 -->
-                    <div class="carousel-caption">
-                        <!--<h4>中国现有确诊趋势</h4>-->
-                    </div>
-                </div>
-                <div class="item">
-                    <!-- 添加图片的地方 -->
-                    <div id="main17" style="width: 800px;height:460px; margin: 0 auto;"></div>
-                    <!-- 添加图片的地方 -->
-                    <div class="carousel-caption">
-                    </div>
-                </div>
-                <div class="item active">
-                    <!-- 添加图片的地方 -->
-                    <div id="main18" style="width: 800px;height:460px; margin: 0 auto;"></div>
-                    <!-- 添加图片的地方 -->
-                    <div class="carousel-caption">
-                    </div>
-                </div>
-            </div> <a class="left carousel-control" href="#carousel-83435" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-83435" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-        </div>
-    </div>
 
     <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
 
@@ -402,1054 +220,1054 @@
     <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
 
-            // 基于准备好的dom，初始化echarts实例
-            var myChart1 = echarts.init(document.getElementById('main1'));
-            var myChart2 = echarts.init(document.getElementById('main2'));
-            var myChart3 = echarts.init(document.getElementById('main3'));
-            var myChart4 = echarts.init(document.getElementById('main4'));
-            var myChart5 = echarts.init(document.getElementById('main5'));
-            var myChart6 = echarts.init(document.getElementById('main6'));
-            var myChart7 = echarts.init(document.getElementById('main7'));
-            var myChart8 = echarts.init(document.getElementById('main8'));
-            var myChart9 = echarts.init(document.getElementById('main9'));
-            var myChart10 = echarts.init(document.getElementById('main10'));
-            var myChart11 = echarts.init(document.getElementById('main11'));
-            var myChart12 = echarts.init(document.getElementById('main12'));
-            var myChart13 = echarts.init(document.getElementById('main13'));
-            var myChart14 = echarts.init(document.getElementById('main14'));
-            var myChart15 = echarts.init(document.getElementById('main15'));
-            var myChart16 = echarts.init(document.getElementById('main16'));
-            var myChart17 = echarts.init(document.getElementById('main17'));
-            var myChart18 = echarts.init(document.getElementById('main18'));
-
-
-            $.ajax({
-                url: '/getdata',
-                type: 'POST',
-                async:false,
-                success: function (data) {
-                    var json_data = JSON.parse(data)
-                    // 指定图表的配置项和数据
-                    var option1 = {
-                        title: {
-                            text: '中国现有确诊趋势'
-                        },
-                        tooltip: {
-                            trigger: 'axis'
-                        },
-                        legend: {
-                            data: ['现有确诊', '总确诊']
-                        },
-                        xAxis: {
-                            type: 'category',
-                            boundaryGap: false,
-                            data: json_data['timeseries']
-                        },
-                        yAxis: {
-                            type: 'value'
-                        },
-                        series: [
-                            {
-                                name: '现有确诊',
-                                type: 'line',
-                                data: json_data['china']['confirmedexist']
-                            },
-                            {
-                                name: '总确诊',
-                                type: 'line',
-                                data: json_data['china']['confirmedtotal']
-                            }
-                        ],
-                        animation: false,
-                    };
-                    // 使用刚指定的配置项和数据显示图表。
-                    myChart1.setOption(option1);
-
-                    var option2 = {
-                        title: {
-                            text: '中国累计确诊'
-                        },
-                        animation: false,
-
-                        tooltip: {
-                            formatter: function (params, ticket, callback) {
-                                return params.seriesName + '<br />' + params.name + '：' + params.value
-                            }//数据格式化
-                        },
-                        visualMap: {
-                            min: 0,
-                            max: 10000,
-                            left: '0',
-                            bottom: '10',
-                            splitNumber: 5,
-                            itemWidth: 10,
-                            itemHeight: 10,
-                            color: ['#610105', '#8e0d08', '#d12d2e', '#fd796a', '#ffad81', '#F8F8FF'],
-                            pieces: [
-                                { min: 10000 },
-                                { min: 1000, max: 9999 },
-                                { min: 500, max: 999 },
-                                { min: 100, max: 499 },
-                                { min: 10, max: 99 },
-                                { min: 1, max: 9 },
-                                { min: 0, max: 0 }
-                            ],
-
-                            show: true//图注
-                        },
-                        geo: {
-                            map: 'china',
-                            roam: false,//不开启缩放和平移
-                            zoom: 1.23,//视角缩放比例
-                            label: {
-                                normal: {
-                                    show: true,
-                                    fontSize: '10',
-                                    color: 'rgba(0,0,0,0.7)'
-                                }
-                            },
-                            itemStyle: {
-                                normal: {
-                                    borderColor: 'rgba(0, 0, 0, 0.2)'
-                                },
-                                emphasis: {
-                                    areaColor: '#F3B329',//鼠标选择区域颜色
-                                    shadowOffsetX: 0,
-                                    shadowOffsetY: 0,
-                                    shadowBlur: 20,
-                                    borderWidth: 0,
-                                    shadowColor: 'rgba(0, 0, 0, 0.5)'
-                                }
-                            }
-                        },
-                        series: [
-                            {
-                                name: '累计确诊',
-                                type: 'map',
-                                geoIndex: 0,
-                                data: json_data['map']['confirmedtotal']
-                            }
-                        ]
-                    };
-                    myChart2.setOption(option2)
-
-                    var option3 = {
-                        title: {
-                            text: '全国累计确诊/治愈/死亡趋势'
-                        },
-                        animation: false,
-
-                        tooltip: {
-                            trigger: 'axis'
-                        },
-                        legend: {
-                            data: ['累计确诊', '累计治愈', '累计死亡']
-                        },
-                        xAxis: {
-                            type: 'category',
-                            boundaryGap: false,
-                            data: json_data['timeseries']
-                        },
-                        yAxis: {
-                            type: 'value'
-                        },
-                        series: [
-                            {
-                                name: '累计确诊',
-                                type: 'line',
-                                data: json_data['china']['confirmedtotal']
-                            },
-                            {
-                                name: '累计治愈',
-                                type: 'line',
-                                data: json_data['china']['cures']
-                            },
-                            {
-                                name: '累计死亡',
-                                type: 'line',
-                                data: json_data['china']['deaths']
-                            }
-                        ]
-                    };
-                    myChart3.setOption(option3)
-
-                    var option4 = {
-                        title: {
-                            text: '全国疫情新增趋势'
-                        },
-                        tooltip: {
-                            trigger: 'axis'
-                        },
-                        legend: {
-                            data: ['新增确诊', '新增疑似']
-                        },
-                        animation: false,
-
-                        xAxis: {
-                            type: 'category',
-                            boundaryGap: false,
-                            data: json_data['timeseries']
-                        },
-                        yAxis: {
-                            type: 'value'
-                        },
-                        series: [
-                            {
-                                name: '新增确诊',
-                                type: 'line',
-                                data: json_data['chinaInc']['confirmedtotal']
-                            },
-                            {
-                                name: '新增疑似',
-                                type: 'line',
-                                data: json_data['chinaInc']['suspected']
-                            }
-
-                        ]
-                    };
-                    myChart4.setOption(option4)
-
-                    var option5 = {
-                        title: {
-                            text: '中国现存确诊'
-                        },
-                        tooltip: {
-                            formatter: function (params, ticket, callback) {
-                                return params.seriesName + '<br />' + params.name + '：' + params.value
-                            }//数据格式化
-                        },
-                        animation: false,
-
-                        visualMap: {
-                            min: 0,
-                            max: 10000,
-                            left: '0',
-                            bottom: '10',
-                            splitNumber: 5,
-                            itemWidth: 10,
-                            itemHeight: 10,
-                            color: ['#610105', '#8e0d08', '#d12d2e', '#fd796a', '#ffad81', '#FFD700', '#FFFFFF'],
-                            pieces: [
-                                { min: 10000 },
-                                { min: 1000, max: 9999 },
-                                { min: 500, max: 999 },
-                                { min: 100, max: 499 },
-                                { min: 10, max: 99 },
-                                { min: 1, max: 9 },
-                                { min: 0, max: 0 }
-                            ]
-                        },
-                        geo: {
-                            map: 'china',
-                            roam: false,//不开启缩放和平移
-                            zoom: 1.23,//视角缩放比例
-                            label: {
-                                normal: {
-                                    show: true,
-                                    fontSize: '10',
-                                    color: 'rgba(0,0,0,0.7)'
-                                }
-                            },
-                            itemStyle: {
-                                normal: {
-                                    borderColor: 'rgba(0, 0, 0, 0.2)'
-                                },
-                                emphasis: {
-                                    areaColor: '#F3B329',//鼠标选择区域颜色
-                                    shadowOffsetX: 0,
-                                    shadowOffsetY: 0,
-                                    shadowBlur: 20,
-                                    borderWidth: 0,
-                                    shadowColor: 'rgba(0, 0, 0, 0.5)'
-                                }
-                            }
-                        },
-                        series: [
-                            {
-                                name: '现存确诊',
-                                type: 'map',
-                                geoIndex: 0,
-                                data: json_data['map']['confirmedexist']
-                            }
-                        ]
-                    };
-                    myChart5.setOption(option5)
-                    var option6 = {
-                        title: {
-                            text: '中国现有确诊趋势预测'
-                        },
-                        tooltip: {
-                            trigger: 'axis'
-                        },
-                        animation: false,
-
-                        legend: {
-                            data: ['确诊预测', '累计确诊']
-                        },
-                        xAxis: {
-                            type: 'category',
-                            boundaryGap: false,
-                            data: json_data['predictseries']
-                        },
-                        yAxis: {
-                            type: 'value'
-                        },
-                        series: [
-                            {
-                                name: '确诊预测',
-                                type: 'line',
-                                data: json_data['chinaPredict']['confirmedtotal']
-                            },
-                            {
-                                name: '累计确诊',
-                                type: 'line',
-                                data: json_data['china']['confirmedtotal']
-                            }
-                        ]
-                    };
-                    // 使用刚指定的配置项和数据显示图表。
-                    myChart6.setOption(option6);
-
-                    var option7 = {
-                        title: {
-                            text: '世界累计确诊'
-                        },
-                        tooltip: {
-                            formatter: function (params, ticket, callback) {
-                                return params.seriesName + '<br />' + params.name + '：' + params.value
-                            }//数据格式化
-                        },
-                        animation: false,
-
-                        visualMap: {
-                            min: 0,
-                            max: 10000,
-                            left: '0',
-                            bottom: '10',
-                            splitNumber: 5,
-                            itemWidth: 10,
-                            itemHeight: 10,
-                            color: ['#610105', '#8e0d08', '#d12d2e', '#fd796a', '#ffad81', '#F8F8FF'],
-                            pieces: [
-                                { min: 1000000 },
-                                { min: 100000, max: 999999 },
-                                { min: 10000, max: 99999 },
-                                { min: 1000, max: 9999 },
-                                { min: 500, max: 999 },
-                                { min: 100, max: 499 },
-                                { min: 10, max: 99 },
-                                { min: 1, max: 9 },
-                                { min: 0, max: 0 }
-                            ],
-
-                            show: true//图注
-                        },
-                        geo: {
-                            map: 'world',
-                            roam: false,//不开启缩放和平移
-                            zoom: 1.23,//视角缩放比例
-                            label: {
-                                normal: {
-                                    show: false,
-                                    fontSize: '10',
-                                    color: 'rgba(0,0,0,0.7)'
-                                }
-                            },
-                            itemStyle: {
-                                normal: {
-                                    borderColor: 'rgba(0, 0, 0, 0.2)'
-                                },
-                                emphasis: {
-                                    areaColor: '#F3B329',//鼠标选择区域颜色
-                                    shadowOffsetX: 0,
-                                    shadowOffsetY: 0,
-                                    shadowBlur: 20,
-                                    borderWidth: 0,
-                                    shadowColor: 'rgba(0, 0, 0, 0.5)'
-                                }
-                            }
-                        },
-                        series: [
-                            {
-                                name: '累计确诊',
-                                type: 'map',
-                                geoIndex: 0,
-                                data: json_data['worldmap']['confirmedtotal']
-                            }
-                        ],
-                                                animation: false,
-
-                    }
-                    myChart7.setOption(option7);
-                    var option8 = {
-                        title: {
-                            text: '全国治愈率/病死率趋势'
-                        },
-                        tooltip: {
-                            trigger: 'axis',
-                            show: true,
-                            formatter: '{b0}<br/>{a0}: {c0}%<br />{a1}: {c1}% ',
-                        },
-                        animation: false,
-
-                        legend: {
-                            data: ['治愈率', '病死率']
-                        },
-                        xAxis: {
-                            type: 'category',
-                            boundaryGap: false,
-                            data: json_data['timeseries']
-                        },
-                        yAxis: {
-                            type: 'value',
-                            axisLabel: {
-                                show: true,
-                                formatter: '{value}%'
-                            },
-                        },
-                        series: [
-                            {
-                                name: '治愈率',
-                                type: 'line',
-                                data: json_data['china']['cures']
-                            },
-                            {
-                                name: '病死率',
-                                type: 'line',
-                                data: json_data['china']['deaths'],
-                            },
-
-                        ]
-                    };
-                    // 使用刚指定的配置项和数据显示图表。
-                    myChart8.setOption(option8);
-
-                    option9 = {
-                        title: {
-                            text: '海外多国累计确诊top10'
-                        },
-                        legend: {},
-                        tooltip: {},
-                        xAxis: {
-                            type: 'category',
-                            data: json_data['worldTop']['confirmedtotal']['name'],
-                        },
-                        yAxis: {
-                            type: 'value'
-                        },
-                        animation: false,
-
-                        series: [{
-                            name: '累计确诊',
-                            data: json_data['worldTop']['confirmedtotal']['value'],
-                            type: 'bar'
-                        }]
-                    };
-                    myChart9.setOption(option9);
-
-                    option10 = {
-                        title: {
-                            text: '海外多国现存确诊top10'
-                        },
-                        legend: {},
-                        tooltip: {},
-                        xAxis: {
-                            type: 'category',
-                            data: json_data['worldTop']['confirmedexist']['name'],
-                        },
-                        yAxis: {
-                            type: 'value'
-                        },
-                        animation: false,
-
-                        series: [{
-                            name: '现存确诊',
-                            data: json_data['worldTop']['confirmedexist']['value'],
-                            type: 'bar'
-                        }]
-                    };
-                    myChart10.setOption(option10);
-
-                    var option11 = {
-                        title: {
-                            text: '中国治愈率'
-                        },
-                        tooltip: {
-                            formatter: function (params, ticket, callback) {
-                                return params.seriesName + '<br />' + params.name + '：' + params.value + '%'
-                            }//数据格式化
-                        },
-
-                        visualMap: {
-                            min: 0,
-                            max: 100,
-                            left: '0',
-                            bottom: '10',
-                            splitNumber: 5,
-                            itemWidth: 10,
-                            itemHeight: 10,
-                            color: ['#7FFF00', '#ADFF2F', '#9AFF9A', '#97FFFF',],
-                            pieces: [
-                                { min: 95, max: 100, label: '95% - 100%' },
-                                { min: 90, max: 95, label: '90% - 95%' },
-                                { min: 80, max: 90, label: '80% - 90%' },
-                                { min: 50, max: 80, label: '50% - 80%' },
-                                { min: 0, max: 50, label: '0 - 50%' }
-                            ],
-
-                            show: true//图注
-                        },
-                        geo: {
-                            map: 'china',
-                            roam: false,//不开启缩放和平移
-                            zoom: 1.23,//视角缩放比例
-                            label: {
-                                normal: {
-                                    show: true,
-                                    fontSize: '10',
-                                    color: 'rgba(0,0,0,0.7)'
-                                }
-                            },
-                            itemStyle: {
-                                normal: {
-                                    borderColor: 'rgba(0, 0, 0, 0.2)'
-                                },
-                                emphasis: {
-                                    areaColor: '#F3B329',//鼠标选择区域颜色
-                                    shadowOffsetX: 0,
-                                    shadowOffsetY: 0,
-                                    shadowBlur: 20,
-                                    borderWidth: 0,
-                                    shadowColor: 'rgba(0, 0, 0, 0.5)'
-                                }
-                            }
-                        },
-                        series: [
-                            {
-                                name: '治愈率',
-                                type: 'map',
-                                geoIndex: 0,
-                                data: json_data['map']['curesRate']
-                            }
-                        ]
-                    };
-                    myChart11.setOption(option11);
-
-                    option12 = {
-                        title: {
-                            text: '中国死亡率top10'
-                        },
-                        animation: false,
-
-                        legend: {},
-                        tooltip: {},
-                        xAxis: {
-                            type: 'category',
-                            data: json_data['chinaTop']['deathsRate']['name'],
-                        },
-                        yAxis: {
-                            type: 'value'
-                        },
-                        series: [{
-                            name: '现存确诊',
-                            data: json_data['chinaTop']['deathsRate']['value'],
-                            type: 'bar'
-                        }]
-                    };
-                    myChart12.setOption(option12);
-
-                    var option13 = {
-                        title: {
-                            text: '中国累计死亡'
-                        },
-                        tooltip: {
-                            formatter: function (params, ticket, callback) {
-                                return params.seriesName + '<br />' + params.name + '：' + params.value
-                            }//数据格式化
-                        },
-                        visualMap: {
-                            min: 0,
-                            max: 100,
-                            left: '0',
-                            bottom: '10',
-                            splitNumber: 5,
-                            itemWidth: 10,
-                            itemHeight: 10,
-                            color: ['#000000', '#2F4F4F', '#696969', '#808080', '#778899', '#C0C0C0', '#FFFFFF'],
-                            pieces: [
-                                { min: 10000 },
-                                { min: 1000, max: 9999 },
-                                { min: 500, max: 999 },
-                                { min: 100, max: 499 },
-                                { min: 10, max: 99 },
-                                { min: 1, max: 9 },
-                                { min: 0, max: 0 }
-                            ],
-
-                            show: true//图注
-                        },
-                        geo: {
-                            map: 'china',
-                            roam: false,//不开启缩放和平移
-                            zoom: 1.23,//视角缩放比例
-                            label: {
-                                normal: {
-                                    show: true,
-                                    fontSize: '10',
-                                    color: 'rgba(0,0,0,0.7)'
-                                }
-                            },
-                            itemStyle: {
-                                normal: {
-                                    borderColor: 'rgba(0, 0, 0, 0.2)'
-                                },
-                                emphasis: {
-                                    areaColor: '#F3B329',//鼠标选择区域颜色
-                                    shadowOffsetX: 0,
-                                    shadowOffsetY: 0,
-                                    shadowBlur: 20,
-                                    borderWidth: 0,
-                                    shadowColor: 'rgba(0, 0, 0, 0.5)'
-                                }
-                            }
-                        },
-
-                        series: [
-                            {
-                                name: '累计死亡',
-                                type: 'map',
-                                geoIndex: 0,
-                                data: json_data['map']['deaths']
-                            }
-                        ]
-                    };
-                    myChart13.setOption(option13);
-
-                    var option14 = {
-                        title: {
-                            text: '中国死亡率'
-                        },
-                        tooltip: {
-                            formatter: function (params, ticket, callback) {
-                                return params.seriesName + '<br />' + params.name + '：' + params.value + '%'
-                            }//数据格式化
-                        },
-
-                        visualMap: {
-                            min: 0,
-                            max: 100,
-                            left: '0',
-                            bottom: '10',
-                            splitNumber: 5,
-                            itemWidth: 10,
-                            itemHeight: 10,
-                            color: ['#000000', '#2F4F4F', '#808080', '#C0C0C0', '#FFFFFF'],
-                            pieces: [
-                                { min: 50, label: '>50% ' },
-                                { min: 10, max: 50, label: '10% - 50%' },
-                                { min: 5, max: 10, label: '5% - 10%' },
-                                { min: 0, max: 5, label: '0 - 5%' },
-                                { min: 0, max: 0, label: '0' }
-                            ],
-
-                            show: true//图注
-                        },
-                        geo: {
-                            map: 'china',
-                            roam: false,//不开启缩放和平移
-                            zoom: 1.23,//视角缩放比例
-                            label: {
-                                normal: {
-                                    show: true,
-                                    fontSize: '10',
-                                    color: 'rgba(0,0,0,0.7)'
-                                }
-                            },
-                            itemStyle: {
-                                normal: {
-                                    borderColor: 'rgba(0, 0, 0, 0.2)'
-                                },
-                                emphasis: {
-                                    areaColor: '#F3B329',//鼠标选择区域颜色
-                                    shadowOffsetX: 0,
-                                    shadowOffsetY: 0,
-                                    shadowBlur: 20,
-                                    borderWidth: 0,
-                                    shadowColor: 'rgba(0, 0, 0, 0.5)'
-                                }
-                            }
-                        },
-                        series: [
-                            {
-                                name: '死亡率',
-                                type: 'map',
-                                geoIndex: 0,
-                                data: json_data['map']['deathsRate']
-                            }
-                        ]
-                    };
-                    myChart14.setOption(option14);
-
-                    var option15 = {
-                        title: {
-                            text: '世界现存确诊'
-                        },
-
-                        tooltip: {
-                            formatter: function (params, ticket, callback) {
-                                return params.seriesName + '<br />' + params.name + '：' + params.value
-                            }//数据格式化
-                        },
-                        visualMap: {
-                            min: 0,
-                            max: 10000,
-                            left: '0',
-                            bottom: '10',
-                            splitNumber: 5,
-                            itemWidth: 10,
-                            itemHeight: 10,
-                            color: ['#610105', '#8e0d08', '#d12d2e', '#fd796a', '#ffad81', '#F8F8FF'],
-                            pieces: [
-                                { min: 1000000 },
-                                { min: 100000, max: 999999 },
-                                { min: 10000, max: 99999 },
-                                { min: 1000, max: 9999 },
-                                { min: 500, max: 999 },
-                                { min: 100, max: 499 },
-                                { min: 10, max: 99 },
-                                { min: 1, max: 9 },
-                                { min: 0, max: 0 }
-                            ],
-
-                            show: true//图注
-                        },
-                        geo: {
-                            map: 'world',
-                            roam: false,//不开启缩放和平移
-                            zoom: 1.23,//视角缩放比例
-                            label: {
-                                normal: {
-                                    show: false,
-                                    fontSize: '10',
-                                    color: 'rgba(0,0,0,0.7)'
-                                }
-                            },
-                            itemStyle: {
-                                normal: {
-                                    borderColor: 'rgba(0, 0, 0, 0.2)'
-                                },
-                                emphasis: {
-                                    areaColor: '#F3B329',//鼠标选择区域颜色
-                                    shadowOffsetX: 0,
-                                    shadowOffsetY: 0,
-                                    shadowBlur: 20,
-                                    borderWidth: 0,
-                                    shadowColor: 'rgba(0, 0, 0, 0.5)'
-                                }
-                            }
-                        },
-                        series: [
-                            {
-                                name: '现存确诊',
-                                type: 'map',
-                                geoIndex: 0,
-                                data: json_data['worldmap']['confirmedexist']
-                            }
-                        ]
-
-                    }
-                    myChart15.setOption(option15);
-
-                    var option16 = {
-                        title: {
-                            text: '世界累计死亡'
-                        },
-                        tooltip: {
-                            formatter: function (params, ticket, callback) {
-                                return params.seriesName + '<br />' + params.name + '：' + params.value
-                            }//数据格式化
-                        },
-
-                        visualMap: {
-                            min: 0,
-                            max: 10000,
-                            left: '0',
-                            bottom: '10',
-                            splitNumber: 5,
-                            itemWidth: 10,
-                            itemHeight: 10,
-                            color: ['#000000', '#2F4F4F', '#696969', '#808080', '#778899', '#C0C0C0', '#FFFFFF'],
-                            pieces: [
-                                { min: 1000000 },
-                                { min: 100000, max: 999999 },
-                                { min: 10000, max: 99999 },
-                                { min: 1000, max: 9999 },
-                                { min: 500, max: 999 },
-                                { min: 100, max: 499 },
-                                { min: 10, max: 99 },
-                                { min: 1, max: 9 },
-                                { min: 0, max: 0 }
-                            ],
-
-                            show: true//图注
-                        },
-                        geo: {
-                            map: 'world',
-                            roam: false,//不开启缩放和平移
-                            zoom: 1.23,//视角缩放比例
-                            label: {
-                                normal: {
-                                    show: false,
-                                    fontSize: '10',
-                                    color: 'rgba(0,0,0,0.7)'
-                                }
-                            },
-                            itemStyle: {
-                                normal: {
-                                    borderColor: 'rgba(0, 0, 0, 0.2)'
-                                },
-                                emphasis: {
-                                    areaColor: '#F3B329',//鼠标选择区域颜色
-                                    shadowOffsetX: 0,
-                                    shadowOffsetY: 0,
-                                    shadowBlur: 20,
-                                    borderWidth: 0,
-                                    shadowColor: 'rgba(0, 0, 0, 0.5)'
-                                }
-                            }
-                        },
-                        series: [
-                            {
-                                name: '累计死亡',
-                                type: 'map',
-                                geoIndex: 0,
-                                data: json_data['worldmap']['deaths']
-                            }
-                        ]
-
-                    }
-                    myChart16.setOption(option16);
-
-                    var option17 = {
-                        title: {
-                            text: '世界死亡率'
-                        },
-                        tooltip: {
-                            formatter: function (params, ticket, callback) {
-                                return params.seriesName + '<br />' + params.name + '：' + params.value + '%'
-                            }//数据格式化
-                        },
-
-                        visualMap: {
-                            min: 0,
-                            max: 10000,
-                            left: '0',
-                            bottom: '10',
-                            splitNumber: 5,
-                            itemWidth: 10,
-                            itemHeight: 10,
-                            color: ['#000000', '#2F4F4F', '#696969', '#808080', '#778899', '#C0C0C0', '#FFFFFF'],
-                            pieces: [
-                                { min: 50, label: '>50% ' },
-                                { min: 10, max: 50, label: '10% - 50%' },
-                                { min: 5, max: 10, label: '5% - 10%' },
-                                { min: 0, max: 5, label: '0 - 5%' },
-                                { min: 0, max: 0, label: '0' }
-                            ],
-
-                            show: true//图注
-                        },
-                        geo: {
-                            map: 'world',
-                            roam: false,//不开启缩放和平移
-                            zoom: 1.23,//视角缩放比例
-                            label: {
-                                normal: {
-                                    show: false,
-                                    fontSize: '10',
-                                    color: 'rgba(0,0,0,0.7)'
-                                }
-                            },
-                            itemStyle: {
-                                normal: {
-                                    borderColor: 'rgba(0, 0, 0, 0.2)'
-                                },
-                                emphasis: {
-                                    areaColor: '#F3B329',//鼠标选择区域颜色
-                                    shadowOffsetX: 0,
-                                    shadowOffsetY: 0,
-                                    shadowBlur: 20,
-                                    borderWidth: 0,
-                                    shadowColor: 'rgba(0, 0, 0, 0.5)'
-                                }
-                            }
-                        },
-                        series: [
-                            {
-                                name: '死亡率',
-                                type: 'map',
-                                geoIndex: 0,
-                                data: json_data['worldmap']['deathsRate']
-                            }
-                        ]
-
-                    }
-                    myChart17.setOption(option17);
-
-                    var option18 = {
-                        title: {
-                            text: '世界治愈率'
-                        },
-
-                        tooltip: {
-                            formatter: function (params, ticket, callback) {
-                                return params.seriesName + '<br />' + params.name + '：' + params.value + '%'
-                            }//数据格式化
-                        },
-                        visualMap: {
-                            min: 0,
-                            max: 100,
-                            left: '0',
-                            bottom: '10',
-                            splitNumber: 5,
-                            itemWidth: 10,
-                            itemHeight: 10,
-                            color: ['#7FFF00', '#ADFF2F', '#9AFF9A', '#97FFFF',],
-                            pieces: [
-                                { min: 95, max: 100, label: '95% - 100%' },
-                                { min: 90, max: 95, label: '90% - 95%' },
-                                { min: 80, max: 90, label: '80% - 90%' },
-                                { min: 50, max: 80, label: '50% - 80%' },
-                                { min: 0, max: 50, label: '0 - 50%' }
-                            ],
-
-                            show: true//图注
-                        },
-                        geo: {
-                            map: 'world',
-                            roam: false,//不开启缩放和平移
-                            zoom: 1.23,//视角缩放比例
-                            label: {
-                                normal: {
-                                    show: false,
-                                    fontSize: '10',
-                                    color: 'rgba(0,0,0,0.7)'
-                                }
-                            },
-                            itemStyle: {
-                                normal: {
-                                    borderColor: 'rgba(0, 0, 0, 0.2)'
-                                },
-                                emphasis: {
-                                    areaColor: '#F3B329',//鼠标选择区域颜色
-                                    shadowOffsetX: 0,
-                                    shadowOffsetY: 0,
-                                    shadowBlur: 20,
-                                    borderWidth: 0,
-                                    shadowColor: 'rgba(0, 0, 0, 0.5)'
-                                }
-                            }
-                        },
-                        series: [
-                            {
-                                name: '治愈率',
-                                type: 'map',
-                                geoIndex: 0,
-                                data: json_data['worldmap']['curesRate']
-                            }
-                        ]
-                    };
-                    myChart18.setOption(option18);
-                    function getFullCanvasDataURL(divId) {
-                        //将第一个画布作为基准。
-                        var baseCanvas = $("#" + divId).find("canvas").first()[0];
-                        if (!baseCanvas) {
-                            return false;
-                        };
-                        var width = baseCanvas.width;
-                        var height = baseCanvas.height;
-                        var ctx = baseCanvas.getContext("2d");
-                        //遍历，将后续的画布添加到在第一个上
-                        $("#" + divId).find("canvas").each(function (i, canvasObj) {
-                            if (i > 0) {
-                                var canvasTmp = $(canvasObj)[0];
-                                ctx.drawImage(canvasTmp, 0, 0, width, height);
-                            }
-                        });
-                        //获取base64位的url
-                        return baseCanvas.toDataURL();
-                    }
-
-                   
-
-
-                    var users = {
-
-                        name1: String(getFullCanvasDataURL('main1')),
-                        name2: String(getFullCanvasDataURL('main2')),
-                        name3: String(getFullCanvasDataURL('main3')),
-                        name4: String(getFullCanvasDataURL('main4')),
-                        name5: String(getFullCanvasDataURL('main5')),
-                        name6: String(getFullCanvasDataURL('main6')),
-                        name7: String(getFullCanvasDataURL('main7')),
-                        name8: String(getFullCanvasDataURL('main8')),
-                        name9: String(getFullCanvasDataURL('main9')),
-                        name10: String(getFullCanvasDataURL('main10')),
-                        name11: String(getFullCanvasDataURL('main11')),
-                        name12: String(getFullCanvasDataURL('main12')),
-                        name13: String(getFullCanvasDataURL('main13')),
-                        name14: String(getFullCanvasDataURL('main14')),
-                        name15: String(getFullCanvasDataURL('main15')),
-                        name16: String(getFullCanvasDataURL('main16')),
-                        name17: String(getFullCanvasDataURL('main17')),
-                        name18: String(getFullCanvasDataURL('main18')),
-
-
-                    };
-
-                    $.ajax({
-
-                        type: 'POST',
-
-                        data: JSON.stringify(users),
-
-                        contentType: 'application/json; charset=UTF-8',
-                        dataType: 'json',
-
-                        url: '/res',
-
-                        success: function (data) {
-
-                            alert("OK");
-
-                        },
-
-                        error: function (e) {
-
-                            alert("error");
-
+        // 基于准备好的dom，初始化echarts实例
+        var myChart1 = echarts.init(document.getElementById('main1'));
+        var myChart2 = echarts.init(document.getElementById('main2'));
+        var myChart3 = echarts.init(document.getElementById('main3'));
+        var myChart4 = echarts.init(document.getElementById('main4'));
+        var myChart5 = echarts.init(document.getElementById('main5'));
+        var myChart6 = echarts.init(document.getElementById('main6'));
+        var myChart7 = echarts.init(document.getElementById('main7'));
+        var myChart8 = echarts.init(document.getElementById('main8'));
+        var myChart9 = echarts.init(document.getElementById('main9'));
+        var myChart10 = echarts.init(document.getElementById('main10'));
+        var myChart11 = echarts.init(document.getElementById('main11'));
+        var myChart12 = echarts.init(document.getElementById('main12'));
+        var myChart13 = echarts.init(document.getElementById('main13'));
+        var myChart14 = echarts.init(document.getElementById('main14'));
+        var myChart15 = echarts.init(document.getElementById('main15'));
+        var myChart16 = echarts.init(document.getElementById('main16'));
+        var myChart17 = echarts.init(document.getElementById('main17'));
+        var myChart18 = echarts.init(document.getElementById('main18'));
+
+
+        $.ajax({
+            url: '/getdata',
+            type: 'POST',
+            async: false,
+            success: function (data) {
+                var json_data = JSON.parse(data)
+                // 指定图表的配置项和数据
+                var option1 = {
+                    title: {
+                        text: '中国现有确诊趋势'
+                    },
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data: ['现有确诊', '总确诊']
+                    },
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: json_data['timeseries']
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [
+                        {
+                            name: '现有确诊',
+                            type: 'line',
+                            data: json_data['china']['confirmedexist']
+                        },
+                        {
+                            name: '总确诊',
+                            type: 'line',
+                            data: json_data['china']['confirmedtotal']
                         }
-                    })
+                    ],
+                    animation: false,
+                };
+                // 使用刚指定的配置项和数据显示图表。
+                myChart1.setOption(option1);
+
+                var option2 = {
+                    title: {
+                        text: '中国累计确诊'
+                    },
+                    animation: false,
+
+                    tooltip: {
+                        formatter: function (params, ticket, callback) {
+                            return params.seriesName + '<br />' + params.name + '：' + params.value
+                        }//数据格式化
+                    },
+                    visualMap: {
+                        min: 0,
+                        max: 10000,
+                        left: '0',
+                        bottom: '10',
+                        splitNumber: 5,
+                        itemWidth: 10,
+                        itemHeight: 10,
+                        color: ['#610105', '#8e0d08', '#d12d2e', '#fd796a', '#ffad81', '#F8F8FF'],
+                        pieces: [
+                            { min: 10000 },
+                            { min: 1000, max: 9999 },
+                            { min: 500, max: 999 },
+                            { min: 100, max: 499 },
+                            { min: 10, max: 99 },
+                            { min: 1, max: 9 },
+                            { min: 0, max: 0 }
+                        ],
+
+                        show: true//图注
+                    },
+                    geo: {
+                        map: 'china',
+                        roam: false,//不开启缩放和平移
+                        zoom: 1.23,//视角缩放比例
+                        label: {
+                            normal: {
+                                show: true,
+                                fontSize: '10',
+                                color: 'rgba(0,0,0,0.7)'
+                            }
+                        },
+                        itemStyle: {
+                            normal: {
+                                borderColor: 'rgba(0, 0, 0, 0.2)'
+                            },
+                            emphasis: {
+                                areaColor: '#F3B329',//鼠标选择区域颜色
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                shadowBlur: 20,
+                                borderWidth: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    },
+                    series: [
+                        {
+                            name: '累计确诊',
+                            type: 'map',
+                            geoIndex: 0,
+                            data: json_data['map']['confirmedtotal']
+                        }
+                    ]
+                };
+                myChart2.setOption(option2)
+
+                var option3 = {
+                    title: {
+                        text: '全国累计确诊/治愈/死亡趋势'
+                    },
+                    animation: false,
+
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data: ['累计确诊', '累计治愈', '累计死亡']
+                    },
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: json_data['timeseries']
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [
+                        {
+                            name: '累计确诊',
+                            type: 'line',
+                            data: json_data['china']['confirmedtotal']
+                        },
+                        {
+                            name: '累计治愈',
+                            type: 'line',
+                            data: json_data['china']['cures']
+                        },
+                        {
+                            name: '累计死亡',
+                            type: 'line',
+                            data: json_data['china']['deaths']
+                        }
+                    ]
+                };
+                myChart3.setOption(option3)
+
+                var option4 = {
+                    title: {
+                        text: '全国疫情新增趋势'
+                    },
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data: ['新增确诊', '新增疑似']
+                    },
+                    animation: false,
+
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: json_data['timeseries']
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [
+                        {
+                            name: '新增确诊',
+                            type: 'line',
+                            data: json_data['chinaInc']['confirmedtotal']
+                        },
+                        {
+                            name: '新增疑似',
+                            type: 'line',
+                            data: json_data['chinaInc']['suspected']
+                        }
+
+                    ]
+                };
+                myChart4.setOption(option4)
+
+                var option5 = {
+                    title: {
+                        text: '中国现存确诊'
+                    },
+                    tooltip: {
+                        formatter: function (params, ticket, callback) {
+                            return params.seriesName + '<br />' + params.name + '：' + params.value
+                        }//数据格式化
+                    },
+                    animation: false,
+
+                    visualMap: {
+                        min: 0,
+                        max: 10000,
+                        left: '0',
+                        bottom: '10',
+                        splitNumber: 5,
+                        itemWidth: 10,
+                        itemHeight: 10,
+                        color: ['#610105', '#8e0d08', '#d12d2e', '#fd796a', '#ffad81', '#FFD700', '#FFFFFF'],
+                        pieces: [
+                            { min: 10000 },
+                            { min: 1000, max: 9999 },
+                            { min: 500, max: 999 },
+                            { min: 100, max: 499 },
+                            { min: 10, max: 99 },
+                            { min: 1, max: 9 },
+                            { min: 0, max: 0 }
+                        ]
+                    },
+                    geo: {
+                        map: 'china',
+                        roam: false,//不开启缩放和平移
+                        zoom: 1.23,//视角缩放比例
+                        label: {
+                            normal: {
+                                show: true,
+                                fontSize: '10',
+                                color: 'rgba(0,0,0,0.7)'
+                            }
+                        },
+                        itemStyle: {
+                            normal: {
+                                borderColor: 'rgba(0, 0, 0, 0.2)'
+                            },
+                            emphasis: {
+                                areaColor: '#F3B329',//鼠标选择区域颜色
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                shadowBlur: 20,
+                                borderWidth: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    },
+                    series: [
+                        {
+                            name: '现存确诊',
+                            type: 'map',
+                            geoIndex: 0,
+                            data: json_data['map']['confirmedexist']
+                        }
+                    ]
+                };
+                myChart5.setOption(option5)
+                var option6 = {
+                    title: {
+                        text: '中国现有确诊趋势预测'
+                    },
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    animation: false,
+
+                    legend: {
+                        data: ['确诊预测', '累计确诊']
+                    },
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: json_data['predictseries']
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [
+                        {
+                            name: '确诊预测',
+                            type: 'line',
+                            data: json_data['chinaPredict']['confirmedtotal']
+                        },
+                        {
+                            name: '累计确诊',
+                            type: 'line',
+                            data: json_data['china']['confirmedtotal']
+                        }
+                    ]
+                };
+                // 使用刚指定的配置项和数据显示图表。
+                myChart6.setOption(option6);
+
+                var option7 = {
+                    title: {
+                        text: '世界累计确诊'
+                    },
+                    tooltip: {
+                        formatter: function (params, ticket, callback) {
+                            return params.seriesName + '<br />' + params.name + '：' + params.value
+                        }//数据格式化
+                    },
+                    animation: false,
+
+                    visualMap: {
+                        min: 0,
+                        max: 10000,
+                        left: '0',
+                        bottom: '10',
+                        splitNumber: 5,
+                        itemWidth: 10,
+                        itemHeight: 10,
+                        color: ['#610105', '#8e0d08', '#d12d2e', '#fd796a', '#ffad81', '#F8F8FF'],
+                        pieces: [
+                            { min: 1000000 },
+                            { min: 100000, max: 999999 },
+                            { min: 10000, max: 99999 },
+                            { min: 1000, max: 9999 },
+                            { min: 500, max: 999 },
+                            { min: 100, max: 499 },
+                            { min: 10, max: 99 },
+                            { min: 1, max: 9 },
+                            { min: 0, max: 0 }
+                        ],
+
+                        show: true//图注
+                    },
+                    geo: {
+                        map: 'world',
+                        roam: false,//不开启缩放和平移
+                        zoom: 1.23,//视角缩放比例
+                        label: {
+                            normal: {
+                                show: false,
+                                fontSize: '10',
+                                color: 'rgba(0,0,0,0.7)'
+                            }
+                        },
+                        itemStyle: {
+                            normal: {
+                                borderColor: 'rgba(0, 0, 0, 0.2)'
+                            },
+                            emphasis: {
+                                areaColor: '#F3B329',//鼠标选择区域颜色
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                shadowBlur: 20,
+                                borderWidth: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    },
+                    series: [
+                        {
+                            name: '累计确诊',
+                            type: 'map',
+                            geoIndex: 0,
+                            data: json_data['worldmap']['confirmedtotal']
+                        }
+                    ],
+                    animation: false,
+
+                }
+                myChart7.setOption(option7);
+                var option8 = {
+                    title: {
+                        text: '全国治愈率/病死率趋势'
+                    },
+                    tooltip: {
+                        trigger: 'axis',
+                        show: true,
+                        formatter: '{b0}<br/>{a0}: {c0}%<br />{a1}: {c1}% ',
+                    },
+                    animation: false,
+
+                    legend: {
+                        data: ['治愈率', '病死率']
+                    },
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: json_data['timeseries']
+                    },
+                    yAxis: {
+                        type: 'value',
+                        axisLabel: {
+                            show: true,
+                            formatter: '{value}%'
+                        },
+                    },
+                    series: [
+                        {
+                            name: '治愈率',
+                            type: 'line',
+                            data: json_data['china']['cures']
+                        },
+                        {
+                            name: '病死率',
+                            type: 'line',
+                            data: json_data['china']['deaths'],
+                        },
+
+                    ]
+                };
+                // 使用刚指定的配置项和数据显示图表。
+                myChart8.setOption(option8);
+
+                option9 = {
+                    title: {
+                        text: '海外多国累计确诊top10'
+                    },
+                    legend: {},
+                    tooltip: {},
+                    xAxis: {
+                        type: 'category',
+                        data: json_data['worldTop']['confirmedtotal']['name'],
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    animation: false,
+
+                    series: [{
+                        name: '累计确诊',
+                        data: json_data['worldTop']['confirmedtotal']['value'],
+                        type: 'bar'
+                    }]
+                };
+                myChart9.setOption(option9);
+
+                option10 = {
+                    title: {
+                        text: '海外多国现存确诊top10'
+                    },
+                    legend: {},
+                    tooltip: {},
+                    xAxis: {
+                        type: 'category',
+                        data: json_data['worldTop']['confirmedexist']['name'],
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    animation: false,
+
+                    series: [{
+                        name: '现存确诊',
+                        data: json_data['worldTop']['confirmedexist']['value'],
+                        type: 'bar'
+                    }]
+                };
+                myChart10.setOption(option10);
+
+                var option11 = {
+                    title: {
+                        text: '中国治愈率'
+                    },
+                    tooltip: {
+                        formatter: function (params, ticket, callback) {
+                            return params.seriesName + '<br />' + params.name + '：' + params.value + '%'
+                        }//数据格式化
+                    },
+
+                    visualMap: {
+                        min: 0,
+                        max: 100,
+                        left: '0',
+                        bottom: '10',
+                        splitNumber: 5,
+                        itemWidth: 10,
+                        itemHeight: 10,
+                        color: ['#7FFF00', '#ADFF2F', '#9AFF9A', '#97FFFF',],
+                        pieces: [
+                            { min: 95, max: 100, label: '95% - 100%' },
+                            { min: 90, max: 95, label: '90% - 95%' },
+                            { min: 80, max: 90, label: '80% - 90%' },
+                            { min: 50, max: 80, label: '50% - 80%' },
+                            { min: 0, max: 50, label: '0 - 50%' }
+                        ],
+
+                        show: true//图注
+                    },
+                    geo: {
+                        map: 'china',
+                        roam: false,//不开启缩放和平移
+                        zoom: 1.23,//视角缩放比例
+                        label: {
+                            normal: {
+                                show: true,
+                                fontSize: '10',
+                                color: 'rgba(0,0,0,0.7)'
+                            }
+                        },
+                        itemStyle: {
+                            normal: {
+                                borderColor: 'rgba(0, 0, 0, 0.2)'
+                            },
+                            emphasis: {
+                                areaColor: '#F3B329',//鼠标选择区域颜色
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                shadowBlur: 20,
+                                borderWidth: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    },
+                    series: [
+                        {
+                            name: '治愈率',
+                            type: 'map',
+                            geoIndex: 0,
+                            data: json_data['map']['curesRate']
+                        }
+                    ]
+                };
+                myChart11.setOption(option11);
+
+                option12 = {
+                    title: {
+                        text: '中国死亡率top10'
+                    },
+                    animation: false,
+
+                    legend: {},
+                    tooltip: {},
+                    xAxis: {
+                        type: 'category',
+                        data: json_data['chinaTop']['deathsRate']['name'],
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [{
+                        name: '现存确诊',
+                        data: json_data['chinaTop']['deathsRate']['value'],
+                        type: 'bar'
+                    }]
+                };
+                myChart12.setOption(option12);
+
+                var option13 = {
+                    title: {
+                        text: '中国累计死亡'
+                    },
+                    tooltip: {
+                        formatter: function (params, ticket, callback) {
+                            return params.seriesName + '<br />' + params.name + '：' + params.value
+                        }//数据格式化
+                    },
+                    visualMap: {
+                        min: 0,
+                        max: 100,
+                        left: '0',
+                        bottom: '10',
+                        splitNumber: 5,
+                        itemWidth: 10,
+                        itemHeight: 10,
+                        color: ['#000000', '#2F4F4F', '#696969', '#808080', '#778899', '#C0C0C0', '#FFFFFF'],
+                        pieces: [
+                            { min: 10000 },
+                            { min: 1000, max: 9999 },
+                            { min: 500, max: 999 },
+                            { min: 100, max: 499 },
+                            { min: 10, max: 99 },
+                            { min: 1, max: 9 },
+                            { min: 0, max: 0 }
+                        ],
+
+                        show: true//图注
+                    },
+                    geo: {
+                        map: 'china',
+                        roam: false,//不开启缩放和平移
+                        zoom: 1.23,//视角缩放比例
+                        label: {
+                            normal: {
+                                show: true,
+                                fontSize: '10',
+                                color: 'rgba(0,0,0,0.7)'
+                            }
+                        },
+                        itemStyle: {
+                            normal: {
+                                borderColor: 'rgba(0, 0, 0, 0.2)'
+                            },
+                            emphasis: {
+                                areaColor: '#F3B329',//鼠标选择区域颜色
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                shadowBlur: 20,
+                                borderWidth: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    },
+
+                    series: [
+                        {
+                            name: '累计死亡',
+                            type: 'map',
+                            geoIndex: 0,
+                            data: json_data['map']['deaths']
+                        }
+                    ]
+                };
+                myChart13.setOption(option13);
+
+                var option14 = {
+                    title: {
+                        text: '中国死亡率'
+                    },
+                    tooltip: {
+                        formatter: function (params, ticket, callback) {
+                            return params.seriesName + '<br />' + params.name + '：' + params.value + '%'
+                        }//数据格式化
+                    },
+
+                    visualMap: {
+                        min: 0,
+                        max: 100,
+                        left: '0',
+                        bottom: '10',
+                        splitNumber: 5,
+                        itemWidth: 10,
+                        itemHeight: 10,
+                        color: ['#000000', '#2F4F4F', '#808080', '#C0C0C0', '#FFFFFF'],
+                        pieces: [
+                            { min: 50, label: '>50% ' },
+                            { min: 10, max: 50, label: '10% - 50%' },
+                            { min: 5, max: 10, label: '5% - 10%' },
+                            { min: 0, max: 5, label: '0 - 5%' },
+                            { min: 0, max: 0, label: '0' }
+                        ],
+
+                        show: true//图注
+                    },
+                    geo: {
+                        map: 'china',
+                        roam: false,//不开启缩放和平移
+                        zoom: 1.23,//视角缩放比例
+                        label: {
+                            normal: {
+                                show: true,
+                                fontSize: '10',
+                                color: 'rgba(0,0,0,0.7)'
+                            }
+                        },
+                        itemStyle: {
+                            normal: {
+                                borderColor: 'rgba(0, 0, 0, 0.2)'
+                            },
+                            emphasis: {
+                                areaColor: '#F3B329',//鼠标选择区域颜色
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                shadowBlur: 20,
+                                borderWidth: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    },
+                    series: [
+                        {
+                            name: '死亡率',
+                            type: 'map',
+                            geoIndex: 0,
+                            data: json_data['map']['deathsRate']
+                        }
+                    ]
+                };
+                myChart14.setOption(option14);
+
+                var option15 = {
+                    title: {
+                        text: '世界现存确诊'
+                    },
+
+                    tooltip: {
+                        formatter: function (params, ticket, callback) {
+                            return params.seriesName + '<br />' + params.name + '：' + params.value
+                        }//数据格式化
+                    },
+                    visualMap: {
+                        min: 0,
+                        max: 10000,
+                        left: '0',
+                        bottom: '10',
+                        splitNumber: 5,
+                        itemWidth: 10,
+                        itemHeight: 10,
+                        color: ['#610105', '#8e0d08', '#d12d2e', '#fd796a', '#ffad81', '#F8F8FF'],
+                        pieces: [
+                            { min: 1000000 },
+                            { min: 100000, max: 999999 },
+                            { min: 10000, max: 99999 },
+                            { min: 1000, max: 9999 },
+                            { min: 500, max: 999 },
+                            { min: 100, max: 499 },
+                            { min: 10, max: 99 },
+                            { min: 1, max: 9 },
+                            { min: 0, max: 0 }
+                        ],
+
+                        show: true//图注
+                    },
+                    geo: {
+                        map: 'world',
+                        roam: false,//不开启缩放和平移
+                        zoom: 1.23,//视角缩放比例
+                        label: {
+                            normal: {
+                                show: false,
+                                fontSize: '10',
+                                color: 'rgba(0,0,0,0.7)'
+                            }
+                        },
+                        itemStyle: {
+                            normal: {
+                                borderColor: 'rgba(0, 0, 0, 0.2)'
+                            },
+                            emphasis: {
+                                areaColor: '#F3B329',//鼠标选择区域颜色
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                shadowBlur: 20,
+                                borderWidth: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    },
+                    series: [
+                        {
+                            name: '现存确诊',
+                            type: 'map',
+                            geoIndex: 0,
+                            data: json_data['worldmap']['confirmedexist']
+                        }
+                    ]
+
+                }
+                myChart15.setOption(option15);
+
+                var option16 = {
+                    title: {
+                        text: '世界累计死亡'
+                    },
+                    tooltip: {
+                        formatter: function (params, ticket, callback) {
+                            return params.seriesName + '<br />' + params.name + '：' + params.value
+                        }//数据格式化
+                    },
+
+                    visualMap: {
+                        min: 0,
+                        max: 10000,
+                        left: '0',
+                        bottom: '10',
+                        splitNumber: 5,
+                        itemWidth: 10,
+                        itemHeight: 10,
+                        color: ['#000000', '#2F4F4F', '#696969', '#808080', '#778899', '#C0C0C0', '#FFFFFF'],
+                        pieces: [
+                            { min: 1000000 },
+                            { min: 100000, max: 999999 },
+                            { min: 10000, max: 99999 },
+                            { min: 1000, max: 9999 },
+                            { min: 500, max: 999 },
+                            { min: 100, max: 499 },
+                            { min: 10, max: 99 },
+                            { min: 1, max: 9 },
+                            { min: 0, max: 0 }
+                        ],
+
+                        show: true//图注
+                    },
+                    geo: {
+                        map: 'world',
+                        roam: false,//不开启缩放和平移
+                        zoom: 1.23,//视角缩放比例
+                        label: {
+                            normal: {
+                                show: false,
+                                fontSize: '10',
+                                color: 'rgba(0,0,0,0.7)'
+                            }
+                        },
+                        itemStyle: {
+                            normal: {
+                                borderColor: 'rgba(0, 0, 0, 0.2)'
+                            },
+                            emphasis: {
+                                areaColor: '#F3B329',//鼠标选择区域颜色
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                shadowBlur: 20,
+                                borderWidth: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    },
+                    series: [
+                        {
+                            name: '累计死亡',
+                            type: 'map',
+                            geoIndex: 0,
+                            data: json_data['worldmap']['deaths']
+                        }
+                    ]
+
+                }
+                myChart16.setOption(option16);
+
+                var option17 = {
+                    title: {
+                        text: '世界死亡率'
+                    },
+                    tooltip: {
+                        formatter: function (params, ticket, callback) {
+                            return params.seriesName + '<br />' + params.name + '：' + params.value + '%'
+                        }//数据格式化
+                    },
+
+                    visualMap: {
+                        min: 0,
+                        max: 10000,
+                        left: '0',
+                        bottom: '10',
+                        splitNumber: 5,
+                        itemWidth: 10,
+                        itemHeight: 10,
+                        color: ['#000000', '#2F4F4F', '#696969', '#808080', '#778899', '#C0C0C0', '#FFFFFF'],
+                        pieces: [
+                            { min: 50, label: '>50% ' },
+                            { min: 10, max: 50, label: '10% - 50%' },
+                            { min: 5, max: 10, label: '5% - 10%' },
+                            { min: 0, max: 5, label: '0 - 5%' },
+                            { min: 0, max: 0, label: '0' }
+                        ],
+
+                        show: true//图注
+                    },
+                    geo: {
+                        map: 'world',
+                        roam: false,//不开启缩放和平移
+                        zoom: 1.23,//视角缩放比例
+                        label: {
+                            normal: {
+                                show: false,
+                                fontSize: '10',
+                                color: 'rgba(0,0,0,0.7)'
+                            }
+                        },
+                        itemStyle: {
+                            normal: {
+                                borderColor: 'rgba(0, 0, 0, 0.2)'
+                            },
+                            emphasis: {
+                                areaColor: '#F3B329',//鼠标选择区域颜色
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                shadowBlur: 20,
+                                borderWidth: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    },
+                    series: [
+                        {
+                            name: '死亡率',
+                            type: 'map',
+                            geoIndex: 0,
+                            data: json_data['worldmap']['deathsRate']
+                        }
+                    ]
+
+                }
+                myChart17.setOption(option17);
+
+                var option18 = {
+                    title: {
+                        text: '世界治愈率'
+                    },
+
+                    tooltip: {
+                        formatter: function (params, ticket, callback) {
+                            return params.seriesName + '<br />' + params.name + '：' + params.value + '%'
+                        }//数据格式化
+                    },
+                    visualMap: {
+                        min: 0,
+                        max: 100,
+                        left: '0',
+                        bottom: '10',
+                        splitNumber: 5,
+                        itemWidth: 10,
+                        itemHeight: 10,
+                        color: ['#7FFF00', '#ADFF2F', '#9AFF9A', '#97FFFF',],
+                        pieces: [
+                            { min: 95, max: 100, label: '95% - 100%' },
+                            { min: 90, max: 95, label: '90% - 95%' },
+                            { min: 80, max: 90, label: '80% - 90%' },
+                            { min: 50, max: 80, label: '50% - 80%' },
+                            { min: 0, max: 50, label: '0 - 50%' }
+                        ],
+
+                        show: true//图注
+                    },
+                    geo: {
+                        map: 'world',
+                        roam: false,//不开启缩放和平移
+                        zoom: 1.23,//视角缩放比例
+                        label: {
+                            normal: {
+                                show: false,
+                                fontSize: '10',
+                                color: 'rgba(0,0,0,0.7)'
+                            }
+                        },
+                        itemStyle: {
+                            normal: {
+                                borderColor: 'rgba(0, 0, 0, 0.2)'
+                            },
+                            emphasis: {
+                                areaColor: '#F3B329',//鼠标选择区域颜色
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                shadowBlur: 20,
+                                borderWidth: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    },
+                    series: [
+                        {
+                            name: '治愈率',
+                            type: 'map',
+                            geoIndex: 0,
+                            data: json_data['worldmap']['curesRate']
+                        }
+                    ]
+                };
+                myChart18.setOption(option18);
+                function getFullCanvasDataURL(divId) {
+                    //将第一个画布作为基准。
+                    var baseCanvas = $("#" + divId).find("canvas").first()[0];
+                    if (!baseCanvas) {
+                        return false;
+                    };
+                    var width = baseCanvas.width;
+                    var height = baseCanvas.height;
+                    var ctx = baseCanvas.getContext("2d");
+                    //遍历，将后续的画布添加到在第一个上
+                    $("#" + divId).find("canvas").each(function (i, canvasObj) {
+                        if (i > 0) {
+                            var canvasTmp = $(canvasObj)[0];
+                            ctx.drawImage(canvasTmp, 0, 0, width, height);
+                        }
+                    });
+                    //获取base64位的url
+                    return baseCanvas.toDataURL();
+                }
 
 
-                },//success末尾
+
+
+                var users = {
+
+                    name1: String(getFullCanvasDataURL('main1')),
+                    name2: String(getFullCanvasDataURL('main2')),
+                    name3: String(getFullCanvasDataURL('main3')),
+                    name4: String(getFullCanvasDataURL('main4')),
+                    name5: String(getFullCanvasDataURL('main5')),
+                    name6: String(getFullCanvasDataURL('main6')),
+                    name7: String(getFullCanvasDataURL('main7')),
+                    name8: String(getFullCanvasDataURL('main8')),
+                    name9: String(getFullCanvasDataURL('main9')),
+                    name10: String(getFullCanvasDataURL('main10')),
+                    name11: String(getFullCanvasDataURL('main11')),
+                    name12: String(getFullCanvasDataURL('main12')),
+                    name13: String(getFullCanvasDataURL('main13')),
+                    name14: String(getFullCanvasDataURL('main14')),
+                    name15: String(getFullCanvasDataURL('main15')),
+                    name16: String(getFullCanvasDataURL('main16')),
+                    name17: String(getFullCanvasDataURL('main17')),
+                    name18: String(getFullCanvasDataURL('main18')),
+
+
+                };
+
+                $.ajax({
+
+                    type: 'POST',
+
+                    data: JSON.stringify(users),
+
+                    contentType: 'application/json; charset=UTF-8',
+                    dataType: 'json',
+
+                    url: '/res',
+
+                    success: function (data) {
+
+                        alert("OK");
+
+                    },
+
+                    error: function (e) {
+
+                        alert("error");
+
+                    }
+                })
+
+
+            },//success末尾
 
 
 
 
 
-            }
+        }
 
 
-            )
-            //ajax末尾
-
-    
-        //function末尾                    
+        )
+                                                    //ajax末尾
 
 
+                                                //function末尾
 
-                
+
+
+
     </script>
 </body>
 </html>

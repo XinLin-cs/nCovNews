@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -83,7 +83,19 @@
         .homework li {
             list-style-type: none;
            
-        }    
+        }
+
+        .imgdiv {
+            width: 80px;
+            height: 70px;
+            float: left;
+        }
+
+        .imgcss {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
     </style>
 </head>
 
@@ -120,18 +132,24 @@
                 </li>
 
 
-                {% if userid %}
+                {% if user %}
                 <li style="float:right;width:auto ">
-                    <a href=""><p style=" font-size :20px; color :deepskyblue">欢迎，{{username}}</p></a>
+                    <a href=""><p style=" font-size :20px; color :deepskyblue">欢迎，{{user.name}}</p></a>
                     <div class="homework" style=" height :0px;">
-                        <div style=" background-color:darkgrey  ;height :60px">                         
+                        <div style=" background-color:darkgrey  ;height :60px">
                             <h style="font-size: 15px; text-align: center; font-weight :500; line-height: 60px; ">
-                                <a href="{{ url_for('setphoto') }}">设置头像</a> |  <a href="{{ url_for('logout') }}">注销</a>
+                                <button type="button" class="btn btn-info">
+                                    <a href="{{ url_for('setphoto') }}">设置头像</a>
+                                </button>
+                                <button type="button" class="btn btn-danger">
+                                    <a href="{{ url_for('logout') }}">注销</a>
+                                </button>
                             </h>
-                                                     
+
                         </div>
-                       
+
                     </div>
+                    
                 </li>
                 {% else %}
                 <li style="float:right;"><a href="{{ url_for('login') }}">登录</a></li>
