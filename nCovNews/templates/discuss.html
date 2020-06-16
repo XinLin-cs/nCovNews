@@ -34,21 +34,49 @@
         resize: none;
     }
 
-    .btn.btn-success{
-        max-width:60px;
-        max-height:60px;
-        height:60px;
-        width:60px;
+    .btn.btn-success {
+        max-width: 60px;
+        max-height: 60px;
+        height: 60px;
+        width: 60px;
     }
-</style>
 
-<style>
+
+    .comment {
+        width: 900px;
+    }
+
+    .imgdiv {
+        width: 80px;
+        height: 70px;
+        float: left;
+    }
+
+    .imgcss {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+    }
+
+    .comment_name {
+        margin-left: 10px;
+        color: #4800ff;
+        font-size: 16px;
+        font-weight: bolder;
+    }
+
+    .del {
+        float: right;
+    }
     .tt {
         width: 100px;
         position: fixed;
         bottom: 5%;
-        right : 5%;
+        right: 5%;
     }
+</style>
+<style>
+  
 </style>
 
 <script >
@@ -84,7 +112,7 @@
 
 
 
-<div class="ss2" style=" display :none;opacity:0.9" id="hd">
+<div class="ss2" style=" display :none;opacity:1;z-index :15" id="hd">
     <button class="btn btn-primary" style="float:right;" onclick="out()">
         <div id="dis2" style=" display :none">收起</div>
     </button>
@@ -125,34 +153,7 @@
 
 
 
-<style>
-    .comment {
-        width: 900px;
-    }
 
-    .imgdiv {
-        width: 80px;
-        height: 70px;
-        float: left;
-    }
-
-    .imgcss {
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-    }
-
-    .comment_name {
-        margin-left: 10px;
-        color: #4800ff;
-        font-size: 16px;
-        font-weight: bolder;
-    }
-
-    .del {
-        float: right;
-    }
-</style>
 
 <div >
     {% for item in dislist %}
