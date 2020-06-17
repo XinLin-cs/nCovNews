@@ -1,0 +1,260 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<style>
+    div.ex1 {
+        height: 200px;
+        width: 100%;
+        border: 0px solid gray;
+        margin: 0px;
+        border-radius: 20px;
+        background-color: #414ab3;
+        text-align: center;
+        line-height: 200px;
+    }
+
+    div.ex2 {
+        height: 140px;
+        width: 100%;
+        border: 0px solid gray;
+        margin: 0px;
+        border-radius: 20px;
+        background-color: #c84cb7;
+        text-align: center;
+        line-height: 150px;
+    }
+
+    div.ex3 {
+        height: 140px;
+        width: 100%;
+        border: 0px solid gray;
+        margin: 0px;
+        border-radius: 20px;
+        background-color: #b8c242;
+        text-align: center;
+        line-height: 150px;
+    }
+
+    div.ex4 {
+        height: 170px;
+        width: 100%;
+        border: 1px solid gray;
+        margin: 0px;
+        border-radius: 20px;
+        background-color: #d28955;
+        text-align: center;
+        line-height: 150px;
+    }
+
+    div.ex5 {
+        height: 170px;
+        width: 100%;
+        border: 0px solid gray;
+        margin: 0px;
+        border-radius: 20px;
+        background-color: #67d4d4;
+        text-align: center;
+        line-height: 150px;
+    }
+
+    .ps {
+        text-indent: 20px;
+    }
+
+    .hide {
+        display: none;
+    }
+
+    .sucenter {
+        position: fixed;
+        top: 40%;
+        left: 80%;
+        z-index: 99
+    }
+
+    .hs {
+        font-size: 20px;
+        font-family: Arial,Helvetica,sans-serif;
+        font-weight: 400;
+        color: #000000
+    }
+
+    div.su1 {
+        height: 250px;
+        border: 1px solid gray;
+        margin: 0px;
+        border-radius: 20px;
+        background-color: #f7f0cd
+    }
+
+    .index-h1 {
+        font-size: 50px;
+        font-family: Arial,Helvetica,sans-serif;
+        font-weight: 600;
+        color: #ffffff
+    }
+</style>
+
+
+<style>
+    table {
+        width: 1150px;
+        height: 100px;
+        border-collapse: collapse;
+    }
+
+
+    h1 {
+        font-size: 30px;
+        font-family: Arial,Helvetica,sans-serif;
+        font-weight: 200;
+    }
+
+    h2 {
+        font-size: 20px;
+        font-family: Arial,Helvetica,sans-serif;
+        font-weight: 100;
+    }
+
+    .tah {
+        font-size: 60px;
+        font-family: Arial,Helvetica,sans-serif;
+        font-weight: 300;
+    }
+
+    .tah2 {
+        font-size: 40px;
+        font-family: Arial,Helvetica,sans-serif;
+        font-weight: 300;
+    }
+
+    .tah0 {
+        font-size: 60px;
+        font-family: Arial,Helvetica,sans-serif;
+        font-weight: 400;
+    }
+
+
+    .tdh {
+        font-size: 20px;
+        font-family: Arial,Helvetica,sans-serif;
+        font-weight: 400;
+    }
+
+    .tdhn {
+        font-size: 30px;
+        font-family: Arial,Helvetica,sans-serif;
+        font-weight: 600;
+    }
+</style>
+
+<br />
+<br />
+
+<div style=" background-color :#e1dfdf;border-radius: 20px;opacity :0.9 ">
+    <p class="tah0" style=" text-align:center; ">今日疫情概览</p>
+
+    <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-10">
+            <div id="china">
+                <h class="tah2">中国实时疫情<p style=" float:right;font-size :20px;"> 数据截止日期：{{chinatotal.date}}</p></h>
+                <table>
+                    <tr>
+                        <td class="tdh">确诊人数</td>
+                        <td class="tdh">疑似人数</td>
+                        <td class="tdh">治愈人数</td>
+                        <td class="tdh">死亡人数</td>
+                        <td class="tdh"> 无症状感染人数</td>
+                    </tr>
+                    <tr>
+                        <td class="tdhn" style="color:red">{{chinatotal.confirmed}}</td>
+                        <td class="tdhn" style="color:sandybrown">{{chinatotal.suspected}}</td>
+                        <td class="tdhn" style="color:forestgreen">{{chinatotal.cures}}</td>
+                        <td class="tdhn" style="color:dimgray">{{chinatotal.deaths}}</td>
+                        <td class="tdhn" style="color:dodgerblue">{{chinatotal.asymptomatic}}</td>
+                    </tr>
+                </table>
+            </div>
+            <hr />
+            <div id="others">
+                <h class="tah2">海外实时疫情<p style=" float:right;font-size :20px;"> 数据截止日期：{{worldtotal.date}}</p></h>
+                <table>
+                    <tr>
+                        <td class="tdh">确诊人数</td>
+                        <td class="tdh">治愈人数</td>
+                        <td class="tdh">死亡人数</td>
+                    </tr>
+                    <tr>
+                        <td class="tdhn" style="color:red">{{worldtotal.confirmed}}</td>
+                        <td class="tdhn" style="color:forestgreen">{{worldtotal.cures}}</td>
+                        <td class="tdhn" style="color:dimgray">{{worldtotal.deaths}}</td>
+                    </tr>
+                </table>
+                <br />
+                <br />
+            </div>
+        </div>
+        <div class="col-md-1">
+        </div>
+    </div>
+
+</div>
+
+
+
+<br />
+<br />
+<div class="row ">
+    <div class="col-md-6 ">
+
+        <a href="{{ url_for('analyze') }}">
+            <div class="ex1 ">
+                <h class=" index-h1">疫情趋势分析</h>
+            </div>
+        </a>
+        <br />
+
+        <div class="row">
+            <div class="col-md-5 ">
+                <a href="{{ url_for('test') }}">
+                    <div class="ex2 ">
+                        <h class="index-h1">疫情知识</h>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-7 ">
+                <a href="{{ url_for('news') }}">
+                    <div class="ex3 ">
+                        <h class="index-h1">疫情新闻</h>
+                    </div>
+                </a>
+            </div>
+
+        </div><br />
+
+    </div>
+    <div class="col-md-6 ">
+        <a href="{{ url_for('overview') }}">
+            <div class="ex4 ">
+
+                <h class="index-h1"> 疫情地图</h>
+            </div>
+        </a>
+        <br />
+        <a href="{{ url_for('discuss') }}">
+            <div class="ex5 ">
+                <h class=" index-h1"> 讨论区</h>
+            </div>
+        </a>
+        <br />
+
+        
+
+    </div>
+</div>
+
+<br />
+
+{% endblock %}

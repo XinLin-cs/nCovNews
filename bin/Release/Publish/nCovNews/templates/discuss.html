@@ -1,0 +1,196 @@
+{% extends "layout.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block content %}
+
+
+<head>
+
+
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css" />
+</head>
+<style>
+    .ss2 {
+        width: 75%;
+        opacity: 1;
+        z-index: 10;
+        position: fixed;
+        bottom: 0;
+        background-color: azure;
+        border-radius: 10px;
+    }
+
+    .stable2 {
+        border-collapse: collapse;
+    }
+
+    .imgcss2 {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+
+    textarea {
+        max-width: 100%;
+        resize: none;
+    }
+
+    .btn.btn-success {
+        max-width: 60px;
+        max-height: 60px;
+        height: 60px;
+        width: 60px;
+    }
+
+
+    .comment {
+        width: 900px;
+    }
+
+    .imgdiv {
+        width: 80px;
+        height: 70px;
+        float: left;
+    }
+
+    .imgcss {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+    }
+
+    .comment_name {
+        margin-left: 10px;
+        color: #4800ff;
+        font-size: 16px;
+        font-weight: bolder;
+    }
+
+    .del {
+        float: right;
+    }
+    .tt {
+        width: 100px;
+        position: fixed;
+        bottom: 5%;
+        right: 5%;
+    }
+</style>
+<style>
+  
+</style>
+
+<script >
+    function out() {
+        if (hd.style.display == "block") {
+            hd.style.display = "none";
+           
+        }
+        else {
+            hd.style.display = "block";
+           
+        }
+        if (dis1.style.display == "block") {
+            dis1.style.display = "none";
+            sb.style.display = "none";
+            dis2.style.display = "block";
+        }
+        else {
+            dis2.style.display = "none";
+            dis1.style.display = "block";
+            sb.style.display = "block";
+        }
+    }
+</script>
+<div class="tt" style=" display : block " id="sb">
+    <button type="button" class="btn btn-primary" onclick=" out()">
+        <div id="dis1" style=" display :block">
+            发表评论
+        </div>     
+    </button>
+</div>
+
+
+
+
+<div class="ss2" style=" display :none;opacity:1;z-index :15" id="hd">
+    <button class="btn btn-primary" style="float:right;" onclick="out()">
+        <div id="dis2" style=" display :none">收起</div>
+    </button>
+    {% if user %}
+    <div class="row">        
+        <div class="col-md-1 ">
+            <div class="imgdiv" style=" height :140px; line-height :140px;" align="right">
+                <img class="imgcss2" src="../static/images/headp/{{user.photo}}" />
+
+            </div>
+        </div>
+        <div class=" col-md-10 ">
+            <form class="form" method="POST">
+                <br />{{ form.csrf_token }}
+                <div class=" row ">
+                    <div class=" col-md-10 ">{{ wtf.form_field(form.word) }}</div>
+                    <div class=" col-md-2 ">
+                        <br />
+                        {{ wtf.form_field(form.post,button_map={'post':'success'}) }}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    {% else %}
+    <div class=" col-md-1 "></div>
+    <div class=" col-md-11 ">
+        <p style=" font-size :40px;font-weight :200">您还未登录，登录后才可以发表评论，请先<a href="{{ url_for('login') }}">登录</a></p>
+        <p style=" font-size :30px;font-weight :200">如果您还未注册，请先<a href="{{ url_for('register') }}">注册</a></p>
+    </div>
+    {% endif %}
+    <br>
+</div>
+
+
+
+
+
+
+
+
+
+<div >
+    {% for item in dislist %}
+    <div style=" background-color :floralwhite ;opacity :0.9; border-radius: 15px;">
+        <hr />
+        <div class="comment">
+            <div class=" row">
+                <div class=" col-md-1 "></div>
+                <div class=" col-md-1 ">
+                    <div class="imgdiv">
+                        <img class="imgcss" src="../static/images/headp/{{item.userphoto}}" />
+                    </div>
+                </div>
+                <div class=" col-md-10 ">
+                    <a href="{{ url_for('discuss_detail',discussid=item.id) }}">
+                        <div style=" width :100%;background-color :none ;">
+                            <p class="comment_name" style="float:left;">{{item.username}} ({{item.userid}})</p>
+                            <p style="float:right;">{{item.date}}</p>
+                            <br />
+                            <br />
+                            <h style=" text-indent: 50px;font-size: 30px;font-weight: 200;float :left;word-break: break-all ">
+                                {{item.word}}
+                        </div>
+                    </a>
+                </div>
+                
+            </div>
+            <br>
+        </div>
+    </div>
+   
+    
+
+
+    
+    {% endfor %}
+</div>
+
+
+{% endblock %}

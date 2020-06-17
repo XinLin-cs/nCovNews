@@ -1,0 +1,229 @@
+{% extends "layout.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block content %}
+
+
+<head>
+
+
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css" />
+</head>
+
+<style>
+    .back {
+        width: 100px;
+        position: fixed;
+        bottom: 85%;
+        left : 5%;
+    }
+
+    .ss2 {
+        width: 75%;
+        opacity: 1;
+        z-index: 10;
+        position: fixed;
+        bottom: 0;
+        background-color: azure;
+        border-radius: 10px;
+    }
+
+    .stable2 {
+        border-collapse: collapse;
+    }
+
+    .imgcss2 {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+
+    textarea {
+        max-width: 100%;
+        resize: none;
+    }
+
+    .btn.btn-success {
+        max-width: 60px;
+        max-height: 60px;
+        height: 60px;
+        width: 60px;
+    }
+
+
+    .comment {
+        width: 900px;
+    }
+
+    .imgdiv {
+        width: 80px;
+        height: 70px;
+        float: left;
+    }
+
+    .imgcss {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+    }
+
+    .comment_name {
+        margin-left: 10px;
+        color: #4800ff;
+        font-size: 16px;
+        font-weight: bolder;
+    }
+
+    .del {
+        float: right;
+    }
+    .tt {
+        width: 100px;
+        position: fixed;
+        bottom: 5%;
+        right : 5%;
+    }
+</style>
+
+
+
+<div class=" back">
+    <button type="button" class="btn btn-primary" onclick="javascript:window.location.href=' /discuss'">
+        <div id="dis1" style=" display :block">
+            返回评论区
+        </div>
+    </button>
+</div>
+
+<script>
+    function out() {
+        if (hd.style.display == "block") {
+            hd.style.display = "none";
+
+        }
+        else {
+            hd.style.display = "block";
+
+        }
+        if (dis1.style.display == "block") {
+            dis1.style.display = "none";
+            sb.style.display = "none";
+           
+        }
+        else {
+          
+            dis1.style.display = "block";
+            sb.style.display = "block";
+        }
+    }
+</script>
+<div class="tt" style=" display : block " id="sb">
+    <button type="button" class="btn btn-primary" onclick=" out()">
+        <div id="dis1" style=" display :block">
+            发表回复
+        </div>
+    </button>
+</div>
+
+
+<div class="ss2" style=" display :none;opacity:1;z-index :15" id="hd">
+    <button class="btn btn-primary" style="float:right;" onclick="out()">
+        <div>收起</div>
+    </button>
+    {% if user %}
+    <div class="row">
+        <div class="col-md-1 ">
+            <div class="imgdiv" style=" height :140px; line-height :140px;" align="right">
+                <img class="imgcss2" src="../static/images/headp/{{user.photo}}" />
+
+            </div>
+        </div>
+        <div class=" col-md-10 ">
+            <form class="form" method="POST">
+                <br />{{ form.csrf_token }}
+                <div class=" row ">
+                    <div class=" col-md-10 ">{{ wtf.form_field(form.word) }}</div>
+                    <div class=" col-md-2 ">
+                        <br />
+                        {{ wtf.form_field(form.post,button_map={'post':'success'}) }}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    {% else %}
+    <div class=" col-md-1 "></div>
+    <div class=" col-md-11 ">
+        <p style=" font-size :40px;font-weight :200">您还未登录，登录后才可以发表评论，请先<a href="{{ url_for('login') }}">登录</a></p>
+        <p style=" font-size :30px;font-weight :200">如果您还未注册，请先<a href="{{ url_for('register') }}">注册</a></p>
+    </div>
+    {% endif %}
+    <br>
+</div>
+
+
+
+
+
+
+
+
+<h1> 主题 </h1>
+<div style=" background-color :floralwhite ;opacity :0.9; border-radius: 15px;">
+
+    <hr />
+    <div class="comment">
+        <div class=" row">
+            <div class=" col-md-1 "></div>
+            <div class=" col-md-1 ">
+                <div class="imgdiv">
+                    <img class="imgcss2" src="../static/images/headp/{{user.photo}}" />
+                </div>
+            </div>
+            <div class=" col-md-10 ">
+                <p class="comment_name" style="float:left;">{{discuss.username}} ({{discuss.userid}})</p>
+                <p style="float:right;">{{discuss.date}}</p>
+                <br />
+                <br />
+                <p style=" text-indent: 50px;font-size: 30px;font-weight: 200;">
+                    {{discuss.word}}
+                </p>
+
+            </div>
+        </div>
+
+    </div>
+    <hr />
+
+</div>
+
+
+
+<h1> 回复 </h1>
+{% for item in replylist %}
+<div style=" background-color :aliceblue ;opacity :0.9; border-radius: 10px;">
+    <hr />
+    <div class="comment">
+        <div class=" row">
+            <div class=" col-md-1 "></div>
+            <div class=" col-md-1 ">
+                <div class="imgdiv">
+                    <img class="imgcss2" src="../static/images/headp/{{user.photo}}" />
+                </div>
+            </div>
+            <div class=" col-md-10 ">
+                <p class="comment_name" style="float:left;">{{item.username}} ({{item.userid}})</p>
+                <p style="float:right;">{{item.date}}</p>
+                <br />
+                <br />
+                <p style=" text-indent: 50px;font-size: 30px;font-weight: 200;">
+                    {{item.word}}
+                </p>
+            </div>
+        </div>
+    </div>
+    <br />
+</div>
+
+{% endfor %}
+
+{% endblock %}

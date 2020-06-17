@@ -1,0 +1,123 @@
+{% extends "layout.html" %}
+{% block content %}
+<style>
+    .sbody {
+        background-image: url('/static/images/yun.jpg');
+        background-attachment: fixed;
+        background-size: 100% 100%;
+    }
+</style>
+
+<div style=" background-color :white ">
+    <div class="carousel slide" id="carousel-83435">
+        <ol class="carousel-indicators">
+            <li data-slide-to="0" data-target="#carousel-83435">
+            </li>
+            <li data-slide-to="1" data-target="#carousel-83435">
+            </li>
+            <li data-slide-to="2" data-target="#carousel-83435" class="active">
+            </li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="item" style="text-align: center;">
+                <img alt="" src="../static/images/image1.jpg" style="margin: 0 auto;width :600px;height :400px;"  />
+                <div class="carousel-caption">
+                </div>
+            </div>
+            <div class="item">
+                <img alt="" src="../static/images/china2.jpg" style="margin: 0 auto;width :600px;height :400px;" />
+                <div class="carousel-caption">
+                </div>
+            </div>
+            <div class="item active">
+                <img alt="" src="../static/images/china4.jpg" style="margin: 0 auto;width :600px;height :400px;" />
+                <div class="carousel-caption">
+                </div>
+            </div>
+        </div> <a class="left carousel-control" href="#carousel-83435" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-83435" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div>
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>国家</th>
+                <th>累计确诊</th>
+                <th>治愈数</th>
+                <th>死亡数</th>
+                <th>现存确诊</th>
+                <th>治愈率</th>
+                <th>死亡率</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in oversea %}
+            <tr>
+                <td>
+                    <img src="{{flags[item.name]}}" style="  height:40px  ">
+                    {{item.name}}
+                </td>
+                <td>
+                    {{item.confirmed}}
+                    {% if  item.confirmedInc[1]=='0' %}
+                    <p style=" color :cornflowerblue ;">{{item.confirmedInc}}</p>
+                    {% elif  item.confirmedInc[0]=='+' %}
+                    {%  if item.confirmedInc[1]=='未' %}
+                    <p style=" color :black  "> {{item.confirmedInc}}</p>
+                    （% else %}
+                    <p style=" color :red "> {{item.confirmedInc}} &uarr; </p>
+                    {% endif %}
+
+
+                    {% else %}
+                    <p style=" color :cornflowerblue ;">{{item.confirmedInc}}&darr; </p>
+                    {% endif %}
+
+                </td>
+                <td>
+                    {{item.cures}}
+                    {% if  item.curesInc[1]=='0' %}
+                    <p style=" color :cornflowerblue ;"> {{item.curesInc}} </p>
+                    {% elif  item.curesInc[0]=='+' %}
+
+                    {%  if  item.curesInc[1]=='未' %}
+                    <p style=" color :black  "> {{item.curesInc}}</p>
+                    （% else %}
+                    <p style=" color :cornflowerblue  ">  {{item.curesInc}} &uarr; </p>
+                    {% endif %}
+
+                    
+                    {% else %}
+                    <p style=" color :red;"> {{item.curesInc}}&darr; </p>
+                    {% endif %}
+                </td>
+                <td>
+                    {{item.deaths}}
+                    {% if  item.deathsInc[1]=='0' %}
+                    <p style=" color :cornflowerblue ;"> {{item.deathsInc}} </p>
+                    {% elif  item.deathsInc[0]=='+' %}
+                    {%  if  item.deathsInc[1]=='未' %}
+                    <p style=" color :black  "> {{item.deathsInc}}</p>
+                    （% else %}
+                    <p style=" color :red   ">  {{item.deathsInc}} &uarr; </p>
+                    {% endif %}
+                    {% else %}
+                    <p style=" color :cornflowerblue ;"> {{item.deathsInc}} &darr; </p>
+                    {% endif %}
+                </td>
+                <td>
+                    {{item.confirmed-item.deaths-item.cures}}
+                </td>
+                <td>
+                    {{int(item.cures*10000/item.confirmed)/100}}
+                </td>
+                <td>
+                    {{int(item.deaths*10000/item.confirmed)/100}}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+
+{% endblock %}
