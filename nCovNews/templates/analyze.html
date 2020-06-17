@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+﻿{% extends "layout.html" %}
 
 {% block content %}
 
@@ -252,7 +252,10 @@
                 // 指定图表的配置项和数据
                 var option1 = {
                     title: {
-                        text: '中国现有确诊趋势'
+                        text: '中国现有确诊趋势',
+                        backgroundColor: 'rgba(0,0,0,0)',
+
+
                     },
                     tooltip: {
                         trigger: 'axis'
