@@ -208,7 +208,7 @@
         {% block content %}{% endblock %}
         <hr />
         <footer>
-            <p>&copy; {{ year }} - 疫情小助手</p>
+            <p style=" color :white ;">&copy; {{ year }} - 疫情小助手</p>
         </footer>
     </div>
 
@@ -235,7 +235,7 @@
                  * 此处根据自己页面的样式以及布局进行改变处理
                  *
                  */
-                lk = 'http://' + window.location.host + '/static/img/logo.png';
+                lk = 'http://' + window.location.host + '/static/images/china2.jpg';
             }
             //如果是上传的图片则进行绝对路径拼接
             if (flink.indexOf('/uploads/') != -1) {
@@ -250,16 +250,16 @@
              */
             //qq空间接口的传参
             if (stype == 'qzone') {
-                window.open('https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + document.location.href + '?sharesource=qzone&title=' + ftit + '&pics=' + lk + '&summary=' + document.querySelector('meta[name="description"]').getAttribute('content'));
+                window.open('https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + 'http://www.baidu.com' + '?sharesource=qzone&title=疫情小助手' + ftit + '&pics=' + lk + '&summary=疫情小助手' + document.querySelector('meta[name="description"]').getAttribute('content'));
             }
             //新浪微博接口的传参
             if (stype == 'sina') {
-                window.open('http://service.weibo.com/share/share.php?url=' + document.location.href + '?sharesource=weibo&title=' + ftit + '&pic=' + lk + '&appkey=2706825840');
+                window.open('http://service.weibo.com/share/share.php?url=' + 'http://www.baidu.com' + '?sharesource=weibo&title=疫情小助手' + ftit + '&pic=' + lk + '&appkey=2706825840');
             }
             //qq好友接口的传参
             if (stype == 'qq') {
                 //获取meta标签的值，然后分享
-                window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + document.location.href + '?sharesource=qzone&title=' + ftit + '&pics=' + lk + '&summary=' + document.querySelector('meta[name="description"]').getAttribute('content') + '&desc=工业智展，让实物数字化，虚拟化、移动化、立体化交互');
+                window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + 'http://www.baidu.com' + '?sharesource=qzone&title=疫情小助手' + ftit + '&pics=' + lk + '&summary=' + document.querySelector('meta[name="description"]').getAttribute('content') + '&desc=疫情小助手');
             }
             //生成二维码给微信扫描分享
             if (stype == 'wechat') {
