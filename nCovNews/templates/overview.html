@@ -72,9 +72,9 @@
                     {% if  item.confirmedInc[1]=='0' %}
                     <p style=" color :cornflowerblue ;">{{item.confirmedInc}}</p>
                     {% elif  item.confirmedInc[0]=='+' %}
-                    {%  if item.confirmedInc[1]=='未' %}
-                    <p style=" color :black  "> {{item.confirmedInc}}</p>
-                    （% else %}
+                    {%  if item.confirmedInc[1]=='待' %}
+                    <p style=" color :black  "> </p>
+                    {% else %}
                     <p style=" color :red "> {{item.confirmedInc}} &uarr; </p>
                     {% endif %}
 
@@ -90,9 +90,9 @@
                     <p style=" color :cornflowerblue ;"> {{item.curesInc}} </p>
                     {% elif  item.curesInc[0]=='+' %}
 
-                    {%  if  item.curesInc[1]=='未' %}
-                    <p style=" color :black  "> {{item.curesInc}}</p>
-                    （% else %}
+                        {%  if  item.curesInc[1]=='待' %}
+                        <p style=" color :black  "></p>
+                    {% else %}
                     <p style=" color :cornflowerblue  ">  {{item.curesInc}} &uarr; </p>
                     {% endif %}
 
@@ -106,9 +106,9 @@
                     {% if  item.deathsInc[1]=='0' %}
                     <p style=" color :cornflowerblue ;"> {{item.deathsInc}} </p>
                     {% elif  item.deathsInc[0]=='+' %}
-                    {%  if  item.deathsInc[1]=='未' %}
-                    <p style=" color :black  "> {{item.deathsInc}}</p>
-                    （% else %}
+                    {%  if  item.deathsInc[1]=='待' %}
+                    <p style=" color :black  "> </p>
+                    {% else %}
                     <p style=" color :red   ">  {{item.deathsInc}} &uarr; </p>
                     {% endif %}
                     {% else %}
