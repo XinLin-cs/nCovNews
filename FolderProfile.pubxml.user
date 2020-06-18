@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+此文件由 Web 项目的发布/打包过程使用。可以通过编辑此 MSBuild 文件
+自定义此过程的行为。为了解与此相关的更多内容，请访问 https://go.microsoft.com/fwlink/?LinkID=208121。 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Users\linxin\test\Git\nCovNews\bin\Release\Publish</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="nCovNews/datatype.py">
+      <publishTime>06/14/2020 00:24:07</publishTime>
+    </File>
+    <File Include="nCovNews/data_predict.py">
+      <publishTime>05/26/2020 16:08:12</publishTime>
+    </File>
+    <File Include="nCovNews/data_update.py">
+      <publishTime>06/06/2020 20:12:47</publishTime>
+    </File>
+    <File Include="nCovNews/forms.py">
+      <publishTime>06/03/2020 22:40:35</publishTime>
+    </File>
+    <File Include="nCovNews/get_data.py">
+      <publishTime>06/02/2020 14:43:13</publishTime>
+    </File>
+    <File Include="nCovNews/static/content/bootstrap.css">
+      <publishTime>02/27/2020 17:28:49</publishTime>
+    </File>
+    <File Include="nCovNews/static/content/bootstrap.min.css">
+      <publishTime>02/27/2020 17:28:49</publishTime>
+    </File>
+    <File Include="nCovNews/static/content/site.css">
+      <publishTime>02/27/2020 17:28:49</publishTime>
+    </File>
+    <File Include="nCovNews/static/fonts/glyphicons-halflings-regular.eot">
+      <publishTime>02/27/2020 17:28:49</publishTime>
+    </File>
+    <File Include="nCovNews/static/fonts/glyphicons-halflings-regular.svg">
+      <publishTime>02/27/2020 17:28:49</publishTime>
+    </File>
+    <File Include="nCovNews/static/fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>02/27/2020 17:28:49</publishTime>
+    </File>
+    <File Include="nCovNews/static/fonts/glyphicons-halflings-regular.woff">
+      <publishTime>02/27/2020 17:28:49</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h0.jpg">
+      <publishTime>06/14/2020 00:36:59</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h1.jpg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h10.jpg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h11.jpeg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h12.jpg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h13.jpg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h14.jpg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h15.jpeg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h16.jpeg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h17.jpeg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h18.jpg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h19.jpeg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h2.jpg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h20.png">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h21.jpeg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h22.jpeg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h23.jpg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h24.jpg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h25.jpg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h26.jpeg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h27.jpg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h28.jpeg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h29.jpeg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h3.jpeg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h30.png">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h31.jpeg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h32.jpeg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h33.jpeg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h34.jpg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h35.jpeg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h36.jpg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h37.jpeg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h38.jpg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h39.jpeg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h4.jpg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h40.jpg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h41.jpeg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h42.jpg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h43.jpg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h44.jpg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h45.jpg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h46.jpg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h47.jpg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h48.jpg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h49.jpg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h5.jpg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h50.jpg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h51.jpg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h52.jpg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h53.jpg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h54.jpg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h55.jpg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h56.jpg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h57.jpg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h58.jpg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h59.jpg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h6.jpeg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h60.jpg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h62.jpg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h63.jpeg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h63.jpg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h7.jpg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h8.jpg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/images/headp/h9.jpg">
+      <publishTime>06/03/2020 21:24:47</publishTime>
+    </File>
+    <File Include="nCovNews/static/scripts/bootstrap.js">
+      <publishTime>05/29/2020 11:37:16</publishTime>
+    </File>
+    <File Include="nCovNews/static/scripts/bootstrap.min.js">
+      <publishTime>05/29/2020 11:37:16</publishTime>
+    </File>
+    <File Include="nCovNews/static/scripts/china.js">
+      <publishTime>06/07/2020 00:29:34</publishTime>
+    </File>
+    <File Include="nCovNews/static/scripts/echarts.min.js">
+      <publishTime>06/13/2020 10:58:50</publishTime>
+    </File>
+    <File Include="nCovNews/static/scripts/jquery-1.10.2.intellisense.js">
+      <publishTime>02/27/2020 17:28:49</publishTime>
+    </File>
+    <File Include="nCovNews/static/scripts/jquery-1.10.2.js">
+      <publishTime>02/27/2020 17:28:49</publishTime>
+    </File>
+    <File Include="nCovNews/static/scripts/jquery-1.10.2.min.js">
+      <publishTime>02/27/2020 17:28:49</publishTime>
+    </File>
+    <File Include="nCovNews/static/scripts/jquery-1.10.2.min.map">
+      <publishTime>02/27/2020 17:28:49</publishTime>
+    </File>
+    <File Include="nCovNews/static/scripts/jquery-3.4.1.js">
+      <publishTime>05/10/2020 22:12:18</publishTime>
+    </File>
+    <File Include="nCovNews/static/scripts/jquery-3.5.1.min.js">
+      <publishTime>06/13/2020 10:58:50</publishTime>
+    </File>
+    <File Include="nCovNews/static/scripts/jquery.js">
+      <publishTime>06/07/2020 00:29:34</publishTime>
+    </File>
+    <File Include="nCovNews/static/scripts/jquery.validate-vsdoc.js">
+      <publishTime>02/27/2020 17:28:49</publishTime>
+    </File>
+    <File Include="nCovNews/static/scripts/jquery.validate.js">
+      <publishTime>02/27/2020 17:28:49</publishTime>
+    </File>
+    <File Include="nCovNews/static/scripts/jquery.validate.min.js">
+      <publishTime>02/27/2020 17:28:49</publishTime>
+    </File>
+    <File Include="nCovNews/static/scripts/jquery.validate.unobtrusive.js">
+      <publishTime>02/27/2020 17:28:49</publishTime>
+    </File>
+    <File Include="nCovNews/static/scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>02/27/2020 17:28:49</publishTime>
+    </File>
+    <File Include="nCovNews/static/scripts/modernizr-2.6.2.js">
+      <publishTime>02/27/2020 17:28:49</publishTime>
+    </File>
+    <File Include="nCovNews/static/scripts/respond.js">
+      <publishTime>02/27/2020 17:28:49</publishTime>
+    </File>
+    <File Include="nCovNews/static/scripts/respond.min.js">
+      <publishTime>02/27/2020 17:28:49</publishTime>
+    </File>
+    <File Include="nCovNews/static/scripts/world.js">
+      <publishTime>06/07/2020 00:29:34</publishTime>
+    </File>
+    <File Include="nCovNews/static/scripts/_references.js">
+      <publishTime>02/27/2020 17:28:49</publishTime>
+    </File>
+    <File Include="nCovNews/templates/about.html">
+      <publishTime>06/17/2020 22:42:37</publishTime>
+    </File>
+    <File Include="nCovNews/templates/analyze.html">
+      <publishTime>06/17/2020 22:54:38</publishTime>
+    </File>
+    <File Include="nCovNews/templates/contact.html">
+      <publishTime>02/27/2020 17:28:49</publishTime>
+    </File>
+    <File Include="nCovNews/templates/discuss.html">
+      <publishTime>06/17/2020 22:34:03</publishTime>
+    </File>
+    <File Include="nCovNews/templates/discuss_detail.html">
+      <publishTime>06/17/2020 22:34:03</publishTime>
+    </File>
+    <File Include="nCovNews/templates/index.html">
+      <publishTime>06/17/2020 22:34:03</publishTime>
+    </File>
+    <File Include="nCovNews/templates/layout.html">
+      <publishTime>06/15/2020 22:43:56</publishTime>
+    </File>
+    <File Include="nCovNews/templates/login.html">
+      <publishTime>06/11/2020 17:06:49</publishTime>
+    </File>
+    <File Include="nCovNews/templates/news.html">
+      <publishTime>06/11/2020 17:06:49</publishTime>
+    </File>
+    <File Include="nCovNews/templates/overview.html">
+      <publishTime>06/11/2020 17:06:49</publishTime>
+    </File>
+    <File Include="nCovNews/templates/register.html">
+      <publishTime>06/04/2020 00:46:38</publishTime>
+    </File>
+    <File Include="nCovNews/templates/setphoto.html">
+      <publishTime>06/14/2020 22:20:00</publishTime>
+    </File>
+    <File Include="nCovNews/templates/test.html">
+      <publishTime>06/15/2020 21:44:52</publishTime>
+    </File>
+    <File Include="nCovNews/user_mod.py">
+      <publishTime>06/14/2020 00:33:22</publishTime>
+    </File>
+    <File Include="nCovNews/views.py">
+      <publishTime>06/14/2020 00:38:38</publishTime>
+    </File>
+    <File Include="nCovNews/__init__.py">
+      <publishTime>05/25/2020 23:28:51</publishTime>
+    </File>
+    <File Include="Procfile">
+      <publishTime>04/27/2020 00:06:46</publishTime>
+    </File>
+    <File Include="README.md">
+      <publishTime>05/20/2020 17:12:50</publishTime>
+    </File>
+    <File Include="requirements.txt">
+      <publishTime>06/06/2020 18:40:15</publishTime>
+    </File>
+    <File Include="runserver.py">
+      <publishTime>06/15/2020 00:13:37</publishTime>
+    </File>
+    <File Include="WechatPCAPI/lib/OpenWechatMulti.exe">
+      <publishTime>05/31/2020 17:08:08</publishTime>
+    </File>
+    <File Include="WechatPCAPI/LICENSE">
+      <publishTime>05/31/2020 17:08:08</publishTime>
+    </File>
+    <File Include="WechatPCAPI/README-BO.md">
+      <publishTime>05/31/2020 17:08:08</publishTime>
+    </File>
+    <File Include="WechatPCAPI/README.md">
+      <publishTime>05/31/2020 17:08:08</publishTime>
+    </File>
+    <File Include="WechatPCAPI/requirements .txt">
+      <publishTime>05/31/2020 17:08:08</publishTime>
+    </File>
+    <File Include="WechatPCAPI/src/Wechat-V2.7.1.82.exe">
+      <publishTime>05/31/2020 17:08:08</publishTime>
+    </File>
+    <File Include="WechatPCAPI/WechatPCAPI.pyd">
+      <publishTime>05/31/2020 17:08:08</publishTime>
+    </File>
+    <File Include="WechatPCAPI/wxrobot.py">
+      <publishTime>06/11/2020 19:18:10</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
