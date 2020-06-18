@@ -793,6 +793,8 @@
     <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
     <div id="main19" style="width: 800px;height:500px;margin: 0 auto;"></div>
     <div id="main20" style="width: 800px;height:500px;margin: 0 auto;"></div>
+    <div id="main21" style="width: 800px;height:500px;margin: 0 auto;"></div>
+
     <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
 
@@ -817,6 +819,7 @@
         var myChart18 = echarts.init(document.getElementById('main18'));
         var myChart19 = echarts.init(document.getElementById('main19'));
         var myChart20 = echarts.init(document.getElementById('main20'));
+        var myChart21 = echarts.init(document.getElementById('main21'));
 
 
         $.ajax({
@@ -1873,6 +1876,31 @@
                 };
                 myChart20.setOption(option20);
 
+                option21 = {
+                    backgroundColor: '#FFFFFF',
+
+                    title: {
+                        text: '中国累计确诊top10（除湖北）'
+                    },
+                    animation: false,
+
+                    legend: {},
+                    tooltip: {},
+                    xAxis: {
+                        type: 'category',
+                        data: json_data['chinaTop']['confirmedtotal']['name'],
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [{
+                        name: '现存确诊',
+                        data: json_data['chinaTop']['confirmedtotal']['value'],
+                        type: 'bar'
+                    }]
+                };
+                myChart21.setOption(option21);
+
                 function getFullCanvasDataURL(divId) {
                     //将第一个画布作为基准。
                     var baseCanvas = $("#" + divId).find("canvas").first()[0];
@@ -1918,6 +1946,7 @@
                     name18: String(getFullCanvasDataURL('main18')),
                     name19: String(getFullCanvasDataURL('main19')),
                     name20: String(getFullCanvasDataURL('main20')),
+                    name21: String(getFullCanvasDataURL('main21')),
 
                 };
 
@@ -1953,10 +1982,10 @@
 
 
         )
-                                                                    //ajax末尾
+                                                                        //ajax末尾
 
 
-                                                                //function末尾
+                                                                    //function末尾
 
 
 

@@ -287,7 +287,7 @@ def data():
     for item in map:
         map[item].sort(key=lambda x:x['value'],reverse=True)
         name , value = [] , []
-        for i in range(0,10):
+        for i in range(1,11):
             name.append(map[item][i]['name'])
             value.append(map[item][i]['value'])
         chinaTop[item]['name']=name
