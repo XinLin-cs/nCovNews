@@ -1,4 +1,4 @@
-﻿{% extends "layout.html" %}
+{% extends "layout.html" %}
 
 {% block content %}
 
@@ -118,7 +118,10 @@
                         <li><a href="#mp11 ">中国治愈率</a></li>
                         <li><a href="#mp14">中国死亡率</a></li>
                         <li><a href="#mp12">中国死亡率TOP10</a></li>
-                        <li><a href="#mp6 ">现存确诊趋势预测</a></li>
+                        <li><a href="#mp19">中国现存确诊TOP10</a></li>
+                        <li><a href="#mp21">中国累计确诊TOP10</a></li>
+                        <li><a href="#mp6 ">累计确诊趋势预测</a></li>
+                        <li><a href="#mp20 ">现有确诊趋势预测</a></li>
                     </ul>
 
                     <h2>疫情趋势</h2>
@@ -361,6 +364,76 @@
                         <br /><hr />
                     </div>
 
+                    <div id="mp19">
+                        <br /><br /><br /><br /><div id="main19" style="width: 800px;height:500px;margin: 0 auto;"></div>
+                        <br /><br />
+                        <div style=" float :right ">
+                            <div class="col-md-1" data-toggle="modal" data-target="#myModalm19" style=" margin:0px auto;">
+                                <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="myModalm19" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" style="background-color :none  ; ">
+                                <div class="modal-content">
+                                    <div>
+                                        <div class="modal-body" style="margin:0px auto;">
+                                            <img src="../static/pictures/test19.png" style=" width:550px;height :350px;background-color :azure  " />
+
+                                        </div>
+                                        <div style=" align-content :center ;text-align :center ">
+                                            <h>鼠标右键复制图片,分享给好友吧！</h>
+                                        </div>
+
+                                        <br />
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <br /><hr />
+                    </div>
+
+                    <div id="mp21">
+                        <br /><br /><br /><br /><div id="main21" style="width: 800px;height:500px;margin: 0 auto;"></div>
+                        <br /><br />
+                        <div style=" float :right ">
+                            <div class="col-md-1" data-toggle="modal" data-target="#myModalm21" style=" margin:0px auto;">
+                                <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="myModalm21" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" style="background-color :none  ; ">
+                                <div class="modal-content">
+                                    <div>
+                                        <div class="modal-body" style="margin:0px auto;">
+                                            <img src="../static/pictures/test21.png" style=" width:550px;height :350px;background-color :azure  " />
+
+                                        </div>
+                                        <div style=" align-content :center ;text-align :center ">
+                                            <h>鼠标右键复制图片,分享给好友吧！</h>
+                                        </div>
+
+                                        <br />
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <br /><hr />
+                    </div>
+
                     <div id="mp6">
                         <br /><br /><br /><br /><div id="main6" style="width: 800px;height:500px;margin: 0 auto;"></div>
                         <br /><br />
@@ -376,6 +449,41 @@
                                     <div>
                                         <div class="modal-body" style="margin:0px auto;">
                                             <img src="../static/pictures/test6.png" style=" width:550px;height :350px;background-color :azure  " />
+
+                                        </div>
+                                        <div style=" align-content :center ;text-align :center ">
+                                            <h>鼠标右键复制图片,分享给好友吧！</h>
+                                        </div>
+
+                                        <br />
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <br /><hr />
+                    </div>
+
+                    <div id="mp20">
+                        <br /><br /><br /><br /><div id="main20" style="width: 800px;height:500px;margin: 0 auto;"></div>
+                        <br /><br />
+                        <div style=" float :right ">
+                            <div class="col-md-1" data-toggle="modal" data-target="#myModalm20" style=" margin:0px auto;">
+                                <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="myModalm20" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" style="background-color :none  ; ">
+                                <div class="modal-content">
+                                    <div>
+                                        <div class="modal-body" style="margin:0px auto;">
+                                            <img src="../static/pictures/test20.png" style=" width:550px;height :350px;background-color :azure  " />
 
                                         </div>
                                         <div style=" align-content :center ;text-align :center ">
@@ -781,6 +889,7 @@
                         <br /><hr />
                     </div>
 
+
                 </div>
             </div>
         </div>
@@ -791,10 +900,7 @@
 
 
     <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-    <div id="main19" style="width: 800px;height:500px;margin: 0 auto;"></div>
-    <div id="main20" style="width: 800px;height:500px;margin: 0 auto;"></div>
-    <div id="main21" style="width: 800px;height:500px;margin: 0 auto;"></div>
-
+   
     <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
 
@@ -1096,7 +1202,7 @@
                     backgroundColor: '#FFFFFF',
 
                     title: {
-                        text: '中国现有确诊趋势预测'
+                        text: '中国累计确诊趋势预测'
                     },
                     tooltip: {
                         trigger: 'axis'
