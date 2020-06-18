@@ -95,11 +95,11 @@
             }
 
             .header .topnav > li .homework {
-                width: inherit;
                 display: none;
             }
 
             .header .topnav > li:hover .homework {
+                width: unset;
                 display: block;
             }
 
@@ -178,8 +178,8 @@
                 <li style="float:right;width:auto ">
                     <a href=""><p style=" font-size :20px; color :deepskyblue">欢迎，{{user.name}}</p></a>
                     <div class="homework" style=" height :0px;">
-                        <div style=" background-color:darkgrey  ;height :60px">
-                            <h style="font-size: 15px; text-align: center; font-weight :500; line-height: 60px; ">
+                        <div style=" background-color:none ;height :40px;line-height: 40px;">
+                            <h style="font-size: 15px; text-align: center; font-weight :500; line-height: 40px; ">
                                 <button type="button" class="btn btn-info">
                                     <a href="{{ url_for('setphoto') }}">设置头像</a>
                                 </button>
