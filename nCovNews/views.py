@@ -218,7 +218,7 @@ def res():
         return ('fail')
     else:
         data_json = json.loads(request.get_data())
-        for i in range(1,19):
+        for i in range(1,21):
             data_json['name'+str(i)] = data_json['name'+str(i)].replace(' ','+')
             b64_data = data_json['name'+str(i)].split(';base64,')[1]
             data = base64.b64decode(b64_data)

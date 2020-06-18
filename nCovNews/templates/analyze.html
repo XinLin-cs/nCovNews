@@ -101,7 +101,7 @@
 
 <body>
     <div>
-       
+
         <div class=" row">
             <div class="  col-md-2">
                 <div class="nav">
@@ -145,9 +145,9 @@
                         <li><a href="#mp18">世界治愈率</a></li>
                         <li><a href="#mp17">世界死亡率</a></li>
                     </ul>
-                    
+
                 </div>
-               
+
             </div>
             <div class="  col-md-10">
                 <div style="background-color :aliceblue; opacity: 1; z-index: 15;">
@@ -290,7 +290,7 @@
                         <br />
                         <br /><hr />
                     </div>
-                   
+
                     <div id="mp14">
                         <br /><br /><br /><br /><div id="main14" style="width: 800px;height:500px;margin: 0 auto;"></div>
                         <br /><br />
@@ -500,7 +500,7 @@
                         <br />
                         <br /><hr />
                     </div>
-                     
+
                     <div id="mp8">
                         <br /><br /><br /><br /><div id="main8" style="width: 800px;height:500px;margin: 0 auto;"></div>
                         <br /><br />
@@ -537,7 +537,7 @@
                     </div>
 
                     <div id="mp15">
-                       <br /><br /> <br /><br /><div id="main15" style="width: 800px;height:500px;margin: 0 auto;"></div>
+                        <br /><br /> <br /><br /><div id="main15" style="width: 800px;height:500px;margin: 0 auto;"></div>
                         <br /><br />
                         <div style=" float :right ">
                             <div class="col-md-1" data-toggle="modal" data-target="#myModalm15" style=" margin:0px auto;">
@@ -784,15 +784,15 @@
                 </div>
             </div>
         </div>
-        
-       
+
+
     </div>
 
 
 
     <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-
-
+    <div id="main19" style="width: 800px;height:500px;margin: 0 auto;"></div>
+    <div id="main20" style="width: 800px;height:500px;margin: 0 auto;"></div>
     <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
 
@@ -815,6 +815,8 @@
         var myChart16 = echarts.init(document.getElementById('main16'));
         var myChart17 = echarts.init(document.getElementById('main17'));
         var myChart18 = echarts.init(document.getElementById('main18'));
+        var myChart19 = echarts.init(document.getElementById('main19'));
+        var myChart20 = echarts.init(document.getElementById('main20'));
 
 
         $.ajax({
@@ -851,11 +853,13 @@
                         {
                             name: '现有确诊',
                             type: 'line',
+                            symbolSize: 8,
                             data: json_data['china']['confirmedexist']
                         },
                         {
                             name: '总确诊',
                             type: 'line',
+                            symbolSize: 8,
                             data: json_data['china']['confirmedtotal']
                         }
                     ],
@@ -959,16 +963,19 @@
                         {
                             name: '累计确诊',
                             type: 'line',
+                            symbolSize: 8,
                             data: json_data['china']['confirmedtotal']
                         },
                         {
                             name: '累计治愈',
                             type: 'line',
+                            symbolSize: 8,
                             data: json_data['china']['cures']
                         },
                         {
                             name: '累计死亡',
                             type: 'line',
+                            symbolSize: 8,
                             data: json_data['china']['deaths']
                         }
                     ]
@@ -1001,11 +1008,13 @@
                         {
                             name: '新增确诊',
                             type: 'line',
+                            symbolSize: 8,
                             data: json_data['chinaInc']['confirmedtotal']
                         },
                         {
                             name: '新增疑似',
                             type: 'line',
+                            symbolSize: 8,
                             data: json_data['chinaInc']['suspected']
                         }
 
@@ -1106,16 +1115,17 @@
                         {
                             name: '确诊预测',
                             type: 'line',
+                            symbolSize: 8,
                             data: json_data['chinaPredict']['confirmedtotal']
                         },
                         {
                             name: '累计确诊',
                             type: 'line',
+                            symbolSize: 8,
                             data: json_data['china']['confirmedtotal']
                         }
                     ]
                 };
-                // 使用刚指定的配置项和数据显示图表。
                 myChart6.setOption(option6);
 
                 var option7 = {
@@ -1191,6 +1201,7 @@
 
                 }
                 myChart7.setOption(option7);
+
                 var option8 = {
                     backgroundColor: '#FFFFFF',
 
@@ -1223,11 +1234,13 @@
                         {
                             name: '治愈率',
                             type: 'line',
+                            symbolSize: 8,
                             data: json_data['china']['cures']
                         },
                         {
                             name: '病死率',
                             type: 'line',
+                            symbolSize: 8,
                             data: json_data['china']['deaths'],
                         },
 
@@ -1746,7 +1759,7 @@
                         splitNumber: 5,
                         itemWidth: 10,
                         itemHeight: 10,
-                        color: ['#00FF00','#7FFF00', '#ADFF2F', '#9AFF9A', '#90EE90',],
+                        color: ['#00FF00', '#7FFF00', '#ADFF2F', '#9AFF9A', '#90EE90',],
                         pieces: [
                             { min: 95, max: 100, label: '95% - 100%' },
                             { min: 90, max: 95, label: '90% - 95%' },
@@ -1792,6 +1805,74 @@
                     ]
                 };
                 myChart18.setOption(option18);
+
+
+
+
+                option19 = {
+                    backgroundColor: '#FFFFFF',
+
+                    title: {
+                        text: '中国现存确诊top10'
+                    },
+                    animation: false,
+
+                    legend: {},
+                    tooltip: {},
+                    xAxis: {
+                        type: 'category',
+                        data: json_data['chinaTop']['confirmedexist']['name'],
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [{
+                        name: '现存确诊',
+                        data: json_data['chinaTop']['confirmedexist']['value'],
+                        type: 'bar'
+                    }]
+                };
+                myChart19.setOption(option19);
+
+                var option20 = {
+                    backgroundColor: '#FFFFFF',
+
+                    title: {
+                        text: '中国现有确诊趋势预测'
+                    },
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    animation: false,
+
+                    legend: {
+                        data: ['确诊预测', '现存确诊']
+                    },
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: json_data['predictseries']
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [
+                        {
+                            name: '确诊预测',
+                            type: 'line',
+                            symbolSize: 8,
+                            data: json_data['chinaPredict']['confirmedexist']
+                        },
+                        {
+                            name: '现存确诊',
+                            type: 'line',
+                            symbolSize: 8,
+                            data: json_data['china']['confirmedexist']
+                        }
+                    ]
+                };
+                myChart20.setOption(option20);
+
                 function getFullCanvasDataURL(divId) {
                     //将第一个画布作为基准。
                     var baseCanvas = $("#" + divId).find("canvas").first()[0];
@@ -1835,7 +1916,8 @@
                     name16: String(getFullCanvasDataURL('main16')),
                     name17: String(getFullCanvasDataURL('main17')),
                     name18: String(getFullCanvasDataURL('main18')),
-
+                    name19: String(getFullCanvasDataURL('main19')),
+                    name20: String(getFullCanvasDataURL('main20')),
 
                 };
 
@@ -1871,10 +1953,10 @@
 
 
         )
-                                                    //ajax末尾
+                                                                    //ajax末尾
 
 
-                                                //function末尾
+                                                                //function末尾
 
 
 
