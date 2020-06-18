@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+﻿{% extends "layout.html" %}
 
 {% block content %}
 
@@ -900,7 +900,15 @@
 
 
     <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-   
+    <div id="main22" style="width: 800px;height:500px;margin: 0 auto;"></div>
+    <div id="main23" style="width: 800px;height:500px;margin: 0 auto;"></div>
+    <div id="main24" style="width: 800px;height:500px;margin: 0 auto;"></div>
+    <div id="main25" style="width: 800px;height:500px;margin: 0 auto;"></div>
+    <div id="main26" style="width: 800px;height:500px;margin: 0 auto;"></div>
+    <div id="main27" style="width: 800px;height:500px;margin: 0 auto;"></div>
+    <div id="main28" style="width: 800px;height:500px;margin: 0 auto;"></div>
+    <div id="main29" style="width: 800px;height:500px;margin: 0 auto;"></div>
+
     <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
 
@@ -926,7 +934,10 @@
         var myChart19 = echarts.init(document.getElementById('main19'));
         var myChart20 = echarts.init(document.getElementById('main20'));
         var myChart21 = echarts.init(document.getElementById('main21'));
-
+        var myChart22 = echarts.init(document.getElementById('main22'));
+        var myChart23 = echarts.init(document.getElementById('main23'));
+        var myChart24 = echarts.init(document.getElementById('main24'));
+        var myChart25 = echarts.init(document.getElementById('main25'));
 
         $.ajax({
             url: '/getdata',
@@ -1317,10 +1328,20 @@
                     title: {
                         text: '全国治愈率/病死率趋势'
                     },
+
                     tooltip: {
+                        // formatter: '{b0}<br />{a0}:{c0}<br />{a1}:{c1}%',
                         trigger: 'axis',
-                        show: true,
-                        formatter: '{b0}<br/>{a0}: {c0}%<br />{a1}: {c1}% ',
+                        formatter: function (params) {
+                            let html = params[0].name + "<br>";
+                            for (let i = 0; i < params.length; i++) {
+                                html += '<span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:' + params[i].color + ';"></span>'
+
+                                html += params[i].seriesName + ":" + params[i].value + "%<br>";
+
+                            }
+                            return html;
+                        }
                     },
                     animation: false,
 
@@ -1344,13 +1365,13 @@
                             name: '治愈率',
                             type: 'line',
                             symbolSize: 8,
-                            data: json_data['china']['cures']
+                            data: json_data['china']['curesRate']
                         },
                         {
                             name: '病死率',
                             type: 'line',
                             symbolSize: 8,
-                            data: json_data['china']['deaths'],
+                            data: json_data['china']['deathsRate'],
                         },
 
                     ]
@@ -2007,6 +2028,179 @@
                 };
                 myChart21.setOption(option21);
 
+                var option22 = {
+                    backgroundColor: '#FFFFFF',
+
+                    title: {
+                        text: '中国疑似趋势预测'
+                    },
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    animation: false,
+
+                    legend: {
+                        data: ['疑似预测', '现存疑似']
+                    },
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: json_data['predictseries']
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [
+                        {
+                            name: '确诊预测',
+                            type: 'line',
+                            symbolSize: 8,
+                            data: json_data['chinaPredict']['suspected']
+                        },
+                        {
+                            name: '现存确诊',
+                            type: 'line',
+                            symbolSize: 8,
+                            data: json_data['china']['suspected']
+                        }
+                    ]
+                };
+                myChart22.setOption(option22);
+
+
+                var option23 = {
+                    backgroundColor: '#FFFFFF',
+
+                    title: {
+                        text: '全国治愈率预测趋势'
+                    },
+                    tooltip: {
+                        // formatter: '{b0}<br />{a0}:{c0}<br />{a1}:{c1}%',
+                        trigger: 'axis',
+                        formatter: function (params) {
+                            let html = params[0].name + "<br>";
+                            for (let i = 0; i < params.length; i++) {
+                                html += '<span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:' + params[i].color + ';"></span>'
+                                html += params[i].seriesName + ":" + params[i].value + "%<br>";
+                            }
+                            return html;
+                        }
+                    },
+                    animation: false,
+
+                    legend: {
+                        data: ['治愈率预测', '治愈率']
+                    },
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: json_data['predictseries']
+                    },
+                    yAxis: {
+                        type: 'value',
+                        axisLabel: {
+                            show: true,
+                            formatter: '{value}%'
+                        },
+                    },
+                    series: [
+                        {
+                            name: '治愈率预测',
+                            type: 'line',
+                            symbolSize: 8,
+                            data: json_data['chinaPredict']['curesRate']
+                        },
+                        {
+                            name: '治愈率',
+                            type: 'line',
+                            symbolSize: 8,
+                            data: json_data['china']['curesRate'],
+                        },
+
+                    ]
+                };
+                // 使用刚指定的配置项和数据显示图表。
+                myChart23.setOption(option23);
+
+
+                var option24 = {
+                    backgroundColor: '#FFFFFF',
+
+                    title: {
+                        text: '中国治愈趋势预测'
+                    },
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    animation: false,
+
+                    legend: {
+                        data: ['治愈数预测', '累计治愈']
+                    },
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: json_data['predictseries']
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [
+                        {
+                            name: '治愈数预测',
+                            type: 'line',
+                            symbolSize: 8,
+                            data: json_data['chinaPredict']['cures']
+                        },
+                        {
+                            name: '累计治愈',
+                            type: 'line',
+                            symbolSize: 8,
+                            data: json_data['china']['cures']
+                        }
+                    ]
+                };
+                myChart24.setOption(option24);
+
+                var option25 = {
+                    backgroundColor: '#FFFFFF',
+
+                    title: {
+                        text: '中国死亡趋势预测'
+                    },
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    animation: false,
+
+                    legend: {
+                        data: ['死亡数预测', '累计死亡']
+                    },
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: json_data['predictseries']
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [
+                        {
+                            name: '死亡数预测',
+                            type: 'line',
+                            symbolSize: 8,
+                            data: json_data['chinaPredict']['deaths']
+                        },
+                        {
+                            name: '累计死亡',
+                            type: 'line',
+                            symbolSize: 8,
+                            data: json_data['china']['deaths']
+                        }
+                    ]
+                };
+                myChart25.setOption(option25);
+
                 function getFullCanvasDataURL(divId) {
                     //将第一个画布作为基准。
                     var baseCanvas = $("#" + divId).find("canvas").first()[0];
@@ -2053,6 +2247,10 @@
                     name19: String(getFullCanvasDataURL('main19')),
                     name20: String(getFullCanvasDataURL('main20')),
                     name21: String(getFullCanvasDataURL('main21')),
+                    name22: String(getFullCanvasDataURL('main22')),
+                    name23: String(getFullCanvasDataURL('main23')),
+                    name24: String(getFullCanvasDataURL('main24')),
+                    name25: String(getFullCanvasDataURL('main25')),
 
                 };
 
@@ -2088,10 +2286,10 @@
 
 
         )
-                                                                        //ajax末尾
+                                                                                                    //ajax末尾
 
 
-                                                                    //function末尾
+                                                                                                //function末尾
 
 
 

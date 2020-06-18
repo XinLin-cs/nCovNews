@@ -266,13 +266,13 @@ def data():
     chinaPredict = {'confirmedtotal':[],'confirmedexist':[],'suspected':[],'cures':[],'deaths':[],
                     'asymptomatic':[],'curesRate':[],'deathsRate':[]}
     chinaPredict['confirmedtotal']=data_predict.result2(predictseries,china['confirmedtotal'],0.55)
-    chinaPredict['confirmedexist']=data_predict.result2(predictseries,china['confirmedexist'],0.4)
-    chinaPredict['suspected']=data_predict.result2(predictseries,china['suspected'],0.4)
-    chinaPredict['cures']=data_predict.result2(predictseries,china['cures'],0.4)
-    chinaPredict['deaths']=data_predict.result2(predictseries,china['deaths'],0.4)
+    chinaPredict['confirmedexist']=data_predict.result1(predictseries,china['confirmedexist'],0.95)
+    chinaPredict['suspected']=data_predict.result2(predictseries,china['suspected'],0.75)
+    chinaPredict['cures']=data_predict.result2(predictseries,china['cures'],0.45)
+    chinaPredict['deaths']=data_predict.result2(predictseries,china['deaths'],0.26)
     chinaPredict['asymptomatic']=data_predict.result2(predictseries,china['asymptomatic'],0.4)
     chinaPredict['curesRate']=data_predict.result2(predictseries,china['curesRate'],0.4)
-    chinaPredict['deathsRate']=data_predict.result2(predictseries,china['deathsRate'],0.4)
+    chinaPredict['deathsRate']=data_predict.result2(predictseries,china['deathsRate'],0.35)
     # 地图数据
     provinces = datatype.PROVINCE.query.filter_by(date=date.today()).all()
     map = {'confirmedtotal':[],'confirmedexist':[],'cures':[],'deaths':[],'asymptomatic':[],
