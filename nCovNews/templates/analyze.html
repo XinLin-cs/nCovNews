@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+﻿{% extends "layout.html" %}
 
 {% block content %}
 
@@ -1648,18 +1648,28 @@
                     animation: false,
 
                     legend: {},
-                    tooltip: {},
+                    tooltip: {
+                        formatter: '{b0}<br />{a0}:{c0}%',
+
+                    },
                     xAxis: {
                         type: 'category',
                         data: json_data['chinaTop']['deathsRate']['name'],
                     },
                     yAxis: {
-                        type: 'value'
+                        type: 'value',
+                                  axisLabel: {
+                            show: true,
+                            interval: 'auto',
+                            formatter: '{value} %'
+                        },
+                        show: true
+
                     },
                     series: [{
-                        name: '现存确诊',
+                        name: '死亡率',
                         data: json_data['chinaTop']['deathsRate']['value'],
-                        type: 'bar'
+                        type: 'bar',
                     }]
                 };
                 myChart12.setOption(option12);
@@ -2195,13 +2205,13 @@
                     },
                     series: [
                         {
-                            name: '确诊预测',
+                            name: '疑似预测',
                             type: 'line',
                             symbolSize: 8,
                             data: json_data['chinaPredict']['suspected']
                         },
                         {
-                            name: '现存确诊',
+                            name: '现存疑似',
                             type: 'line',
                             symbolSize: 8,
                             data: json_data['china']['suspected']

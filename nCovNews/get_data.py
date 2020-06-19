@@ -271,7 +271,7 @@ def data():
     chinaPredict['cures']=data_predict.result2(predictseries,china['cures'],0.45)
     chinaPredict['deaths']=data_predict.result2(predictseries,china['deaths'],0.26)
     chinaPredict['asymptomatic']=data_predict.result2(predictseries,china['asymptomatic'],0.4)
-    chinaPredict['curesRate']=data_predict.result2(predictseries,china['curesRate'],0.4)
+    chinaPredict['curesRate']=data_predict.result2(predictseries,china['curesRate'],0.3)
     chinaPredict['deathsRate']=data_predict.result2(predictseries,china['deathsRate'],0.35)
     # 地图数据
     provinces = datatype.PROVINCE.query.filter_by(date=date.today()).all()
@@ -293,7 +293,7 @@ def data():
     for item in map:
         map[item].sort(key=lambda x:x['value'],reverse=True)
         name , value = [] , []
-        for i in range(1,11):
+        for i in range(0,10):
             name.append(map[item][i]['name'])
             value.append(map[item][i]['value'])
         chinaTop[item]['name']=name
