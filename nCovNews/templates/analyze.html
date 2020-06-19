@@ -1,4 +1,4 @@
-﻿{% extends "layout.html" %}
+{% extends "layout.html" %}
 
 {% block content %}
 
@@ -24,18 +24,17 @@
             padding: 0;
             margin: 0;
             list-style: none;
-           
         }
 
         .nav {
             width: 190px;
-            position: fixed;
-            z-index: 10;
         }
-        .nav h59 {
-            font-size: 30px;
-            font-weight: 500;
-        }
+
+            .nav h59 {
+                font-size: 30px;
+                font-weight: 500;
+            }
+
             .nav h2 {
                 margin: 0;
                 font-size: 16px;
@@ -48,7 +47,8 @@
                 background: #1489ca;
                 cursor: pointer;
             }
-            .nav h3  {
+
+            .nav h3 {
                 margin: 0;
                 font-size: 16px;
                 font-weight: normal;
@@ -60,6 +60,7 @@
                 background: #369;
                 cursor: pointer;
             }
+
             .nav ul {
                 border: 1px solid #999;
                 height: 0px;
@@ -69,7 +70,7 @@
             }
 
                 .nav ul.active {
-                   height :auto ;
+                    height: auto;
                     border-width: 1px;
                 }
 
@@ -83,7 +84,7 @@
                 height: 30px;
                 line-height: 30px;
                 border-bottom: 1px solid #999;
-                background-color :azure ;
+                background-color: azure;
             }
 
             .nav li:last-child a {
@@ -100,958 +101,953 @@
 </head>
 
 <body>
-    <div>
+    <div style=" width:15%;height :650px;overflow:auto ;float :left;position :fixed  ">
+        <br />
+       
+        <div class="nav">
+            <h59>国内疫情</h59>
+            <hr>
+            <h2>疫情现状</h2>
+            <ul>
+                <li><a href="#mp5">中国现存确诊</a></li>
+                <li><a href="#mp2 ">中国累计确诊</a></li>
+                <li><a href="#mp13 ">中国累计死亡</a></li>
+            </ul>
+            <h2>疫情分析</h2>
+            <ul>
+                <li><a href="#mp11 ">中国治愈率</a></li>
+                <li><a href="#mp14">中国死亡率</a></li>
+                <li><a href="#mp12">中国死亡率TOP10</a></li>
+                <li><a href="#mp19">中国现存确诊TOP10</a></li>
+               
+
+            </ul>
+
+            <h2>疫情趋势</h2>
+            <ul>
+                <li><a href="#mp1">中国现有确诊趋势</a></li>
+                <li><a href="#mp4 ">全国疫情新增趋势</a></li>
+                <li><a href="#mp3">累确诊/治愈/死亡趋势</a></li>
+                <li><a href="#mp8">全国治愈/病死率趋势</a></li>
+            </ul>
+
+            <h2>疫情预测</h2>
+            <ul>
+                <li><a href="#mp6 ">累计确诊趋势预测</a></li>
+                <li><a href="#mp20 ">现有确诊趋势预测</a></li>
+                <li><a href="#mp22 ">疑似趋势预测</a></li>
+                <li><a href="#mp23 ">治愈率趋势预测</a></li>
+                <li><a href="#mp24 ">治愈趋势预测</a></li>
+                <li><a href="#mp25">死亡趋势预测</a></li>
+            </ul>
+            <br />
+            <h59>海外疫情</h59>
+            <hr>
+            <h2>疫情现状</h2>
+            <ul>
+                <li><a href="#mp15 ">世界现存确诊</a></li>
+                <li><a href="#mp7">世界累计确诊</a></li>
+                <li><a href="#mp16 ">世界累计死亡</a></li>
+            </ul>
+
+            <h2>疫情趋势</h2>
+            <ul>
+                <li><a href="#mp9">海外累计确诊TOP10</a></li>
+                <li><a href="#mp10">海外多国确诊TOP10</a></li>
+                <li><a href="#mp18">世界治愈率</a></li>
+                <li><a href="#mp17">世界死亡率</a></li>
+            </ul>
 
-        <div class=" row">
-            <div class="  col-md-2">
-                <br />
-                <br />
-                <div class="nav">
-                    <h59>国内疫情</h59>
-                    <hr>
-                    <h2>疫情现状</h2>
-                    <ul>
-                        <li><a href="#mp5">中国现存确诊</a></li>
-                        <li><a href="#mp2 ">中国累计确诊</a></li>
-                        <li><a href="#mp13 ">中国累计死亡</a></li>
-                    </ul>
-                    <h2>疫情分析</h2>
-                    <ul>
-                        <li><a href="#mp11 ">中国治愈率</a></li>
-                        <li><a href="#mp14">中国死亡率</a></li>
-                        <li><a href="#mp12">中国死亡率TOP10</a></li>
-                        <li><a href="#mp19">中国现存确诊TOP10</a></li>
-                        <li><a href="#mp21">中国累计确诊TOP10</a></li>
-                        
-                    </ul>
-
-                    <h2>疫情趋势</h2>
-                    <ul>
-                        <li><a href="#mp1">中国现有确诊趋势</a></li>
-                        <li><a href="#mp4 ">全国疫情新增趋势</a></li>
-                        <li><a href="#mp3">累确诊/治愈/死亡趋势</a></li>
-                        <li><a href="#mp8">全国治愈/病死率趋势</a></li>
-                    </ul>
-
-                    <h2>疫情预测</h2>
-                    <ul>
-                        <li><a href="#mp6 ">累计确诊趋势预测</a></li>
-                        <li><a href="#mp20 ">现有确诊趋势预测</a></li>
-                        <li><a href="#mp22 ">疑似趋势预测</a></li>
-                        <li><a href="#mp23 ">治愈率趋势预测</a></li>
-                        <li><a href="#mp24 ">治愈趋势预测</a></li>
-                        <li><a href="#mp25">死亡趋势预测</a></li>
-                    </ul>
-                    <br />
-                    <h59>海外疫情</h59>
-                    <hr>
-                    <h2>疫情现状</h2>
-                    <ul>
-                        <li><a href="#mp15 ">世界现存确诊</a></li>
-                        <li><a href="#mp7">世界累计确诊</a></li>
-                        <li><a href="#mp16 ">世界累计死亡</a></li>
-                    </ul>
-
-                    <h2>疫情趋势</h2>
-                    <ul>
-                        <li><a href="#mp9">海外累计确诊TOP10</a></li>
-                        <li><a href="#mp10">海外多国确诊TOP10</a></li>
-                        <li><a href="#mp18">世界治愈率</a></li>
-                        <li><a href="#mp17">世界死亡率</a></li>
-                    </ul>
-
-                </div>
-
-            </div>
-            <div class="  col-md-10">
-                <div style="background-color :aliceblue; opacity: 1; z-index: 15;">
-                    <div id="mp5">
-                        <br /><br /> <br /><br /><div id="main5" style="width: 800px;height:500px;margin: 0 auto;"></div>
-                        <br /><br />
-                        <div style=" float :right ">
-                            <div class="col-md-1" data-toggle="modal" data-target="#myModalm1" style=" margin:0px auto;">
-                                <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
-                            </div>
-                        </div>
-
-                        <div class="modal fade" id="myModalm1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" style="background-color :none  ; ">
-                                <div class="modal-content">
-                                    <div>
-                                        <div class="modal-body" style="margin:0px auto;">
-                                            <img src="../static/pictures/test5.png" style=" width:550px;height :350px;background-color :azure  " />
-
-                                        </div>
-                                        <div style=" align-content :center ;text-align :center ">
-                                            <h>鼠标右键复制图片,分享给好友吧！</h>
-                                        </div>
-
-                                        <br />
-                                    </div>
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br />
-                        <br /><hr />
-                    </div>
-
-                    <div id="mp2">
-                        <br /><br /> <br /><br /><div id="main2" style="width: 800px;height:500px;margin: 0 auto;"></div>
-                        <br /><br />
-                        <div style=" float :right ">
-                            <div class="col-md-1" data-toggle="modal" data-target="#myModalm2" style=" margin:0px auto;">
-                                <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
-                            </div>
-                        </div>
-
-                        <div class="modal fade" id="myModalm2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" style="background-color :none  ; ">
-                                <div class="modal-content">
-                                    <div>
-                                        <div class="modal-body" style="margin:0px auto;">
-                                            <img src="../static/pictures/test2.png" style=" width:550px;height :350px;background-color :azure  " />
-
-                                        </div>
-                                        <div style=" align-content :center ;text-align :center ">
-                                            <h>鼠标右键复制图片,分享给好友吧！</h>
-                                        </div>
-
-                                        <br />
-                                    </div>
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br />
-                        <br /><hr />
-                    </div>
-
-                    <div id="mp13">
-                        <br /><br /> <br /><br /><div id="main13" style="width: 800px;height:500px;margin: 0 auto;"></div>
-                        <br /><br />
-                        <div style=" float :right ">
-                            <div class="col-md-1" data-toggle="modal" data-target="#myModalm13" style=" margin:0px auto;">
-                                <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
-                            </div>
-                        </div>
-
-                        <div class="modal fade" id="myModalm13" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" style="background-color :none  ; ">
-                                <div class="modal-content">
-                                    <div>
-                                        <div class="modal-body" style="margin:0px auto;">
-                                            <img src="../static/pictures/test13.png" style=" width:550px;height :350px;background-color :azure  " />
-
-                                        </div>
-                                        <div style=" align-content :center ;text-align :center ">
-                                            <h>鼠标右键复制图片,分享给好友吧！</h>
-                                        </div>
-
-                                        <br />
-                                    </div>
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br />
-                        <br /><hr />
-                    </div>
-
-                    <div id="mp11">
-                        <br /><br /> <br /><br /><div id="main11" style="width: 800px;height:500px;margin: 0 auto;"></div>
-                        <br /><br />
-                        <div style=" float :right ">
-                            <div class="col-md-1" data-toggle="modal" data-target="#myModalm11" style=" margin:0px auto;">
-                                <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
-                            </div>
-                        </div>
-
-                        <div class="modal fade" id="myModalm11" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" style="background-color :none  ; ">
-                                <div class="modal-content">
-                                    <div>
-                                        <div class="modal-body" style="margin:0px auto;">
-                                            <img src="../static/pictures/test11.png" style=" width:550px;height :350px;background-color :azure  " />
-
-                                        </div>
-                                        <div style=" align-content :center ;text-align :center ">
-                                            <h>鼠标右键复制图片,分享给好友吧！</h>
-                                        </div>
-
-                                        <br />
-                                    </div>
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br />
-                        <br /><hr />
-                    </div>
-
-                    <div id="mp14">
-                        <br /><br /><br /><br /><div id="main14" style="width: 800px;height:500px;margin: 0 auto;"></div>
-                        <br /><br />
-                        <div style=" float :right ">
-                            <div class="col-md-1" data-toggle="modal" data-target="#myModalm14" style=" margin:0px auto;">
-                                <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
-                            </div>
-                        </div>
-
-                        <div class="modal fade" id="myModalm14" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" style="background-color :none  ; ">
-                                <div class="modal-content">
-                                    <div>
-                                        <div class="modal-body" style="margin:0px auto;">
-                                            <img src="../static/pictures/test14.png" style=" width:550px;height :350px;background-color :azure  " />
-
-                                        </div>
-                                        <div style=" align-content :center ;text-align :center ">
-                                            <h>鼠标右键复制图片,分享给好友吧！</h>
-                                        </div>
-
-                                        <br />
-                                    </div>
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br />
-                        <br /><hr />
-                    </div>
-
-                    <div id="mp12">
-                        <br /><br /><br /><br /><div id="main12" style="width: 800px;height:500px;margin: 0 auto;"></div>
-                        <br /><br />
-                        <div style=" float :right ">
-                            <div class="col-md-1" data-toggle="modal" data-target="#myModalm12" style=" margin:0px auto;">
-                                <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
-                            </div>
-                        </div>
-
-                        <div class="modal fade" id="myModalm12" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" style="background-color :none  ; ">
-                                <div class="modal-content">
-                                    <div>
-                                        <div class="modal-body" style="margin:0px auto;">
-                                            <img src="../static/pictures/test12.png" style=" width:550px;height :350px;background-color :azure  " />
-
-                                        </div>
-                                        <div style=" align-content :center ;text-align :center ">
-                                            <h>鼠标右键复制图片,分享给好友吧！</h>
-                                        </div>
-
-                                        <br />
-                                    </div>
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br />
-                        <br /><hr />
-                    </div>
-
-                    <div id="mp19">
-                        <br /><br /><br /><br /><div id="main19" style="width: 800px;height:500px;margin: 0 auto;"></div>
-                        <br /><br />
-                        <div style=" float :right ">
-                            <div class="col-md-1" data-toggle="modal" data-target="#myModalm19" style=" margin:0px auto;">
-                                <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
-                            </div>
-                        </div>
-
-                        <div class="modal fade" id="myModalm19" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" style="background-color :none  ; ">
-                                <div class="modal-content">
-                                    <div>
-                                        <div class="modal-body" style="margin:0px auto;">
-                                            <img src="../static/pictures/test19.png" style=" width:550px;height :350px;background-color :azure  " />
-
-                                        </div>
-                                        <div style=" align-content :center ;text-align :center ">
-                                            <h>鼠标右键复制图片,分享给好友吧！</h>
-                                        </div>
-
-                                        <br />
-                                    </div>
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br />
-                        <br /><hr />
-                    </div>
-
-                    <div id="mp21">
-                        <br /><br /><br /><br /><div id="main21" style="width: 800px;height:500px;margin: 0 auto;"></div>
-                        <br /><br />
-                        <div style=" float :right ">
-                            <div class="col-md-1" data-toggle="modal" data-target="#myModalm21" style=" margin:0px auto;">
-                                <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
-                            </div>
-                        </div>
-
-                        <div class="modal fade" id="myModalm21" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" style="background-color :none  ; ">
-                                <div class="modal-content">
-                                    <div>
-                                        <div class="modal-body" style="margin:0px auto;">
-                                            <img src="../static/pictures/test21.png" style=" width:550px;height :350px;background-color :azure  " />
-
-                                        </div>
-                                        <div style=" align-content :center ;text-align :center ">
-                                            <h>鼠标右键复制图片,分享给好友吧！</h>
-                                        </div>
-
-                                        <br />
-                                    </div>
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br />
-                        <br /><hr />
-                    </div>
-
-                    <div id="mp1">
-                        <br /><br /><br /><br /><div id="main1" style="width: 800px;height:500px;margin: 0 auto;"></div>
-                        <br /><br />
-                        <div style=" float :right ">
-                            <div class="col-md-1" data-toggle="modal" data-target="#myModalm1" style=" margin:0px auto;">
-                                <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
-                            </div>
-                        </div>
-
-                        <div class="modal fade" id="myModalm1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" style="background-color :none  ; ">
-                                <div class="modal-content">
-                                    <div>
-                                        <div class="modal-body" style="margin:0px auto;">
-                                            <img src="../static/pictures/test1.png" style=" width:550px;height :350px;background-color :azure  " />
-
-                                        </div>
-                                        <div style=" align-content :center ;text-align :center ">
-                                            <h>鼠标右键复制图片,分享给好友吧！</h>
-                                        </div>
-
-                                        <br />
-                                    </div>
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br />
-                        <br /><hr />
-                    </div>
-
-                    <div id="mp4">
-                        <br /><br /><br /><br /><div id="main4" style="width: 800px;height:500px;margin: 0 auto;"></div>
-                        <br /><br />
-                        <div style=" float :right ">
-                            <div class="col-md-1" data-toggle="modal" data-target="#myModalm4" style=" margin:0px auto;">
-                                <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
-                            </div>
-                        </div>
-
-                        <div class="modal fade" id="myModalm4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" style="background-color :none  ; ">
-                                <div class="modal-content">
-                                    <div>
-                                        <div class="modal-body" style="margin:0px auto;">
-                                            <img src="../static/pictures/test4.png" style=" width:550px;height :350px;background-color :azure  " />
-
-                                        </div>
-                                        <div style=" align-content :center ;text-align :center ">
-                                            <h>鼠标右键复制图片,分享给好友吧！</h>
-                                        </div>
-
-                                        <br />
-                                    </div>
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br />
-                        <br /><hr />
-                    </div>
-
-                    <div id="mp3">
-                        <br /><br /><br /><br /><div id="main3" style="width: 800px;height:500px;margin: 0 auto;"></div>
-                        <br /><br />
-                        <div style=" float :right ">
-                            <div class="col-md-1" data-toggle="modal" data-target="#myModalm3" style=" margin:0px auto;">
-                                <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
-                            </div>
-                        </div>
-
-                        <div class="modal fade" id="myModalm3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" style="background-color :none  ; ">
-                                <div class="modal-content">
-                                    <div>
-                                        <div class="modal-body" style="margin:0px auto;">
-                                            <img src="../static/pictures/test3.png" style=" width:550px;height :350px;background-color :azure  " />
-
-                                        </div>
-                                        <div style=" align-content :center ;text-align :center ">
-                                            <h>鼠标右键复制图片,分享给好友吧！</h>
-                                        </div>
-
-                                        <br />
-                                    </div>
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br />
-                        <br /><hr />
-                    </div>
-
-                    <div id="mp8">
-                        <br /><br /><br /><br /><div id="main8" style="width: 800px;height:500px;margin: 0 auto;"></div>
-                        <br /><br />
-                        <div style=" float :right ">
-                            <div class="col-md-1" data-toggle="modal" data-target="#myModalm8" style=" margin:0px auto;">
-                                <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
-                            </div>
-                        </div>
-
-                        <div class="modal fade" id="myModalm8" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" style="background-color :none  ; ">
-                                <div class="modal-content">
-                                    <div>
-                                        <div class="modal-body" style="margin:0px auto;">
-                                            <img src="../static/pictures/test8.png" style=" width:550px;height :350px;background-color :azure  " />
-
-                                        </div>
-                                        <div style=" align-content :center ;text-align :center ">
-                                            <h>鼠标右键复制图片,分享给好友吧！</h>
-                                        </div>
-
-                                        <br />
-                                    </div>
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br />
-                        <br /><hr />
-                    </div>
-
-                    <div id="mp6">
-                        <br /><br /><br /><br /><div id="main6" style="width: 800px;height:500px;margin: 0 auto;"></div>
-                        <br /><br />
-                        <div style=" float :right ">
-                            <div class="col-md-1" data-toggle="modal" data-target="#myModalm6" style=" margin:0px auto;">
-                                <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
-                            </div>
-                        </div>
-
-                        <div class="modal fade" id="myModalm6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" style="background-color :none  ; ">
-                                <div class="modal-content">
-                                    <div>
-                                        <div class="modal-body" style="margin:0px auto;">
-                                            <img src="../static/pictures/test6.png" style=" width:550px;height :350px;background-color :azure  " />
-
-                                        </div>
-                                        <div style=" align-content :center ;text-align :center ">
-                                            <h>鼠标右键复制图片,分享给好友吧！</h>
-                                        </div>
-
-                                        <br />
-                                    </div>
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br />
-                        <br /><hr />
-                    </div>
-
-                    <div id="mp20">
-                        <br /><br /><br /><br /><div id="main20" style="width: 800px;height:500px;margin: 0 auto;"></div>
-                        <br /><br />
-                        <div style=" float :right ">
-                            <div class="col-md-1" data-toggle="modal" data-target="#myModalm20" style=" margin:0px auto;">
-                                <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
-                            </div>
-                        </div>
-
-                        <div class="modal fade" id="myModalm20" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" style="background-color :none  ; ">
-                                <div class="modal-content">
-                                    <div>
-                                        <div class="modal-body" style="margin:0px auto;">
-                                            <img src="../static/pictures/test20.png" style=" width:550px;height :350px;background-color :azure  " />
-
-                                        </div>
-                                        <div style=" align-content :center ;text-align :center ">
-                                            <h>鼠标右键复制图片,分享给好友吧！</h>
-                                        </div>
-
-                                        <br />
-                                    </div>
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br />
-                        <br /><hr />
-                    </div>
-
-                    <div id="mp22">
-                        <br /><br /><br /><br /><div id="main22" style="width: 800px;height:500px;margin: 0 auto;"></div>
-                        <br /><br />
-                        <div style=" float :right ">
-                            <div class="col-md-1" data-toggle="modal" data-target="#myModalm22" style=" margin:0px auto;">
-                                <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
-                            </div>
-                        </div>
-
-                        <div class="modal fade" id="myModalm22" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" style="background-color :none  ; ">
-                                <div class="modal-content">
-                                    <div>
-                                        <div class="modal-body" style="margin:0px auto;">
-                                            <img src="../static/pictures/test22.png" style=" width:550px;height :350px;background-color :azure  " />
-
-                                        </div>
-                                        <div style=" align-content :center ;text-align :center ">
-                                            <h>鼠标右键复制图片,分享给好友吧！</h>
-                                        </div>
-
-                                        <br />
-                                    </div>
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br />
-                        <br /><hr />
-                    </div>
-
-                    <div id="mp23">
-                        <br /><br /><br /><br /><div id="main23" style="width: 800px;height:500px;margin: 0 auto;"></div>
-                        <br /><br />
-                        <div style=" float :right ">
-                            <div class="col-md-1" data-toggle="modal" data-target="#myModalm23" style=" margin:0px auto;">
-                                <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
-                            </div>
-                        </div>
-
-                        <div class="modal fade" id="myModalm23" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" style="background-color :none  ; ">
-                                <div class="modal-content">
-                                    <div>
-                                        <div class="modal-body" style="margin:0px auto;">
-                                            <img src="../static/pictures/test23.png" style=" width:550px;height :350px;background-color :azure  " />
-
-                                        </div>
-                                        <div style=" align-content :center ;text-align :center ">
-                                            <h>鼠标右键复制图片,分享给好友吧！</h>
-                                        </div>
-
-                                        <br />
-                                    </div>
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br />
-                        <br /><hr />
-                    </div>
-
-                    <div id="mp24">
-                        <br /><br /><br /><br /><div id="main24" style="width: 800px;height:500px;margin: 0 auto;"></div>
-                        <br /><br />
-                        <div style=" float :right ">
-                            <div class="col-md-1" data-toggle="modal" data-target="#myModalm24" style=" margin:0px auto;">
-                                <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
-                            </div>
-                        </div>
-
-                        <div class="modal fade" id="myModalm24" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" style="background-color :none  ; ">
-                                <div class="modal-content">
-                                    <div>
-                                        <div class="modal-body" style="margin:0px auto;">
-                                            <img src="../static/pictures/test24.png" style=" width:550px;height :350px;background-color :azure  " />
-
-                                        </div>
-                                        <div style=" align-content :center ;text-align :center ">
-                                            <h>鼠标右键复制图片,分享给好友吧！</h>
-                                        </div>
-
-                                        <br />
-                                    </div>
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br />
-                        <br /><hr />
-                    </div>
-
-                    <div id="mp25">
-                        <br /><br /><br /><br /><div id="main25" style="width: 800px;height:500px;margin: 0 auto;"></div>
-                        <br /><br />
-                        <div style=" float :right ">
-                            <div class="col-md-1" data-toggle="modal" data-target="#myModalm25" style=" margin:0px auto;">
-                                <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
-                            </div>
-                        </div>
-
-                        <div class="modal fade" id="myModalm25" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" style="background-color :none  ; ">
-                                <div class="modal-content">
-                                    <div>
-                                        <div class="modal-body" style="margin:0px auto;">
-                                            <img src="../static/pictures/test25.png" style=" width:550px;height :350px;background-color :azure  " />
-
-                                        </div>
-                                        <div style=" align-content :center ;text-align :center ">
-                                            <h>鼠标右键复制图片,分享给好友吧！</h>
-                                        </div>
-
-                                        <br />
-                                    </div>
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br />
-                        <br /><hr />
-                    </div>
-
-                    <div id="mp15">
-                        <br /><br /> <br /><br /><div id="main15" style="width: 800px;height:500px;margin: 0 auto;"></div>
-                        <br /><br />
-                        <div style=" float :right ">
-                            <div class="col-md-1" data-toggle="modal" data-target="#myModalm15" style=" margin:0px auto;">
-                                <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
-                            </div>
-                        </div>
-
-                        <div class="modal fade" id="myModalm15" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" style="background-color :none  ; ">
-                                <div class="modal-content">
-                                    <div>
-                                        <div class="modal-body" style="margin:0px auto;">
-                                            <img src="../static/pictures/test15.png" style=" width:550px;height :350px;background-color :azure  " />
-
-                                        </div>
-                                        <div style=" align-content :center ;text-align :center ">
-                                            <h>鼠标右键复制图片,分享给好友吧！</h>
-                                        </div>
-
-                                        <br />
-                                    </div>
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br />
-                        <br /><hr />
-                    </div>
-
-                    <div id="mp7">
-                        <br /><br /><br /><br /><div id="main7" style="width: 800px;height:500px;margin: 0 auto;"></div>
-                        <br /><br />
-                        <div style=" float :right ">
-                            <div class="col-md-1" data-toggle="modal" data-target="#myModalm7" style=" margin:0px auto;">
-                                <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
-                            </div>
-                        </div>
-
-                        <div class="modal fade" id="myModalm7" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" style="background-color :none  ; ">
-                                <div class="modal-content">
-                                    <div>
-                                        <div class="modal-body" style="margin:0px auto;">
-                                            <img src="../static/pictures/test7.png" style=" width:550px;height :350px;background-color :azure  " />
-
-                                        </div>
-                                        <div style=" align-content :center ;text-align :center ">
-                                            <h>鼠标右键复制图片,分享给好友吧！</h>
-                                        </div>
-
-                                        <br />
-                                    </div>
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br />
-                        <br /><hr />
-                    </div>
-
-                    <div id="mp16">
-                        <br /><br /><br /><br /><div id="main16" style="width: 800px;height:500px;margin: 0 auto;"></div>
-                        <br /><br />
-                        <div style=" float :right ">
-                            <div class="col-md-1" data-toggle="modal" data-target="#myModalm16" style=" margin:0px auto;">
-                                <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
-                            </div>
-                        </div>
-
-                        <div class="modal fade" id="myModalm16" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" style="background-color :none  ; ">
-                                <div class="modal-content">
-                                    <div>
-                                        <div class="modal-body" style="margin:0px auto;">
-                                            <img src="../static/pictures/test16.png" style=" width:550px;height :350px;background-color :azure  " />
-
-                                        </div>
-                                        <div style=" align-content :center ;text-align :center ">
-                                            <h>鼠标右键复制图片,分享给好友吧！</h>
-                                        </div>
-
-                                        <br />
-                                    </div>
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br />
-                        <br /><hr />
-                    </div>
-
-                    <div id="mp9">
-                        <br /><br /><br /><br /><div id="main9" style="width: 800px;height:500px;margin: 0 auto;"></div>
-                        <br /><br />
-                        <div style=" float :right ">
-                            <div class="col-md-1" data-toggle="modal" data-target="#myModalm9" style=" margin:0px auto;">
-                                <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
-                            </div>
-                        </div>
-
-                        <div class="modal fade" id="myModalm9" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" style="background-color :none  ; ">
-                                <div class="modal-content">
-                                    <div>
-                                        <div class="modal-body" style="margin:0px auto;">
-                                            <img src="../static/pictures/test9.png" style=" width:550px;height :350px;background-color :azure  " />
-
-                                        </div>
-                                        <div style=" align-content :center ;text-align :center ">
-                                            <h>鼠标右键复制图片,分享给好友吧！</h>
-                                        </div>
-
-                                        <br />
-                                    </div>
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br />
-                        <br /><hr />
-                    </div>
-
-                    <div id="mp10">
-                        <br /><br /><br /><br /><div id="main10" style="width: 800px;height:500px;margin: 0 auto;"></div>
-                        <br /><br />
-                        <div style=" float :right ">
-                            <div class="col-md-1" data-toggle="modal" data-target="#myModalm10" style=" margin:0px auto;">
-                                <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
-                            </div>
-                        </div>
-
-                        <div class="modal fade" id="myModalm10" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" style="background-color :none  ; ">
-                                <div class="modal-content">
-                                    <div>
-                                        <div class="modal-body" style="margin:0px auto;">
-                                            <img src="../static/pictures/test10.png" style=" width:550px;height :350px;background-color :azure  " />
-
-                                        </div>
-                                        <div style=" align-content :center ;text-align :center ">
-                                            <h>鼠标右键复制图片,分享给好友吧！</h>
-                                        </div>
-
-                                        <br />
-                                    </div>
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br />
-                        <br /><hr />
-                    </div>
-
-                    <div id="mp18">
-                        <br /><br /><br /><br /><div id="main18" style="width: 800px;height:500px;margin: 0 auto;"></div>
-                        <br /><br />
-                        <div style=" float :right ">
-                            <div class="col-md-1" data-toggle="modal" data-target="#myModalm18" style=" margin:0px auto;">
-                                <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
-                            </div>
-                        </div>
-
-                        <div class="modal fade" id="myModalm18" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" style="background-color :none  ; ">
-                                <div class="modal-content">
-                                    <div>
-                                        <div class="modal-body" style="margin:0px auto;">
-                                            <img src="../static/pictures/test18.png" style=" width:550px;height :350px;background-color :azure  " />
-
-                                        </div>
-                                        <div style=" align-content :center ;text-align :center ">
-                                            <h>鼠标右键复制图片,分享给好友吧！</h>
-                                        </div>
-
-                                        <br />
-                                    </div>
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br />
-                        <br /><hr />
-                    </div>
-
-                    <div id="mp17">
-                        <br /><br /><br /><br /><div id="main17" style="width: 800px;height:500px;margin: 0 auto;"></div>
-                        <br /><br />
-                        <div style=" float :right ">
-                            <div class="col-md-1" data-toggle="modal" data-target="#myModalm17" style=" margin:0px auto;">
-                                <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
-                            </div>
-                        </div>
-
-                        <div class="modal fade" id="myModalm17" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" style="background-color :none  ; ">
-                                <div class="modal-content">
-                                    <div>
-                                        <div class="modal-body" style="margin:0px auto;">
-                                            <img src="../static/pictures/test17.png" style=" width:550px;height :350px;background-color :azure  " />
-
-                                        </div>
-                                        <div style=" align-content :center ;text-align :center ">
-                                            <h>鼠标右键复制图片,分享给好友吧！</h>
-                                        </div>
-
-                                        <br />
-                                    </div>
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br />
-                        <br /><hr />
-                    </div>
-
-                </div>
-            </div>
         </div>
+         <div style=" height :200px;width: 10px;">
 
-
+        </div>
     </div>
+    <div style="width:10%;height:100%;overflow:auto ;float :right;z-index :11">
+        
+    </div>
+    <div style="width:75%;height:100%;overflow:auto ;float :right;z-index :11">
+        <div style="background-color :aliceblue; opacity: 1; z-index: 15;">
+            <div id="mp5">
+                <br /><br /> <br /><br /><div id="main5" style="width: 800px;height:500px;margin: 0 auto;"></div>
+                <br /><br />
+                <div style=" float :right ">
+                    <div class="col-md-1" data-toggle="modal" data-target="#myModalm1" style=" margin:0px auto;">
+                        <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
+                    </div>
+                </div>
 
+                <div class="modal fade" id="myModalm1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" style="background-color :none  ; ">
+                        <div class="modal-content">
+                            <div>
+                                <div class="modal-body" style="margin:0px auto;">
+                                    <img src="../static/pictures/test5.png" style=" width:550px;height :350px;background-color :azure  " />
 
+                                </div>
+                                <div style=" align-content :center ;text-align :center ">
+                                    <h>鼠标右键复制图片,分享给好友吧！</h>
+                                </div>
 
+                                <br />
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br /><hr />
+            </div>
+
+            <div id="mp2">
+                <br /><br /> <br /><br /><div id="main2" style="width: 800px;height:500px;margin: 0 auto;"></div>
+                <br /><br />
+                <div style=" float :right ">
+                    <div class="col-md-1" data-toggle="modal" data-target="#myModalm2" style=" margin:0px auto;">
+                        <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="myModalm2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" style="background-color :none  ; ">
+                        <div class="modal-content">
+                            <div>
+                                <div class="modal-body" style="margin:0px auto;">
+                                    <img src="../static/pictures/test2.png" style=" width:550px;height :350px;background-color :azure  " />
+
+                                </div>
+                                <div style=" align-content :center ;text-align :center ">
+                                    <h>鼠标右键复制图片,分享给好友吧！</h>
+                                </div>
+
+                                <br />
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br /><hr />
+            </div>
+
+            <div id="mp13">
+                <br /><br /> <br /><br /><div id="main13" style="width: 800px;height:500px;margin: 0 auto;"></div>
+                <br /><br />
+                <div style=" float :right ">
+                    <div class="col-md-1" data-toggle="modal" data-target="#myModalm13" style=" margin:0px auto;">
+                        <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="myModalm13" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" style="background-color :none  ; ">
+                        <div class="modal-content">
+                            <div>
+                                <div class="modal-body" style="margin:0px auto;">
+                                    <img src="../static/pictures/test13.png" style=" width:550px;height :350px;background-color :azure  " />
+
+                                </div>
+                                <div style=" align-content :center ;text-align :center ">
+                                    <h>鼠标右键复制图片,分享给好友吧！</h>
+                                </div>
+
+                                <br />
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br /><hr />
+            </div>
+
+            <div id="mp11">
+                <br /><br /> <br /><br /><div id="main11" style="width: 800px;height:500px;margin: 0 auto;"></div>
+                <br /><br />
+                <div style=" float :right ">
+                    <div class="col-md-1" data-toggle="modal" data-target="#myModalm11" style=" margin:0px auto;">
+                        <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="myModalm11" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" style="background-color :none  ; ">
+                        <div class="modal-content">
+                            <div>
+                                <div class="modal-body" style="margin:0px auto;">
+                                    <img src="../static/pictures/test11.png" style=" width:550px;height :350px;background-color :azure  " />
+
+                                </div>
+                                <div style=" align-content :center ;text-align :center ">
+                                    <h>鼠标右键复制图片,分享给好友吧！</h>
+                                </div>
+
+                                <br />
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br /><hr />
+            </div>
+
+            <div id="mp14">
+                <br /><br /><br /><br /><div id="main14" style="width: 800px;height:500px;margin: 0 auto;"></div>
+                <br /><br />
+                <div style=" float :right ">
+                    <div class="col-md-1" data-toggle="modal" data-target="#myModalm14" style=" margin:0px auto;">
+                        <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="myModalm14" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" style="background-color :none  ; ">
+                        <div class="modal-content">
+                            <div>
+                                <div class="modal-body" style="margin:0px auto;">
+                                    <img src="../static/pictures/test14.png" style=" width:550px;height :350px;background-color :azure  " />
+
+                                </div>
+                                <div style=" align-content :center ;text-align :center ">
+                                    <h>鼠标右键复制图片,分享给好友吧！</h>
+                                </div>
+
+                                <br />
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br /><hr />
+            </div>
+
+            <div id="mp12">
+                <br /><br /><br /><br /><div id="main12" style="width: 800px;height:500px;margin: 0 auto;"></div>
+                <br /><br />
+                <div style=" float :right ">
+                    <div class="col-md-1" data-toggle="modal" data-target="#myModalm12" style=" margin:0px auto;">
+                        <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="myModalm12" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" style="background-color :none  ; ">
+                        <div class="modal-content">
+                            <div>
+                                <div class="modal-body" style="margin:0px auto;">
+                                    <img src="../static/pictures/test12.png" style=" width:550px;height :350px;background-color :azure  " />
+
+                                </div>
+                                <div style=" align-content :center ;text-align :center ">
+                                    <h>鼠标右键复制图片,分享给好友吧！</h>
+                                </div>
+
+                                <br />
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br /><hr />
+            </div>
+
+            <div id="mp19">
+                <br /><br /><br /><br /><div id="main19" style="width: 800px;height:500px;margin: 0 auto;"></div>
+                <br /><br />
+                <div style=" float :right ">
+                    <div class="col-md-1" data-toggle="modal" data-target="#myModalm19" style=" margin:0px auto;">
+                        <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="myModalm19" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" style="background-color :none  ; ">
+                        <div class="modal-content">
+                            <div>
+                                <div class="modal-body" style="margin:0px auto;">
+                                    <img src="../static/pictures/test19.png" style=" width:550px;height :350px;background-color :azure  " />
+
+                                </div>
+                                <div style=" align-content :center ;text-align :center ">
+                                    <h>鼠标右键复制图片,分享给好友吧！</h>
+                                </div>
+
+                                <br />
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br /><hr />
+            </div>
+
+            <div id="mp21" style=" display :none">
+                <br /><br /><br /><br /><div id="main21" style="width: 800px;height:500px;margin: 0 auto;"></div>
+                <br /><br />
+                <div style=" float :right ">
+                    <div class="col-md-1" data-toggle="modal" data-target="#myModalm21" style=" margin:0px auto;">
+                        <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="myModalm21" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" style="background-color :none  ; ">
+                        <div class="modal-content">
+                            <div>
+                                <div class="modal-body" style="margin:0px auto;">
+                                    <img src="../static/pictures/test21.png" style=" width:550px;height :350px;background-color :azure  " />
+
+                                </div>
+                                <div style=" align-content :center ;text-align :center ">
+                                    <h>鼠标右键复制图片,分享给好友吧！</h>
+                                </div>
+
+                                <br />
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br /><hr />
+            </div>
+
+            <div id="mp1">
+                <br /><br /><br /><br /><div id="main1" style="width: 800px;height:500px;margin: 0 auto;"></div>
+                <br /><br />
+                <div style=" float :right ">
+                    <div class="col-md-1" data-toggle="modal" data-target="#myModalm1" style=" margin:0px auto;">
+                        <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="myModalm1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" style="background-color :none  ; ">
+                        <div class="modal-content">
+                            <div>
+                                <div class="modal-body" style="margin:0px auto;">
+                                    <img src="../static/pictures/test1.png" style=" width:550px;height :350px;background-color :azure  " />
+
+                                </div>
+                                <div style=" align-content :center ;text-align :center ">
+                                    <h>鼠标右键复制图片,分享给好友吧！</h>
+                                </div>
+
+                                <br />
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br /><hr />
+            </div>
+
+            <div id="mp4">
+                <br /><br /><br /><br /><div id="main4" style="width: 800px;height:500px;margin: 0 auto;"></div>
+                <br /><br />
+                <div style=" float :right ">
+                    <div class="col-md-1" data-toggle="modal" data-target="#myModalm4" style=" margin:0px auto;">
+                        <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="myModalm4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" style="background-color :none  ; ">
+                        <div class="modal-content">
+                            <div>
+                                <div class="modal-body" style="margin:0px auto;">
+                                    <img src="../static/pictures/test4.png" style=" width:550px;height :350px;background-color :azure  " />
+
+                                </div>
+                                <div style=" align-content :center ;text-align :center ">
+                                    <h>鼠标右键复制图片,分享给好友吧！</h>
+                                </div>
+
+                                <br />
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br /><hr />
+            </div>
+
+            <div id="mp3">
+                <br /><br /><br /><br /><div id="main3" style="width: 800px;height:500px;margin: 0 auto;"></div>
+                <br /><br />
+                <div style=" float :right ">
+                    <div class="col-md-1" data-toggle="modal" data-target="#myModalm3" style=" margin:0px auto;">
+                        <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="myModalm3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" style="background-color :none  ; ">
+                        <div class="modal-content">
+                            <div>
+                                <div class="modal-body" style="margin:0px auto;">
+                                    <img src="../static/pictures/test3.png" style=" width:550px;height :350px;background-color :azure  " />
+
+                                </div>
+                                <div style=" align-content :center ;text-align :center ">
+                                    <h>鼠标右键复制图片,分享给好友吧！</h>
+                                </div>
+
+                                <br />
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br /><hr />
+            </div>
+
+            <div id="mp8">
+                <br /><br /><br /><br /><div id="main8" style="width: 800px;height:500px;margin: 0 auto;"></div>
+                <br /><br />
+                <div style=" float :right ">
+                    <div class="col-md-1" data-toggle="modal" data-target="#myModalm8" style=" margin:0px auto;">
+                        <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="myModalm8" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" style="background-color :none  ; ">
+                        <div class="modal-content">
+                            <div>
+                                <div class="modal-body" style="margin:0px auto;">
+                                    <img src="../static/pictures/test8.png" style=" width:550px;height :350px;background-color :azure  " />
+
+                                </div>
+                                <div style=" align-content :center ;text-align :center ">
+                                    <h>鼠标右键复制图片,分享给好友吧！</h>
+                                </div>
+
+                                <br />
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br /><hr />
+            </div>
+
+            <div id="mp6">
+                <br /><br /><br /><br /><div id="main6" style="width: 800px;height:500px;margin: 0 auto;"></div>
+                <br /><br />
+                <div style=" float :right ">
+                    <div class="col-md-1" data-toggle="modal" data-target="#myModalm6" style=" margin:0px auto;">
+                        <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="myModalm6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" style="background-color :none  ; ">
+                        <div class="modal-content">
+                            <div>
+                                <div class="modal-body" style="margin:0px auto;">
+                                    <img src="../static/pictures/test6.png" style=" width:550px;height :350px;background-color :azure  " />
+
+                                </div>
+                                <div style=" align-content :center ;text-align :center ">
+                                    <h>鼠标右键复制图片,分享给好友吧！</h>
+                                </div>
+
+                                <br />
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br /><hr />
+            </div>
+
+            <div id="mp20">
+                <br /><br /><br /><br /><div id="main20" style="width: 800px;height:500px;margin: 0 auto;"></div>
+                <br /><br />
+                <div style=" float :right ">
+                    <div class="col-md-1" data-toggle="modal" data-target="#myModalm20" style=" margin:0px auto;">
+                        <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="myModalm20" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" style="background-color :none  ; ">
+                        <div class="modal-content">
+                            <div>
+                                <div class="modal-body" style="margin:0px auto;">
+                                    <img src="../static/pictures/test20.png" style=" width:550px;height :350px;background-color :azure  " />
+
+                                </div>
+                                <div style=" align-content :center ;text-align :center ">
+                                    <h>鼠标右键复制图片,分享给好友吧！</h>
+                                </div>
+
+                                <br />
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br /><hr />
+            </div>
+
+            <div id="mp22">
+                <br /><br /><br /><br /><div id="main22" style="width: 800px;height:500px;margin: 0 auto;"></div>
+                <br /><br />
+                <div style=" float :right ">
+                    <div class="col-md-1" data-toggle="modal" data-target="#myModalm22" style=" margin:0px auto;">
+                        <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="myModalm22" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" style="background-color :none  ; ">
+                        <div class="modal-content">
+                            <div>
+                                <div class="modal-body" style="margin:0px auto;">
+                                    <img src="../static/pictures/test22.png" style=" width:550px;height :350px;background-color :azure  " />
+
+                                </div>
+                                <div style=" align-content :center ;text-align :center ">
+                                    <h>鼠标右键复制图片,分享给好友吧！</h>
+                                </div>
+
+                                <br />
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br /><hr />
+            </div>
+
+            <div id="mp23">
+                <br /><br /><br /><br /><div id="main23" style="width: 800px;height:500px;margin: 0 auto;"></div>
+                <br /><br />
+                <div style=" float :right ">
+                    <div class="col-md-1" data-toggle="modal" data-target="#myModalm23" style=" margin:0px auto;">
+                        <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="myModalm23" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" style="background-color :none  ; ">
+                        <div class="modal-content">
+                            <div>
+                                <div class="modal-body" style="margin:0px auto;">
+                                    <img src="../static/pictures/test23.png" style=" width:550px;height :350px;background-color :azure  " />
+
+                                </div>
+                                <div style=" align-content :center ;text-align :center ">
+                                    <h>鼠标右键复制图片,分享给好友吧！</h>
+                                </div>
+
+                                <br />
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br /><hr />
+            </div>
+
+            <div id="mp24">
+                <br /><br /><br /><br /><div id="main24" style="width: 800px;height:500px;margin: 0 auto;"></div>
+                <br /><br />
+                <div style=" float :right ">
+                    <div class="col-md-1" data-toggle="modal" data-target="#myModalm24" style=" margin:0px auto;">
+                        <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="myModalm24" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" style="background-color :none  ; ">
+                        <div class="modal-content">
+                            <div>
+                                <div class="modal-body" style="margin:0px auto;">
+                                    <img src="../static/pictures/test24.png" style=" width:550px;height :350px;background-color :azure  " />
+
+                                </div>
+                                <div style=" align-content :center ;text-align :center ">
+                                    <h>鼠标右键复制图片,分享给好友吧！</h>
+                                </div>
+
+                                <br />
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br /><hr />
+            </div>
+
+            <div id="mp25">
+                <br /><br /><br /><br /><div id="main25" style="width: 800px;height:500px;margin: 0 auto;"></div>
+                <br /><br />
+                <div style=" float :right ">
+                    <div class="col-md-1" data-toggle="modal" data-target="#myModalm25" style=" margin:0px auto;">
+                        <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="myModalm25" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" style="background-color :none  ; ">
+                        <div class="modal-content">
+                            <div>
+                                <div class="modal-body" style="margin:0px auto;">
+                                    <img src="../static/pictures/test25.png" style=" width:550px;height :350px;background-color :azure  " />
+
+                                </div>
+                                <div style=" align-content :center ;text-align :center ">
+                                    <h>鼠标右键复制图片,分享给好友吧！</h>
+                                </div>
+
+                                <br />
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br /><hr />
+            </div>
+
+            <div id="mp15">
+                <br /><br /> <br /><br /><div id="main15" style="width: 800px;height:500px;margin: 0 auto;"></div>
+                <br /><br />
+                <div style=" float :right ">
+                    <div class="col-md-1" data-toggle="modal" data-target="#myModalm15" style=" margin:0px auto;">
+                        <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="myModalm15" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" style="background-color :none  ; ">
+                        <div class="modal-content">
+                            <div>
+                                <div class="modal-body" style="margin:0px auto;">
+                                    <img src="../static/pictures/test15.png" style=" width:550px;height :350px;background-color :azure  " />
+
+                                </div>
+                                <div style=" align-content :center ;text-align :center ">
+                                    <h>鼠标右键复制图片,分享给好友吧！</h>
+                                </div>
+
+                                <br />
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br /><hr />
+            </div>
+
+            <div id="mp7">
+                <br /><br /><br /><br /><div id="main7" style="width: 800px;height:500px;margin: 0 auto;"></div>
+                <br /><br />
+                <div style=" float :right ">
+                    <div class="col-md-1" data-toggle="modal" data-target="#myModalm7" style=" margin:0px auto;">
+                        <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="myModalm7" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" style="background-color :none  ; ">
+                        <div class="modal-content">
+                            <div>
+                                <div class="modal-body" style="margin:0px auto;">
+                                    <img src="../static/pictures/test7.png" style=" width:550px;height :350px;background-color :azure  " />
+
+                                </div>
+                                <div style=" align-content :center ;text-align :center ">
+                                    <h>鼠标右键复制图片,分享给好友吧！</h>
+                                </div>
+
+                                <br />
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br /><hr />
+            </div>
+
+            <div id="mp16">
+                <br /><br /><br /><br /><div id="main16" style="width: 800px;height:500px;margin: 0 auto;"></div>
+                <br /><br />
+                <div style=" float :right ">
+                    <div class="col-md-1" data-toggle="modal" data-target="#myModalm16" style=" margin:0px auto;">
+                        <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="myModalm16" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" style="background-color :none  ; ">
+                        <div class="modal-content">
+                            <div>
+                                <div class="modal-body" style="margin:0px auto;">
+                                    <img src="../static/pictures/test16.png" style=" width:550px;height :350px;background-color :azure  " />
+
+                                </div>
+                                <div style=" align-content :center ;text-align :center ">
+                                    <h>鼠标右键复制图片,分享给好友吧！</h>
+                                </div>
+
+                                <br />
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br /><hr />
+            </div>
+
+            <div id="mp9">
+                <br /><br /><br /><br /><div id="main9" style="width: 800px;height:500px;margin: 0 auto;"></div>
+                <br /><br />
+                <div style=" float :right ">
+                    <div class="col-md-1" data-toggle="modal" data-target="#myModalm9" style=" margin:0px auto;">
+                        <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="myModalm9" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" style="background-color :none  ; ">
+                        <div class="modal-content">
+                            <div>
+                                <div class="modal-body" style="margin:0px auto;">
+                                    <img src="../static/pictures/test9.png" style=" width:550px;height :350px;background-color :azure  " />
+
+                                </div>
+                                <div style=" align-content :center ;text-align :center ">
+                                    <h>鼠标右键复制图片,分享给好友吧！</h>
+                                </div>
+
+                                <br />
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br /><hr />
+            </div>
+
+            <div id="mp10">
+                <br /><br /><br /><br /><div id="main10" style="width: 800px;height:500px;margin: 0 auto;"></div>
+                <br /><br />
+                <div style=" float :right ">
+                    <div class="col-md-1" data-toggle="modal" data-target="#myModalm10" style=" margin:0px auto;">
+                        <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="myModalm10" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" style="background-color :none  ; ">
+                        <div class="modal-content">
+                            <div>
+                                <div class="modal-body" style="margin:0px auto;">
+                                    <img src="../static/pictures/test10.png" style=" width:550px;height :350px;background-color :azure  " />
+
+                                </div>
+                                <div style=" align-content :center ;text-align :center ">
+                                    <h>鼠标右键复制图片,分享给好友吧！</h>
+                                </div>
+
+                                <br />
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br /><hr />
+            </div>
+
+            <div id="mp18">
+                <br /><br /><br /><br /><div id="main18" style="width: 800px;height:500px;margin: 0 auto;"></div>
+                <br /><br />
+                <div style=" float :right ">
+                    <div class="col-md-1" data-toggle="modal" data-target="#myModalm18" style=" margin:0px auto;">
+                        <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="myModalm18" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" style="background-color :none  ; ">
+                        <div class="modal-content">
+                            <div>
+                                <div class="modal-body" style="margin:0px auto;">
+                                    <img src="../static/pictures/test18.png" style=" width:550px;height :350px;background-color :azure  " />
+
+                                </div>
+                                <div style=" align-content :center ;text-align :center ">
+                                    <h>鼠标右键复制图片,分享给好友吧！</h>
+                                </div>
+
+                                <br />
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br /><hr />
+            </div>
+
+            <div id="mp17">
+                <br /><br /><br /><br /><div id="main17" style="width: 800px;height:500px;margin: 0 auto;"></div>
+                <br /><br />
+                <div style=" float :right ">
+                    <div class="col-md-1" data-toggle="modal" data-target="#myModalm17" style=" margin:0px auto;">
+                        <button type="button" class="btn btn-info" style=" width :100px;margin:0px auto; float :left  ">点击生成图片</button>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="myModalm17" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" style="background-color :none  ; ">
+                        <div class="modal-content">
+                            <div>
+                                <div class="modal-body" style="margin:0px auto;">
+                                    <img src="../static/pictures/test17.png" style=" width:550px;height :350px;background-color :azure  " />
+
+                                </div>
+                                <div style=" align-content :center ;text-align :center ">
+                                    <h>鼠标右键复制图片,分享给好友吧！</h>
+                                </div>
+
+                                <br />
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br /><hr />
+            </div>
+
+        </div>
+    </div>
     <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-   
- 
+
+
     <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
 
@@ -1648,28 +1644,18 @@
                     animation: false,
 
                     legend: {},
-                    tooltip: {
-                        formatter: '{b0}<br />{a0}:{c0}%',
-
-                    },
+                    tooltip: {},
                     xAxis: {
                         type: 'category',
                         data: json_data['chinaTop']['deathsRate']['name'],
                     },
                     yAxis: {
-                        type: 'value',
-                                  axisLabel: {
-                            show: true,
-                            interval: 'auto',
-                            formatter: '{value} %'
-                        },
-                        show: true
-
+                        type: 'value'
                     },
                     series: [{
-                        name: '死亡率',
+                        name: '现存确诊',
                         data: json_data['chinaTop']['deathsRate']['value'],
-                        type: 'bar',
+                        type: 'bar'
                     }]
                 };
                 myChart12.setOption(option12);
@@ -2205,13 +2191,13 @@
                     },
                     series: [
                         {
-                            name: '疑似预测',
+                            name: '确诊预测',
                             type: 'line',
                             symbolSize: 8,
                             data: json_data['chinaPredict']['suspected']
                         },
                         {
-                            name: '现存疑似',
+                            name: '现存确诊',
                             type: 'line',
                             symbolSize: 8,
                             data: json_data['china']['suspected']
@@ -2439,10 +2425,10 @@
 
 
         )
-                                                                                                    //ajax末尾
+                                                                                                                //ajax末尾
 
 
-                                                                                                //function末尾
+                                                                                                            //function末尾
 
 
 
