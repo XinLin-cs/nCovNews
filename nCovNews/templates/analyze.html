@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+﻿{% extends "layout.html" %}
 
 {% block content %}
 
@@ -1645,7 +1645,9 @@
                     animation: false,
 
                     legend: {},
-                    tooltip: {},
+                    tooltip: {
+                         formatter: '{b0}<br />{a0}:{c0}%',
+                    },
                     xAxis: {
                         type: 'category',
                         data: json_data['chinaTop']['deathsRate']['name'],
@@ -1654,7 +1656,7 @@
                         type: 'value'
                     },
                     series: [{
-                        name: '现存确诊',
+                        name: '死亡率',
                         data: json_data['chinaTop']['deathsRate']['value'],
                         type: 'bar'
                     }]
