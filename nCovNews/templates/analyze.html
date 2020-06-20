@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+﻿{% extends "layout.html" %}
 
 {% block content %}
 
@@ -1114,13 +1114,21 @@
                             name: '现有确诊',
                             type: 'line',
                             symbolSize: 8,
-                            data: json_data['china']['confirmedexist']
+                            data: json_data['china']['confirmedexist'],
+                            
                         },
                         {
                             name: '总确诊',
                             type: 'line',
                             symbolSize: 8,
-                            data: json_data['china']['confirmedtotal']
+                            data: json_data['china']['confirmedtotal'],
+                            itemStyle: {
+                                normal: {
+                                    lineStyle: {
+                                        color: '#FF0000	' //改变折线颜色
+                                    }
+                                }
+                            },
                         }
                     ],
                     animation: false,
@@ -1230,13 +1238,27 @@
                             name: '累计治愈',
                             type: 'line',
                             symbolSize: 8,
-                            data: json_data['china']['cures']
+                            data: json_data['china']['cures'],
+                            itemStyle: {
+                                normal: {
+                                    lineStyle: {
+                                        color: '#00FF00' //改变折线颜色
+                                    }
+                                }
+                            },
                         },
                         {
                             name: '累计死亡',
                             type: 'line',
                             symbolSize: 8,
-                            data: json_data['china']['deaths']
+                            data: json_data['china']['deaths'],
+                            itemStyle: {
+                                normal: {
+                                    lineStyle: {
+                                        color: '#696969' //改变折线颜色
+                                    }
+                                }
+                            },
                         }
                     ]
                 };
@@ -1653,6 +1675,12 @@
                         data: json_data['chinaTop']['deathsRate']['name'],
                     },
                     yAxis: {
+                        axisLabel: {
+                            show: true,
+                            interval: 'auto',
+                            formatter: '{value} %'
+                        },
+                        show: true  ,
                         type: 'value'
                     },
                     series: [{
@@ -2194,13 +2222,13 @@
                     },
                     series: [
                         {
-                            name: '确诊预测',
+                            name: '疑似预测',
                             type: 'line',
                             symbolSize: 8,
                             data: json_data['chinaPredict']['suspected']
                         },
                         {
-                            name: '现存确诊',
+                            name: '现存疑似',
                             type: 'line',
                             symbolSize: 8,
                             data: json_data['china']['suspected']
