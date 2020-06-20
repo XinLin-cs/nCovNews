@@ -161,8 +161,8 @@ def get_news( page , num ):
             title = data['title']
             summary = data['summary']
             info = data['infoSource']
-            url = data['sourceUrl']
-            # url = data['sourceUrl'].replace('&isfromapp=1','')
+            #url = data['sourceUrl']
+            url = data['sourceUrl'].replace('&isfromapp=1','')
             news = datatype.NEWS(date=date,title=title,summary=summary,info=info,url=url)
             session.add(news)
         session.commit()
