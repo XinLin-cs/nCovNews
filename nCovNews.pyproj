@@ -60,6 +60,7 @@
     <Folder Include="nCovNews\static\fonts\" />
     <Folder Include="nCovNews\static\images\" />
     <Folder Include="nCovNews\static\images\headp\" />
+    <Folder Include="nCovNews\static\images\icon\" />
     <Folder Include="nCovNews\static\pictures\" />
     <Folder Include="nCovNews\static\scripts\" />
     <Folder Include="nCovNews\templates\" />
@@ -133,6 +134,7 @@
     <Content Include="nCovNews\static\images\headp\h7.jpg" />
     <Content Include="nCovNews\static\images\headp\h8.jpg" />
     <Content Include="nCovNews\static\images\headp\h9.jpg" />
+    <Content Include="nCovNews\static\images\icon\ncovhelper.ico" />
     <Content Include="nCovNews\static\scripts\china.js" />
     <Content Include="nCovNews\static\scripts\echarts.min.js" />
     <Content Include="nCovNews\static\scripts\jquery-3.4.1.js" />
@@ -178,6 +180,7 @@
     <Content Include="nCovNews\templates\index.html" />
     <Content Include="nCovNews\templates\layout.html" />
     <Content Include="WechatPCAPI\lib\OpenWechatMulti.exe" />
+    <Content Include="WechatPCAPI\lib\WechatPCHelper.dll" />
     <Content Include="WechatPCAPI\LICENSE" />
     <Content Include="WechatPCAPI\README-BO.md" />
     <Content Include="WechatPCAPI\README.md" />

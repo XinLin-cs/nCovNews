@@ -1,11 +1,3 @@
-# -*- coding: utf-8 -*-
-# @Time    : 2019/11/27 23:00
-# @Author  : Leon
-# @Email   : 1446684220@qq.com
-# @File    : test.py
-# @Desc    : 
-# @Software: PyCharm
-
 from WechatPCAPI.WechatPCAPI import WechatPCAPI
 import time
 import datetime

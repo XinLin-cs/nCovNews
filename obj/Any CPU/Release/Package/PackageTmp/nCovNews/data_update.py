@@ -148,19 +148,21 @@ def getdata_api():
     session.commit() # 修改数据库
 
 def get_news( page , num ):
-    session = db.session
-    datatype.NEWS.query.delete()
+    
     url = 'http://lab.isaaclin.cn/nCoV/api/news?page=%d&num=%d' % ( page , num )
     try:
         respone = requests.get(url).json()
         time.sleep(1)
+        session = db.session
+        datatype.NEWS.query.delete()
         msg = respone['results']
         for data in msg:
             date = float(data['pubDate'])/1000
             title = data['title']
             summary = data['summary']
             info = data['infoSource']
-            url = data['sourceUrl']
+            #url = data['sourceUrl']
+            url = data['sourceUrl'].replace('&isfromapp=1','')
             news = datatype.NEWS(date=date,title=title,summary=summary,info=info,url=url)
             session.add(news)
         session.commit()
@@ -168,12 +170,12 @@ def get_news( page , num ):
         return 0
 
 def get_fakenews( page , num ):
-    session = db.session
-    datatype.FAKENEWS.query.delete()
     url = 'http://lab.isaaclin.cn/nCoV/api/rumors?page=%d&num=%d&rumorType=%d' % ( page , num , 0 )
     try:
         respone = requests.get(url).json()
         time.sleep(1)
+        session = db.session
+        datatype.FAKENEWS.query.delete()
         msg = respone['results']
         for data in msg:
             title = data['title']
@@ -186,12 +188,12 @@ def get_fakenews( page , num ):
         return 0
 
 def get_information( page , num ):
-    session = db.session
-    datatype.INFORMATION.query.delete()
     url = 'http://lab.isaaclin.cn/nCoV/api/rumors?page=%d&num=%d&rumorType=%d' % ( page , num , 1 )
     try:
         respone = requests.get(url).json()
         time.sleep(1)
+        session = db.session
+        datatype.INFORMATION.query.delete()
         msg = respone['results']
         for data in msg:
             title = data['title']

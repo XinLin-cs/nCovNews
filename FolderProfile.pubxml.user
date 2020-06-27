@@ -16,13 +16,13 @@
       <publishTime>05/26/2020 16:08:12</publishTime>
     </File>
     <File Include="nCovNews/data_update.py">
-      <publishTime>06/06/2020 20:12:47</publishTime>
+      <publishTime>06/20/2020 17:32:55</publishTime>
     </File>
     <File Include="nCovNews/forms.py">
       <publishTime>06/03/2020 22:40:35</publishTime>
     </File>
     <File Include="nCovNews/get_data.py">
-      <publishTime>06/02/2020 14:43:13</publishTime>
+      <publishTime>06/20/2020 11:09:52</publishTime>
     </File>
     <File Include="nCovNews/static/content/bootstrap.css">
       <publishTime>02/27/2020 17:28:49</publishTime>
@@ -304,7 +304,7 @@
       <publishTime>06/17/2020 22:42:37</publishTime>
     </File>
     <File Include="nCovNews/templates/analyze.html">
-      <publishTime>06/17/2020 22:54:38</publishTime>
+      <publishTime>06/20/2020 17:14:51</publishTime>
     </File>
     <File Include="nCovNews/templates/contact.html">
       <publishTime>02/27/2020 17:28:49</publishTime>
@@ -313,22 +313,22 @@
       <publishTime>06/17/2020 22:34:03</publishTime>
     </File>
     <File Include="nCovNews/templates/discuss_detail.html">
-      <publishTime>06/17/2020 22:34:03</publishTime>
+      <publishTime>06/20/2020 17:14:51</publishTime>
     </File>
     <File Include="nCovNews/templates/index.html">
       <publishTime>06/17/2020 22:34:03</publishTime>
     </File>
     <File Include="nCovNews/templates/layout.html">
-      <publishTime>06/15/2020 22:43:56</publishTime>
+      <publishTime>06/20/2020 17:14:51</publishTime>
     </File>
     <File Include="nCovNews/templates/login.html">
       <publishTime>06/11/2020 17:06:49</publishTime>
     </File>
     <File Include="nCovNews/templates/news.html">
-      <publishTime>06/11/2020 17:06:49</publishTime>
+      <publishTime>06/19/2020 18:05:04</publishTime>
     </File>
     <File Include="nCovNews/templates/overview.html">
-      <publishTime>06/11/2020 17:06:49</publishTime>
+      <publishTime>06/19/2020 22:09:45</publishTime>
     </File>
     <File Include="nCovNews/templates/register.html">
       <publishTime>06/04/2020 00:46:38</publishTime>
@@ -337,13 +337,13 @@
       <publishTime>06/14/2020 22:20:00</publishTime>
     </File>
     <File Include="nCovNews/templates/test.html">
-      <publishTime>06/15/2020 21:44:52</publishTime>
+      <publishTime>06/20/2020 17:14:51</publishTime>
     </File>
     <File Include="nCovNews/user_mod.py">
       <publishTime>06/14/2020 00:33:22</publishTime>
     </File>
     <File Include="nCovNews/views.py">
-      <publishTime>06/14/2020 00:38:38</publishTime>
+      <publishTime>06/19/2020 18:05:04</publishTime>
     </File>
     <File Include="nCovNews/__init__.py">
       <publishTime>05/25/2020 23:28:51</publishTime>
@@ -362,6 +362,9 @@
     </File>
     <File Include="WechatPCAPI/lib/OpenWechatMulti.exe">
       <publishTime>05/31/2020 17:08:08</publishTime>
+    </File>
+    <File Include="WechatPCAPI/lib/WechatPCHelper.dll">
+      <publishTime>06/18/2020 21:30:04</publishTime>
     </File>
     <File Include="WechatPCAPI/LICENSE">
       <publishTime>05/31/2020 17:08:08</publishTime>
@@ -382,7 +385,7 @@
       <publishTime>05/31/2020 17:08:08</publishTime>
     </File>
     <File Include="WechatPCAPI/wxrobot.py">
-      <publishTime>06/11/2020 19:18:10</publishTime>
+      <publishTime>06/19/2020 19:02:59</publishTime>
     </File>
   </ItemGroup>
 </Project>

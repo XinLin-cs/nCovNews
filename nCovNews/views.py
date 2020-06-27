@@ -4,7 +4,7 @@ Routes and views for the flask application.
 import time
 import json
 from datetime import datetime , date , timedelta
-from flask import render_template,request,redirect,url_for,flash,session,jsonify
+from flask import render_template,request,redirect,url_for,flash,session,jsonify,send_from_directory
 from nCovNews import app , db
 from nCovNews import datatype , data_predict , user_mod , forms , get_data 
 import requests
@@ -237,4 +237,6 @@ def changephoto(picurl):
     dbsession.commit()
     return  redirect(url_for('home'))
 
-
+@app.route('/ncovhelper.ico')
+def ncovhelper():
+    return send_from_directory('./static/images/icon','ncovhelper.ico', mimetype='image/vnd.microsoft.icon')
