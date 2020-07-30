@@ -28,7 +28,7 @@ if __name__ == '__main__':
         PORT = 5555
     time.sleep(2)
     # 启动机器人
-    _thread.start_new_thread(thread_robot)
-    time.sleep(2)
+    #_thread.start_new_thread(thread_robot)
+    #time.sleep(2)
     # 启动本地网页
     app.run(HOST, PORT)
