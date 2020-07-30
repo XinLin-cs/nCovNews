@@ -7,7 +7,7 @@ from os import environ
 from nCovNews import app
 from nCovNews import db
 from nCovNews import data_update
-from WechatPCAPI import wxrobot
+#from WechatPCAPI import wxrobot
 
 def thread_robot():
     wxrobot.init()
