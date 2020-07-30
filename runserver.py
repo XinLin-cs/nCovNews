@@ -10,22 +10,19 @@ from nCovNews import data_update
 #from WechatAPI import wxrobot
 
 if __name__ == '__main__':
-    
     # 数据库测试
     #db.drop_all()
     db.create_all()
-
-    # 实时数据更新
-    data_update.auto_update( 30*60 )
     # 启动服务器
     HOST = environ.get('SERVER_HOST', 'localhost')
     try:
         PORT = int(environ.get('SERVER_PORT', '5555'))
     except ValueError:
         PORT = 5555
-    time.sleep(2)
+    app.run(HOST, PORT)
+    # 实时数据更新
+    data_update.auto_update( 30*60 )
     # 启动机器人
     #_thread.start_new_thread(lambda:wxrobot.init())
     #time.sleep(2)
-    # 启动本地网页
-    app.run(HOST, PORT)
+    
