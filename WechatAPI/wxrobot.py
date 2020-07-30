@@ -1,4 +1,4 @@
-from WechatPCAPI.WechatPCAPI import WechatPCAPI
+from WechatAPI.WechatPCAPI import WechatPCAPI
 import time
 import datetime
 import logging

@@ -7,10 +7,7 @@ from os import environ
 from nCovNews import app
 from nCovNews import db
 from nCovNews import data_update
-#from WechatPCAPI import wxrobot
-
-def thread_robot():
-    wxrobot.init()
+#from WechatAPI import wxrobot
 
 if __name__ == '__main__':
     
@@ -28,7 +25,7 @@ if __name__ == '__main__':
         PORT = 5555
     time.sleep(2)
     # 启动机器人
-    #_thread.start_new_thread(thread_robot)
+    #_thread.start_new_thread(lambda:wxrobot.init())
     #time.sleep(2)
     # 启动本地网页
     app.run(HOST, PORT)

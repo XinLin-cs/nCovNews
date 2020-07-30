@@ -277,7 +277,7 @@ def update_all():
     print('[Updatedata] updating finished! ')
 
 def auto_update(time):
-    _thread.start_new_thread(update_all)
+    _thread.start_new_thread(update_all,())
     # 创建后台执行的 schedulers
     scheduler = BackgroundScheduler()  
     # 添加调度任务
