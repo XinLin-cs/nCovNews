@@ -20,7 +20,7 @@ idna==2.9
 isort==4.3.21
 itchat==1.2.32
 itsdangerous==1.1.0
-Jinja2==2.11.1
+Jinja2==2.11.3
 kiwisolver==1.2.0
 lazy-object-proxy==1.4.3
 lml==0.0.9
